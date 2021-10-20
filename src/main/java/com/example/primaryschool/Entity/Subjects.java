@@ -15,5 +15,6 @@ import javax.persistence.Table;
 public class Subjects {
     @Id
     private String MaMon;
+    @Column(nullable = false, unique = true, length =300)
     private String TenMon;
 }

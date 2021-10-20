@@ -12,7 +12,7 @@ import java.util.Date;
 public class Classroom {
     @Id
     private String MaLop;
-    private String MaKhoi;
+    private String Khoi;
     private String MaGV;
     private String TenLop;
     private Date   Year;

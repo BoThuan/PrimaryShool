@@ -20,14 +20,14 @@ public class SubjectsController {
 
     // get all Subjects
     @GetMapping("/getallSubjects")
-    // this request is: http://localhost:8080/api/vi/Subjects/getallSubjects
+    // this request is: http://localhost:8081/api/vi/Subjects/getallSubjects
     List<Subjects> getallSubjects(){
         return SubjectsController.findAll();
     }
 
     // get Subjects by ID
     @GetMapping("/{MaMon}")
-    // this request is: http://localhost:8080/api/vi/Subjects/{MaMon}
+    // this request is: http://localhost:8081/api/vi/Subjects/{MaMon}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaMon){
         Optional<Subjects> foundProduct = SubjectsController.findById(MaMon);
         return foundProduct.isPresent() ?
@@ -41,7 +41,7 @@ public class SubjectsController {
 
     // Insert new Product with POST method
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Subjects/insert
+    // this request is: http://localhost:8081/api/vi/Subjects/insert
     ResponseEntity<ResponseObject> InsertSubjects(@RequestBody Subjects newSubject){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", SubjectsController.save(newSubject))
@@ -51,7 +51,7 @@ public class SubjectsController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaMon}")
-    // this request is: http://localhost:8080/api/vi/Subjects/{MaMon}
+    // this request is: http://localhost:8081/api/vi/Subjects/{MaMon}
     ResponseEntity<ResponseObject> UpdateSubjects(@RequestBody Subjects newSubjects, @PathVariable String MaMon){
         Subjects UpdateSubject = SubjectsController.findById(MaMon)
                 .map(subject -> {
@@ -68,7 +68,7 @@ public class SubjectsController {
 
     // Delete a product
     @DeleteMapping("{MaMon}")
-    // this request is: http://localhost:8080/api/vi/Subjects/{MaMon}
+    // this request is: http://localhost:8081/api/vi/Subjects/{MaMon}
     ResponseEntity<ResponseObject> DeleteSubjects(@PathVariable String MaMon) {
         boolean exists = SubjectsController.existsById(MaMon);
         if(exists){

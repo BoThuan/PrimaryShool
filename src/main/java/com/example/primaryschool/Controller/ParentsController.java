@@ -19,14 +19,14 @@ public class ParentsController {
 
     // get all Parents
     @GetMapping("/getallParents")
-    // this request is: http://localhost:8080/api/vi/Parents/getallParents
+    // this request is: http://localhost:8081/api/vi/Parents/getallParents
     List<Parents> getallParents() {
         return ParentsRepository.findAll();
     }
 
     // get Parents by MaPH
     @GetMapping("/{MaPH}")
-    // this request is: http://localhost:8080/api/vi/Parents/{MaPH}
+    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaPH) {
         Optional<Parents> foundProduct = ParentsRepository.findById(MaPH);
         return foundProduct.isPresent() ?
@@ -40,7 +40,7 @@ public class ParentsController {
 
     // Insert new Parents with POST method
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Parents/insert
+    // this request is: http://localhost:8081/api/vi/Parents/insert
     ResponseEntity<ResponseObject> InsertParents(@RequestBody Parents newParent) {
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", ParentsRepository.save(newParent))
@@ -49,7 +49,7 @@ public class ParentsController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaPH}")
-    // this request is: http://localhost:8080/api/vi/Parents/{id}
+    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> UpdateParents(@RequestBody Parents newParent, @PathVariable String MaPH) {
         Parents UpdateParent = ParentsRepository.findById(MaPH)
                 .map(parent -> {
@@ -69,7 +69,7 @@ public class ParentsController {
 
     // Delete a Parents
     @DeleteMapping("{MaPH}")
-    // this request is: http://localhost:8080/api/vi/Parents/{MaPH}
+    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> DeleteParents(@PathVariable String MaPH) {
         boolean exists = ParentsRepository.existsById(MaPH);
         if (exists) {
