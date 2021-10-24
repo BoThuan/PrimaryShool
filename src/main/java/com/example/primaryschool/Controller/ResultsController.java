@@ -21,7 +21,7 @@ public class ResultsController {
 
     // get all Results
     @GetMapping("/getAllResults")
-    // this request is: http://localhost:8080/api/vi/Results/getAllResults
+    // this request is: http://localhost:8081/api/vi/Results/getAllResults
     List<Results> getallResults(){
         return resultsService.getAllResults();
     }
@@ -43,7 +43,7 @@ public class ResultsController {
 
     // Insert new Results
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Results/insert
+    // this request is: http://localhost:8081/api/vi/Results/insert
     ResponseEntity<ResponseObject> InsertResults(@RequestBody Results newResults){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", resultsService.save(newResults))
@@ -52,7 +52,7 @@ public class ResultsController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaKQ}")
-    // this request is: http://localhost:8080/api/vi/Results/{MaKQ}
+    // this request is: http://localhost:8081/api/vi/Results/{MaKQ}
     ResponseEntity<ResponseObject> UpdateResults(@RequestBody Results newResults, @PathVariable String MaKQ){
         Results UpdateResults = (Results) resultsService.findById(MaKQ)
                 .map(results -> {
@@ -73,7 +73,7 @@ public class ResultsController {
 
     // delete
     @DeleteMapping("{MaKQ}")
-    // this request is: http://localhost:8080/api/vi/Results/{MaKQ}
+    // this request is: http://localhost:8081/api/vi/Results/{MaKQ}
     ResponseEntity<ResponseObject> DeleteResults(@PathVariable String MaKQ) {
         boolean exists = resultsService.existsById(MaKQ);
         if(exists){

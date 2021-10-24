@@ -21,7 +21,7 @@ public class SubclassController {
 
     // get all Subclass
     @GetMapping("/getAllSubclass")
-    // this request is: http://localhost:8080/api/vi/Subclass/getAllSubclass
+    // this request is: http://localhost:8081/api/vi/Subclass/getAllSubclass
     List<Subclass> getallSubclass(){
         return subclassService.getAllSubclass();
     }
@@ -43,7 +43,7 @@ public class SubclassController {
 
     // Insert new Subclass
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Subclass/insert
+    // this request is: http://localhost:8081/api/vi/Subclass/insert
     ResponseEntity<ResponseObject> InsertSubclass(@RequestBody Subclass newSubclass){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", subclassService.save(newSubclass))
@@ -52,7 +52,7 @@ public class SubclassController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaPL}")
-    // this request is: http://localhost:8080/api/vi/Subclass/{MaPL}
+    // this request is: http://localhost:8081/api/vi/Subclass/{MaPL}
     ResponseEntity<ResponseObject> UpdateSubclass(@RequestBody Subclass newSubclass, @PathVariable String MaPL){
         Subclass UpdateSubclass = (Subclass) subclassService.findById(MaPL)
                 .map(Subclass -> {
@@ -75,7 +75,7 @@ public class SubclassController {
 
     // delete
     @DeleteMapping("{MaPL}")
-    // this request is: http://localhost:8080/api/vi/Subclass/{MaPL}
+    // this request is: http://localhost:8081/api/vi/Subclass/{MaPL}
     ResponseEntity<ResponseObject> DeleteSubclass(@PathVariable String MaPL) {
         boolean exists = subclassService.existsById(MaPL);
         if(exists){

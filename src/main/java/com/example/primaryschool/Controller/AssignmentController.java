@@ -21,14 +21,14 @@ public class AssignmentController {
 
     // get all Assignment
     @GetMapping("/getAllAssignment")
-    // this request is: http://localhost:8080/api/vi/Assignment/getAllAssignment
+    // this request is: http://localhost:8081/api/vi/Assignment/getAllAssignment
     List<Assignment> getallAssignment(){
         return assignmentService.getAllAssignment();
     }
 
     // get Assignment by MaPC
-    @GetMapping("/{MaPhanLop}")
-    // this request is: http://localhost:8081/api/vi/Assignment/{MaPhanLop}
+    @GetMapping("/{MaPC}")
+    // this request is: http://localhost:8081/api/vi/Assignment/{MaPC}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaPC) {
         Optional<Assignment> foundProduct = assignmentService.findById(MaPC);
         return foundProduct.isPresent() ?
@@ -43,7 +43,7 @@ public class AssignmentController {
 
     // Insert new Assignment
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Assignment/insert
+    // this request is: http://localhost:8081/api/vi/Assignment/insert
     ResponseEntity<ResponseObject> InsertAssignment(@RequestBody Assignment newAssignment){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", assignmentService.save(newAssignment))
@@ -51,8 +51,8 @@ public class AssignmentController {
     }
 
     // update, upsert = update if found, otherwise insert
-    @PutMapping("/{MaPhanLop}")
-    // this request is: http://localhost:8080/api/vi/Assignment/{MaPhanLop}
+    @PutMapping("/{MaPC}")
+    // this request is: http://localhost:8081/api/vi/Assignment/{MaPC}
     ResponseEntity<ResponseObject> UpdateAssignment(@RequestBody Assignment newAssignment, @PathVariable String MaPC){
         Assignment UpdateAssignment = (Assignment) assignmentService.findById(MaPC)
                 .map(assignment -> {
@@ -71,8 +71,8 @@ public class AssignmentController {
     }
 
     // delete
-    @DeleteMapping("{MaPhanLop}")
-    // this request is: http://localhost:8080/api/vi/Assignment/{MaPhanLop}
+    @DeleteMapping("{MaPC}")
+    // this request is: http://localhost:8081/api/vi/Assignment/{MaPC}
     ResponseEntity<ResponseObject> DeleteAssignment(@PathVariable String MaPC) {
         boolean exists = assignmentService.existsById(MaPC);
         if(exists){

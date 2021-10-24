@@ -20,7 +20,7 @@ public class LicenseController {
 
     // get all License
     @GetMapping("/getAllLicense")
-    // this request is: http://localhost:8080/api/vi/License/getAllLicense
+    // this request is: http://localhost:8081/api/vi/License/getAllLicense
     List<License> getallLicense(){
         return licenseService.getAllLicense();
     }
@@ -42,7 +42,7 @@ public class LicenseController {
 
     // Insert new License
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/License/insert
+    // this request is: http://localhost:8081/api/vi/License/insert
     ResponseEntity<ResponseObject> InsertLicense(@RequestBody License newLicense){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", licenseService.save(newLicense))
@@ -51,7 +51,7 @@ public class LicenseController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaGP}")
-    // this request is: http://localhost:8080/api/vi/License/{MaGP}
+    // this request is: http://localhost:8081/api/vi/License/{MaGP}
     ResponseEntity<ResponseObject> UpdateLicense(@RequestBody License newLicense, @PathVariable String MaGP){
         License UpdateLicense = (License) licenseService.findById(MaGP)
                 .map(license -> {
@@ -72,7 +72,7 @@ public class LicenseController {
 
     // delete
     @DeleteMapping("{MaGP}")
-    // this request is: http://localhost:8080/api/vi/License/{MaGP}
+    // this request is: http://localhost:8081/api/vi/License/{MaGP}
     ResponseEntity<ResponseObject> DeleteLicense(@PathVariable String MaGP) {
         boolean exists = licenseService.existsById(MaGP);
         if(exists){

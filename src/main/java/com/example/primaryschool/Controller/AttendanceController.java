@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/api/vi/Attendance")
+@RequestMapping(path = "/api/vi/attendance")
 public class AttendanceController {
     @Autowired
     private AttendanceService attendanceService;
 
     // get all attendance
     @GetMapping("/getAllAttendance")
-    // this request is: http://localhost:8080/api/vi/attendance/getAllattendance
+    // this request is: http://localhost:8081/api/vi/attendance/getAllattendance
     List<Attendance> getallattendance(){
         return attendanceService.getAllAttendance();
     }
@@ -41,7 +41,7 @@ public class AttendanceController {
 
     // Insert new attendance
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/attendance/insert
+    // this request is: http://localhost:8081/api/vi/attendance/insert
     ResponseEntity<ResponseObject> Insertattendance(@RequestBody Attendance newAttendance){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", attendanceService.save(newAttendance))
@@ -50,7 +50,7 @@ public class AttendanceController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaDD}")
-    // this request is: http://localhost:8080/api/vi/attendance/{MaDD}
+    // this request is: http://localhost:8081/api/vi/attendance/{MaDD}
     ResponseEntity<ResponseObject> Updateattendance(@RequestBody Attendance newAttendance, @PathVariable Integer MaDD){
         Attendance UpdateAttendance = (Attendance) attendanceService.findById(MaDD)
                 .map(attendance -> {
@@ -70,7 +70,7 @@ public class AttendanceController {
 
     // delete
     @DeleteMapping("{MaDD}")
-    // this request is: http://localhost:8080/api/vi/attendance/{MaDD}
+    // this request is: http://localhost:8081/api/vi/attendance/{MaDD}
     ResponseEntity<ResponseObject> Deleteattendance(@PathVariable Integer MaDD) {
         boolean exists = attendanceService.existsById(MaDD);
         if(exists){

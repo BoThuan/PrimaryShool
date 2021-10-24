@@ -21,7 +21,7 @@ public class MinistryController {
 
     // get all Ministry
     @GetMapping("/getAllMinistry")
-    // this request is: http://localhost:8080/api/vi/Ministry/getAllMinistry
+    // this request is: http://localhost:8081/api/vi/Ministry/getAllMinistry
     List<Ministry> getallMinistry(){
         return ministryService.getAllMinistry();
     }
@@ -43,7 +43,7 @@ public class MinistryController {
 
     // Insert new Ministry
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Ministry/insert
+    // this request is: http://localhost:8081/api/vi/Ministry/insert
     ResponseEntity<ResponseObject> InsertMinistry(@RequestBody Ministry newMinistry){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", ministryService.save(newMinistry))
@@ -52,7 +52,7 @@ public class MinistryController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaGiaoVu}")
-    // this request is: http://localhost:8080/api/vi/Ministry/{MaGiaoVu}
+    // this request is: http://localhost:8081/api/vi/Ministry/{MaGiaoVu}
     ResponseEntity<ResponseObject> UpdateMinistry(@RequestBody Ministry newMinistry, @PathVariable String MaGiaoVu){
         Ministry UpdateMinistry = (Ministry) ministryService.findById(MaGiaoVu)
                 .map(ministry -> {
@@ -75,7 +75,7 @@ public class MinistryController {
 
     // delete
     @DeleteMapping("{MaGiaoVu}")
-    // this request is: http://localhost:8080/api/vi/Ministry/{MaGiaoVu}
+    // this request is: http://localhost:8081/api/vi/Ministry/{MaGiaoVu}
     ResponseEntity<ResponseObject> DeleteMinistry(@PathVariable String MaGiaoVu) {
         boolean exists = ministryService.existsById(MaGiaoVu);
         if(exists){

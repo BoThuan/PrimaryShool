@@ -21,7 +21,7 @@ public class TeachersController {
 
     // get all Teachers
     @GetMapping("/getAllTeachers")
-    // this request is: http://localhost:8080/api/vi/Teachers/getAllTeachers
+    // this request is: http://localhost:8081/api/vi/Teachers/getAllTeachers
     List<Teachers> getallTeachers(){
         return teachersService.getAllTeachers();
     }
@@ -43,7 +43,7 @@ public class TeachersController {
 
     // Insert new Teachers
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Teachers/insert
+    // this request is: http://localhost:8081/api/vi/Teachers/insert
     ResponseEntity<ResponseObject> InsertTeachers(@RequestBody Teachers newTeachers){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", teachersService.save(newTeachers))
@@ -52,7 +52,7 @@ public class TeachersController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaGV}")
-    // this request is: http://localhost:8080/api/vi/Teachers/{MaGV}
+    // this request is: http://localhost:8081/api/vi/Teachers/{MaGV}
     ResponseEntity<ResponseObject> UpdateTeachers(@RequestBody Teachers newTeachers, @PathVariable String MaGV){
         Teachers UpdateTeachers = (Teachers) teachersService.findById(MaGV)
                 .map(Teachers -> {
@@ -75,7 +75,7 @@ public class TeachersController {
 
     // delete
     @DeleteMapping("{MaGV}")
-    // this request is: http://localhost:8080/api/vi/Teachers/{MaGV}
+    // this request is: http://localhost:8081/api/vi/Teachers/{MaGV}
     ResponseEntity<ResponseObject> DeleteTeachers(@PathVariable String MaGV) {
         boolean exists = teachersService.existsById(MaGV);
         if(exists){

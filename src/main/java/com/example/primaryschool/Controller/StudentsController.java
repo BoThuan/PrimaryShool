@@ -21,7 +21,7 @@ public class StudentsController {
 
     // get all Students
     @GetMapping("/getAllStudents")
-    // this request is: http://localhost:8080/api/vi/Students/getAllStudents
+    // this request is: http://localhost:8081/api/vi/Students/getAllStudents
     List<Students> getallStudents(){
         return studentsService.getAllStudents();
     }
@@ -43,7 +43,7 @@ public class StudentsController {
 
     // Insert new Students
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Students/insert
+    // this request is: http://localhost:8081/api/vi/Students/insert
     ResponseEntity<ResponseObject> InsertStudents(@RequestBody Students newStudents){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", studentsService.save(newStudents))
@@ -52,7 +52,7 @@ public class StudentsController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaHS}")
-    // this request is: http://localhost:8080/api/vi/Students/{MaHS}
+    // this request is: http://localhost:8081/api/vi/Students/{MaHS}
     ResponseEntity<ResponseObject> UpdateStudents(@RequestBody Students newStudents, @PathVariable String MaHS){
         Students UpdateStudents = (Students) studentsService.findById(MaHS)
                 .map(Students -> {
@@ -74,7 +74,7 @@ public class StudentsController {
 
     // delete
     @DeleteMapping("{MaHS}")
-    // this request is: http://localhost:8080/api/vi/Students/{MaHS}
+    // this request is: http://localhost:8081/api/vi/Students/{MaHS}
     ResponseEntity<ResponseObject> DeleteStudents(@PathVariable String MaHS) {
         boolean exists = studentsService.existsById(MaHS);
         if(exists){

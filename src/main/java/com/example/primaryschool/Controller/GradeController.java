@@ -19,14 +19,14 @@ public class GradeController {
 
     // get all Grade
     @GetMapping("/getallGrade")
-    // this request is: http://localhost:8080/api/vi/Grade/getallGrade
+    // this request is: http://localhost:8081/api/vi/Grade/getallGrade
     List<Grade> getallGrade(){
         return gradeService.getAllParents();
     }
 
     // Insert new Grade
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Grade/insert
+    // this request is: http://localhost:8081/api/vi/Grade/insert
     ResponseEntity<ResponseObject> InsertGrade(@RequestBody Grade newGrade){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", gradeService.save(newGrade))
@@ -35,7 +35,7 @@ public class GradeController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaKhoi}")
-    // this request is: http://localhost:8080/api/vi/Grade/{MaKhoi}
+    // this request is: http://localhost:8081/api/vi/Grade/{MaKhoi}
     ResponseEntity<ResponseObject> UpdateGrade(@RequestBody Grade newGrade, @PathVariable String MaKhoi){
         Grade UpdateGrade = (Grade) gradeService.findById(MaKhoi)
                 .map(grade -> {
@@ -52,7 +52,7 @@ public class GradeController {
 
     // delete
     @DeleteMapping("{MaKhoi}")
-    // this request is: http://localhost:8080/api/vi/Grade/{MaKhoi}
+    // this request is: http://localhost:8081/api/vi/Grade/{MaKhoi}
     ResponseEntity<ResponseObject> DeleteGrade(@PathVariable String MaKhoi) {
         boolean exists = gradeService.existsById(MaKhoi);
         if(exists){

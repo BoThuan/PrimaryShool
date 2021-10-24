@@ -21,12 +21,12 @@ public class ClassroomController {
 
     // get all Classroom
     @GetMapping("/getAllClassroom")
-    // this request is: http://localhost:8080/api/vi/Classroom/getAllClassroom
+    // this request is: http://localhost:8081/api/vi/Classroom/getAllClassroom
     List<Classroom> getallClassroom(){
         return classroomService.getAllClassroom();
     }
 
-    // get Classroom by MaPC
+    // get Classroom by MaLop
     @GetMapping("/{MaLop}")
     // this request is: http://localhost:8081/api/vi/Classroom/{MaLop}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaLop) {
@@ -43,7 +43,7 @@ public class ClassroomController {
 
     // Insert new Classroom
     @PostMapping("/insert")
-    // this request is: http://localhost:8080/api/vi/Classroom/insert
+    // this request is: http://localhost:8081/api/vi/Classroom/insert
     ResponseEntity<ResponseObject> InsertClassroom(@RequestBody Classroom newClassroom){
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Insert Product successfully", classroomService.save(newClassroom))
@@ -52,7 +52,7 @@ public class ClassroomController {
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaLop}")
-    // this request is: http://localhost:8080/api/vi/Classroom/{MaLop}
+    // this request is: http://localhost:8081/api/vi/Classroom/{MaLop}
     ResponseEntity<ResponseObject> UpdateClassroom(@RequestBody Classroom newClassroom, @PathVariable String MaLop){
         Classroom UpdateClassroom = (Classroom) classroomService.findById(MaLop)
                 .map(classroom -> {
@@ -72,7 +72,7 @@ public class ClassroomController {
 
     // delete
     @DeleteMapping("{MaLop}")
-    // this request is: http://localhost:8080/api/vi/Classroom/{MaLop}
+    // this request is: http://localhost:8081/api/vi/Classroom/{MaLop}
     ResponseEntity<ResponseObject> DeleteClassroom(@PathVariable String MaLop) {
         boolean exists = classroomService.existsById(MaLop);
         if(exists){
