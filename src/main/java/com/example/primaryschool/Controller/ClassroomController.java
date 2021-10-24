@@ -55,12 +55,12 @@ public class ClassroomController {
     // this request is: http://localhost:8080/api/vi/Classroom/{MaLop}
     ResponseEntity<ResponseObject> UpdateClassroom(@RequestBody Classroom newClassroom, @PathVariable String MaLop){
         Classroom UpdateClassroom = (Classroom) classroomService.findById(MaLop)
-                .map(Classroom -> {
-                    Classroom.setKhoi(newClassroom.getKhoi());
-                    Classroom.setMaGV(newClassroom.getMaGV());
-                    Classroom.setTenLop(newClassroom.getTenLop());
-                    Classroom.setYear(newClassroom.getYear());
-                    return classroomService.save(Classroom);
+                .map(classroom -> {
+                    classroom.setKhoi(newClassroom.getKhoi());
+                    classroom.setMaGV(newClassroom.getMaGV());
+                    classroom.setTenLop(newClassroom.getTenLop());
+                    classroom.setYear(newClassroom.getYear());
+                    return classroomService.save(classroom);
                 }).orElseGet(() -> {
                     newClassroom.setMaLop(MaLop);
                     return classroomService.save(newClassroom);

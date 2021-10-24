@@ -4,10 +4,12 @@ import com.example.primaryschool.Entity.Teachers;
 import com.example.primaryschool.Repository.RepoTeachers;
 import com.example.primaryschool.Service.TeachersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TeachersServiceIMPL implements TeachersService {
 
     @Autowired

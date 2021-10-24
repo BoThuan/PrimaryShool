@@ -26,8 +26,8 @@ public class LicenseController {
     }
 
     // get License by MaGP
-    @GetMapping("/{MaPhanLop}")
-    // this request is: http://localhost:8081/api/vi/License/{MaPhanLop}
+    @GetMapping("/{MaGP}")
+    // this request is: http://localhost:8081/api/vi/License/{MaGP}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaGP) {
         Optional<License> foundProduct = licenseService.findById(MaGP);
         return foundProduct.isPresent() ?
@@ -50,17 +50,17 @@ public class LicenseController {
     }
 
     // update, upsert = update if found, otherwise insert
-    @PutMapping("/{MaPhanLop}")
-    // this request is: http://localhost:8080/api/vi/License/{MaPhanLop}
+    @PutMapping("/{MaGP}")
+    // this request is: http://localhost:8080/api/vi/License/{MaGP}
     ResponseEntity<ResponseObject> UpdateLicense(@RequestBody License newLicense, @PathVariable String MaGP){
         License UpdateLicense = (License) licenseService.findById(MaGP)
-                .map(License -> {
-                    License.setMaPH(newLicense.getMaPH());
-                    License.setNgay(newLicense.getNgay());
-                    License.setBatDau(newLicense.getKetThuc());
-                    License.setLyDo(newLicense.getLyDo());
-                    License.setDuyet(newLicense.getDuyet());
-                    return licenseService.save(License);
+                .map(license -> {
+                    license.setMaPH(newLicense.getMaPH());
+                    license.setNgay(newLicense.getNgay());
+                    license.setBatDau(newLicense.getKetThuc());
+                    license.setLyDo(newLicense.getLyDo());
+                    license.setDuyet(newLicense.getDuyet());
+                    return licenseService.save(license);
                 }).orElseGet(() -> {
                     newLicense.setMaGP(MaGP);
                     return licenseService.save(newLicense);
@@ -71,8 +71,8 @@ public class LicenseController {
     }
 
     // delete
-    @DeleteMapping("{MaPhanLop}")
-    // this request is: http://localhost:8080/api/vi/License/{MaPhanLop}
+    @DeleteMapping("{MaGP}")
+    // this request is: http://localhost:8080/api/vi/License/{MaGP}
     ResponseEntity<ResponseObject> DeleteLicense(@PathVariable String MaGP) {
         boolean exists = licenseService.existsById(MaGP);
         if(exists){
