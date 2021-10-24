@@ -2,7 +2,8 @@ package com.example.primaryschool.Controller;
 
 import com.example.primaryschool.Entity.Grade;
 import com.example.primaryschool.Entity.ResponseObject;
-import com.example.primaryschool.Repository.RepoGrade;
+import com.example.primaryschool.Service.GradeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +15,13 @@ import java.util.List;
 @RequestMapping(path = "/api/vi/Grade")
 public class GradeController {
     @Autowired
-    private RepoGrade GradeRepository;
+    private GradeService gradeService;
 
     // get all Grade
     @GetMapping("/getallGrade")
     // this request is: http://localhost:8080/api/vi/Grade/getallGrade
     List<Grade> getallGrade(){
-        return GradeRepository.findAll();
+        return gradeService.getAllParents();
     }
 
     // Insert new Grade
@@ -28,21 +29,21 @@ public class GradeController {
     // this request is: http://localhost:8080/api/vi/Grade/insert
     ResponseEntity<ResponseObject> InsertGrade(@RequestBody Grade newGrade){
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("999", "Insert Product successfully", GradeRepository.save(newGrade))
+                new ResponseObject("999", "Insert Product successfully", gradeService.save(newGrade))
         );
     }
 
     // update, upsert = update if found, otherwise insert
     @PutMapping("/{MaKhoi}")
-    // this request is: http://localhost:8080/api/vi/Grade/{id}
+    // this request is: http://localhost:8080/api/vi/Grade/{MaKhoi}
     ResponseEntity<ResponseObject> UpdateGrade(@RequestBody Grade newGrade, @PathVariable String MaKhoi){
-        Grade UpdateGrade = GradeRepository.findById(MaKhoi)
+        Grade UpdateGrade = (Grade) gradeService.findById(MaKhoi)
                 .map(grade -> {
                     grade.setTenKhoi(newGrade.getTenKhoi());
-                    return GradeRepository.save(grade);
+                    return gradeService.save(grade);
                 }).orElseGet(() -> {
                     newGrade.setMaKhoi(MaKhoi);
-                    return GradeRepository.save(newGrade);
+                    return gradeService.save(newGrade);
                 });
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Update Product successfully", UpdateGrade)
@@ -50,12 +51,12 @@ public class GradeController {
     }
 
     // delete
-    @DeleteMapping("{id}")
-    // this request is: http://localhost:8080/api/vi/Grade/{id}
+    @DeleteMapping("{MaKhoi}")
+    // this request is: http://localhost:8080/api/vi/Grade/{MaKhoi}
     ResponseEntity<ResponseObject> DeleteGrade(@PathVariable String MaKhoi) {
-        boolean exists = GradeRepository.existsById(MaKhoi);
+        boolean exists = gradeService.existsById(MaKhoi);
         if(exists){
-            GradeRepository.deleteById(MaKhoi);
+            gradeService.deleteById(MaKhoi);
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("999", "Delete Product successfully", "")
             );

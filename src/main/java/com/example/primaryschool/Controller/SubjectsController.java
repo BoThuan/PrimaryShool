@@ -2,7 +2,7 @@ package com.example.primaryschool.Controller;
 
 import com.example.primaryschool.Entity.ResponseObject;
 import com.example.primaryschool.Entity.Subjects;
-import com.example.primaryschool.Repository.RepoSubject;
+import com.example.primaryschool.Service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,25 +11,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(path = "/api/vi/Subjects")
 public class SubjectsController {
 
     @Autowired
-    private RepoSubject SubjectsController;
+    private SubjectService subjectService;
 
     // get all Subjects
     @GetMapping("/getallSubjects")
     // this request is: http://localhost:8081/api/vi/Subjects/getallSubjects
     List<Subjects> getallSubjects(){
-        return SubjectsController.findAll();
+        return subjectService.getALlSubjects();
     }
 
     // get Subjects by ID
     @GetMapping("/{MaMon}")
     // this request is: http://localhost:8081/api/vi/Subjects/{MaMon}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaMon){
-        Optional<Subjects> foundProduct = SubjectsController.findById(MaMon);
+        Optional<Subjects> foundProduct = subjectService.findById(MaMon);
         return foundProduct.isPresent() ?
                 ResponseEntity.status(HttpStatus.OK).body(
                         new ResponseObject("999", "Query Product successfully", foundProduct)
@@ -44,7 +45,7 @@ public class SubjectsController {
     // this request is: http://localhost:8081/api/vi/Subjects/insert
     ResponseEntity<ResponseObject> InsertSubjects(@RequestBody Subjects newSubject){
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("999", "Insert Product successfully", SubjectsController.save(newSubject))
+                new ResponseObject("999", "Insert Product successfully", subjectService.save(newSubject))
         );
     }
 
@@ -53,13 +54,13 @@ public class SubjectsController {
     @PutMapping("/{MaMon}")
     // this request is: http://localhost:8081/api/vi/Subjects/{MaMon}
     ResponseEntity<ResponseObject> UpdateSubjects(@RequestBody Subjects newSubjects, @PathVariable String MaMon){
-        Subjects UpdateSubject = SubjectsController.findById(MaMon)
+        Subjects UpdateSubject = (Subjects) subjectService.findById(MaMon)
                 .map(subject -> {
                     subject.setTenMon(newSubjects.getTenMon());
-                    return SubjectsController.save(subject);
+                    return this.subjectService.save(subject);
                 }).orElseGet(() -> {
                     newSubjects.setMaMon(MaMon);
-                    return SubjectsController.save(newSubjects);
+                    return subjectService.save(newSubjects);
                 });
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Update Product successfully", UpdateSubject)
@@ -70,9 +71,9 @@ public class SubjectsController {
     @DeleteMapping("{MaMon}")
     // this request is: http://localhost:8081/api/vi/Subjects/{MaMon}
     ResponseEntity<ResponseObject> DeleteSubjects(@PathVariable String MaMon) {
-        boolean exists = SubjectsController.existsById(MaMon);
+        boolean exists = subjectService.existsById(MaMon);
         if(exists){
-            SubjectsController.deleteById(MaMon);
+            subjectService.deleteById(MaMon);
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("999", "Delete Product successfully", "")
             );

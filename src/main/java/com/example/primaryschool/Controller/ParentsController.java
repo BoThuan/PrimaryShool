@@ -2,7 +2,7 @@ package com.example.primaryschool.Controller;
 
 import com.example.primaryschool.Entity.Parents;
 import com.example.primaryschool.Entity.ResponseObject;
-import com.example.primaryschool.Repository.RepoParents;
+import com.example.primaryschool.Service.ParentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,20 +15,20 @@ import java.util.Optional;
 @RequestMapping(path = "/api/vi/Parents")
 public class ParentsController {
     @Autowired
-    private RepoParents ParentsRepository;
+    private ParentsService parentsService;
 
     // get all Parents
     @GetMapping("/getallParents")
     // this request is: http://localhost:8081/api/vi/Parents/getallParents
     List<Parents> getallParents() {
-        return ParentsRepository.findAll();
+        return parentsService.getAllParents();
     }
 
     // get Parents by MaPH
     @GetMapping("/{MaPH}")
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaPH) {
-        Optional<Parents> foundProduct = ParentsRepository.findById(MaPH);
+        Optional<Parents> foundProduct = parentsService.findById(MaPH);
         return foundProduct.isPresent() ?
                 ResponseEntity.status(HttpStatus.OK).body(
                         new ResponseObject("999", "Query Product successfully", foundProduct)
@@ -43,7 +43,7 @@ public class ParentsController {
     // this request is: http://localhost:8081/api/vi/Parents/insert
     ResponseEntity<ResponseObject> InsertParents(@RequestBody Parents newParent) {
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("999", "Insert Product successfully", ParentsRepository.save(newParent))
+                new ResponseObject("999", "Insert Product successfully", parentsService.save(newParent))
         );
     }
 
@@ -51,16 +51,16 @@ public class ParentsController {
     @PutMapping("/{MaPH}")
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> UpdateParents(@RequestBody Parents newParent, @PathVariable String MaPH) {
-        Parents UpdateParent = ParentsRepository.findById(MaPH)
+        Parents UpdateParent = (Parents) parentsService.findById(MaPH)
                 .map(parent -> {
                     parent.setTenPH(newParent.getTenPH());
                     parent.setSdt(newParent.getSdt());
                     parent.setQuanHe(newParent.getQuanHe());
                     parent.setGhiChu(newParent.getGhiChu());
-                    return ParentsRepository.save(parent);
+                    return parentsService.save(parent);
                 }).orElseGet(() -> {
                     newParent.setMaPH(MaPH);
-                    return ParentsRepository.save(newParent);
+                    return parentsService.save(newParent);
                 });
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("999", "Update Product successfully", UpdateParent)
@@ -71,9 +71,9 @@ public class ParentsController {
     @DeleteMapping("{MaPH}")
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> DeleteParents(@PathVariable String MaPH) {
-        boolean exists = ParentsRepository.existsById(MaPH);
+        boolean exists = parentsService.existsById(MaPH);
         if (exists) {
-            ParentsRepository.deleteById(MaPH);
+            parentsService.deleteById(MaPH);
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("999", "Delete Product successfully", "")
             );
