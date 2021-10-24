@@ -8,9 +8,9 @@ import javax.persistence.*;
 import javax.persistence.Table;
 
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "tblGrade")
 public class Grade {
     @Id
