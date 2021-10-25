@@ -19,7 +19,7 @@ public class AttendanceController {
 
     // get all attendance
     @GetMapping("/getAllAttendance")
-    // this request is: http://localhost:8081/api/vi/attendance/getAllattendance
+    // this request is: http://localhost:8081/api/vi/attendance/getAllAttendance
     List<Attendance> getallattendance(){
         return attendanceService.getAllAttendance();
     }

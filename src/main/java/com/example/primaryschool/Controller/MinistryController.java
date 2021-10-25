@@ -56,7 +56,6 @@ public class MinistryController {
     ResponseEntity<ResponseObject> UpdateMinistry(@RequestBody Ministry newMinistry, @PathVariable String MaGiaoVu){
         Ministry UpdateMinistry = (Ministry) ministryService.findById(MaGiaoVu)
                 .map(ministry -> {
-                    ministry.setMaGiaoVu(newMinistry.getMaGiaoVu());
                     ministry.setTenGiaoVu(newMinistry.getTenGiaoVu());
                     ministry.setChucVu(newMinistry.getChucVu());
                     ministry.setSDT(newMinistry.getSDT());

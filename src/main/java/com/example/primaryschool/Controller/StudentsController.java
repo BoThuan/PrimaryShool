@@ -74,7 +74,7 @@ public class StudentsController {
 
     // delete
     @DeleteMapping("{MaHS}")
-    // this request is: http://localhost:8081/api/vi/Students/{MaHS}
+        // this request is: http://localhost:8081/api/vi/Students/{MaHS}
     ResponseEntity<ResponseObject> DeleteStudents(@PathVariable String MaHS) {
         boolean exists = studentsService.existsById(MaHS);
         if(exists){

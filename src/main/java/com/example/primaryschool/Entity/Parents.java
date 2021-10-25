@@ -16,7 +16,7 @@ public class Parents {
     @Id
     private String MaPH;
     private String TenPH;
-    private Integer Sdt;
+    private String Sdt;
     private String QuanHe;
     private String GhiChu;
 }

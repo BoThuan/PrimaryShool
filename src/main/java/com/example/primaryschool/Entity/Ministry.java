@@ -17,7 +17,7 @@ public class Ministry {
     private String MaGiaoVu;
     private String TenGiaoVu;
     private String ChucVu;
-    private Integer SDT;
+    private String SDT;
     private String Email;
     private String DiaChi;
     private String GhiChu;

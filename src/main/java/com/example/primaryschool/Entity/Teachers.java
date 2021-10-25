@@ -20,7 +20,7 @@ public class Teachers {
     private Date NgaySinh;
     private Boolean GioiTinh;
     private String DiaChi;
-    private Integer SDT;
+    private String SDT;
     private String Email;
     private String GhiChu;
 }
