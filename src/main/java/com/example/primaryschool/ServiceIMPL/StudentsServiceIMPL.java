@@ -26,6 +26,21 @@ public class StudentsServiceIMPL implements StudentsService {
     }
 
     @Override
+    public Optional<Students> findByName(String Name) {
+        return RepoStudents.findByName(Name);
+    }
+
+    @Override
+    public Optional<Students> findByMale(Boolean GioiTinh) {
+        return RepoStudents.findByMale(GioiTinh);
+    }
+
+    @Override
+    public Integer countStudent() {
+        return RepoStudents.countStudent();
+    }
+
+    @Override
     public Object save(Students newStudents) {
         return RepoStudents.save(newStudents);
     }
