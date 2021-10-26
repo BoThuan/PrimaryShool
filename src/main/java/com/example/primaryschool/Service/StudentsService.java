@@ -13,6 +13,12 @@ public interface StudentsService {
 
     Optional<Students> findById(String MaHS);
 
+    Optional<Students> findByName(String Name);
+
+    Optional<Students> findByMale(Boolean GioiTinh);
+
+    Integer countStudent();
+
     Object save(Students newStudents);
 
     boolean existsById(String MaHS);
