@@ -57,7 +57,7 @@ public class ClassroomController {
         Classroom UpdateClassroom = (Classroom) classroomService.findById(MaLop)
                 .map(classroom -> {
                     classroom.setKhoi(newClassroom.getKhoi());
-                    classroom.setMaGV(newClassroom.getMaGV());
+                    classroom.setTeachers(newClassroom.getTeachers());
                     classroom.setTenLop(newClassroom.getTenLop());
                     classroom.setYear(newClassroom.getYear());
                     return classroomService.save(classroom);
