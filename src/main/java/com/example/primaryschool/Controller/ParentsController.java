@@ -26,10 +26,42 @@ public class ParentsController {
     }
 
     // get Parents by MaPH
+<<<<<<< HEAD
     @GetMapping("/maph={MaPH}")
+=======
+    @GetMapping("/MAPH/{MaPH}")
+>>>>>>> tam
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     Optional<Parents> findById(@PathVariable String MaPH) {
         return parentsService.findById(MaPH);
+    }
+
+    // get Parents by MaPH
+    @GetMapping("/TENPH/{TENPH}")
+    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
+    ResponseEntity<ResponseObject> findByName(@PathVariable String TENPH) {
+        Optional<Parents> foundProduct = parentsService.findByName(TENPH);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with id = " + TENPH, "")
+                );
+    }
+
+    // get Parents by MaPH
+    @GetMapping("/Sdt/{Sdt}")
+    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
+    ResponseEntity<ResponseObject> findByPhone(@PathVariable String Sdt){
+        Optional<Parents> foundProduct = parentsService.findByPhone(Sdt);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with id = " + Sdt, "")
+                );
     }
 
     // Insert new Parents with POST method

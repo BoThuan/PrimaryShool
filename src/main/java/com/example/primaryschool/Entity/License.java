@@ -6,20 +6,25 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "tblLicense")
-public class License {
+public class License implements Serializable {
     @Id
     private String MaGP;
-    private String MaPH;
     private Date Ngay;
     private Date BatDau;
     private Date KetThuc;
     private String LyDo;
     private Boolean Duyet;
+
+    @ManyToOne @JoinColumn(name = "MaPL") Subclass subclass;
+
+    @ManyToOne @JoinColumn(name = "MaPH") Parents parents;
 }

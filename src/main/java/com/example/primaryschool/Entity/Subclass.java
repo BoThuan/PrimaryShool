@@ -1,25 +1,43 @@
 package com.example.primaryschool.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.List;
 
+@SuppressWarnings("serial")
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "tblSubclass")
-public class Subclass {
+public class Subclass implements Serializable {
     @Id
     private String MaPL;
-    private String MaLop;
-    private String MaHS;
     private String HanhKiem;
     private String XepLoai;
     private Double DiemTBNam;
-    private Double DiemKy1;
-    private Double DiemKy2;
+
+
+    @ManyToOne @JoinColumn(name = "MaLop") Classroom classroom;
+
+    @ManyToOne @JoinColumn(name = "MaHS") Students students;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "subclass")
+    List<Attendance> Attendance;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "subclass")
+    List<Results> Results;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "subclass")
+    List<License> License;
 }

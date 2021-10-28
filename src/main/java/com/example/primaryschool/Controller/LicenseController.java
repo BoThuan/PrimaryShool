@@ -55,7 +55,7 @@ public class LicenseController {
     ResponseEntity<ResponseObject> UpdateLicense(@RequestBody License newLicense, @PathVariable String MaGP){
         License UpdateLicense = (License) licenseService.findById(MaGP)
                 .map(license -> {
-                    license.setMaPH(newLicense.getMaPH());
+//                    license.setMaPH(newLicense.getMaPH());
                     license.setNgay(newLicense.getNgay());
                     license.setBatDau(newLicense.getKetThuc());
                     license.setLyDo(newLicense.getLyDo());

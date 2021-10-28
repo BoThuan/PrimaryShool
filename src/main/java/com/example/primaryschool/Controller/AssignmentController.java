@@ -56,9 +56,9 @@ public class AssignmentController {
     ResponseEntity<ResponseObject> UpdateAssignment(@RequestBody Assignment newAssignment, @PathVariable String MaPC){
         Assignment UpdateAssignment = (Assignment) assignmentService.findById(MaPC)
                 .map(assignment -> {
-                    assignment.setMaMon(newAssignment.getMaMon());
-                    assignment.setMaLop(newAssignment.getMaLop());
-                    assignment.setMaGV(newAssignment.getMaGV());
+                    assignment.setSubjects(newAssignment.getSubjects());
+                    assignment.setClassroom(newAssignment.getClassroom());
+                    assignment.setTeachers(newAssignment.getTeachers());
                     assignment.setCa(newAssignment.getCa());
                     return assignmentService.save(assignment);
                 }).orElseGet(() -> {
