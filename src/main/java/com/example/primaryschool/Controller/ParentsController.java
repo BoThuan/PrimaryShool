@@ -26,11 +26,11 @@ public class ParentsController {
     }
 
     // get Parents by MaPH
-<<<<<<< HEAD
-    @GetMapping("/maph={MaPH}")
-=======
+
+//    @GetMapping("/maph={MaPH}")
+
     @GetMapping("/MAPH/{MaPH}")
->>>>>>> tam
+
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     Optional<Parents> findById(@PathVariable String MaPH) {
         return parentsService.findById(MaPH);
