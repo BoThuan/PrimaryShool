@@ -62,7 +62,7 @@ public class ParentsController {
     }
 
     // Delete a Parents
-    @DeleteMapping("{MaPH}")
+    @DeleteMapping("/{MaPH}")
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> DeleteParents(@PathVariable String MaPH) {
         boolean exists = parentsService.existsById(MaPH);
