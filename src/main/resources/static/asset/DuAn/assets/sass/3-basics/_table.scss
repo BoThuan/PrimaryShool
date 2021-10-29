@@ -1,0 +1,40 @@
+table {
+    width: 100%;
+    background-color: $light-color;
+    @include radius-layout();
+    overflow: auto;
+    th,
+    td {
+        padding: 1.5rem 3rem;
+        text-align: left;
+    }
+    thead {
+        position: sticky;
+        top: 0;
+        tr {
+            background: $text-color;
+            color: $title-color;
+            font-size: $medium-font-size;
+            font-weight: $bold-font-weight;
+            th:first-of-type {
+                @include radius-layout(12px, 0, 0, 0);
+            }
+            th:last-of-type {
+                @include radius-layout(0, 12px, 0, 0);
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                font-size: $medium-font-size;
+            }
+        }
+    }
+}
+.sticky {
+    overflow: auto;
+    max-height: 65vh;
+    @include radius-layout();
+    @include shadow();
+}

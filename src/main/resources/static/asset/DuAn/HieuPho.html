@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hiệu phó</title>
+
+        <!-- ----------------Css------------------- -->
+        <link rel="stylesheet" href="./assets/css/style.css" />
+
+        <!-- ------------------icon------------------- -->
+        <link
+            href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- ------------------ angular ------------------- -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    </head>
+    <body ng-app="myApp">
+        <div class="container-full">
+            <!-- --------------- header ------------------ -->
+
+            <div class="header">
+                <div class="header__name--role">
+                    <h2>Hiệu Phó</h2>
+                </div>
+                <div class="header__profile">
+                    <div class="profile--avata"></div>
+                    <div class="profile--name">
+                        <h2>Nguyễn Phó Managerment</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- --------------- nav ------------------ -->
+            <div class="nav">
+                <div class="nav__logo">
+                    <img
+                        src="./assets/image/logo.jpg"
+                        alt=""
+                        class="logo__img"
+                    />
+                </div>
+                <div class="nav__navbar">
+                    <ul>
+                        <li>
+                            <a href="#!thongbao">
+                                Thống kê
+                                <i class='bx bx-filter-alt' ></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/HS">
+                                Báo cáo
+                                <i class='bx bx-check-square'></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/diemDanh">
+                                Phê duyệt
+                                <i class="bx bx-blanket"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/GVDiem">
+                                Thời khóa biểu
+                                <i class='bx bx-calendar' ></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/HP-QLGV">
+                                Quản lý giáo viên
+                                <i class='bx bxs-user-detail' ></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                Quản lý nhân sự
+                                <i class='bx bxs-user-detail' ></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/CGL">
+                                Quản lý lớp học
+                                <i class='bx bx-home'></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!/GVCN">
+                                Quản lý học sinh
+                                <i class='bx bx-book-reader'></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="">
+                                Đăng xuất
+                                <i class="bx bx-log-out"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- --------------- main ------------------ -->
+            <div class="main">
+                <div class="main__container"></div>
+                <!-- <p><a href="#/!">Main</a></p> -->
+                <div ng-view></div>
+            </div>
+            <!-- --------------- footer ------------------ -->
+            <div class="footer">footer</div>
+        </div>
+
+        <script src="./assets/js/HieuPho.js"></script>
+        <!--  -->
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
