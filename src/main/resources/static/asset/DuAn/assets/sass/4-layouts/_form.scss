@@ -1,0 +1,39 @@
+.form {
+    width: 1577px;
+    height: 100vh;
+    background-color: #ccc;
+    margin: 0 auto;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        &--title {
+            font-size: $large-font-size;
+            color: $text-color;
+        }
+        &--search {
+            position: relative;
+            input {
+                width: 40rem;
+                height: 2.5rem;
+                font-size: $medium-font-size;
+                box-shadow: 0 0 10px transparent;
+                @include radius-layout();
+                @include bordered(1px, transparent);
+                &:focus {
+                    @include bordered(1px, #8c4af2);
+                    box-shadow: 0 0 10px #c0a8e4;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            button {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+        }
+    }
+}
