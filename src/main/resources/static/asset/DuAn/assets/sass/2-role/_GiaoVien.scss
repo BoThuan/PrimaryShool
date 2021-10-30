@@ -1,0 +1,75 @@
+.GiaoVien__HS {
+    .table__header {
+        // Định dạng cho các nút phía trên table
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        .table--diem{
+            background-color: red;
+        }
+        &--caption {
+            line-height: 3rem;
+            h3 {
+                font-size: $large-font-size;
+                color: $text-color;
+            }
+        }
+        &--btn {
+            width: 60%;
+            display: grid;
+            grid-template-columns: 1fr 20% 20% 20%;
+            grid-template-rows: 3rem;
+            grid-gap: 1rem;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+    // button checkbon trong table
+    .checkbox__diemDanh {
+        display: flex;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    // chinh sua diem hoc sinh
+    .edit__hs {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin: 2rem 0;
+        &--tenhs{
+            width: 29%;
+            input{
+                width: 73%;
+            }
+        }  
+        &--info{
+            width: 100%;
+            display: flex;
+            gap: 2rem;
+            .input{
+                label{
+                    font-size: $medium-font-size;
+                }
+            }
+        }
+        &--diem{
+            display: flex;
+            margin: 2rem 0;
+            .input{
+                label{
+                    font-size: $medium-font-size;
+                }
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.8;
+                }
+            }
+            .input + .input{
+                padding-left: 3rem;
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ import com.example.primaryschool.Entity.Students;
 import com.example.primaryschool.Entity.ResponseObject;
 import com.example.primaryschool.Service.StudentsService;
 
+import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +28,8 @@ public class StudentsController {
     }
 
     // get Students by MaHS
-    @GetMapping("/{MaHS}")
-    // this request is: http://localhost:8081/api/vi/Students/{MaHS}
+    @GetMapping("/Id/{MaHS}")
+    // this request is: http://localhost:8081/api/vi/Students/Id/{MaHS}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaHS) {
         Optional<Students> foundProduct = studentsService.findById(MaHS);
         return foundProduct.isPresent() ?
@@ -38,6 +39,42 @@ public class StudentsController {
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                         new ResponseObject("000", "Cannot find product with id = " + MaHS, "")
                 );
+    }
+
+
+    @GetMapping("/Name/{TenHS}")
+        // this request is: http://localhost:8081/api/vi/Students/Name/{TenHS}
+    ResponseEntity<ResponseObject> findByName(@PathVariable String TenHS) {
+        Optional<Students> foundProduct = studentsService.findByName(TenHS);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with Name = " + TenHS, "")
+                );
+    }
+
+    //TODO Write find student by Male
+    @GetMapping("/Gioitinh/{GioiTinh}")
+        // this request is: http://localhost:8081/api/vi/Students/{MaHS}
+    ResponseEntity<ResponseObject> findByMale(@PathVariable Boolean GioiTinh) {
+        Optional<Students> foundProduct = studentsService.findByMale(GioiTinh);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with Name = " + GioiTinh, "")
+                );
+    }
+
+
+    // get all Students
+    @GetMapping("/getCountStudents")
+    // this request is: http://localhost:8081/api/vi/Students/getCountStudents
+    Integer getCountStudents(){
+        return studentsService.countStudent();
     }
 
 
@@ -61,7 +98,7 @@ public class StudentsController {
                     Students.setGioiTinh(newStudents.getGioiTinh());
                     Students.setDiaChi(newStudents.getDiaChi());
                     Students.setGhiChu(newStudents.getGhiChu());
-                    Students.setMaPH(newStudents.getMaPH());
+                    Students.setParents(newStudents.getParents());
                     return studentsService.save(Students);
                 }).orElseGet(() -> {
                     newStudents.setMaHS(MaHS);

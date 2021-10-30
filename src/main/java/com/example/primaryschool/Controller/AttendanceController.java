@@ -54,8 +54,8 @@ public class AttendanceController {
     ResponseEntity<ResponseObject> Updateattendance(@RequestBody Attendance newAttendance, @PathVariable Integer MaDD){
         Attendance UpdateAttendance = (Attendance) attendanceService.findById(MaDD)
                 .map(attendance -> {
-                    attendance.setMaLop(newAttendance.getMaLop());
-                    attendance.setMaPL(newAttendance.getMaPL());
+                    attendance.setClassroom(newAttendance.getClassroom());
+                    attendance.setSubclass(newAttendance.getSubclass());
                     attendance.setNgay(newAttendance.getNgay());
                     attendance.setCo(newAttendance.getCo());
                     return attendanceService.save(attendance);

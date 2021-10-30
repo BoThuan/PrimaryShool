@@ -1,0 +1,147 @@
+<div class="GiaoVien__HS">
+    <div class="table__header">
+        <div class="table__header--caption title">
+            <h3>Quản lý điểm</h3>
+        </div>
+        <!-- ---search btn -->
+        <div class="table--search search--diem search">
+            <input type="search" name="" placeholder="Tim kiem" />
+            <button><i class="bx bx-search"></i></button>
+        </div>
+
+        <div class="table__header--btn">
+            <!-- sort btn -->
+            <div class="table__sort select">
+                <label for="">Sắp xếp: </label>
+                <select name="" id="">
+                    <option value="1">Asc</option>
+                    <option value="2">Desc</option>
+                </select>
+            </div>
+
+            <!-- khoi -->
+            <div class="table__filter--khoi select">
+                <label for="">Khối:</label>
+                <select name="" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <!-- lop -->
+            <div class="table__filter--lop select">
+                <label for="">Lớp:</label>
+                <select name="" id="">
+                    <option value="1">A1</option>
+                    <option value="2">A2</option>
+                    <option value="3">A3</option>
+                </select>
+            </div>
+
+            <!-- Xuất file -->
+            <div class="table__btn--export btn">
+                <button>Xuất bảng điểm</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit__hs">
+        <div class="edit__hs--info">
+            <div class="edit__hs--mahs input">
+                <label for="">
+                    Mã học sinh:
+                    <input type="text" placeholder = "Mã học sinh"/>
+                </label>
+            </div>
+            <div class="edit__hs--tenhs input">
+                <label for="">
+                    Tên học sinh:
+                    <input type="text" placeholder = "Tên học sinh"/>
+                </label>
+            </div>
+            <div class="edit__hs--submit btn">
+                <button><i class='bx bx-upvote' ></i></button>
+            </div>
+        </div>
+
+        <div class="edit__hs--diem">
+            <div class="edit__hs--mieng input input--diem">
+                <label for="">
+                    Điểm kiểm tra:
+                    <input type="number" placeholder="Điểm"/>
+                </label>
+            </div>
+            <div class="edit__hs--g1 input input--diem">
+                <label for="">
+                    Điểm giữa kỳ I:
+                    <input type="number" placeholder="Điểm"/>
+                </label>
+            </div>
+            <div class="edit__hs--c1 input input--diem">
+                <label for="">
+                    Điểm cuối kỳ I
+                    <input type="number" placeholder="Điểm"/>
+                </label>
+            </div>
+            <div class="edit__hs--g2 input input--diem">
+                <label for="">
+                    Điểm giữa kỳ II
+                    <input type="number" placeholder="Điểm"/>
+                </label>
+            </div>
+            <div class="edit__hs--c2 input input--diem">
+                <label for="">
+                    Điểm cuối kỳ II
+                    <input type="number" placeholder="Điểm"/>
+                </label>
+            </div>
+            <div class="edit__hs--tb input input--diem">
+                <label for="">
+                    Điểm trung bình
+                    <input type="number" placeholder="Điểm"/>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------Table------ -->
+    <div class="table__HS">
+        <div class="sticky">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã học sinh</th>
+                        <th>Tên học sinh</th>
+                        <th>Điểm kiểm tra</th>
+                        <th>Điểm giữa kỳ I</th>
+                        <th>Điểm cuối kỳ I</th>
+                        <th>Điểm giữa kỳ II</th>
+                        <th>Điểm cuối kỳ II</th>
+                        <th>Điểm trung bình</th>
+                        <th>Chỉnh sữa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HS00001</td>
+                        <td>Nguyễn Văn a</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>
+                            <button class="edit__diem">
+                                <i class="bx bx-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,13 @@
 package com.example.primaryschool.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,4 +23,8 @@ public class Ministry {
     private String Email;
     private String DiaChi;
     private String GhiChu;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "ministry")
+    List<Classroom> Classrooms;
 }

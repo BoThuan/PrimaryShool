@@ -11,7 +11,11 @@ public interface ParentsService {
 
     List<Parents> getAllParents();
 
-    Optional<Parents> findById(String maMon);
+    Optional<Parents> findById(String MaPH);
+
+    Optional<Parents> findByName(String TenPH);
+
+    Optional<Parents> findByPhone(String Sdt);
 
     Object save(Parents newParents);
 
