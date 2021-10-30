@@ -56,11 +56,11 @@ public class ResultsController {
     ResponseEntity<ResponseObject> UpdateResults(@RequestBody Results newResults, @PathVariable String MaKQ){
         Results UpdateResults = (Results) resultsService.findById(MaKQ)
                 .map(results -> {
-                    results.setMaPL(newResults.getMaPL());
-                    results.setMaPC(newResults.getMaPC());
-                    results.setDiemMieng(newResults.getDiemMieng());
-                    results.setDiem15p(newResults.getDiem15p());
-                    results.setDiem1t(newResults.getDiem1t());
+                    results.setSubclass(newResults.getSubclass());
+//                    results.setAssignment(newResults.getAssignment());
+//                    results.setDiemMieng(newResults.getDiemMieng());
+//                    results.setDiem15p(newResults.getDiem15p());
+//                    results.setDiem1t(newResults.getDiem1t());
                     return resultsService.save(results);
                 }).orElseGet(() -> {
                     newResults.setMaKQ(MaKQ);

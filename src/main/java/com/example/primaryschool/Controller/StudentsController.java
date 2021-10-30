@@ -98,7 +98,7 @@ public class StudentsController {
                     Students.setGioiTinh(newStudents.getGioiTinh());
                     Students.setDiaChi(newStudents.getDiaChi());
                     Students.setGhiChu(newStudents.getGhiChu());
-                    Students.setMaPH(newStudents.getMaPH());
+                    Students.setParents(newStudents.getParents());
                     return studentsService.save(Students);
                 }).orElseGet(() -> {
                     newStudents.setMaHS(MaHS);

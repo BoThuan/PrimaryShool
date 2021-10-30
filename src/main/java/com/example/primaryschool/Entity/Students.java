@@ -1,19 +1,23 @@
 package com.example.primaryschool.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
+@SuppressWarnings("serial")
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "tblStudents")
-public class Students {
+public class Students implements Serializable {
     @Id
     private String MaHS;
     private String TenHS;
@@ -21,5 +25,10 @@ public class Students {
     private Boolean GioiTinh;
     private String DiaChi;
     private String GhiChu;
-    private String MaPH;
+
+    @ManyToOne @JoinColumn(name = "MaPH") Parents parents;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "students")
+    List<Subclass> Subclass;
 }

@@ -56,13 +56,11 @@ public class SubclassController {
     ResponseEntity<ResponseObject> UpdateSubclass(@RequestBody Subclass newSubclass, @PathVariable String MaPL){
         Subclass UpdateSubclass = (Subclass) subclassService.findById(MaPL)
                 .map(Subclass -> {
-                    Subclass.setMaLop(newSubclass.getMaLop());
-                    Subclass.setMaHS(newSubclass.getMaHS());
+//                    Subclass.setMaLop(newSubclass.getMaLop());
+                    Subclass.setStudents(newSubclass.getStudents());
                     Subclass.setHanhKiem(newSubclass.getHanhKiem());
                     Subclass.setXepLoai(newSubclass.getXepLoai());
                     Subclass.setDiemTBNam(newSubclass.getDiemTBNam());
-                    Subclass.setDiemKy1(newSubclass.getDiemKy1());
-                    Subclass.setDiemKy2(newSubclass.getDiemKy2());
                     return subclassService.save(Subclass);
                 }).orElseGet(() -> {
                     newSubclass.setMaPL(MaPL);
