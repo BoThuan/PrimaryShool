@@ -12,15 +12,15 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/Parents")
 public class ParentsController {
     @Autowired
     private ParentsService parentsService;
 
     // get all Parents
-    @GetMapping("/getallParents")
-    // this request is: http://localhost:8081/api/vi/Parents/getallParents
+    @GetMapping("/getAllParents")
+    // this request is: http://localhost:8081/api/vi/Parents/getAllParents
     List<Parents> getallParents() {
         return parentsService.getAllParents();
     }
@@ -29,16 +29,15 @@ public class ParentsController {
 
 //    @GetMapping("/maph={MaPH}")
 
-    @GetMapping("/MAPH/{MaPH}")
-
-    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
+    @GetMapping("/maph={MaPH}")
+    // this request is: http://localhost:8081/api/vi/Parents/maph={MaPH}
     Optional<Parents> findById(@PathVariable String MaPH) {
         return parentsService.findById(MaPH);
     }
 
     // get Parents by MaPH
-    @GetMapping("/TENPH/{TENPH}")
-    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
+    @GetMapping("/tenph={TENPH}")
+    // this request is: http://localhost:8081/api/vi/Parents/tenph={MaPH}
     ResponseEntity<ResponseObject> findByName(@PathVariable String TENPH) {
         Optional<Parents> foundProduct = parentsService.findByName(TENPH);
         return foundProduct.isPresent() ?
@@ -51,8 +50,8 @@ public class ParentsController {
     }
 
     // get Parents by MaPH
-    @GetMapping("/Sdt/{Sdt}")
-    // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
+    @GetMapping("/sdt={Sdt}")
+    // this request is: http://localhost:8081/api/vi/Parents/sdt={MaPH}
     ResponseEntity<ResponseObject> findByPhone(@PathVariable String Sdt){
         Optional<Parents> foundProduct = parentsService.findByPhone(Sdt);
         return foundProduct.isPresent() ?

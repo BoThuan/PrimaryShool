@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/Results")
 public class ResultsController {
 
@@ -27,7 +28,7 @@ public class ResultsController {
     }
 
     // get Results by MaKQ
-    @GetMapping("/{MaKQ}")
+    @GetMapping("/makq={MaKQ}")
     // this request is: http://localhost:8081/api/vi/Results/{MaKQ}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaKQ) {
         Optional<Results> foundProduct = resultsService.findById(MaKQ);
@@ -57,10 +58,12 @@ public class ResultsController {
         Results UpdateResults = (Results) resultsService.findById(MaKQ)
                 .map(results -> {
                     results.setSubclass(newResults.getSubclass());
-//                    results.setAssignment(newResults.getAssignment());
-//                    results.setDiemMieng(newResults.getDiemMieng());
-//                    results.setDiem15p(newResults.getDiem15p());
-//                    results.setDiem1t(newResults.getDiem1t());
+                    results.setAssignment(newResults.getAssignment());
+                    results.setDiemKT(newResults.getDiemKT());
+                    results.setDiemGiuak1(newResults.getDiemGiuak1());
+                    results.setDiemGiuak2(newResults.getDiemGiuak1());
+                    results.setDiemCuoik1(newResults.getDiemGiuak1());
+                    results.setDiemCuoik2(newResults.getDiemGiuak1());
                     return resultsService.save(results);
                 }).orElseGet(() -> {
                     newResults.setMaKQ(MaKQ);

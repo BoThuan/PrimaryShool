@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/Subclass")
 public class SubclassController {
 
@@ -27,8 +28,8 @@ public class SubclassController {
     }
 
     // get Subclass by MaPL
-    @GetMapping("/{MaPL}")
-    // this request is: http://localhost:8081/api/vi/Subclass/{MaPL}
+    @GetMapping("/mapl={MaPL}")
+    // this request is: http://localhost:8081/api/vi/Subclass/mapl={MaPL}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaPL) {
         Optional<Subclass> foundProduct = subclassService.findById(MaPL);
         return foundProduct.isPresent() ?
@@ -56,7 +57,7 @@ public class SubclassController {
     ResponseEntity<ResponseObject> UpdateSubclass(@RequestBody Subclass newSubclass, @PathVariable String MaPL){
         Subclass UpdateSubclass = (Subclass) subclassService.findById(MaPL)
                 .map(Subclass -> {
-//                    Subclass.setMaLop(newSubclass.getMaLop());
+                    Subclass.setClassroom(newSubclass.getClassroom());
                     Subclass.setStudents(newSubclass.getStudents());
                     Subclass.setHanhKiem(newSubclass.getHanhKiem());
                     Subclass.setXepLoai(newSubclass.getXepLoai());

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/Assignment")
 public class AssignmentController {
 
@@ -27,8 +28,8 @@ public class AssignmentController {
     }
 
     // get Assignment by MaPC
-    @GetMapping("/{MaPC}")
-    // this request is: http://localhost:8081/api/vi/Assignment/{MaPC}
+    @GetMapping("/mapc={MaPC}")
+    // this request is: http://localhost:8081/api/vi/Assignment/mapc={MaPC}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaPC) {
         Optional<Assignment> foundProduct = assignmentService.findById(MaPC);
         return foundProduct.isPresent() ?
