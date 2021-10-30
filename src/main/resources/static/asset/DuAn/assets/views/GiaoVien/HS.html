@@ -60,14 +60,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>HS00001</td>
-                        <td>Nguyễn Văn a</td>
-                        <td>01/10/2001</td>
-                        <td>Nam</td>
-                        <td>Phường n, Quận 2, TP Hồ Chí Minh lore</td>
-                        <td>1</td>
-                        <td>A1</td>
+                    <tr ng-repeat="student in students | filter:seachText">
+                        <td>{{student.maHS}}</td>
+                        <td>{{student.tenHS}}</td>
+                        <td>{{student.ngaySinh}}</td>
+                        <td>{{student.gioiTinh}}</td>
+                        <td>{{student.diachi}}</td>
+                        <!-- <td>1{{student.maPH}}</td>
+                        <td>A1{{student.maPH}}</td> -->
                     </tr>
 
                 </tbody>
