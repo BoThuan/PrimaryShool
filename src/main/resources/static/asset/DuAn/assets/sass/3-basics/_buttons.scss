@@ -1,0 +1,121 @@
+// GV__HS
+.search {
+    background-color: $light-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include radius-layout();
+    @include shadow();
+    input[type="search"] {
+        border: none;
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        box-shadow: none;
+    }
+    button {
+        background-color: transparent;
+        border: none;
+        margin-top: 0.3rem;
+        font-size: $large-font-size;
+        cursor: pointer;
+    }
+}
+
+.btn{
+    button{
+        border: none;
+        @include radius-layout();
+        border: none;
+        height: 3rem;
+        min-width: 8rem;
+        font-size: $medium-font-size;
+        font-weight: $extra-bold-font-weight;
+        text-align: center;
+        color: $light-color;
+        background: $linear-color;
+        @include shadow();
+        cursor: pointer;
+        &:hover{
+            background: $linear-color-hover;
+        }
+    }
+}
+
+.checkbox {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: $medium-font-size;
+    user-select: none;
+    padding-left: 40px;
+    margin-bottom: 10px;
+
+    input {
+        position: absolute;
+        opacity: -50%;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .checkmark {
+            background: $linear-color;
+        }
+
+        &:checked ~ .checkmark:after {
+            display: block;
+        }
+    }
+
+    .checkmark {
+        position: absolute;
+        top: -50%;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        background: #eee;
+        border-radius: 3px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    }
+
+    &:hover .checkmark {
+        background: #ccc;
+    }
+
+    .checkmark:after {
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+// edit bang diem => giao vien -> bang diem
+.edit__diem{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all linear 0.2;
+    i{
+        font-size: $large-font-size;
+    }
+    &:hover{
+        opacity: 0.6;
+    }
+}
+
+
+
+
+
+

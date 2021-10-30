@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/api/vi/Parents")
 public class ParentsController {
     @Autowired
@@ -25,17 +26,14 @@ public class ParentsController {
     }
 
     // get Parents by MaPH
+
+//    @GetMapping("/maph={MaPH}")
+
     @GetMapping("/MAPH/{MaPH}")
+
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
-    ResponseEntity<ResponseObject> findById(@PathVariable String MaPH) {
-        Optional<Parents> foundProduct = parentsService.findById(MaPH);
-        return foundProduct.isPresent() ?
-                ResponseEntity.status(HttpStatus.OK).body(
-                        new ResponseObject("999", "Query Product successfully", foundProduct)
-                ) :
-                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                        new ResponseObject("000", "Cannot find product with id = " + MaPH, "")
-                );
+    Optional<Parents> findById(@PathVariable String MaPH) {
+        return parentsService.findById(MaPH);
     }
 
     // get Parents by MaPH
@@ -96,7 +94,7 @@ public class ParentsController {
     }
 
     // Delete a Parents
-    @DeleteMapping("{MaPH}")
+    @DeleteMapping("/{MaPH}")
     // this request is: http://localhost:8081/api/vi/Parents/{MaPH}
     ResponseEntity<ResponseObject> DeleteParents(@PathVariable String MaPH) {
         boolean exists = parentsService.existsById(MaPH);

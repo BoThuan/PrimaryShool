@@ -1,0 +1,16 @@
+.input{
+    input{
+        border: none;
+        outline: none;
+        @include radius-layout();
+        height: 3rem;
+        margin-left:.5rem;
+        @include shadow();
+    }
+}
+
+.input--diem{
+    input{
+        width: 10rem;
+    }
+}
