@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/Students")
 public class StudentsController {
 
@@ -28,8 +29,8 @@ public class StudentsController {
     }
 
     // get Students by MaHS
-    @GetMapping("/Id/{MaHS}")
-    // this request is: http://localhost:8081/api/vi/Students/Id/{MaHS}
+    @GetMapping("/mahs={MaHS}")
+    // this request is: http://localhost:8081/api/vi/Students/mahs={MaHS}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaHS) {
         Optional<Students> foundProduct = studentsService.findById(MaHS);
         return foundProduct.isPresent() ?
@@ -42,8 +43,8 @@ public class StudentsController {
     }
 
 
-    @GetMapping("/Name/{TenHS}")
-        // this request is: http://localhost:8081/api/vi/Students/Name/{TenHS}
+    @GetMapping("/name={TenHS}")
+        // this request is: http://localhost:8081/api/vi/Students/name={TenHS}
     ResponseEntity<ResponseObject> findByName(@PathVariable String TenHS) {
         Optional<Students> foundProduct = studentsService.findByName(TenHS);
         return foundProduct.isPresent() ?
@@ -56,8 +57,8 @@ public class StudentsController {
     }
 
     //TODO Write find student by Male
-    @GetMapping("/Gioitinh/{GioiTinh}")
-        // this request is: http://localhost:8081/api/vi/Students/{MaHS}
+    @GetMapping("/gioitinh={GioiTinh}")
+        // this request is: http://localhost:8081/api/vi/Students/gioitinh={GioiTinh}
     ResponseEntity<ResponseObject> findByMale(@PathVariable Boolean GioiTinh) {
         Optional<Students> foundProduct = studentsService.findByMale(GioiTinh);
         return foundProduct.isPresent() ?

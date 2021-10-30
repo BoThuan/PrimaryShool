@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/Ministry")
 public class MinistryController {
 
@@ -27,8 +28,8 @@ public class MinistryController {
     }
 
     // get Ministry by MaGiaoVu
-    @GetMapping("/{MaGiaoVu}")
-    // this request is: http://localhost:8081/api/vi/Ministry/{MaGiaoVu}
+    @GetMapping("/magiaovu={MaGiaoVu}")
+    // this request is: http://localhost:8081/api/vi/Ministry/magiaovu={MaGiaoVu}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaGiaoVu) {
         Optional<Ministry> foundProduct = ministryService.findById(MaGiaoVu);
         return foundProduct.isPresent() ?

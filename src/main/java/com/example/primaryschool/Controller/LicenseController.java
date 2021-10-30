@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/License")
 public class LicenseController {
     @Autowired
@@ -26,8 +27,8 @@ public class LicenseController {
     }
 
     // get License by MaGP
-    @GetMapping("/{MaGP}")
-    // this request is: http://localhost:8081/api/vi/License/{MaGP}
+    @GetMapping("/magp={MaGP}")
+    // this request is: http://localhost:8081/api/vi/License/magp={MaGP}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaGP) {
         Optional<License> foundProduct = licenseService.findById(MaGP);
         return foundProduct.isPresent() ?
@@ -55,7 +56,7 @@ public class LicenseController {
     ResponseEntity<ResponseObject> UpdateLicense(@RequestBody License newLicense, @PathVariable String MaGP){
         License UpdateLicense = (License) licenseService.findById(MaGP)
                 .map(license -> {
-//                    license.setMaPH(newLicense.getMaPH());
+                    license.setParents(newLicense.getParents());
                     license.setNgay(newLicense.getNgay());
                     license.setBatDau(newLicense.getKetThuc());
                     license.setLyDo(newLicense.getLyDo());

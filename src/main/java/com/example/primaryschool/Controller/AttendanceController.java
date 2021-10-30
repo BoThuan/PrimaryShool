@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/vi/attendance")
 public class AttendanceController {
     @Autowired
@@ -25,8 +26,8 @@ public class AttendanceController {
     }
 
     // get attendance by MaPC
-    @GetMapping("/{MaDD}")
-    // this request is: http://localhost:8081/api/vi/attendance/{MaDD}
+    @GetMapping("/madd={MaDD}")
+    // this request is: http://localhost:8081/api/vi/attendance/madd={MaDD}
     ResponseEntity<ResponseObject> findById(@PathVariable Integer MaDD) {
         Optional<Attendance> foundProduct = attendanceService.findById(MaDD);
         return foundProduct.isPresent() ?

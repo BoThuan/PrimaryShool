@@ -1,49 +1,48 @@
 <div class="GiaoVien__HS">
-    
-        <div class="table__header">
-            <div class="table__header--caption title">
-                <h3>Danh sách học sinh</h3>
+    <div class="table__header">
+        <div class="table__header--caption title">
+            <h3>Danh sách học sinh</h3>
+        </div>
+
+        <div class="table__header--btn">
+            <!-- ---search btn -->
+            <div class="table--search search">
+                <input type="search" name="" placeholder="Tim kiem" />
+                <button><i class="bx bx-search"></i></button>
             </div>
-            
-            <div class="table__header--btn">
-                <!-- ---search btn -->
-                <div class="table--search search">
-                    <input type="search" name="" placeholder="Tim kiem">
-                    <button><i class='bx bx-search'></i></button>
-                </div>
-                <!-- sort btn -->
-                <div class="table__sort select">
-                    <label for="">Sắp xếp: </label>
-                    <select name="" id="">
-                        <option value="1">Asc</option>
-                        <option value="2">Desc</option>
-                    </select>
-                </div>
-            
-                <!-- khoi -->
-                <div class="table__filter--khoi select">
-                    <label for="">Khối:</label>
-                    <select name="" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-            
-                <!-- lop -->
-                <div class="table__filter--lop select">
-                    <label for="">Lớp:</label>
-                    <select name="" id="">
-                        <option value="1">A1</option>
-                        <option value="2">A2</option>
-                        <option value="3">A3</option>
-                    </select>
-                </div>
+            <!-- sort btn -->
+            <div class="table__sort select">
+                <label for="">Sắp xếp: </label>
+                <select name="" id="">
+                    <option value="1">Asc</option>
+                    <option value="2">Desc</option>
+                </select>
+            </div>
+
+            <!-- khoi -->
+            <div class="table__filter--khoi select">
+                <label for="">Khối:</label>
+                <select name="" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <!-- lop -->
+            <div class="table__filter--lop select">
+                <label for="">Lớp:</label>
+                <select name="" id="">
+                    <option value="1">A1</option>
+                    <option value="2">A2</option>
+                    <option value="3">A3</option>
+                </select>
             </div>
         </div>
-    
+    </div>
+
     <!-- -------Table------ -->
     <div class="table__HS">
         <div class="sticky">
@@ -60,16 +59,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>HS00001</td>
-                        <td>Nguyễn Văn a</td>
-                        <td>01/10/2001</td>
-                        <td>Nam</td>
-                        <td>Phường n, Quận 2, TP Hồ Chí Minh lore</td>
-                        <td>1</td>
-                        <td>A1</td>
+                    <tr ng-repeat="student in students |filter:seachText">
+                        <td>{{student.maHS}}</td>
+                        <td>{{student.tenHS}}</td>
+                        <td>{{student.ngaySinh|date:'dd/MM/yyyy'}}</td>
+                        <td>{{student.gioiTinh?'Nam':'Nữ'}}</td>
+                        <td>{{student.diaChi}}</td>
+                        <td>{{student.parents.tenPH}}</td>
+                        <!-- <td>A1{{student.maPH}}</td> -->
                     </tr>
-
                 </tbody>
             </table>
         </div>
