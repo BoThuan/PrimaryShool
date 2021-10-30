@@ -1,9 +1,16 @@
+
 .form {
+
+.form{
+
     width: 1577px;
     height: 100vh;
     background-color: #ccc;
     margin: 0 auto;
     &__header {
+
+    &__header{
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -15,6 +22,15 @@
         &--search {
             position: relative;
             input {
+
+        &--title{
+            font-size: $large-font-size;
+            color: $text-color;
+        }
+        &--search{
+            position: relative;
+            input{
+
                 width: 40rem;
                 height: 2.5rem;
                 font-size: $medium-font-size;
@@ -30,10 +46,28 @@
                 }
             }
             button {
+
+                @include bordered (1px, transparent);
+                &:focus{
+                    @include bordered (1px, #8C4AF2);
+                    box-shadow: 0 0 10px #c0a8e4;
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            button{
+
                 position: absolute;
                 left: 0;
                 bottom: 0;
             }
         }
     }
+}
+
+
+        }
+    }
+}
 }
