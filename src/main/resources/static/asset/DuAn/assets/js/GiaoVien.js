@@ -28,58 +28,56 @@ app.controller("student-ctrl", function ($scope, $http) {
 	$scope.students = [];
 	$scope.form = {};
 	$scope.loading = function () {
-	  $http.get(`${api}/getAllStudents`).then(resp => {
+	$http.get(`${api}/getAllStudents`).then(resp => {
 		$scope.students = resp.data;
-	  });
+	});
 	}
-  
 	$scope.loading();
-   
 	// Sửa
 	$scope.edit = function (student) {
-	  $scope.form = angular.copy(student);
+	$scope.form = angular.copy(student);
 	}
-  
+
 	// Tạo 
 	$scope.create = function () {
-	  var student = angular.copy($scope.form);
-	  $http.post(`${api}/insert`, student).then(resp => {
+	var student = angular.copy($scope.form);
+	$http.post(`${api}/insert`, student).then(resp => {
 		$scope.students.push(resp.data);
 		$scope.loading();
 		$scope.reset();
 		alert("Thêm mới thành công");
-	  }).catch(error => {
+	}).catch(error => {
 		alert("Lỗi");
 		console.log("Error", error);
-	  })
+	})
 	}
-  
+
 	// Cập nhập
 	$scope.update = function () {
-	  var student = angular.copy($scope.form);
-	  $http.put(`${api}/${student.maPH}`, student).then(resp => {
+	var student = angular.copy($scope.form);
+	$http.put(`${api}/${student.maPH}`, student).then(resp => {
 		var index = $scope.students.findIndex(p => p.maPH == student.maPH);
 		$scope.students[index] = student;
 		$scope.loading();
 		$scope.reset();
 		alert("Cập nhậtthành công");
-	  }).catch(error => {
+	}).catch(error => {
 		alert("Lỗi");
 		console.log("Error", error);
-	  })
+	})
 	}
-  
+
 	// Xóa
 	$scope.delete = function (student) {
-	  $http.delete(`${api}/${student.maPH}`).then(resp => {
-		  var index = $scope.students.findIndex(p => p.maPH == student.maPH);
-		  $scope.students.splice(index, 1);
-		  $scope.reset();
-		  alert("Xóa thành công");
-	  }).catch(error => {
-		  alert("Lỗi xóat");
-		  console.log("Error", error);
-	  })
+	$http.delete(`${api}/${student.maPH}`).then(resp => {
+		var index = $scope.students.findIndex(p => p.maPH == student.maPH);
+		$scope.students.splice(index, 1);
+		$scope.reset();
+		alert("Xóa thành công");
+	}).catch(error => {
+		alert("Lỗi xóat");
+		console.log("Error", error);
+	})
 	}
   
 	$scope.reset = function () {
@@ -99,3 +97,11 @@ app.controller("student-ctrl", function ($scope, $http) {
 	}
   
   });
+
+function formatDate (input) {
+	var datePart = input.match(/\d+/g),
+	year = datePart[0].substring(2), // get only two digits
+	month = datePart[1], day = datePart[2];
+
+	return day+'/'+month+'/'+year;
+}
