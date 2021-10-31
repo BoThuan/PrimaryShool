@@ -14,7 +14,7 @@
     <name>primaryschool</name>
     <description>primaryschool</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>15</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -69,6 +69,11 @@
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -76,6 +81,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.3</version>
                 <configuration>
                     <excludes>
                         <exclude>
