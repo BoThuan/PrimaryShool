@@ -29,4 +29,6 @@ public class Attendance implements Serializable {
     @ManyToOne @JoinColumn(name = "MaPL") Subclass subclass;
 
     @ManyToOne @JoinColumn(name = "MaLop") Classroom classroom;
+
+    @ManyToOne @JoinColumn(name = "MaHS") Students students;
 }
