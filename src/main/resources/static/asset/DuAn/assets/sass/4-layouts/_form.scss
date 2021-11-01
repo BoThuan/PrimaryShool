@@ -1,25 +1,24 @@
-.form{
+.form {
     margin: 0 auto;
     width: 1577px;
-    height: 90vh;
-    // background-color: #ccc;
-    // header
-    &__header{
+    margin-bottom: 1rem;
+    // height: 90vh;
+    &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: .5rem 2rem;
-        &--title{
+        padding: 0.5rem 2rem;
+        &--title {
             font-size: $large-font-size;
             color: $title-color;
         }
-        &--search{
+        &--search {
             width: 40rem;
             position: relative;
-            input{
+            input {
                 width: 100%;
             }
-            button{
+            button {
                 position: absolute;
                 width: 2.5rem;
                 height: 2.5rem;
@@ -31,8 +30,8 @@
                 background-color: transparent;
                 font-size: $medium-font-size;
                 @include radius-layout(50%, 50%, 50%, 50%);
-                transition: all .2s linear;
-                &:hover{
+                transition: all 0.2s linear;
+                &:hover {
                     color: #fff;
                     background: $linear-color;
                     cursor: pointer;
@@ -41,24 +40,117 @@
         }
     }
     // main
-    &__main{
-        &--info{
+    &__main {
+        padding-top: 1rem;
+        &--info {
             display: flex;
             justify-content: flex-start;
-            align-items: center;
-            .info__img{
-                width: 30rem;
-                height: 40rem;
+            // align-items: center;
+            .info__img {
+                width: 20rem;
+                height: 26rem;
+                margin-right: 2rem;
+                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+                    rgba(0, 0, 0, 0.23) 0px 6px 6px;
                 @include shadow();
-                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
                 @include radius-layout();
-                img{
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                     border-radius: inherit;
                 }
             }
+            .textbox {
+                display: flex;
+                justify-content: flex-start;
+                background-color: #fff;
+                @include radius-layout();
+                @include shadow();
+                &__profile {
+                    padding: 2rem 0 0 2rem;
+                    .profile{
+                        width: 55rem;
+                        margin-bottom: 2rem;
+                        .info--title {
+                            width: 12rem;
+                            font-size: $medium-font-size;
+                            display: inline-block;
+                        }
+                        input {
+                            width: 70%;
+                        }
+                        textarea {
+                            width: 75%;
+                        }
+                    }
+                    .profile--class{
+                        input{
+                            width: 25%;
+                        }
+                    }
+                    .birthdayVSgendar {
+                        display: flex;
+                        justify-content: space-between;
+                        .profile--gendar{
+                            margin-right: 2.3rem;
+                        }
+                        .profile--birthday{
+                            width: 60%;
+                            input{
+                                width: 55%;
+                            }
+                        }
+                    }
+
+                }
+                &__area{
+                    background-color: #fff;
+                    margin-left: 2rem;
+                    padding: 2rem 2rem 0 2rem;
+                    @include radius-layout();
+                    @include shadow();
+                    .info--area{
+                        width: 12rem;
+                        font-size: $medium-font-size;
+                        display: inline-block;
+                    }
+                    textarea{
+                        margin-bottom: 2rem;
+                    }
+                }
+                &__edit {
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 2rem;
+                    .mark{
+                        margin: 0 4rem 2rem 0;
+                        &>label {
+                            width: 9rem;
+                            display: inline-block;
+                        }
+                    }
+                    .mark--kt, .mark--k1, .mark--k2{
+                        font-size: $medium-font-size;
+                        input{
+                            width: 10rem;
+                        }
+                    }
+                    .mark--k1, .mark--k2 {
+                        display: flex;
+                        justify-content: flex-start;
+                    }
+                    .mark--tbcn{
+                        font-size: $medium-font-size;
+                        label + label {
+                            margin-left: 4rem;
+                            font-size: $large-font-size;
+                            font-weight: $bold-font-weight;
+                        }
+                    }
+                }
+            }
         }
     }
+    
 }
