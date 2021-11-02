@@ -4,7 +4,7 @@
         <div class="form__header">
             <!-- title -->
             <div class="form__header--title">
-                <h2>Quan ly giao vien</h2>
+                <h2>Danh Sách Học Sinh</h2>
             </div>
             <!-- search -->
             <div class="form__header--search input">
@@ -125,6 +125,7 @@
         </div>
         <!-- footer -->
         <div class="form__btn">
+            <!-- TODO: remove btn save and clear here -->
             <button class="btn--import">Import</button>
             <button class="btn--export">Export</button>
             <button class="btn--save">Save</button>
@@ -145,10 +146,25 @@
                         <th class="w8">Giới tính</th>
                         <th >Địa chỉ</th>
                         <th>Ghi chú</th>
+                        <th>Tên phụ huynh</th>
+                        <!-- TODO: change edit action icon to view action icon-->
                         <th class="w12">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- VD show list student -->
+                    <tr>
+                        <td>lorem</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>99/99/9999</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td class="btn"><button ><i class="bx bx-edit-alt"></i></button></td>
+                    </tr>
+                    <!-- show students from API -->
                     <tr ng-repeat="student in students |filter:seachText">
                         <td>{{student.maHS}}</td>
                         <td>{{student.tenHS}}</td>
@@ -158,26 +174,7 @@
                         <td>{{student.parents.tenPH}}</td>
                         <!-- <td>A1{{student.maPH}}</td> -->
                     </tr>
-                    <tr>
-                        <td>lorem</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>99/99/9999</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td class="btn"><button ><i class="bx bx-edit-alt"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>lorem</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>99/99/9999</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>a</td>
-                        <td class="btn"><button ><i class="bx bx-edit-alt"></i></button></td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
