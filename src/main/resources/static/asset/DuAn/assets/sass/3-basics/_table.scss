@@ -5,7 +5,7 @@ table {
     overflow: auto;
     th,
     td {
-        padding: 1.5rem 3rem;
+        padding: 1.1rem 2rem;
         text-align: left;
     }
     thead {
@@ -26,15 +26,40 @@ table {
     }
     tbody {
         tr {
+            @include bordered(1px, #ccc);
+            transition: all .1s linear;
             td {
                 font-size: $medium-font-size;
             }
+            &:hover {
+                background-color: rgb(224, 222, 222);
+            }
+        }
+        tr:nth-of-type(2n) {
+            background-color: rgba(231, 231, 231, 0.301);
         }
     }
 }
 .sticky {
     overflow: auto;
-    max-height: 65vh;
+    max-height: 80vh;
     @include radius-layout();
     @include shadow();
+}
+.table__HS--DSHS{
+    .sticky{
+        overflow: auto;
+        max-height: 60vh;
+        @include radius-layout();
+        @include shadow();
+    }
+}
+.w16{
+    width: 24rem;
+}
+.w12{
+    width: 12rem;
+}
+.w8{
+    width: 8rem;
 }

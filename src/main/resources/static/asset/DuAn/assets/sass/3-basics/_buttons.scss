@@ -26,18 +26,22 @@
 .btn{
     button{
         border: none;
-        @include radius-layout();
         border: none;
-        height: 3rem;
-        min-width: 8rem;
+        height: 100%;
+        min-width: 6rem;
         font-size: $medium-font-size;
         font-weight: $extra-bold-font-weight;
         text-align: center;
-        color: $light-color;
-        background: $linear-color;
-        @include shadow();
+        color: $title-color;
+        background: transparent;
         cursor: pointer;
+        transition: all .2s linear;
+        @include shadow();
+        @include radius-layout();
+        @include bordered(1px, transparent);
         &:hover{
+            @include bordered(1px, $light-color);
+            color: $light-color;
             background: $linear-color-hover;
         }
     }
@@ -51,24 +55,24 @@
     user-select: none;
     padding-left: 40px;
     margin-bottom: 10px;
-
     input {
         position: absolute;
         opacity: -50%;
         cursor: pointer;
         height: 0;
         width: 0;
-
+        
         &:checked ~ .checkmark {
             background: $linear-color;
         }
-
+        
         &:checked ~ .checkmark:after {
             display: block;
         }
     }
-
+    
     .checkmark {
+        @include bordered(1px, #ccc);
         position: absolute;
         top: -50%;
         left: 0;

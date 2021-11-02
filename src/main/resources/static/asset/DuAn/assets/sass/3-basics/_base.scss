@@ -4,13 +4,12 @@ html {
 }
 .container-full{
 	display: grid;
-	grid-template-columns: 15% 1fr 1fr 1fr;
-	grid-template-rows: 6rem 1fr 1fr 5rem;
+	grid-template-columns: 15% 1fr 1fr ;
+	grid-template-rows: 6rem 1fr 1fr ;
 	grid-template-areas: 
 	"nav header header header"
 	"nav main main main"
 	"nav main main main"
-	"nav footer footer footer"
 	;
 	background-color: #f1f6f3;
 	grid-gap: 2rem;
