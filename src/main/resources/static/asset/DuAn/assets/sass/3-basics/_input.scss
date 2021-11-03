@@ -1,16 +1,51 @@
-.input{
-    input{
+.input {
+    label{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    input {
         border: none;
         outline: none;
-        @include radius-layout();
         height: 3rem;
-        margin-left:.5rem;
+        font-size: $medium-font-size;
+        // margin-left:.5rem;
+        transition: all 0.2s linear;
+        @include radius-layout();
         @include shadow();
+        @include bordered(1px, transparent);
+        &:focus {
+            @include bordered(1px, #8c4af2);
+        }
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 0.5rem rgba(137, 120, 161, 0.692);
+        }
+    }
+
+}
+
+.input--diem {
+    input {
+        width: 10rem;
     }
 }
 
-.input--diem{
-    input{
-        width: 10rem;
+textarea {
+    vertical-align: top;
+    border: none;
+    outline: none;
+    font-size: $medium-font-size;
+    transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    @include radius-layout();
+    @include shadow();
+    @include bordered(1px, transparent);
+    &:focus {
+        @include bordered(1px, #8c4af2);
+    }
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 0.5rem rgba(137, 120, 161, 0.692);
     }
 }

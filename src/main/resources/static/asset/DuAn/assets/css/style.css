@@ -64,9 +64,9 @@ html {
 
 .container-full {
   display: grid;
-  grid-template-columns: 15% 1fr 1fr 1fr;
-  grid-template-rows: 6rem 1fr 1fr 5rem;
-  grid-template-areas: "nav header header header" "nav main main main" "nav main main main" "nav footer footer footer";
+  grid-template-columns: 15% 1fr 1fr;
+  grid-template-rows: 6rem 1fr 1fr;
+  grid-template-areas: "nav header header header" "nav main main main" "nav main main main";
   background-color: #f1f6f3;
   grid-gap: 2rem;
 }
@@ -113,19 +113,23 @@ html {
 
 .btn button {
   border: none;
-  border-radius: 12px 12px 12px 12px;
   border: none;
-  height: 3rem;
-  min-width: 8rem;
+  height: 100%;
+  min-width: 6rem;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  color: #fff;
-  background: linear-gradient(to bottom, #8C4AF2, #0F22FD);
-  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  color: #484860;
+  background: transparent;
   cursor: pointer;
+  transition: all 0.2s linear;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 12px 12px;
+  border: 1px solid transparent;
 }
 .btn button:hover {
+  border: 1px solid #fff;
+  color: #fff;
   background: linear-gradient(to bottom, #9d68ee, #515ffd);
 }
 
@@ -152,6 +156,7 @@ html {
   display: block;
 }
 .checkbox .checkmark {
+  border: 1px solid #ccc;
   position: absolute;
   top: -50%;
   left: 0;
@@ -200,7 +205,7 @@ table {
 }
 table th,
 table td {
-  padding: 1.5rem 3rem;
+  padding: 1.1rem 2rem;
   text-align: left;
 }
 table thead {
@@ -219,21 +224,49 @@ table thead tr th:first-of-type {
 table thead tr th:last-of-type {
   border-radius: 0 12px 0 0;
 }
+table tbody tr {
+  border: 1px solid #ccc;
+  transition: all 0.1s linear;
+}
 table tbody tr td {
   font-size: 16px;
+}
+table tbody tr:hover {
+  background-color: #e0dede;
+}
+table tbody tr:nth-of-type(2n) {
+  background-color: rgba(231, 231, 231, 0.301);
 }
 
 .sticky {
   overflow: auto;
-  max-height: 65vh;
+  max-height: 80vh;
   border-radius: 12px 12px 12px 12px;
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.table__HS--DSHS .sticky {
+  overflow: auto;
+  max-height: 60vh;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.w16 {
+  width: 24rem;
+}
+
+.w12 {
+  width: 12rem;
+}
+
+.w8 {
+  width: 8rem;
 }
 
 .select label {
   font-size: 16px;
   margin-right: 1rem;
-  font-weight: 500;
 }
 .select select {
   border-radius: 12px 12px 12px 12px;
@@ -246,23 +279,58 @@ table tbody tr td {
   cursor: pointer;
 }
 .select select:hover {
-  background-color: whitesmoke;
+  cursor: pointer;
+  box-shadow: 0px 0px 0.5rem rgba(137, 120, 161, 0.692);
+}
+.select select:focus {
+  border: 1px solid #8c4af2;
 }
 .select option {
   border: none;
 }
 
+.input label:hover {
+  cursor: pointer;
+}
 .input input {
   border: none;
   outline: none;
-  border-radius: 12px 12px 12px 12px;
   height: 3rem;
-  margin-left: 0.5rem;
+  font-size: 16px;
+  transition: all 0.2s linear;
+  border-radius: 12px 12px 12px 12px;
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+.input input:focus {
+  border: 1px solid #8c4af2;
+}
+.input input:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0.5rem rgba(137, 120, 161, 0.692);
 }
 
 .input--diem input {
   width: 10rem;
+}
+
+textarea {
+  vertical-align: top;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+textarea:focus {
+  border: 1px solid #8c4af2;
+}
+textarea:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0.5rem rgba(137, 120, 161, 0.692);
 }
 
 .header {
@@ -362,6 +430,155 @@ table tbody tr td {
 
 .main {
   width: calc(100% - 2rem);
+}
+
+.form {
+  margin: 0 auto;
+  width: 1577px;
+  margin-bottom: 1rem;
+}
+.form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+.form__header--title {
+  font-size: 24px;
+  color: #484860;
+}
+.form__header--search {
+  width: 40rem;
+  position: relative;
+}
+.form__header--search input {
+  width: 100%;
+}
+.form__header--search button {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  border-radius: 50% 50% 50% 50%;
+  transition: all 0.2s linear;
+}
+.form__header--search button:hover {
+  color: #fff;
+  background: linear-gradient(to bottom, #8C4AF2, #0F22FD);
+  cursor: pointer;
+}
+.form__main {
+  padding-top: 1rem;
+}
+.form__main--info {
+  display: flex;
+  justify-content: flex-start;
+}
+.form__main--info .info__img {
+  width: 20rem;
+  height: 26rem;
+  margin-right: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 12px 12px;
+}
+.form__main--info .info__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.form__main--info .textbox {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+}
+.form__main--info .textbox__profile {
+  padding: 2rem 0 0 2rem;
+}
+.form__main--info .textbox__profile .profile {
+  width: 55rem;
+  margin-bottom: 2rem;
+}
+.form__main--info .textbox__profile .profile .info--title {
+  width: 12rem;
+  font-size: 16px;
+  display: inline-block;
+}
+.form__main--info .textbox__profile .profile input {
+  width: 70%;
+}
+.form__main--info .textbox__profile .profile textarea {
+  width: 75%;
+}
+.form__main--info .textbox__profile .profile--class input {
+  width: 25%;
+}
+.form__main--info .textbox__profile .birthdayVSgendar {
+  display: flex;
+  justify-content: space-between;
+}
+.form__main--info .textbox__profile .birthdayVSgendar .profile--gendar {
+  margin-right: 2.3rem;
+}
+.form__main--info .textbox__profile .birthdayVSgendar .profile--birthday {
+  width: 60%;
+}
+.form__main--info .textbox__profile .birthdayVSgendar .profile--birthday input {
+  width: 55%;
+}
+.form__main--info .textbox__area {
+  background-color: #fff;
+  margin-left: 2rem;
+  padding: 2rem 2rem 0 2rem;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+}
+.form__main--info .textbox__area .info--area {
+  width: 12rem;
+  font-size: 16px;
+  display: inline-block;
+}
+.form__main--info .textbox__area textarea {
+  margin-bottom: 2rem;
+}
+.form__main--info .textbox__edit {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+}
+.form__main--info .textbox__edit .mark {
+  margin: 0 4rem 2rem 0;
+}
+.form__main--info .textbox__edit .mark > label {
+  width: 9rem;
+  display: inline-block;
+}
+.form__main--info .textbox__edit .mark--kt, .form__main--info .textbox__edit .mark--k1, .form__main--info .textbox__edit .mark--k2 {
+  font-size: 16px;
+}
+.form__main--info .textbox__edit .mark--kt input, .form__main--info .textbox__edit .mark--k1 input, .form__main--info .textbox__edit .mark--k2 input {
+  width: 10rem;
+}
+.form__main--info .textbox__edit .mark--k1, .form__main--info .textbox__edit .mark--k2 {
+  display: flex;
+  justify-content: flex-start;
+}
+.form__main--info .textbox__edit .mark--tbcn {
+  font-size: 16px;
+}
+.form__main--info .textbox__edit .mark--tbcn label + label {
+  margin-left: 4rem;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .GiaoVien__HS .table__header {
