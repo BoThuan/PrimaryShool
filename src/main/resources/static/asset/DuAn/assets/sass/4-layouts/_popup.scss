@@ -1,44 +1,7 @@
-.form {
-    margin: 0 auto;
-    width: 1577px;
-    margin-bottom: 1rem;
-    // height: 90vh;
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 2rem;
-        &--title {
-            font-size: $large-font-size;
-            color: $title-color;
-        }
-        &--search {
-            width: 40rem;
-            position: relative;
-            input {
-                width: 100%;
-            }
-            button {
-                position: absolute;
-                width: 2.5rem;
-                height: 2.5rem;
-                right: 0;
-                bottom: 50%;
-                transform: translateY(50%);
-                border: none;
-                outline: none;
-                background-color: transparent;
-                font-size: $medium-font-size;
-                @include radius-layout(50%, 50%, 50%, 50%);
-                transition: all 0.2s linear;
-                &:hover {
-                    color: #fff;
-                    background: $linear-color;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
+.popup {
+    // margin: 0 auto;
+    // width: 1577px;
+    // margin-bottom: 1rem;
     // main
     &__main {
         padding-top: 1rem;
@@ -48,7 +11,7 @@
             // align-items: center;
             .info__img {
                 width: 20rem;
-                height: 26rem;
+                height: 30rem;
                 margin-right: 2rem;
                 box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
                     rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -69,7 +32,7 @@
                 @include shadow();
                 &__profile {
                     padding: 2rem 0 0 2rem;
-                    .profile{
+                    .profile {
                         width: 55rem;
                         margin-bottom: 2rem;
                         .info--title {
@@ -84,38 +47,37 @@
                             width: 75%;
                         }
                     }
-                    .profile--class{
-                        input{
+                    .profile--class {
+                        input {
                             width: 25%;
                         }
                     }
                     .birthdayVSgendar {
                         display: flex;
                         justify-content: space-between;
-                        .profile--gendar{
+                        .profile--gendar {
                             margin-right: 2.3rem;
                         }
-                        .profile--birthday{
+                        .profile--birthday {
                             width: 60%;
-                            input{
+                            input {
                                 width: 55%;
                             }
                         }
                     }
-
                 }
-                &__area{
+                &__area {
                     background-color: #fff;
                     margin-left: 2rem;
                     padding: 2rem 2rem 0 2rem;
                     @include radius-layout();
                     @include shadow();
-                    .info--area{
+                    .info--area {
                         width: 12rem;
                         font-size: $medium-font-size;
                         display: inline-block;
                     }
-                    textarea{
+                    textarea {
                         margin-bottom: 2rem;
                     }
                 }
@@ -123,24 +85,27 @@
                     display: flex;
                     flex-direction: column;
                     padding-left: 2rem;
-                    .mark{
+                    .mark {
                         margin: 0 4rem 2rem 0;
-                        &>label {
+                        & > label {
                             width: 9rem;
                             display: inline-block;
                         }
                     }
-                    .mark--kt, .mark--k1, .mark--k2{
+                    .mark--kt,
+                    .mark--k1,
+                    .mark--k2 {
                         font-size: $medium-font-size;
-                        input{
+                        input {
                             width: 10rem;
                         }
                     }
-                    .mark--k1, .mark--k2 {
+                    .mark--k1,
+                    .mark--k2 {
                         display: flex;
                         justify-content: flex-start;
                     }
-                    .mark--tbcn{
+                    .mark--tbcn {
                         font-size: $medium-font-size;
                         label + label {
                             margin-left: 4rem;
@@ -152,5 +117,4 @@
             }
         }
     }
-    
 }

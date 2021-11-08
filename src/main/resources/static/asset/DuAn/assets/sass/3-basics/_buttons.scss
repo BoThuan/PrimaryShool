@@ -1,25 +1,28 @@
 // GV__HS
-.search {
-    background-color: $light-color;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @include radius-layout();
-    @include shadow();
-    input[type="search"] {
-        border: none;
-        background-color: transparent;
-        height: 100%;
+.btn--search {
+    width: 40rem;
+    position: relative;
+    input {
         width: 100%;
-        cursor: pointer;
-        box-shadow: none;
     }
     button {
-        background-color: transparent;
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        right: 0;
+        bottom: 50%;
+        transform: translateY(50%);
         border: none;
-        margin-top: 0.3rem;
-        font-size: $large-font-size;
-        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+        font-size: $medium-font-size;
+        @include radius-layout(50%, 50%, 50%, 50%);
+        transition: all 0.2s linear;
+        &:hover {
+            color: #fff;
+            background: $linear-color;
+            cursor: pointer;
+        }
     }
 }
 
