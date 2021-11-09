@@ -1,0 +1,32 @@
+html {
+	font-size: 62.5%;
+	font-family: 'Montserrat', sans-serif;
+}
+.container-full{
+	display: grid;
+	grid-template-columns: 15% 1fr 1fr ;
+	grid-template-rows: 6rem 1fr 1fr ;
+	grid-template-areas: 
+	"nav header header header"
+	"nav main main main"
+	"nav main main main"
+	;
+	background-color: #f1f6f3;
+	grid-gap: 2rem;
+}
+
+.header{
+	grid-area: header;
+}
+
+.nav{
+	grid-area: nav;
+}
+
+.main{
+	grid-area: main;
+}
+
+.footer{
+	grid-area: footer;
+}
