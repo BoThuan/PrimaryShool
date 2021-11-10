@@ -29,4 +29,8 @@ public class Students implements Serializable {
     @ManyToOne @JoinColumn(name = "MaPH") Parents parents;
 
     @ManyToOne @JoinColumn(name = "MaPL") Subclass subclass;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "students")
+    List<Results> results;
 }

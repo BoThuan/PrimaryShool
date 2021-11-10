@@ -3,7 +3,7 @@
         <div class="table__header">
             <!-- title -->
             <div class="table__header--title">
-                <h2>Quản lý học sinh</h2>
+                <h2>Danh sách học sinh</h2>
             </div>
             <!-- search -->
             <div class="table__header--search btn--search input">
@@ -12,6 +12,7 @@
                         type="text"
                         id="table__header--search"
                         placeholder="Tìm kiếm"
+                        ng-model="seachText"
                     />
                     <button><i class="bx bx-search-alt"></i></button>
                 </label>
@@ -30,6 +31,7 @@
                         <th class="w12">Ngày sinh</th>
                         <th class="w8">Giới tính</th>
                         <th>Địa chỉ</th>
+                        <th>Phụ Huynh</th>
                         <th>Ghi chú</th>
                         <th class="w12">Hành động</th>
                     </tr>
@@ -38,13 +40,19 @@
                     <tr ng-repeat="student in students |filter:seachText">
                         <td>{{student.maHS}}</td>
                         <td>{{student.tenHS}}</td>
+                        <td>{{student.subclass.classroom.tenLop}}</td>
                         <td>{{student.ngaySinh|date:'dd/MM/yyyy'}}</td>
                         <td>{{student.gioiTinh?'Nam':'Nữ'}}</td>
                         <td>{{student.diaChi}}</td>
                         <td>{{student.parents.tenPH}}</td>
-                        <!-- <td>A1{{student.maPH}}</td> -->
+                        <td>{{student.ghiChu}}</td>
+                        <td class="btn">
+                            <button id="open_abc" onclick="popup();">
+                                click me
+                            </button>
+                        </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>lorem</td>
                         <td id="mahs">1</td>
                         <td>1</td>
@@ -57,7 +65,7 @@
                                 click me
                             </button>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
