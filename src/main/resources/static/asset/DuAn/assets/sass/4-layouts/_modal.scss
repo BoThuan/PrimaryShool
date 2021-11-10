@@ -1,0 +1,26 @@
+.modal_container{
+    background-color: rgba(0,0,0,0.3);
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    display: none;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal_container.show{
+    display: flex;
+    pointer-events: auto;
+}
+
+.modal {
+    background-color: #fff;
+    @include radius-layout();
+    @include shadow();
+    padding: 3rem 5rem;
+    width: 60vw;
+    max-width: 100%;
+}

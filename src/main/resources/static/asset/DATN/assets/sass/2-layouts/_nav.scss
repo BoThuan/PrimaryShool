@@ -1,0 +1,60 @@
+.nav {
+	height: 100vh;
+	background-image: $linear-color;
+	@include radius-layout(0, $radius, $radius, 0);
+	padding: 0 0 0 3.2rem;
+
+	&__logo {
+		height: 15rem;
+		margin: 4.8rem 3.2rem 2rem 0;
+		background-color: #fff;
+		@include radius-layout();
+		img {
+			width: 100%;
+			height: inherit;
+			@include radius-layout();
+			@include fullImage();
+		}
+	}
+
+	&__navbar {
+		height: calc(100% - 22rem);
+		@include flex(space-between, null, column);
+		line-height: $medium-font-size;
+		
+
+		ul {
+			flex-direction: column;
+			li {
+				font-size: $medium-font-size;
+				padding: 1rem 0;
+				font-weight: $bold-font-weight;
+				a {
+					color: $light-color-semi;
+					text-decoration: none;
+					padding: .5rem 0 .5rem .5rem;
+					@include radius-layout(12px, 0, 0, 12px);
+					@include flex(space-between, center, row);
+					i {
+						font-size: 18px;
+						padding-right: 2.4rem;
+					}
+				}
+
+				:hover {
+					color: #8c4af2;
+					background-color: $light-color-semi;
+					@include transition15;
+					@include radius-layout(12px, 0, 0, 12px);
+					font-size: 18px;
+					font-weight: $extra-bold-font-weight;
+				}
+			}
+		}
+		ul:last-child {
+			li {
+				margin-bottom: 2.4rem;
+			}
+		}
+	}
+}
