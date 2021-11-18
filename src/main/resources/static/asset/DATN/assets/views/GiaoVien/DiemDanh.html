@@ -1,45 +1,20 @@
 <div class="GiaoVien__HS">
+    <!-- table header -->
     <div class="table__header">
-        <div class="table__header--caption title">
-            <h3>Điểm danh</h3>
+        <!-- title -->
+        <div class="table__header--title">
+            <h2>Điểm danh</h2>
         </div>
-
-        <div class="table__header--btn">
-            <!-- ---search btn -->
-            <div class="table--search search">
-                <input type="search" name="" placeholder="Tim kiem" />
-                <button><i class="bx bx-search"></i></button>
-            </div>
-            <!-- sort btn -->
-            <div class="table__sort select">
-                <label for="">Sắp xếp: </label>
-                <select name="" id="">
-                    <option value="1">Asc</option>
-                    <option value="2">Desc</option>
-                </select>
-            </div>
-
-            <!-- khoi -->
-            <div class="table__filter--khoi select">
-                <label for="">Khối:</label>
-                <select name="" id="">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <!-- TODO: need a btn to view 'student attendance and absence days'  -->
-            <!-- lop -->
-            <div class="table__filter--lop select">
-                <label for="">Lớp:</label>
-                <select name="" id="">
-                    <option value="1">A1</option>
-                    <option value="2">A2</option>
-                    <option value="3">A3</option>
-                </select>
-            </div>
+        <!-- search -->
+        <div class="table__header--search btn--search input">
+            <label for="table__header--search">
+                <input
+                    type="text"
+                    id="table__header--search"
+                    placeholder="Tìm kiếm"
+                />
+                <button><i class="bx bx-search-alt"></i></button>
+            </label>
         </div>
     </div>
 
@@ -287,6 +262,63 @@
                         <td>1</td>
                         <td>A1</td>
                     </tr>
+                    <tr>
+                        <td>HS00001</td>
+                        <td>Nguyễn Văn a</td>
+                        <td>01/10/2001</td>
+                        <td>
+                            <label class="checkbox"
+                                >Có mặt
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox"
+                                >Vắng
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td>1</td>
+                        <td>A1</td>
+                    </tr>
+                    <tr>
+                        <td>HS00001</td>
+                        <td>Nguyễn Văn a</td>
+                        <td>01/10/2001</td>
+                        <td>
+                            <label class="checkbox"
+                                >Có mặt
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox"
+                                >Vắng
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td>1</td>
+                        <td>A1</td>
+                    </tr>
+                    <tr>
+                        <td>HS00001</td>
+                        <td>Nguyễn Văn a</td>
+                        <td>01/10/2001</td>
+                        <td>
+                            <label class="checkbox"
+                                >Có mặt
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox"
+                                >Vắng
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td>1</td>
+                        <td>A1</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -295,6 +327,11 @@
 
 <script>
     var today = new Date();
-    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    var date =
+        today.getDate() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getFullYear();
     document.getElementById("date").innerHTML = date;
 </script>
