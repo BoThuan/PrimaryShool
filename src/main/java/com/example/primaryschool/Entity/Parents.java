@@ -28,6 +28,8 @@ public class Parents implements Serializable {
 
     private String GhiChu;
 
+    private String Hinh;
+
     @JsonIgnore
     @OneToMany(mappedBy = "parents")
     List<Students> Students;

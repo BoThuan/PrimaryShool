@@ -36,9 +36,9 @@
                         <th class="w12">Hành động</th>
                     </tr>
                 </thead>
-                <tbody id="demo">
-                    <tr ng-repeat="student in students |filter:seachText">
-                        <td>{{student.maHS}}</td>
+                <tbody>
+                    <tr ng-repeat="student in students | filter:seachText">
+                        <td ng-model="maHS">{{student.maHS}}</td>
                         <td>{{student.tenHS}}</td>
                         <td>{{student.subclass.classroom.tenLop}}</td>
                         <td>{{student.ngaySinh|date:'dd/MM/yyyy'}}</td>
@@ -47,25 +47,11 @@
                         <td>{{student.parents.tenPH}}</td>
                         <td>{{student.ghiChu}}</td>
                         <td class="btn">
-                            <button id="open_abc" onclick="popup();">
+                            <button id="open_abc" onclick="popup('${student.maHS}');" value = "{{student.maHS}}">
                                 click me
                             </button>
                         </td>
                     </tr>
-                    <!-- <tr>
-                        <td>lorem</td>
-                        <td id="mahs">1</td>
-                        <td>1</td>
-                        <td>99/99/9999</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>a</td>
-                        <td class="btn">
-                            <button id="open_abc" onclick="popup();">
-                                click me
-                            </button>
-                        </td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>

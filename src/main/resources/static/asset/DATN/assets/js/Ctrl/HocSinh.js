@@ -22,6 +22,7 @@ app.controller("student-ctrl", function ($scope, $http) {
     $scope.date = new Date();
     $scope.students = [];
     $scope.form = {};
+    $scope.sortType = 'name';
     $scope.loading = function () {
         $http.get(`${api}/getAllStudents`).then((resp) => {
             $scope.students = resp.data;
@@ -110,7 +111,7 @@ app.controller("student-ctrl", function ($scope, $http) {
     };
 });
 
-function popup() {
+function popup(student) {
     const open_abc = document.getElementById("open_abc");
     const modal_container = document.getElementById("modal_container");
     const close__modal = document.getElementById("close__modal");

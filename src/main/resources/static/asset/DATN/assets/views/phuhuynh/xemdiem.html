@@ -11,37 +11,34 @@
 <table class="table">
     <thead>
       <tr>
-        <th><abbr title="TenHS">Tên Học Sinh</abbr></th>
-        <th><abbr title="TenHS">Môn Học</abbr></th>
-        <th><abbr title="diemGiuak1">Điểm Giữa kì 1</abbr></th>
-        <th><abbr title="diemCuoik1">Điểm Cuối kì 1</abbr></th>
-        <th><abbr title="diemTBk1">Điểm Trung Bình Kì 1</abbr></th>
-        <th><abbr title="diemGiuak2">Điểm Giữa kì 2</abbr></th>
-        <th><abbr title="diemCuoik2">Điểm Cuối kì 2</abbr></th>
-        <th><abbr title="diemTBk2">Điểm Trung Bình kì 2</abbr></th>
-        <th><abbr title="diemTBcanam">Điểm Trung Bình Cả Năm</abbr></th>
-        <th><abbr title="diemTBcanam">Tên Giáo Viên</abbr></th>
-        <th><abbr title="diemTBcanam">Số Điện Thoại</abbr></th>
+        <th title="Môn Học">Môn Học</th>
+        <th title="Điểm Giữa kì 1">Điểm Giữa kì 1</th>
+        <th title="Điểm Cuối kì 1">Điểm Cuối kì 1</th>
+        <th title="Điểm Trung Bình Kì 1">Điểm Trung Bình Kì 1</th>
+        <th title="Điểm Giữa kì 2">Điểm Giữa kì 2</th>
+        <th title="Điểm Cuối kì 2">Điểm Cuối kì 2</th>
+        <th title="Điểm Trung Bình kì 2">Điểm Trung Bình kì 2</th>
+        <th title="Điểm Trung Bình Cả Năm">Điểm Trung Bình Cả Năm</th>
+        <th title="Tên Giáo Viên">Tên Giáo Viên</th>
+        <th title="Số Điện Thoại">Số Điện Thoại</th>
       </tr>
     </thead>
-    <tfoot>
-      <tr>
-        <th><abbr title="TenHS">Tên Học Sinh</abbr></th>
-        <th><abbr title="TenHS">Môn Học</abbr></th>
-        <th><abbr title="diemGiuak1">Điểm Giữa kì 1</abbr></th>
-        <th><abbr title="diemCuoik1">Điểm Cuối kì 1</abbr></th>
-        <th><abbr title="diemTBk1">Điểm Trung Bình Kì 1</abbr></th>
-        <th><abbr title="diemGiuak2">Điểm Giữa kì 2</abbr></th>
-        <th><abbr title="diemCuoik2">Điểm Cuối kì 2</abbr></th>
-        <th><abbr title="diemTBk2">Điểm Trung Bình kì 2</abbr></th>
-        <th><abbr title="diemTBcanam">Điểm Trung Bình Cả Năm</abbr></th>
-        <th><abbr title="diemTBcanam">Tên Giáo Viên</abbr></th>
-        <th><abbr title="diemTBcanam">Số Điện Thoại</abbr></th>
+    <!-- <tfoot>
+       <tr>
+        <th title="Môn Học">Môn Học</th>
+        <th title="Điểm Giữa kì 1">Điểm Giữa kì 1</th>
+        <th title="Điểm Cuối kì 1">Điểm Cuối kì 1</th>
+        <th title="Điểm Trung Bình Kì 1">Điểm Trung Bình Kì 1</th>
+        <th title="Điểm Giữa kì 2">Điểm Giữa kì 2</th>
+        <th title="Điểm Cuối kì 2">Điểm Cuối kì 2</th>
+        <th title="Điểm Trung Bình kì 2">Điểm Trung Bình kì 2</th>
+        <th title="Điểm Trung Bình Cả Năm">Điểm Trung Bình Cả Năm</th>
+        <th title="Tên Giáo Viên">Tên Giáo Viên</th>
+        <th title="Số Điện Thoại">Số Điện Thoại</th>
       </tr>
-    </tfoot>
+    </tfoot> -->
     <tbody>
       <tr ng-repeat="result in results">
-            <th></th>
             <th>{{result.assignment.subjects.tenMon}}</th>
             <th>{{result.diemGiuak1}}</th>
             <th>{{result.diemCuoik1}}</th>

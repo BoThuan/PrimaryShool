@@ -23,6 +23,7 @@ public class Ministry {
     private String Email;
     private String DiaChi;
     private String GhiChu;
+    private String Hinh;
 
     @JsonIgnore
     @OneToMany(mappedBy = "ministry")
