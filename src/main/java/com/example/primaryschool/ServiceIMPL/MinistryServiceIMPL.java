@@ -39,4 +39,9 @@ public class MinistryServiceIMPL implements MinistryService {
     public void deleteById(String MaGiaoVu) {
         RepoMinistry.deleteById(MaGiaoVu);
     }
+
+    @Override
+    public String MaxMaMinistry() {
+        return RepoMinistry.maxMaMinistry();
+    }
 }
