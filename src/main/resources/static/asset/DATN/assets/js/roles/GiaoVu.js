@@ -4,14 +4,14 @@ app.config(function ($routeProvider) {
         // giao vien
         .when("/QLGV", {
             templateUrl: "./assets/views/GiaoVu/QLGV.html",
-            controller: "GiaoVu-Ctrl"
+            controller: "GiaoVu-Ctrl",
         })
         .when("/QLNS", {
             templateUrl: "./assets/views/GiaoVu/QLNS.html",
+        })
+        .when("/QLLop", {
+            templateUrl: "./assets/views/GiaoVu/QLLop.html",
         });
-    // .when("/diemDanh", {
-    //     templateUrl: "./assets/views/GiaoVien/DiemDanh.html",
-    // })
     // .when("/GVDiem", {
     //     templateUrl: "./assets/views/GiaoVien/GVDiem.html",
     // })
@@ -22,6 +22,3 @@ app.config(function ($routeProvider) {
     //     templateUrl: "./assets/views/GiaoVien/GVCN.html",
     // })
 });
-
-
-

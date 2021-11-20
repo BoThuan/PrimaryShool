@@ -154,6 +154,10 @@ html {
   color: #fff;
   background: linear-gradient(to bottom, #9d68ee, #515ffd);
 }
+.btn button i {
+  font-size: 24px;
+  line-height: 2.5rem;
+}
 
 .checkbox {
   display: inline-block;
@@ -545,6 +549,18 @@ table tbody tr:nth-of-type(2n) {
 .form__edit label {
   font-size: 16px;
   margin-right: 2rem;
+}
+.form__edit .input label, .form__edit .select label {
+  font-weight: 500;
+}
+.form__edit .gioitinh, .form__edit .diachi {
+  margin-top: 1.2rem;
+}
+.form__edit .diachi {
+  width: 50rem;
+}
+.form__edit .diachi input {
+  width: 81%;
 }
 
 .form__edit--btnGroup {

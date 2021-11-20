@@ -11,6 +11,20 @@
         font-size: $medium-font-size;
         margin-right: 2rem;
     }
+    .input, .select{
+        label{
+            font-weight: $bold-font-weight;
+        }
+    }
+    .gioitinh, .diachi{
+        margin-top: 1.2rem;
+    }
+    .diachi{
+        width: 50rem;
+        input{
+            width: 81%;
+        }
+    }
 }
 
 .form__edit--btnGroup {
