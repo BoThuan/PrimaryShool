@@ -1,0 +1,54 @@
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="#">Bulma</a></li>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="#">Components</a></li>
+      <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+    </ul>
+  </nav>
+<h1 class="title is-4">bảng điểm của học sinh: {{results[0].students.tenHS}}</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th title="Môn Học">Môn Học</th>
+        <th title="Điểm Giữa kì 1">Điểm Giữa kì 1</th>
+        <th title="Điểm Cuối kì 1">Điểm Cuối kì 1</th>
+        <th title="Điểm Trung Bình Kì 1">Điểm Trung Bình Kì 1</th>
+        <th title="Điểm Giữa kì 2">Điểm Giữa kì 2</th>
+        <th title="Điểm Cuối kì 2">Điểm Cuối kì 2</th>
+        <th title="Điểm Trung Bình kì 2">Điểm Trung Bình kì 2</th>
+        <th title="Điểm Trung Bình Cả Năm">Điểm Trung Bình Cả Năm</th>
+        <th title="Tên Giáo Viên">Tên Giáo Viên</th>
+        <th title="Số Điện Thoại">Số Điện Thoại</th>
+      </tr>
+    </thead>
+    <!-- <tfoot>
+       <tr>
+        <th title="Môn Học">Môn Học</th>
+        <th title="Điểm Giữa kì 1">Điểm Giữa kì 1</th>
+        <th title="Điểm Cuối kì 1">Điểm Cuối kì 1</th>
+        <th title="Điểm Trung Bình Kì 1">Điểm Trung Bình Kì 1</th>
+        <th title="Điểm Giữa kì 2">Điểm Giữa kì 2</th>
+        <th title="Điểm Cuối kì 2">Điểm Cuối kì 2</th>
+        <th title="Điểm Trung Bình kì 2">Điểm Trung Bình kì 2</th>
+        <th title="Điểm Trung Bình Cả Năm">Điểm Trung Bình Cả Năm</th>
+        <th title="Tên Giáo Viên">Tên Giáo Viên</th>
+        <th title="Số Điện Thoại">Số Điện Thoại</th>
+      </tr>
+    </tfoot> -->
+    <tbody>
+      <tr ng-repeat="result in results">
+            <th>{{result.assignment.subjects.tenMon}}</th>
+            <th>{{result.diemGiuak1}}</th>
+            <th>{{result.diemCuoik1}}</th>
+            <th>{{(result.diemGiuak1 + result.diemCuoik1)/2}}</th>
+            <th>{{result.diemGiuak2}}</th>
+            <th>{{result.diemCuoik2}}</th>
+            <th>{{(result.diemGiuak2 + result.diemCuoik2)/2}}</th>
+            <th>{{(((result.diemGiuak1 + result.diemCuoik1)/2)+((result.diemGiuak2 + result.diemCuoik2)/2))/2}}</th>
+            <th>{{result.assignment.teachers.tenGV}}</th>
+            <th>{{result.assignment.teachers.sdt}}</th>
+      </tr>
+    </tbody>
+  </table>
