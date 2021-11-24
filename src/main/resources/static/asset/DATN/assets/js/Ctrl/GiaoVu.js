@@ -5,22 +5,19 @@ myApp.controller("Ministry-ctrl", function ($scope, $http) {
     $scope.date = new Date();
     $scope.ministrys = [];
     $scope.form = {};
-    $scope.sortType = 'name';
+    $scope.MaxMaGV = '';
     $scope.loading = function () {
         $http.get(`${api}/getAllMinistry`).then((resp) => {
             $scope.ministrys = resp.data;
+        });
+        $http.get(`${api}/MaxMaGV`).then((resp) => {
+            $scope.MaxMaGV = resp.text;
         });
     };
     $scope.loading();
     // Sửa
     $scope.edit = function (ministry) {
         $scope.form = angular.copy(ministry);
-    };
-
-    $scope.maGiaoVu = function () {
-        $http.get(`${api}/MaxMaGV`).then((resp) => {
-            $scope.maGiaoVu = resp.data;
-        });
     };
 
     // Tạo
@@ -52,7 +49,7 @@ myApp.controller("Ministry-ctrl", function ($scope, $http) {
                 $scope.ministrys[index] = ministry;
                 $scope.loading();
                 $scope.reset();
-                alert("Cập nhậtthành công");
+                alert("Cập nhật thành công");
             })
             .catch((error) => {
                 alert("Lỗi");

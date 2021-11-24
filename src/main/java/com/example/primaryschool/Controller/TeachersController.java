@@ -28,8 +28,8 @@ public class TeachersController {
     }
 
     // get Teachers by MaGV
-    @GetMapping("/{MaGV}")
-    // this request is: http://localhost:8081/api/vi/Teachers/{MaGV}
+    @GetMapping("/ID/{MaGV}")
+    // this request is: http://localhost:8081/api/vi/Teachers/ID/{MaGV}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaGV) {
         Optional<Teachers> foundProduct = teachersService.findById(MaGV);
         return foundProduct.isPresent() ?
@@ -39,6 +39,52 @@ public class TeachersController {
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                         new ResponseObject("000", "Cannot find product with id = " + MaGV, "")
                 );
+    }
+
+    @GetMapping("/Name/{TenGV}")
+        // this request is: http://localhost:8081/api/vi/Teachers/Name/{TenGV}
+    ResponseEntity<ResponseObject> findByName(@PathVariable String TenGV) {
+        Optional<Teachers> foundProduct = teachersService.findByName(TenGV);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with Name = " + TenGV, "")
+                );
+    }
+
+    @GetMapping("/SDT/{SDT}")
+        // this request is: http://localhost:8081/api/vi/Teachers/SDT/{SDT}
+    ResponseEntity<ResponseObject> findBySDT(@PathVariable String SDT) {
+        Optional<Teachers> foundProduct = teachersService.findBySDT(SDT);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with SDT = " + SDT, "")
+                );
+    }
+
+    @GetMapping("/Email/{Email}")
+        // this request is: http://localhost:8081/api/vi/Teachers/Email/{Email}
+    ResponseEntity<ResponseObject> findByEmail(@PathVariable String Email) {
+        Optional<Teachers> foundProduct = teachersService.findByEmail(Email);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with Email = " + Email, "")
+                );
+    }
+
+    // get all Students
+    @GetMapping("/getCountTeachers")
+    // this request is: http://localhost:8081/api/vi/Students/getCountStudents
+    Integer getCountTeachers(){
+        return teachersService.countTeachers();
     }
 
 
