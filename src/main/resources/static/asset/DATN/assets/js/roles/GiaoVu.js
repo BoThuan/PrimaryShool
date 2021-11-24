@@ -11,10 +11,13 @@ app.config(function ($routeProvider) {
         })
         .when("/QLLop", {
             templateUrl: "./assets/views/GiaoVu/QLLop.html",
+        })
+        .when("/QLHS", {
+            templateUrl: "./assets/views/GiaoVu/QLHS.html",
+        })
+        .when("/pheduyet", {
+            templateUrl: "./assets/views/GiaoVu/pheduyet.html",
         });
-    // .when("/GVDiem", {
-    //     templateUrl: "./assets/views/GiaoVien/GVDiem.html",
-    // })
     // .when("/CGL", {
     //     templateUrl: "./assets/views/GiaoVien/CGL.html",
     // })
