@@ -1,0 +1,53 @@
+<div class="columns is-vcentered">
+    <div class="column is-8">
+        <div class="field">
+            <label class="label">Tên Phụ Huynh</label>
+            <div class="control">
+                <!-- TODO: When successfully logged in, there will be parents' names -->
+              <input class="input" type="text" placeholder="Text input">
+            </div>
+          </div>
+          
+          <div class="field" >
+            <label class="label">Lý do</label>
+            <div class="control">
+              <div class="select" >
+                <select id="select_Ly_Do">
+                  <option>Xin Nghỉ ốm</option>
+                  <option>Xin cho con đi Chơi</option>
+                  <option>Xin nghỉ nhà có tang</option>
+                  <option>......</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" id="checklydo" onclick="check();">
+                lý do khác
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Textarea" id="write_Ly_Do" disabled></textarea>
+            </div>
+          </div>
+          
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light">Cancel</button>
+            </div>
+          </div>
+    </div>
+    <div class="column">
+      
+    </div>
+  </div>

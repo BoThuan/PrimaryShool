@@ -26,6 +26,7 @@ public class Subclass implements Serializable {
 
     @ManyToOne @JoinColumn(name = "MaLop") Classroom classroom;
 
+//    @ManyToOne @JoinColumn(name = "MaKQ") Results results;
 
     @JsonIgnore
     @OneToMany(mappedBy = "subclass")
@@ -35,9 +36,6 @@ public class Subclass implements Serializable {
     @OneToMany(mappedBy = "subclass")
     List<Attendance> Attendance;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "subclass")
-    List<Results> Results;
 
     @JsonIgnore
     @OneToMany(mappedBy = "subclass")

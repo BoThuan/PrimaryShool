@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo</title>
+
+    <!-- Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</head>
+<body>
+    <br>
+    <div class="container">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+         <div class="border border-dark rounded">
+            <div class="d-flex flex-column bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <h3>Vì sao F1 ở 4 quận nội đô Hà Nội không được cách ly tại nhà?</h3>
+                    </div>
+                <div class="p-2 bd-highlight">
+                    <h6>TPO - Theo lý giải của Hà Nội, 4 quận nội đô lịch sử gồm Hoàn Kiếm, Ba Đình, Hai Bà Trưng, Đống Đa là khu vực có tầm quan trọng đặc biệt và cần phải áp dụng các biện pháp đặc biệt để bảo vệ an toàn tuyệt đối về an ninh, trật tự cũng như dịch bệnh.</h6>
+                </div>
+                <div class="p-2 bd-highlight align-self-end"><b id="time"></b>-Tân Đại </div>
+            </div>
+         </div>
+        </div>
+        <br>
+        <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+        <div class="row">
+            <div class="border border-danger rounded">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                    <div class="p-2 bd-highlight">
+                        <h3>Người dân đường Vũ Trọng Phụng sắp thoát cảnh bụi mù khi nắng, ngập úng khi mưa</h3>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <h6>Người dân sinh sống trên đường Vũ Trọng Phụng (quận Thanh Xuân, Hà Nội) sắp thoát khỏi nỗi ám ảnh cứ trời mưa thì ngập úng, nắng thì bụi mù.</h6>
+                    </div>
+                    <div class="p-2 bd-highlight align-self-end"><b id="time"></b>-Tân Đại </div>
+                </div>
+             </div>
+        </div>
+        <br>
+        <!-- Columns are always 50% wide, on mobile and desktop -->
+        <div class="row">
+            <div class="border border-dark rounded">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                    <div class="p-2 bd-highlight"   >
+                        <h3>Chủ tịch Quốc hội: Giám sát chung chung thì không có hiệu lực, hiệu quả</h3>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <h6>(VTC News) - Chủ tịch Quốc hội Vương Đình Huệ nhấn mạnh, công tác giám sát cần cụ thể, sâu sát, chỉ giám sát chung chung thì không có hiệu lực, hiệu quả.</h6>
+                    </div>
+                    <div class="p-2 bd-highlight align-self-end"><b id="time"></b>-Tân Đại </div>
+                </div>
+             </div>
+        </div>
+      </div>
+
+</body>
+
+<script>
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = dd + '/' + mm + '/' + yyyy;
+    document.getElementById("time").innerHTML = today;
+</script>
+</html>

@@ -22,7 +22,7 @@ public class Classroom implements Serializable {
     private String MaLop;
     private String Khoi;
     private String TenLop;
-    private Date   Year;
+    private String   Year;
 
     @ManyToOne @JoinColumn(name = "MaGiaoVu")
     Ministry ministry;

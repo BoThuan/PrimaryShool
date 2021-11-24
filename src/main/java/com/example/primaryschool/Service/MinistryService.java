@@ -17,4 +17,6 @@ public interface MinistryService {
     boolean existsById(String MaGiaoVu);
 
     void deleteById(String MaGiaoVu);
+
+    List<Ministry> MaxMaMinistry();
 }

@@ -1,5 +1,6 @@
 package com.example.primaryschool.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 
 @SuppressWarnings("serial")
 @Data
@@ -25,5 +27,10 @@ public class Results implements Serializable {
 
     @ManyToOne @JoinColumn(name = "MaPC") Assignment assignment;
 
-    @ManyToOne @JoinColumn(name = "MaPL") Subclass subclass;
+    @ManyToOne @JoinColumn(name = "MaHS") Students students;
+
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "results")
+//    List<Subclass> subclasses;
+
 }

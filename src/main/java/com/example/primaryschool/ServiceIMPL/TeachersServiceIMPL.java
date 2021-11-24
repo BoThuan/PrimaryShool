@@ -26,6 +26,27 @@ public class TeachersServiceIMPL implements TeachersService {
     }
 
     @Override
+    public Optional<Teachers> findByName(String TenGV)  {
+        return RepoTeachers.findByName(TenGV);
+    }
+
+    @Override
+    public Optional<Teachers> findByEmail(String Email) {
+        return RepoTeachers.findByEmail(Email);
+    }
+
+    @Override
+    public Optional<Teachers> findBySDT(String SDT) {
+        return RepoTeachers.findBySDT(SDT);
+    }
+
+    @Override
+    public Integer countTeachers() {
+        return RepoTeachers.countTeachers();
+    }
+
+
+    @Override
     public Object save(Teachers newTeachers) {
         return RepoTeachers.save(newTeachers);
     }
