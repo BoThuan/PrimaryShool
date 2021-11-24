@@ -5,6 +5,9 @@
             <div class="table__header--title">
                 <h2>Danh sách học sinh</h2>
             </div>
+            <div class="btn_import">
+                <input type="file" onchange="angular.element(this).scope().import(this.files)">
+            </div>
             <!-- search -->
             <div class="table__header--search btn--search input">
                 <label for="table__header--search">
@@ -54,7 +57,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="student in students | filter:seachText">
+                    <tr ng-repeat="student in students | orderBy:['maHS'] | filter:seachText">
                         <td ng-model="maHS">{{student.maHS}}</td>
                         <td>{{student.tenHS}}</td>
                         <td>{{student.subclass.classroom.tenLop}}</td>
@@ -63,6 +66,7 @@
                         <td>{{student.diaChi}}</td>
                         <td>{{student.parents.tenPH}}</td>
                         <td>{{student.ghiChu}}</td>
+                        <td>{{student.Hinh}}</td>
                         <td class="btn">
                             <button id="open_abc" onclick="popup('${student.maHS}');" value = "{{student.maHS}}">
                                 click me

@@ -11,7 +11,7 @@ myApp.controller("Ministry-ctrl", function ($scope, $http) {
             $scope.ministrys = resp.data;
         });
         $http.get(`${api}/MaxMaGV`).then((resp) => {
-            $scope.MaxMaGV = resp.text;
+            $scope.MaxMaGV = resp.data;
         });
     };
     $scope.loading();
