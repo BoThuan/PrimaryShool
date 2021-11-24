@@ -30,7 +30,7 @@ public class MinistryController {
     // get all Ministry
     @GetMapping("/MaxMaGV")
     // this request is: http://localhost:8081/api/vi/Ministry/MaxMaGV
-    String getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
+    List<Ministry> getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
 
     // get Ministry by MaGiaoVu
     @GetMapping("/magiaovu={MaGiaoVu}")
@@ -67,7 +67,10 @@ public class MinistryController {
                     ministry.setSDT(newMinistry.getSDT());
                     ministry.setEmail(newMinistry.getEmail());
                     ministry.setDiaChi(newMinistry.getDiaChi());
+                    ministry.setNgaySinh(newMinistry.getNgaySinh());
+                    ministry.setGioiTinh(newMinistry.getGioiTinh());
                     ministry.setGhiChu(newMinistry.getGhiChu());
+                    ministry.setHinh(newMinistry.getHinh());
                     return ministryService.save(ministry);
                 }).orElseGet(() -> {
                     newMinistry.setMaGiaoVu(MaGiaoVu);
