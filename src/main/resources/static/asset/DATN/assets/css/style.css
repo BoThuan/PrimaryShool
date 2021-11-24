@@ -625,6 +625,8 @@ table tbody tr:nth-of-type(2n) {
 .container__pheduyet .pheduyet__footer button {
   background-color: #fff;
   margin-left: 2rem;
+  font-size: 16px;
+  padding: 0.8rem;
 }
 
 .modal_container {
