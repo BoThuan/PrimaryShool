@@ -1,0 +1,2 @@
+INSERT INTO public.tbl_results (makq, diem_cuoik1, diem_cuoik2, diem_giuak1, diem_giuak2, diemkt, mapc, mahs, mapl) VALUES ('KQ0002', 9, 7, 8, 10, 9, 'PC0002', 'HS0001', null);
+INSERT INTO public.tbl_results (makq, diem_cuoik1, diem_cuoik2, diem_giuak1, diem_giuak2, diemkt, mapc, mahs, mapl) VALUES ('KQ0001', 7, 8, 9, 9, 8, 'PC0001', 'HS0001', null);

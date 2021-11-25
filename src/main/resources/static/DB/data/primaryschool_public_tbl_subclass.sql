@@ -1,0 +1,2 @@
+INSERT INTO public.tbl_subclass (mapl, diemtbnam, hanh_kiem, xep_loai, ma_lop, makq) VALUES ('PL0001', 0, 'chưa có', 'chưa có', 'LOP0001', 'KQ0001');
+INSERT INTO public.tbl_subclass (mapl, diemtbnam, hanh_kiem, xep_loai, ma_lop, makq) VALUES ('PL0002', 0, 'chưa có', 'chưa có', 'LOP0001', 'KQ0002');

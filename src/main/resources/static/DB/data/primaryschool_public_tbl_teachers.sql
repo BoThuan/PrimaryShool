@@ -1,0 +1,2 @@
+INSERT INTO public.tbl_teachers (magv, dia_chi, email, ghi_chu, gioi_tinh, ngay_sinh, sdt, tengv, hinh) VALUES ('TC0001', '456 Ngọc Nữ', 'giangtruong@gmail.com', 'giáo viên cấp tỉnh', true, '2001-05-07 00:00:00.000000', '0123456789', 'Trương Hoàng Giang', null);
+INSERT INTO public.tbl_teachers (magv, dia_chi, email, ghi_chu, gioi_tinh, ngay_sinh, sdt, tengv, hinh) VALUES ('TC0002', '753 Trường Trinh', 'Bothuan@', null, true, '2001-07-13 00:00:00.000000', '0866088342', 'Nguyễn Trần Văn Thuận', null);
