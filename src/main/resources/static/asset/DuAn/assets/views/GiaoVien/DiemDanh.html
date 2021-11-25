@@ -30,7 +30,7 @@
                     <option value="5">5</option>
                 </select>
             </div>
-
+            <!-- TODO: need a btn to view 'student attendance and absence days'  -->
             <!-- lop -->
             <div class="table__filter--lop select">
                 <label for="">Lớp:</label>
@@ -51,17 +51,18 @@
                     <tr>
                         <th>Mã học sinh</th>
                         <th>Tên học sinh</th>
-                        <th>Ngày sinh</th>
+                        <th>Ngày</th>
                         <th>Điểm danh</th>
                         <th>khối</th>
                         <th>Lớp</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr id="detail-table">
                         <td>HS00001</td>
                         <td>Nguyễn Văn a</td>
-                        <td>01/10/2001</td>
+                        <td>{{date | date:'dd/MM/yyyy'}}</td>
+                        <!-- TODO: fix check box is overwritten on the title row -->
                         <td>
                             <label class="checkbox"
                                 >Có mặt
@@ -291,3 +292,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    var today = new Date();
+    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    document.getElementById("date").innerHTML = date;
+</script>

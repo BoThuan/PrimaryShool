@@ -27,6 +27,7 @@ public class Teachers implements Serializable {
     private String SDT;
     private String Email;
     private String GhiChu;
+    private String Hinh;
 
     @JsonIgnore
     @OneToMany(mappedBy = "teachers")

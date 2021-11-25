@@ -1,0 +1,24 @@
+@import "./1-basics/reset";
+
+@import "./4-helpers/variables";
+@import "./4-helpers/mixins";
+
+@import "./1-basics/base";
+@import "./1-basics/buttons";
+@import "./1-basics/input";
+@import "./1-basics/table";
+@import "./1-basics/select";
+
+@import "./2-layouts/header";
+@import "./2-layouts/nav";
+@import "./2-layouts/body";
+@import "./2-layouts/footer";
+
+@import "./3-roles/GiaoVien/GiaoVien";
+@import "./3-roles/GiaoVu/GiaoVu";
+
+@import "./5-popup/base-popup";
+@import "./5-popup/GiaoVien/popup--HS";
+@import "./5-popup/GiaoVien/popup--Diem";
+//
+@import "./5-popup/GiaoVu/popup--QLGV";

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- import Bulma -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+
+    <!-- import JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  </head>
+
+  <body ng-app="myApp" ng-controller="Ministry-ctrl">
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label">MaGiaoVu</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Text input"
+              ng-model="form.maGiaoVu"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">TenGiaoVu</label>
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input is-success"
+              type="text"
+              placeholder="Text input"
+              value=""
+              ng-model="form.tenGiaoVu"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input is-danger"
+              type="email"
+              placeholder="Email input"
+              value=""
+              ng-model="form.email"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Ngay sinh</label>
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input is-danger"
+              type="text    "
+              placeholder="date input"
+              value=""
+              ng-model="form.ngaySinh |date:'yyyy/MM/dd'"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">ChucVu</label>
+          <div class="control">
+            <div class="select">
+              <select>
+                <option>Hieu Truong</option>
+                <option>Hieu Pho</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">SDT</label>
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input is-success"
+              type="text"
+              placeholder="Text input"
+              value=""
+              ng-model="form.sdt"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">DiaChi</label>
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input is-success"
+              type="text"
+              placeholder="Text input"
+              value=""
+              ng-model="form.diaChi"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">GioiTinh</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" ng-model="form.gioiTinh" name="gioiTinh" ng.value="true"/>
+              Nam
+            </label>
+            <label class="radio">
+              <input type="radio" ng-model="form.gioiTinh" name="gioiTinh" ng.value="false"/>
+              Nu
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea
+              class="textarea"
+              placeholder="Textarea"
+              ng-model="form.ghiChu"
+            ></textarea>
+          </div>
+        </div>
+        <div id="file-js-example" class="file has-name">
+          <label class="file-label">
+            <input class="file-input" type="file" name="resume" ng-model="form.hinh"/>
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label" >
+                Choose a file…
+              </span>
+            </span>
+            <span class="file-name"> No file uploaded </span>
+          </label>
+        </div>
+        <br />
+        <hr />
+        <div class="field is-grouped">
+          <div>
+            <button id="create" ng-click="create()">Submit</button>
+            <button id="findByID" ng-click="findID(form)">findByID</button>
+            <button id="delete" ng-click="delete(form)">delete</button>
+            <button id="update" ng-click="update()">update</button>
+            <button id="reset" ng-click="reset()">new</button>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <label for="">Danh sách giaoVu</label>
+        <table class="table">
+          <thead>
+            <tr>
+              <th><abbr title="Position">maGiaoVu</abbr></th>
+              <th>chucVu</th>
+              <th><abbr title="Played">tenGiaoVu</abbr></th>
+              <th><abbr title="Won">ngaySinh</abbr></th>
+              <th><abbr title="Drawn">gioiTinh</abbr></th>
+              <th><abbr title="Lost">sdt</abbr></th>
+              <th><abbr title="Goals for">email</abbr></th>
+              <th><abbr title="Goals against">diaChi</abbr></th>
+              <th><abbr title="Goal difference">ghiChu</abbr></th>
+              <th><abbr title="Points">hinh</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="ministry in ministrys | filter:seachText">
+              <th>{{ministry.maGiaoVu}}</th>
+              <td>{{ministry.chucVu}}</td>
+              <th>{{ministry.tenGiaoVu}}</th>
+              <td>{{ministry.ngaySinh|date:'dd/MM/yyyy'}}</td>
+              <td>{{ministry.gioiTinh?'Nam':'Nữ'}}</td>
+              <td>{{ministry.sdt}}</td>
+              <td>{{ministry.email}}</td>
+              <td>{{ministry.diaChi}}</td>
+              <td>{{ministry.ghiChu}}</td>
+              <td>{{ministry.hinh}}</td>
+              <td>
+                <button ng-click="edit(ministry)">Edit</button>
+                <button ng-click="delete(ministry)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script src="../../js/Ctrl/GiaoVu.js"></script>
+
+  <script>
+    const fileInput = document.querySelector(
+      "#file-js-example input[type=file]"
+    );
+    fileInput.onchange = () => {
+      if (fileInput.files.length > 0) {
+        const fileName = document.querySelector("#file-js-example .file-name");
+        fileName.textContent = fileInput.files[0].name;
+      }
+    };
+  </script>
+</html>

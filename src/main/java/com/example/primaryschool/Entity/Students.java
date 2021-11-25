@@ -25,8 +25,13 @@ public class Students implements Serializable {
     private Boolean GioiTinh;
     private String DiaChi;
     private String GhiChu;
+    private String Hinh;
 
     @ManyToOne @JoinColumn(name = "MaPH") Parents parents;
 
     @ManyToOne @JoinColumn(name = "MaPL") Subclass subclass;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "students")
+    List<Results> results;
 }

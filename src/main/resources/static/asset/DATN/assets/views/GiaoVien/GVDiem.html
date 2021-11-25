@@ -1,0 +1,67 @@
+<div class="GiaoVien__HS">
+    <!-- table header -->
+    <div class="table__header">
+        <!-- title -->
+        <div class="table__header--title">
+            <h2>Quản lý điểm</h2>
+        </div>
+        <!-- search -->
+        <div class="table__header--search btn--search input">
+            <label for="table__header--search">
+                <input
+                    type="text"
+                    id="table__header--search"
+                    placeholder="Tìm kiếm"
+                />
+                <button><i class="bx bx-search-alt"></i></button>
+            </label>
+        </div>
+    </div>
+
+    <!-- -------Table------ -->
+    <div class="table__HS">
+        <div class="sticky">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã học sinh</th>
+                        <th>Tên học sinh</th>
+                        <th>Điểm kiểm tra</th>
+                        <th>Điểm giữa kỳ I</th>
+                        <th>Điểm cuối kỳ I</th>
+                        <th>Điểm giữa kỳ II</th>
+                        <th>Điểm cuối kỳ II</th>
+                        <th>Điểm trung bình</th>
+                        <th>Chỉnh sữa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HS00001</td>
+                        <td>Nguyễn Văn a</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>9</td>
+                        <td>9</td>
+                        <td>
+                            <button id="open_abc" onclick="popup();" class="edit__diem">
+                                <i class="bx bx-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- -----========= Modal =============------ -->
+<div class="modal_container" id="modal_container">
+    <div class="modal">
+        <div class="pop__diem">
+            .
+        </div>
+        <button id="close__modal"><i class="bx bx-x"></i></button>
+    </div>
+</div>

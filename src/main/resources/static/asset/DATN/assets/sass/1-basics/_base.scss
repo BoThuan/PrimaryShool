@@ -1,0 +1,65 @@
+html {
+    font-size: 62.5%;
+    font-family: "Montserrat", sans-serif;
+}
+.container-full {
+    display: grid;
+    grid-template-columns: 15% 1fr 1fr;
+    grid-template-rows: 6rem 1fr 1fr;
+    grid-template-areas:
+        "nav header header header"
+        "nav main main main"
+        "nav main main main";
+    background-color: #f1f6f3;
+    grid-gap: 2rem;
+}
+
+.header {
+    grid-area: header;
+}
+
+.nav {
+    grid-area: nav;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+// img table
+.img__table {
+	padding: 1.2rem 0 0 0;
+    img {
+        object-fit: cover;
+        height: 5rem;
+        width: 4rem;
+        @include radius-layout(1.2rem, 1.2rem, 1.2rem, 1.2rem);
+    }
+}
+
+// size\
+.w28 {
+    width: 28rem;
+}
+.w20 {
+    width: 20rem;
+}
+.w16 {
+    width: 24rem;
+}
+.w12 {
+    width: 12rem;
+}
+.w8 {
+    width: 8rem;
+}
+.w34p {
+    width: 35%;
+}
+.w80p {
+    width: 80%;
+}
