@@ -3,7 +3,10 @@
         <div class="table__header">
             <!-- title -->
             <div class="table__header--title">
-                <h2>Quản lý học sinh</h2>
+                <h2>Danh sách học sinh</h2>
+            </div>
+            <div class="btn_import">
+                <input type="file" onchange="angular.element(this).scope().import(this.files)">
             </div>
             <!-- search -->
             <div class="table__header--search btn--search input">
@@ -12,11 +15,29 @@
                         type="text"
                         id="table__header--search"
                         placeholder="Tìm kiếm"
+                        ng-model="seachText"
                     />
                     <button><i class="bx bx-search-alt"></i></button>
                 </label>
             </div>
+    <!-- table header -->
+    <div class="table__header">
+        <!-- title -->
+        <div class="table__header--title">
+            <h2>Quản lý học sinh</h2>
         </div>
+        <!-- search -->
+        <div class="table__header--search btn--search input">
+            <label for="table__header--search">
+                <input
+                    type="text"
+                    id="table__header--search"
+                    placeholder="Tìm kiếm"
+                />
+                <button><i class="bx bx-search-alt"></i></button>
+            </label>
+        </div>
+    </div>
 
     <!-- -------Table------ -->
     <div class="table__HS--DSHS">
@@ -30,30 +51,24 @@
                         <th class="w12">Ngày sinh</th>
                         <th class="w8">Giới tính</th>
                         <th>Địa chỉ</th>
+                        <th>Phụ Huynh</th>
                         <th>Ghi chú</th>
                         <th class="w12">Hành động</th>
                     </tr>
                 </thead>
-                <tbody id="demo">
-                    <tr ng-repeat="student in students |filter:seachText">
-                        <td>{{student.maHS}}</td>
+                <tbody>
+                    <tr ng-repeat="student in students | orderBy:['maHS'] | filter:seachText">
+                        <td ng-model="maHS">{{student.maHS}}</td>
                         <td>{{student.tenHS}}</td>
+                        <td>{{student.subclass.classroom.tenLop}}</td>
                         <td>{{student.ngaySinh|date:'dd/MM/yyyy'}}</td>
                         <td>{{student.gioiTinh?'Nam':'Nữ'}}</td>
                         <td>{{student.diaChi}}</td>
                         <td>{{student.parents.tenPH}}</td>
-                        <!-- <td>A1{{student.maPH}}</td> -->
-                    </tr>
-                    <tr>
-                        <td>lorem</td>
-                        <td id="mahs">1</td>
-                        <td>1</td>
-                        <td>99/99/9999</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>a</td>
+                        <td>{{student.ghiChu}}</td>
+                        <td>{{student.Hinh}}</td>
                         <td class="btn">
-                            <button id="open_abc" onclick="popup();">
+                            <button id="open_abc" onclick="popup('${student.maHS}');" value = "{{student.maHS}}">
                                 click me
                             </button>
                         </td>
@@ -175,7 +190,7 @@
                     </div>
                 </div>
             </div>
-            <button id="close__modal">close me</button>
+            <button id="close__modal"><i class="bx bx-x"></i></button>
         </div>
     </div>
 </div>

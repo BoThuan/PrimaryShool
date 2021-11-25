@@ -47,6 +47,10 @@
             color: $light-color;
             background: $linear-color-hover;
         }
+        i{
+            font-size: $large-font-size;
+            line-height: 2.5rem;
+        }
     }
 }
 
@@ -58,6 +62,7 @@
     user-select: none;
     padding-left: 40px;
     margin-bottom: 10px;
+    z-index: 1;
     input {
         position: absolute;
         opacity: -50%;
@@ -121,7 +126,18 @@
     }
 }
 
+#close__modal{
+    border: none;
+    font-size: $large-font-size;
+    @include radius-layout(6px, 6px, 6px, 6px);
+    transition: all .2s linear;
 
+    &:hover{
+        color: $light-color;
+        background-color: red;
+        cursor: pointer;
+    }
+}
 
 
 

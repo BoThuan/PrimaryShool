@@ -57,7 +57,7 @@ public class ResultsController {
     ResponseEntity<ResponseObject> UpdateResults(@RequestBody Results newResults, @PathVariable String MaKQ){
         Results UpdateResults = (Results) resultsService.findById(MaKQ)
                 .map(results -> {
-                    results.setSubclass(newResults.getSubclass());
+//                    results.setSubclasses(newResults.getSubclasses());
                     results.setAssignment(newResults.getAssignment());
                     results.setDiemKT(newResults.getDiemKT());
                     results.setDiemGiuak1(newResults.getDiemGiuak1());

@@ -13,6 +13,14 @@ public interface TeachersService {
 
     Optional<Teachers> findById(String MaGV);
 
+    Optional<Teachers> findByName(String TenGV);
+
+    Optional<Teachers> findByEmail(String Email);
+
+    Optional<Teachers> findBySDT(String SDT);
+
+    Integer countTeachers();
+
     Object save(Teachers newTeachers);
 
     boolean existsById(String MaGV);

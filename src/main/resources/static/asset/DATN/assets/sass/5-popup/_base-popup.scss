@@ -17,10 +17,17 @@
 }
 
 .modal {
-    background-color: #fff;
+    background-color: rgb(245, 245, 245);
     @include radius-layout();
     @include shadow();
     padding: 3rem 5rem;
     width: 60vw;
     max-width: 100%;
+    position: relative;
+
+    #close__modal{
+        position: absolute;
+        top: 0;
+        right: 0;    
+    }
 }

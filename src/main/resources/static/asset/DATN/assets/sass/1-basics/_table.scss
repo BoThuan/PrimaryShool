@@ -21,11 +21,13 @@ table {
     thead {
         position: sticky;
         top: 0;
+        z-index: 100;
         tr {
             background: $text-color;
             color: $title-color;
             font-size: $medium-font-size;
             font-weight: $bold-font-weight;
+            z-index: 100;
             th:first-of-type {
                 @include radius-layout(12px, 0, 0, 0);
             }
@@ -52,24 +54,15 @@ table {
 }
 .sticky {
     overflow: auto;
-    max-height: 80vh;
+    max-height: 65vh;
     @include radius-layout();
     @include shadow();
 }
-.table__HS--DSHS {
+.table__HS--DSHS, .table {
     .sticky {
         overflow: auto;
         max-height: 60vh;
         @include radius-layout();
         @include shadow();
     }
-}
-.w16 {
-    width: 24rem;
-}
-.w12 {
-    width: 12rem;
-}
-.w8 {
-    width: 8rem;
 }
