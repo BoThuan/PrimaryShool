@@ -4,7 +4,6 @@ app.config(function ($routeProvider) {
         // giao vien
         .when("/QLGV", {
             templateUrl: "./assets/views/GiaoVu/QLGV.html",
-            controller: "GiaoVu-Ctrl",
         })
         .when("/QLNS", {
             templateUrl: "./assets/views/GiaoVu/QLNS.html",

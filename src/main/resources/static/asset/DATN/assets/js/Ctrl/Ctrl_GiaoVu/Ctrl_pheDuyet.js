@@ -1,11 +1,11 @@
-var api = "http://localhost:8081/api/vi/Approve";
+var API_Approve = "http://localhost:8081/api/vi/Approve";
 
 app.controller("Approve-ctrl", function ($scope, $http) {
     $scope.date = new Date();
     $scope.Approves = [];
     $scope.form = {};
     $scope.loading = function () {
-        $http.get(`${api}/getAllApprove`).then((resp) => {
+        $http.get(`${API_Approve}/getAllApprove`).then((resp) => {
             $scope.Approves = resp.data;
         });
     };
@@ -19,7 +19,7 @@ app.controller("Approve-ctrl", function ($scope, $http) {
     $scope.create = function () {
         var Approve = angular.copy($scope.form);
         $http
-            .post(`${api}/insert`, Approve)
+            .post(`${API_Approve}/insert`, Approve)
             .then((resp) => {
                 $scope.Approves.push(resp.data);
                 $scope.loading();
@@ -36,7 +36,7 @@ app.controller("Approve-ctrl", function ($scope, $http) {
     $scope.update = function () {
         var Approve = angular.copy($scope.form);
         $http
-            .put(`${api}/${Approve.maPD}`, Approve)
+            .put(`${API_Approve}/${Approve.maPD}`, Approve)
             .then((resp) => {
                 var index = $scope.Approves.findIndex(
                     (p) => p.maPD == Approve.maPD
@@ -55,7 +55,7 @@ app.controller("Approve-ctrl", function ($scope, $http) {
     // Xóa
     $scope.delete = function (Approve) {
         $http
-            .delete(`${api}/${Approve.maPD}`)
+            .delete(`${API_Approve}/${Approve.maPD}`)
             .then((resp) => {
                 var index = $scope.Approves.findIndex(
                     (p) => p.maPD == Approve.maPD
@@ -77,7 +77,7 @@ app.controller("Approve-ctrl", function ($scope, $http) {
     $scope.findID = function (Approve) {
         console.log(`${Approve.maPD}`);
         $http
-            .get(`${api}/mahs=${Approve.maPD}`)
+            .get(`${API_Approve}/mahs=${Approve.maPD}`)
             .then((resp) => {
                 var index = $scope.Approves.findIndex(
                     (p) => p.maPD == Approve.maPD

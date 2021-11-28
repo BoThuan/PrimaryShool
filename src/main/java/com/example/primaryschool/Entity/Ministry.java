@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.persistence.Table;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Data
