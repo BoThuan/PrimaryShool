@@ -1,0 +1,78 @@
+// ---===================== thông tin =========================----
+.container--phhs {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    .about--title {
+        font-size: $medium-font-size;
+        text-align: center;
+        padding-top: 2rem;
+    }
+    .info--name,
+    .about--name {
+        font-size: $large-font-size;
+        text-align: center;
+        padding: 2rem 0;
+        @include text-color-gradient();
+        display: block;
+    }
+    .info--image {
+        width: 18%;
+        margin-right: 1rem;
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    .info {
+        width: 50%;
+    }
+    .info--about {
+        width: 30%;
+    }
+    .info-text {
+        display: flex;
+        padding: 1.2rem 0;
+        span {
+            width: 10rem;
+            color: rgb(104, 104, 104);
+        }
+        h4 {
+            width: 85%;
+        }
+        span,
+        h3,
+        h4 {
+            font-size: $medium-font-size;
+        }
+    }
+}
+
+// ---===================== Điểm =========================----
+.info--diem {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .name,
+    .class,
+    .year,
+    .mark {
+        display: flex;
+        padding: 1.2rem 0;
+        margin-right: 2rem;
+        span {
+            width: 13rem;
+            color: rgb(104, 104, 104);
+        }
+        span,
+        h3 {
+            font-size: $medium-font-size;
+        }
+    }
+    .mark {
+        h3 {
+            color: red;
+        }
+    }
+}
