@@ -1,9 +1,8 @@
-<div class="GiaoVien__HS">
-    <!-- table header -->
+<div class="hieuPho--QLGV">
     <div class="table__header">
         <!-- title -->
         <div class="table__header--title">
-            <h2>Quản lý điểm</h2>
+            <h2>Quản lý học sinh</h2>
         </div>
         <!-- search -->
         <div class="table__header--search btn--search input">
@@ -19,7 +18,7 @@
     </div>
 
     <!-- ----=================== form =====================---- -->
-    <div class="form__edit">
+    <!-- <div class="form__edit">
         <div class="input">
             <label for="eidt--mahs">
                 Mã học sinh:
@@ -45,68 +44,51 @@
         </div>
 
         <div class="input">
-            <label for="edit--diemkt">
-                Điểm kiểm tra:
+            <label for="edit--ngaysinhhs">
+                Ngày sinh:
                 <input
-                    class="w8"
+                    class="w12"
                     type="text"
-                    id="edit--diemkt"
-                    placeholder="Điểm"
+                    id="edit--ngaysinhhs"
+                    placeholder="Ngày sinh"
                 />
             </label>
         </div>
 
         <div class="input">
-            <label for="edit--giuaky1">
-                Điểm giữa kỳ I:
+            <label for="edit--gioitinhhs">
+                Giới tính:
                 <input
                     class="w8"
                     type="text"
-                    id="edit--giuaky1"
-                    placeholder="Điểm"
+                    id="edit--gioitinhhs"
+                    placeholder="Giới tính"
                 />
             </label>
         </div>
 
-        <div class="input">
-            <label for="edit--cuoiky1">
-                Điểm cuối kỳ I:
+        <div class="input  w34p diachihs">
+            <label for="edit--diachihs">
+                Địa chỉ:
                 <input
-                    class="w8"
+                    class="w80p"
                     type="text"
-                    id="edit--cuoiky1"
-                    placeholder="Điểm"
+                    id="edit--diachihs"
+                    placeholder="Địa chỉ"
                 />
             </label>
         </div>
 
-        <div class="input diemky2">
-            <label for="edit--giuaky2">
-                Điểm giữa kỳ II:
+        <div class="input input--ghichuhs">
+            <label for="edit--ghichuhs">
+                Ghi chú:
                 <input
-                    class="w8"
+                    class="w28"
                     type="text"
-                    id="edit--giuaky2"
-                    placeholder="Điểm"
+                    id="edit--ghichuhs"
+                    placeholder="Ghi chú"
                 />
             </label>
-        </div>
-
-        <div class="input diemky2">
-            <label for="edit--cuoiky2">
-                Điểm cuối kỳ II:
-                <input
-                    class="w8"
-                    type="text"
-                    id="edit--cuoiky2"
-                    placeholder="Điểm"
-                />
-            </label>
-        </div>
-
-        <div class="diemtb">
-            <label for="">Điểm trung bình: </label>
-            <h3>9</h3>
         </div>
 
         <div class="form__edit--btnGroup">
@@ -132,55 +114,43 @@
                 <button class="w8"><i class='bx bx-folder-open' ></i></button>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- ----=================== form =====================---- -->
 
-    <!-- -------Table------ -->
-    <div class="table__HS">
+    <!-- ----============ Table ===========---- -->
+    <div class="">
         <div class="sticky">
             <table>
                 <thead>
                     <tr>
-                        <th>Mã học sinh</th>
-                        <th>Tên học sinh</th>
-                        <th>Điểm kiểm tra</th>
-                        <th>Điểm giữa kỳ I</th>
-                        <th>Điểm cuối kỳ I</th>
-                        <th>Điểm giữa kỳ II</th>
-                        <th>Điểm cuối kỳ II</th>
-                        <th>Điểm trung bình</th>
-                        <th>Chỉnh sữa</th>
+                        <th class="w12">Mã học sinh</th>
+                        <th class="w16">Tên học sinh</th>
+                        <th class="">Ảnh</th>
+                        <th class="w12">Ngày sinh</th>
+                        <th class="w8">Giới tính</th>
+                        <th class="w16">Địa chỉ</th>
+                        <th class="w16">Ghi chú</th>
+                        <th class="w12">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>HS00001</td>
-                        <td>Nguyễn Văn a</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>9</td>
-                        <td>9</td>
-                        <td>
-                            <button
-                                id="open_abc"
-                                onclick="popup();"
-                                class="edit__diem"
-                            >
-                                <i class="bx bx-edit"></i>
-                            </button>
+                        <td>lorem</td>
+                        <td id="mahs">1</td>
+                        <td class="img__table">
+                            <img src="https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80" alt="">
+                        </td>
+                        <td>1</td>
+                        <td>99/99/9999</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td class="btn" >
+                            <button ><i class='icon--edit bx bxs-edit'></i></button>
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
-<!-- -----========= Modal =============------ -->
-<div class="modal_container" id="modal_container">
-    <div class="modal">
-        <div class="pop__diem">.</div>
-        <button id="close__modal"><i class="bx bx-x"></i></button>
     </div>
 </div>
