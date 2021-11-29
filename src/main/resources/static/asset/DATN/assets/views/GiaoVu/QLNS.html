@@ -12,6 +12,7 @@
             type="text"
             id="table__header--search"
             placeholder="Tìm kiếm"
+            ng-model="seachText"
           />
           <button><i class="bx bx-search-alt"></i></button>
         </label>
@@ -102,7 +103,7 @@
             </select>
         </label>
       </div>
-        <!-- TODO: 'TÂM' : thiếu input cho chức vụ, ghi chú và hình ảnh -  định dạng lại nha-->
+        <!-- TODO: 'TÂM' : thiếu input cho chức vụ, ghi chú và hình ảnh -  định dạng giúp tui lại nha-->
         <div class="input dienthoains">
             <label for="edit--ngaysinhgv">
               Chức vụ:
@@ -182,7 +183,7 @@
               <th class="w8">Mã nhân sự</th>
               <th class="w16">Tên nhân sự</th>
               <th class="w8">Chức Vụ</th>
-              <th class="w8">Ngày sinh</th>
+              <th class="w12">Ngày sinh</th>
               <th class="w8">Giới tính</th>
               <th class="w8">Email</th>
               <th class="w8">Số Điện thoái</th>
@@ -193,7 +194,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr data-ng-repeat="ministry in ministrys | orderBy:['maGiaoVu']">
+              <!-- * orderBy: sắp xếp danh sách theo mã giáo vụ từ nhỏ -> lớn; filter: lọc theo input có ng-model:searchText -->
+            <tr data-ng-repeat="ministry in ministrys | orderBy:['maGiaoVu']  | filter:seachText">
               <td id="mahs">{{ministry.maGiaoVu}}</td>
               <td>{{ministry.tenGiaoVu}}</td>
               <td>{{ministry.chucVu}}</td>
@@ -208,7 +210,7 @@
               </td>
               <td class="btn">
                 <button ng-click="edit(ministry)"><i class="icon--edit bx bxs-edit">Sửa</i></button>
-                <button ng-click="delete(ministry)"><i class="icon--edit bx bxs-edit">xóa</i></button>
+                <!-- <button ng-click="delete(ministry)"><i class="icon--edit bx bxs-edit">xóa</i></button> -->
               </td>
             </tr>
           </tbody>

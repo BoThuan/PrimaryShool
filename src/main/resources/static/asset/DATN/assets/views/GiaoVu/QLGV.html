@@ -12,6 +12,7 @@
             type="text"
             id="table__header--search"
             placeholder="Tìm kiếm"
+            ng-model="seachText"
           />
           <button><i class="bx bx-search-alt"></i></button>
         </label>
@@ -167,7 +168,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr data-ng-repeat="teacher in teachers">
+            <tr data-ng-repeat="teacher in teachers | filter:seachText">
               <td>{{teacher.maGV}}</td>
               <td id="mahs">{{teacher.tenGV}}</td>
               <td class="img__table">

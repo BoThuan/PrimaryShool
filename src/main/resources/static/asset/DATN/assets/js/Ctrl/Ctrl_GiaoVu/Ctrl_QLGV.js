@@ -97,7 +97,7 @@ app.controller('Teacher-Ctrl', function ($scope, $http) {
                         sdt: row.getCell(3).value,
                         email: row.getCell(4).value,
                     }
-                    var url = "http://localhost:8081/API_Teachers/vi/Teachers/insert";
+                    var url = API_Teachers+'/insert';
                     $http.post(url,student).then(resp =>{
                         console.log("Success",resp.data);
                         $scope.loading();
