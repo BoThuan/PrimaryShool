@@ -11,7 +11,6 @@ app.config(function ($routeProvider) {
         })
         .when("/GVDiem", {
             templateUrl: "./assets/views/GiaoVien/GVDiem.html",
-            controller: "Result-ctrl",
         })
         .when("/CGL", {
             templateUrl: "./assets/views/GiaoVien/CGL.html",

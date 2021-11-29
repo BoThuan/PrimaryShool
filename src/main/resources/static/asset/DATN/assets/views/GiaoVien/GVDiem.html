@@ -1,4 +1,4 @@
-<div ng-app="app" ng-controller="Result-ctrl">
+<div ng-controller="Results-ctrl">
     <div class="GiaoVien__HS">
         <!-- table header -->
         <div class="table__header">
@@ -82,7 +82,7 @@
                     <button class="w8" ng-click="update()"><i class="bx bx-upvote"></i></button>
                 </div>
                 <div class="btn">
-                    <button class="w8" ng-click="delete(result)"><i class="bx bx-trash"></i></button>
+                    <button class="w8" ng-click="delete(Results)"><i class="bx bx-trash"></i></button>
                 </div>
                 <div class="btn">
                     <button class="w8" ng-click="reset()" ><i class="bx bx-minus"></i></button>
@@ -103,6 +103,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Môn học</th>
                             <th>Mã học sinh</th>
                             <th>Tên học sinh</th>
                             <th>Điểm kiểm tra</th>
@@ -113,19 +114,21 @@
                             <th>Điểm trung bình</th>
                             <th>Chỉnh sữa</th>
                         </tr>
-                    </thead>
+                    </thead>    
                     <tbody>
-                        <tr ng-repeat="result in results">
-                            <td>{{result.students.maHS}}</td>
-                            <td>{{result.students.tenHS}}</td>
-                            <td>{{result.diemKT}}</td>
-                            <td>{{result.diemGiuak1}}</td>
-                            <td>{{result.diemCuoik1}}</td>
-                            <td>{{result.diemGiuak2}}</td>
-                            <td>{{result.diemCuoik2}}</td>
+                        <tr ng-repeat="Result in Results">
+                            <td>{{Result.maKQ}}</td>
+                            <td>{{Result.assignment.subjects.tenMon}}</td>
+                            <td>{{Result.students.maHS}}</td>
+                            <td>{{Result.students.tenHS}}</td>
+                            <td>{{Result.diemKT}}</td>
+                            <td>{{Result.diemGiuak1}}</td>
+                            <td>{{Result.diemCuoik1}}</td>
+                            <td>{{Result.diemGiuak2}}</td>
+                            <td>{{Result.diemCuoik2}}</td>
                             <td>không có thông tin trong data</td>
                             <td>
-                                <button ng-click="edit(result)" id="open_abc" class="edit__diem">
+                                <button ng-click="edit(Result)" id="open_abc" class="edit__diem">
                                     <i class="bx bx-edit"></i>
                                 </button>
                             </td>
