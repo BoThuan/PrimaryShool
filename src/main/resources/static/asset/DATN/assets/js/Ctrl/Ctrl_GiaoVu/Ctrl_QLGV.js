@@ -1,11 +1,11 @@
-var api = "http://localhost:8081/api/vi/Teachers";
+var API_Teachers = "http://localhost:8081/api/vi/Teachers";
 
-app.controller('GiaoVu-Ctrl', function ($scope, $http) {
+app.controller('Teacher-Ctrl', function ($scope, $http) {
     $scope.teachers = [];
     $scope.form = {};
 
     $scope.loading = function () {
-        $http.get(`${api}/getAllTeachers`).then((resp) => {
+        $http.get(`${API_Teachers}/getAllTeachers`).then((resp) => {
             $scope.teachers = resp.data;
         });
     };
@@ -26,7 +26,7 @@ app.controller('GiaoVu-Ctrl', function ($scope, $http) {
     $scope.create = function () {
         var teacher = angular.copy($scope.form);
         $http
-            .post(`${api}/insert`, teacher)
+            .post(`${API_Teachers}/insert`, teacher)
             .then((resp) => {
                 $scope.teachers.push(resp.data);
                 $scope.loading();
@@ -42,7 +42,7 @@ app.controller('GiaoVu-Ctrl', function ($scope, $http) {
     // Xóa
     $scope.delete = function (teacher) {
         $http
-            .delete(`${api}/${teacher.maGV}`)
+            .delete(`${API_Teachers}/${teacher.maGV}`)
             .then((resp) => {
                 var index = $scope.teachers.findIndex(
                     (p) => p.maGV == teacher.maGV
@@ -61,7 +61,7 @@ app.controller('GiaoVu-Ctrl', function ($scope, $http) {
     $scope.update = function () {
         var teacher = angular.copy($scope.form);
         $http
-            .put(`${api}/${teacher.maGV}`, teacher)
+            .put(`${API_Teachers}/${teacher.maGV}`, teacher)
             .then((resp) => {
                 var index = $scope.teachers.findIndex(
                     (p) => p.maGV == teacher.maGV
@@ -97,7 +97,7 @@ app.controller('GiaoVu-Ctrl', function ($scope, $http) {
                         sdt: row.getCell(3).value,
                         email: row.getCell(4).value,
                     }
-                    var url = "http://localhost:8081/api/vi/Teachers/insert";
+                    var url = API_Teachers+'/insert';
                     $http.post(url,student).then(resp =>{
                         console.log("Success",resp.data);
                         $scope.loading();
