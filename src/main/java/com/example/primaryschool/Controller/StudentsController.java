@@ -4,7 +4,6 @@ import com.example.primaryschool.Entity.Students;
 import com.example.primaryschool.Entity.ResponseObject;
 import com.example.primaryschool.Service.StudentsService;
 
-import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -99,7 +98,10 @@ public class StudentsController {
                     Students.setGioiTinh(newStudents.getGioiTinh());
                     Students.setDiaChi(newStudents.getDiaChi());
                     Students.setGhiChu(newStudents.getGhiChu());
+                    Students.setHinh(newStudents.getHinh());
+                    //Students.setResults(newStudents.getResults());
                     Students.setParents(newStudents.getParents());
+                    Students.setSubclass(newStudents.getSubclass());
                     return studentsService.save(Students);
                 }).orElseGet(() -> {
                     newStudents.setMaHS(MaHS);

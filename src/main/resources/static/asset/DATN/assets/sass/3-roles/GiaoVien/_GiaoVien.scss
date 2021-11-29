@@ -5,7 +5,7 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
-        .table--diem{
+        .table--diem {
             background-color: red;
         }
         &--caption {
@@ -39,37 +39,51 @@
         flex-wrap: wrap;
         flex-direction: row;
         margin: 2rem 0;
-        &--tenhs{
+        &--tenhs {
             width: 29%;
-            input{
+            input {
                 width: 73%;
             }
-        }  
-        &--info{
+        }
+        &--info {
             width: 100%;
             display: flex;
             gap: 2rem;
-            .input{
-                label{
+            .input {
+                label {
                     font-size: $medium-font-size;
                 }
             }
         }
-        &--diem{
+        &--diem {
             display: flex;
             margin: 2rem 0;
-            .input{
-                label{
+            .input {
+                label {
                     font-size: $medium-font-size;
                 }
-                &:hover{
+                &:hover {
                     cursor: pointer;
                     opacity: 0.8;
                 }
             }
-            .input + .input{
+            .input + .input {
                 padding-left: 3rem;
             }
         }
     }
 }
+
+.diemky2, .diemtb{
+    margin-top: 1.2rem;
+}
+.diemtb{
+    display: flex;
+    line-height: 3.6rem;
+    margin-right: 6rem;
+    h3{
+        font-size: $large-font-size;
+        color: red;
+    }
+}
+

@@ -1,0 +1,160 @@
+<div ng-controller="Classroom-ctrl">
+  <div class="table__header">
+    <!-- title -->
+    <div class="table__header--title">
+      <h2>Quản lý giáo viên</h2>
+    </div>
+    <!-- search -->
+    <div class="table__header--search btn--search input">
+      <label for="table__header--search">
+        <input type="text" id="table__header--search" placeholder="Tìm kiếm" />
+        <button><i class="bx bx-search-alt"></i></button>
+      </label>
+    </div>
+  </div>
+
+  <!-- ----=================== form =====================---- -->
+  <div class="form__edit">
+    <div class="input">
+      <label for="edit__qllop--malop">
+        Mã lớp:
+        <input
+          class="w12"
+          type="text"
+          id="edit__qllop--malop"
+          placeholder="Mã lớp"
+          ng-model="form.maLop"
+        />
+      </label>
+    </div>
+
+    <div class="input">
+      <label for="edit__qllop--tenlop">
+        Tên lớp:
+        <input
+          class="w12"
+          type="text"
+          id="edit__qllop--tenlop"
+          placeholder="Tên lớp"
+          ng-model="form.tenLop"
+        />
+      </label>
+    </div>
+
+    <div class="select">
+      <label for="eidt--Khoi">
+        Khối:
+        <select ng-model="form.khoi">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="input">
+      <label for="edit__qllop--namhoc">
+        Năm học:
+        <input
+          class="w12"
+          type="text"
+          id="edit__qllop--namhoc"
+          placeholder="Năm học"
+          ng-model="form.year"
+        />
+      </label>
+    </div>
+
+    <div class="input">
+      <label for="edit__qllop--magvien">
+        Mã giáo viên
+        <input
+          class="w20"
+          type="text"
+          id="edit__qllop--magvien"
+          placeholder="Mã giáo viên"
+          ng-model="form.ministry.maGiaoVu"
+        />
+      </label>
+    </div>
+
+    <div class="input">
+      <label for="edi__qllop--magvu">
+        Mã giáo vụ:
+        <input
+          class="w20"
+          type="text"
+          id="edi__qllop--magvu"
+          placeholder="Mã giáo vụ"
+          ng-model="form.teachers.maGV"
+        />
+      </label>
+    </div>
+
+    <div class="form__edit--btnGroup">
+      <div class="btn">
+        <button class="w8"><i class="bx bx-save"></i></button>
+      </div>
+      <div class="btn">
+        <button class="w8" ng-click="create()"><i class="bx bx-user-plus"></i></button>
+      </div>
+      <div class="btn">
+        <button class="w8" ng-click="update()"><i class="bx bx-upvote"></i></button>
+      </div>
+      <div class="btn">
+        <button class="w8" ng-click="delete(form)"><i class="bx bx-trash"></i></button>
+      </div>
+      <div class="btn">
+           <!-- TODO: Kiếm 1 icon reset form khác  -->
+        <button class="w8" ng-click="reset()"><i class="bx bx-minus"></i></button>
+      </div>
+      <div class="btn">
+        <!-- <button class="w8"><i class="bx bx-folder-plus"></i></button> -->
+          <!-- TODO: TÂM: css nút upload này nha, nút button không được phải dùng input upload-->
+          <!-- *input upload* -->
+          <input
+            type="file"
+            onchange="angular.element(this).scope().import(this.files)"
+          />
+      </div>
+      <div class="btn">
+        <button class="w8"><i class="bx bx-folder-open"></i></button>
+      </div>
+    </div>
+  </div>
+  <!-- ----=================== form =====================---- -->
+
+  <!-- ----============ Table ===========---- -->
+  <div class="">
+    <div class="sticky">
+      <table>
+        <thead>
+          <tr>
+            <th class="w12">Mã lớp</th>
+            <th class="w12">Tên lớp</th>
+            <th class="w12">Khối</th>
+            <th class="w12">Năm học</th>
+            <th class="w12">Mã giáo viên</th>
+            <th class="w12">Mã giáo vụ</th>
+            <th class="w8">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="Classroom in Classrooms | orderBy:['maHS'] | filter:seachText">
+            <td>{{Classroom.maLop}}</td>
+            <td>{{Classroom.tenLop}}</td>
+            <td>{{Classroom.khoi}}</td>
+            <td>{{Classroom.year}}</td>
+            <td>{{Classroom.ministry.maGiaoVu}}-{{Classroom.ministry.tenGiaoVu}}</td>
+            <td>{{Classroom.teachers.maGV}}-{{Classroom.teachers.tenGV}}</td>
+            <td class="btn">
+              <button ng-click="edit(Classroom)"><i class="icon--edit bx bxs-edit">Sửa</i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,20 @@
         font-size: $medium-font-size;
         margin-right: 2rem;
     }
+    .input, .select{
+        label{
+            font-weight: $bold-font-weight;
+        }
+    }
+    .gioitinh, .diachi, .input--ghichuhs, .diachihs, .dienthoaigv, .dienthoains{
+        margin-top: 1.2rem;
+    }
+    .diachi{
+        width: 50rem;
+        input{
+            width: 81%;
+        }
+    }
 }
 
 .form__edit--btnGroup {
@@ -27,4 +41,39 @@
 
 .icon--edit{
     font-size: $large-font-size;
+}
+
+// ---============================ phê duyệt ===========================----
+.container__pheduyet{
+    width: 100%;
+    height: 90vh;
+    .pheduyet__header{
+        display: flex;
+        align-items: center;
+        &--nguoigui, &--thoigian {
+            display: flex;
+            font-size: $medium-font-size;
+            margin: 0 2rem 2rem 0;
+            h3{
+                color: red;
+            }
+        }
+    }
+    .pheduyet__content{
+        textarea{
+            width: 99%;
+        }
+    }
+    .pheduyet__footer{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 2rem 1rem 2rem 0;
+        button{
+            background-color: #fff;
+            margin-left: 2rem;
+            font-size: $medium-font-size;
+            padding: .8rem;
+        }
+    }
 }

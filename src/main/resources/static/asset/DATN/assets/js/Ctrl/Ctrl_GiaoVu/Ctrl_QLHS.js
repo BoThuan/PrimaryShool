@@ -1,34 +1,28 @@
-// app.controller("hocsinhCrtl", function () {
-//     var test = [1,2,3,4,5,6,7,8,9];
+var API_Students = "http://localhost:8081/api/vi/Students";
+var API_Parents   = "http://localhost:8081/api/vi/Parents";
 
-//     var element = document.getElementById("demo");
-    
-//     var htmls = test.map(function (value) {
-//         return `<tr>
-//             <td>${value}</td>
-//             <td class="btn">
-//                 <button id="open_abc" onclick="popup(${value});">
-//                     click me
-//                 </button>            
-//             </td>
-//         </tr>`;
-//     })
-
-//     element.innerHTML = htmls.join("\n");
-// })
-
-var api = "http://localhost:8081/api/vi/Students";
-app.controller("student-ctrl", function ($scope, $http) {
+app.controller("Student-ctrl", function ($scope, $http) {
     $scope.date = new Date();
     $scope.students = [];
+    $scope.parents = [];
+
     $scope.form = {};
-    $scope.sortType = 'name';
+    $scope.countStudent = '';
     $scope.loading = function () {
-        $http.get(`${api}/getAllStudents`).then((resp) => {
+        $http.get(`${API_Students}/getAllStudents`).then((resp) => {
             $scope.students = resp.data;
         });
     };
+    $scope.loadingParent = function () {
+        $http.get(`${API_Parents}/getAllParents`).then((resp) => {
+            $scope.parents = resp.data;
+        });
+    };
+
+    // loading
     $scope.loading();
+    $scope.loadingParent();
+
     // Sửa
     $scope.edit = function (student) {
         $scope.form = angular.copy(student);
@@ -38,12 +32,13 @@ app.controller("student-ctrl", function ($scope, $http) {
     $scope.create = function () {
         var student = angular.copy($scope.form);
         $http
-            .post(`${api}/insert`, student)
+            .post(`${API_Students}/insert`, student)
             .then((resp) => {
                 $scope.students.push(resp.data);
                 $scope.loading();
                 $scope.reset();
                 alert("Thêm mới thành công");
+                $scope.loading();
             })
             .catch((error) => {
                 alert("Lỗi");
@@ -55,15 +50,16 @@ app.controller("student-ctrl", function ($scope, $http) {
     $scope.update = function () {
         var student = angular.copy($scope.form);
         $http
-            .put(`${api}/${student.maPH}`, student)
+            .put(`${API_Students}/${student.maHS}`, student)
             .then((resp) => {
                 var index = $scope.students.findIndex(
-                    (p) => p.maPH == student.maPH
+                    (p) => p.maHS == student.maHS
                 );
                 $scope.students[index] = student;
                 $scope.loading();
                 $scope.reset();
-                alert("Cập nhậtthành công");
+                alert("Cập nhập thành công");
+                $scope.loading();
             })
             .catch((error) => {
                 alert("Lỗi");
@@ -74,14 +70,15 @@ app.controller("student-ctrl", function ($scope, $http) {
     // Xóa
     $scope.delete = function (student) {
         $http
-            .delete(`${api}/${student.maPH}`)
+            .delete(`${API_Students}/${student.maHS}`)
             .then((resp) => {
                 var index = $scope.students.findIndex(
-                    (p) => p.maPH == student.maPH
+                    (p) => p.maHS == student.maHS
                 );
                 $scope.students.splice(index, 1);
                 $scope.reset();
                 alert("Xóa thành công");
+                $scope.loading();
             })
             .catch((error) => {
                 alert("Lỗi xóat");
@@ -94,12 +91,12 @@ app.controller("student-ctrl", function ($scope, $http) {
     };
 
     $scope.findID = function (student) {
-        console.log(`${student.maPH}`);
+        console.log(`${student.maHS}`);
         $http
-            .get(`${api}/mahs=${student.maPH}`)
+            .get(`${API_Students}/mahs=${student.maHS}`)
             .then((resp) => {
                 var index = $scope.students.findIndex(
-                    (p) => p.maPH == student.maPH
+                    (p) => p.maHS == student.maHS
                 );
                 $scope.students[index] = student;
                 $scope.students = resp.data;
@@ -128,9 +125,10 @@ app.controller("student-ctrl", function ($scope, $http) {
                         ghiChu: row.getCell(6).value,
                         Hinh: row.getCell(7).value,
                     }
-                    var url = "http://localhost:8081/api/vi/Students/insert";
+                    var url = API_Students+'/insert';
                     $http.post(url,student).then(resp =>{
                         console.log("Success",resp.data);
+                        alert("Thêm Thành Công");
                         $scope.loading();
                     }).catch(error =>{
                         console.log("Error",error);
@@ -142,31 +140,3 @@ app.controller("student-ctrl", function ($scope, $http) {
         reader.readAsArrayBuffer(files[0]);
     }
 });
-
-function popup(student) {
-    const open_abc = document.getElementById("open_abc");
-    const modal_container = document.getElementById("modal_container");
-    const close__modal = document.getElementById("close__modal");
-
-    // for(var i = 0; i < open_abc.length; i++) {
-    // 	open_abc[i].onclick = function(){
-    // 		console.log(open_abc[i])
-    // 	}
-    // open_abc[i].addEventListener('click',() => {
-    // modal_container.classList.add('show');
-
-    // 	});
-    // }
-
-    open_abc.addEventListener("click", () => {
-        modal_container.classList.add("show");
-    });
-
-    close__modal.addEventListener("click", () => {
-        modal_container.classList.remove("show");
-    });
-
-    // const getMaHS = document.getElementById("mahs").innerText;
-    // const code_abc = (document.getElementById("info__textbox--code").value =
-    //     getMaHS);
-}
