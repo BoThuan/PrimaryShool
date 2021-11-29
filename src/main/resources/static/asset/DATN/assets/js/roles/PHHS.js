@@ -8,5 +8,8 @@ app.config(function ($routeProvider) {
         .when("/diem", {
             templateUrl: "./assets/views/phuhuynh/diem.html",
         })
+        .when("/pheduyet", {
+            templateUrl: "./assets/views/phuhuynh/guiphanhoi.html",
+        })
         ;
 });
