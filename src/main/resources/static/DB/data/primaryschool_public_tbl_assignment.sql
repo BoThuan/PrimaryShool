@@ -1,0 +1,2 @@
+INSERT INTO public.tbl_assignment (mapc, ca, hoc_ky, ma_lop, ma_mon, magv) VALUES ('PC0001', '1(sáng)', '1', 'LOP0001', 'TV', 'TC0001');
+INSERT INTO public.tbl_assignment (mapc, ca, hoc_ky, ma_lop, ma_mon, magv) VALUES ('PC0002', '2(sáng)', '1', 'LOP0001', 'toan', 'TC0002');
