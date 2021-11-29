@@ -1,5 +1,6 @@
 package com.example.primaryschool.Controller;
 
+import com.example.primaryschool.Entity.Ministry;
 import com.example.primaryschool.Entity.Results;
 import com.example.primaryschool.Entity.ResponseObject;
 import com.example.primaryschool.Service.ResultsService;

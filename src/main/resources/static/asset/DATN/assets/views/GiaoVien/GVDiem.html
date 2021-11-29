@@ -1,186 +1,145 @@
-<div class="GiaoVien__HS">
-    <!-- table header -->
-    <div class="table__header">
-        <!-- title -->
-        <div class="table__header--title">
-            <h2>Quản lý điểm</h2>
+<div ng-app="app" ng-controller="Result-ctrl">
+    <div class="GiaoVien__HS">
+        <!-- table header -->
+        <div class="table__header">
+            <!-- title -->
+            <div class="table__header--title">
+                <h2>Quản lý điểm</h2>
+            </div>
+            <!-- search -->
+            <div class="table__header--search btn--search input">
+                <label for="table__header--search">
+                    <input type="text" id="table__header--search" placeholder="Tìm kiếm" ng-model="seachText" />
+                    <button><i class="bx bx-search-alt"></i></button>
+                </label>
+            </div>
         </div>
-        <!-- search -->
-        <div class="table__header--search btn--search input">
-            <label for="table__header--search">
-                <input
-                    type="text"
-                    id="table__header--search"
-                    placeholder="Tìm kiếm"
-                />
-                <button><i class="bx bx-search-alt"></i></button>
-            </label>
+
+        <!-- ----=================== form =====================---- -->
+        <div class="form__edit">
+            <div class="input">
+                <label for="eidt--mahs">
+                    Mã học sinh:
+                    <input class="w12" type="text" placeholder="Mã học sinh" ng-model="form.students.maHS" />
+                </label>
+            </div>
+
+            <div class="input">
+                <label for="edit--tenhs">
+                    Tên học sinh:
+                    <input class="w28" type="text" id="edit--tenhs" placeholder="Tên học sinh" ng-model="form.students.tenHS" />
+                </label>
+            </div>
+
+            <div class="input">
+                <label for="edit--diemkt">
+                    Điểm kiểm tra:
+                    <input class="w8" type="text" id="edit--diemkt" placeholder="Điểm" ng-model="form.diemKT"/>
+                </label>
+            </div>
+
+            <div class="input">
+                <label for="edit--giuaky1">
+                    Điểm giữa kỳ I:
+                    <input class="w8" type="text" id="edit--giuaky1" placeholder="Điểm" ng-model="form.diemGiuak1"/>
+                </label>
+            </div>
+
+            <div class="input">
+                <label for="edit--cuoiky1">
+                    Điểm cuối kỳ I:
+                    <input class="w8" type="text" id="edit--cuoiky1" placeholder="Điểm" ng-model="form.diemCuoik1"/>
+                </label>
+            </div>
+
+            <div class="input diemky2">
+                <label for="edit--giuaky2">
+                    Điểm giữa kỳ II:
+                    <input class="w8" type="text" id="edit--giuaky2" placeholder="Điểm" ng-model="form.diemGiuak2"/>
+                </label>
+            </div>
+
+            <div class="input diemky2">
+                <label for="edit--cuoiky2">
+                    Điểm cuối kỳ II:
+                    <input class="w8" type="text" id="edit--cuoiky2" placeholder="Điểm" ng-model="form.diemCuoik2"/>
+                </label>
+            </div>
+
+            <div class="diemtb">
+                <label for="">Điểm trung bình: </label>
+                <h3>9</h3>
+            </div>
+
+            <div class="form__edit--btnGroup">
+                <div class="btn">
+                    <button class="w8"><i class="bx bx-save"></i></button>
+                </div>
+                <div class="btn">
+                    <button class="w8" ng-click="create()"><i class="bx bx-user-plus"></i></button>
+                </div>
+                <div class="btn">
+                    <button class="w8" ng-click="update()"><i class="bx bx-upvote"></i></button>
+                </div>
+                <div class="btn">
+                    <button class="w8" ng-click="delete(result)"><i class="bx bx-trash"></i></button>
+                </div>
+                <div class="btn">
+                    <button class="w8" ng-click="reset()" ><i class="bx bx-minus"></i></button>
+                </div>
+                <div class="btn">
+                    <button class="w8"><i class='bx bx-folder-plus'></i></button>
+                </div>
+                <div class="btn">
+                    <button class="w8"><i class='bx bx-folder-open'></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- ----=================== form =====================---- -->
+
+        <!-- -------Table------ -->
+        <div class="table__HS">
+            <div class="sticky">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã học sinh</th>
+                            <th>Tên học sinh</th>
+                            <th>Điểm kiểm tra</th>
+                            <th>Điểm giữa kỳ I</th>
+                            <th>Điểm cuối kỳ I</th>
+                            <th>Điểm giữa kỳ II</th>
+                            <th>Điểm cuối kỳ II</th>
+                            <th>Điểm trung bình</th>
+                            <th>Chỉnh sữa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="result in results">
+                            <td>{{result.students.maHS}}</td>
+                            <td>{{result.students.tenHS}}</td>
+                            <td>{{result.diemKT}}</td>
+                            <td>{{result.diemGiuak1}}</td>
+                            <td>{{result.diemCuoik1}}</td>
+                            <td>{{result.diemGiuak2}}</td>
+                            <td>{{result.diemCuoik2}}</td>
+                            <td>không có thông tin trong data</td>
+                            <td>
+                                <button ng-click="edit(result)" id="open_abc" class="edit__diem">
+                                    <i class="bx bx-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
-    <!-- ----=================== form =====================---- -->
-    <div class="form__edit">
-        <div class="input">
-            <label for="eidt--mahs">
-                Mã học sinh:
-                <input
-                    class="w12"
-                    type="text"
-                    id="eidt--mahs"
-                    placeholder="Mã học sinh"
-                />
-            </label>
+    <!-- -----========= Modal =============------ -->
+    <div class="modal_container" id="modal_container">
+        <div class="modal">
+            <div class="pop__diem">.</div>
+            <button id="close__modal"><i class="bx bx-x"></i></button>
         </div>
-
-        <div class="input">
-            <label for="edit--tenhs">
-                Tên học sinh:
-                <input
-                    class="w28"
-                    type="text"
-                    id="edit--tenhs"
-                    placeholder="Tên học sinh"
-                />
-            </label>
-        </div>
-
-        <div class="input">
-            <label for="edit--diemkt">
-                Điểm kiểm tra:
-                <input
-                    class="w8"
-                    type="text"
-                    id="edit--diemkt"
-                    placeholder="Điểm"
-                />
-            </label>
-        </div>
-
-        <div class="input">
-            <label for="edit--giuaky1">
-                Điểm giữa kỳ I:
-                <input
-                    class="w8"
-                    type="text"
-                    id="edit--giuaky1"
-                    placeholder="Điểm"
-                />
-            </label>
-        </div>
-
-        <div class="input">
-            <label for="edit--cuoiky1">
-                Điểm cuối kỳ I:
-                <input
-                    class="w8"
-                    type="text"
-                    id="edit--cuoiky1"
-                    placeholder="Điểm"
-                />
-            </label>
-        </div>
-
-        <div class="input diemky2">
-            <label for="edit--giuaky2">
-                Điểm giữa kỳ II:
-                <input
-                    class="w8"
-                    type="text"
-                    id="edit--giuaky2"
-                    placeholder="Điểm"
-                />
-            </label>
-        </div>
-
-        <div class="input diemky2">
-            <label for="edit--cuoiky2">
-                Điểm cuối kỳ II:
-                <input
-                    class="w8"
-                    type="text"
-                    id="edit--cuoiky2"
-                    placeholder="Điểm"
-                />
-            </label>
-        </div>
-
-        <div class="diemtb">
-            <label for="">Điểm trung bình: </label>
-            <h3>9</h3>
-        </div>
-
-        <div class="form__edit--btnGroup">
-            <div class="btn">
-                <button class="w8"><i class="bx bx-save"></i></button>
-            </div>
-            <div class="btn">
-                <button class="w8"><i class="bx bx-user-plus"></i></button>
-            </div>
-            <div class="btn">
-                <button class="w8"><i class="bx bx-upvote"></i></button>
-            </div>
-            <div class="btn">
-                <button class="w8"><i class="bx bx-trash"></i></button>
-            </div>
-            <div class="btn">
-                <button class="w8"><i class="bx bx-minus"></i></button>
-            </div>
-            <div class="btn">
-                <button class="w8"><i class='bx bx-folder-plus'></i></button>
-            </div>
-            <div class="btn">
-                <button class="w8"><i class='bx bx-folder-open' ></i></button>
-            </div>
-        </div>
-    </div>
-    <!-- ----=================== form =====================---- -->
-
-    <!-- -------Table------ -->
-    <div class="table__HS">
-        <div class="sticky">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mã học sinh</th>
-                        <th>Tên học sinh</th>
-                        <th>Điểm kiểm tra</th>
-                        <th>Điểm giữa kỳ I</th>
-                        <th>Điểm cuối kỳ I</th>
-                        <th>Điểm giữa kỳ II</th>
-                        <th>Điểm cuối kỳ II</th>
-                        <th>Điểm trung bình</th>
-                        <th>Chỉnh sữa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>HS00001</td>
-                        <td>Nguyễn Văn a</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>9</td>
-                        <td>9</td>
-                        <td>
-                            <button
-                                id="open_abc"
-                                onclick="popup();"
-                                class="edit__diem"
-                            >
-                                <i class="bx bx-edit"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<!-- -----========= Modal =============------ -->
-<div class="modal_container" id="modal_container">
-    <div class="modal">
-        <div class="pop__diem">.</div>
-        <button id="close__modal"><i class="bx bx-x"></i></button>
     </div>
 </div>
