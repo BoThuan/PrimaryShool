@@ -19,8 +19,8 @@
     .gioitinh, .diachi, .input--ghichuhs, .diachihs, .dienthoaigv, .dienthoains{
         margin-top: 1.2rem;
     }
-    .diachi{
-        width: 50rem;
+    .diachi, .diachihs{
+        width: 80rem;
         input{
             width: 81%;
         }
@@ -76,4 +76,11 @@
             padding: .8rem;
         }
     }
+}
+
+.sticky__gvu--pheduyet{
+    overflow: auto;
+    max-height: 25vh;
+    @include radius-layout();
+    @include shadow();
 }
