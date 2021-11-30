@@ -1,4 +1,5 @@
 var API_Students = "http://localhost:8081/api/vi/Students";
+//http://localhost:8081/api/vi/Students/SDTphuhuynh/0321654987
 
 var app = angular.module("myApp", ["ngRoute"]);
 app.config(function ($routeProvider) {
@@ -13,6 +14,7 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("try-Ctrl", function ($scope, $http) {
+  // biến lấy cookie theo cặp {name, value}
   var cookies = document.cookie
     .split(";")
     .map((cookie) => cookie.split("="))
@@ -23,14 +25,34 @@ app.controller("try-Ctrl", function ($scope, $http) {
       }),
       {}
     );
+  
+  $scope.sdt = cookies.sdtphuhuynh;
+  //$scope.mahs = cookies.mahs;
+  //console.log($scope.mahs);
+  $scope.loading = function () {
+    // lấy sdt phụ huynh từ cookie
     $scope.sdt = cookies.sdtphuhuynh;
-    $scope.mahs = cookies.mahs;
-    console.log($scope.mahs)
-    $scope.loading = function () {
-        $http.get(`${API_Students}/mahs=${$scope.mahs}`).then((resp) => {
-            $scope.students = resp.data;
-            console.log($scope.students.data)
-        });
-    };
-    $scope.loading();
+    $http.get(`${API_Students}/SDTphuhuynh/${$scope.sdt}`).then((resp) => {
+      $scope.students = resp.data;
+      console.log($scope.students.data);
+    });
+  };
+  $scope.autoloading = function () {
+    if ($scope.sdt) {
+      $scope.loading();
+    } else {
+      window.location = "./Login_phuHuynh.html";
+    }
+  };
+  $scope.logout = function () {
+    if ($scope.sdt) {
+      window.localStorage.clear()
+      document.cookie = `sdtphuhuynh=`;
+      window.location = "./Login_phuHuynh.html";
+      
+  };}
+  
+
+  // khu vục chạy hàm
+  setInterval($scope.autoloading(), 300);
 });

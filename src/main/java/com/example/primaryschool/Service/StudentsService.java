@@ -15,6 +15,8 @@ public interface StudentsService {
 
     Optional<Students> findByName(String Name);
 
+    Optional<Students> findBySDT(String SDT);
+
     Optional<Students> findByMale(Boolean GioiTinh);
 
     Integer countStudent();

@@ -55,6 +55,19 @@ public class StudentsController {
                 );
     }
 
+    @GetMapping("/SDTphuhuynh/{SDT}")
+        // this request is: http://localhost:8081/api/vi/Students/SDTphuhuynh={SDT}
+    ResponseEntity<ResponseObject> findBySDT(@PathVariable String SDT) {
+        Optional<Students> foundProduct = studentsService.findBySDT(SDT);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with SDT = " + SDT, "")
+                );
+    }
+
     //TODO Write find student by Male
     @GetMapping("/gioitinh={GioiTinh}")
         // this request is: http://localhost:8081/api/vi/Students/gioitinh={GioiTinh}
