@@ -7,7 +7,7 @@ app.config(function ($routeProvider) {
         })
         .when("/HS", {
             templateUrl: "./assets/views/GiaoVien/hocsinh.html",
-            controller: "student-ctrl",
+            controller: "Student-ctrl",
         })
         .when("/GVDiem", {
             templateUrl: "./assets/views/GiaoVien/GVDiem.html",
@@ -20,5 +20,8 @@ app.config(function ($routeProvider) {
         })
         .when("/GVien_phanhoi", {
             templateUrl: "./assets/views/GiaoVien/GVien_phanhoi.html",
+        })
+        .when("/PH", {
+            templateUrl: "./PHHS.html",
         });
 });
