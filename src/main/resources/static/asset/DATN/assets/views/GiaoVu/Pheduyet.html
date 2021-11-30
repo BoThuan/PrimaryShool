@@ -1,29 +1,31 @@
 <div ng-controller="Approve-ctrl">
   <div class="container__pheduyet">
     <div class="pheduyet__header">
-      <div class="pheduyet__header--nguoigui">
-        <label for="">Người gửi: </label>
+      <div class="pheduyet__header--nguoigui input">
+        <label for="pheduyet__header--nguoigui">Người gửi: 
         <input
           class="w28"
           type="text"
-          id="edit--tengv"
+          id="pheduyet__header--nguoigui"
           placeholder="Tên người gửi"
           ng-model="form.nguoiGui"
         />
+        </label>
       </div>
-      <div class="pheduyet__header--thoigian">
-        <label for="">Thời gian: </label>
+      <div class="pheduyet__header--thoigian input">
+        <label for="pheduyet__header--thoigian">Thời gian: 
         <input
           class="w28"
           type="text"
-          id="edit--tengv"
+          id="pheduyet__header--thoigian"
           placeholder="Thời Gian"
           ng-model="form.thoiGian"
         />
+        </label>
       </div>
     </div>
     <div class="pheduyet__content">
-      <textarea name="" id="" cols="30" rows="10" ng-model="form.noiDung" placeholder="Nội dung"></textarea>
+      <textarea name="" id="" cols="30" rows="4" ng-model="form.noiDung" placeholder="Nội dung"></textarea>
     </div>
     <!-- TODO:  :lên nút radio nha Tâm , nút 'duyệt' màu xanh dương, nút 'vào hàng chờ' màu đỏ, -->
     <!-- ! 'TÂM' :chừa giúp tui 1 dòng làm nút dowload file nha >_< -->
@@ -32,12 +34,12 @@
         <label for="">Phê Duyệt: </label>
         <div class="control">
             <label class="radio">
-              <input style="color:aqua" type="radio" ng-model="form.pheDuyet" name="pheDuyet" ng-value="true"/>
+              <input type="radio" ng-model="form.pheDuyet" name="pheDuyet" ng-value="true"/>
               Duyệt
             </label>
             <label class="radio">
-              <input style="color:red" type="radio" ng-model="form.pheDuyet" name="pheDuyet" ng-value="false"/>
-              vào Hàng Chờ
+              <input type="radio" ng-model="form.pheDuyet" name="pheDuyet" ng-value="false"/>
+              Hàng Chờ
             </label>
           </div>
       </div>
@@ -53,7 +55,7 @@
       <!-- search -->
     </div>
 
-    <div class="sticky">
+    <div class="sticky__gvu--pheduyet">
       <table>
         <thead>
           <tr>
@@ -79,20 +81,73 @@
                     </button>
                     </td>
                 </tr>
+                <!-- <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
             </div>
             <div>
                 <tr>
                     <td>Trống</td>
                 </tr>
-            </div>
+            </div> -->
         </tbody>
       </table>
     </div>
     <!-- TODO: 'TÂM': sửa lại sao cho 2 cái bảng sẽ giữ nguyên ví trí khi có 4 dòng dữ liệu nha -->
     <!--  -->
     <br><br><br>
-    <h2 style="font-size:x-large">Danh sách Đã duyệt</h2>
-    <div class="sticky">
+    <div class="table__header">
+      <div class="table__header--title">
+        <h2>Danh sách đã duyệt</h2>
+      </div>
+    </div>
+    <div class="sticky__gvu--pheduyet">
       <table>
         <thead>
           <tr>
@@ -104,19 +159,20 @@
           </tr>
         </thead>
         <tbody ng-repeat="Approve in Approves | filter: { pheDuyet: 'true'}">
-          <tr>
-            {{Approve.maPD}}
-            <td>{{Approve.nguoiGui}}</td>
-            <td>{{Approve.thoiGian|date:'dd/MM/yyyy'}}</td>
-            <td>{{Approve.noiDung}}</td>
-            <td>{{Approve.pheDuyet?'Đã Duyệt':'Chưa Duyệt'}}</td>
-
-            <td class="btn">
-              <button ng-click="edit(Approve)">
-                <i class="icon--edit bx bxs-edit">Xem</i>
-              </button>
-            </td>
-          </tr>
+          <div>
+            <tr>
+              {{Approve.maPD}}
+              <td>{{Approve.nguoiGui}}</td>
+              <td>{{Approve.thoiGian|date:'dd/MM/yyyy'}}</td>
+              <td>{{Approve.noiDung}}</td>
+              <td>{{Approve.pheDuyet?'Đã Duyệt':'Chưa Duyệt'}}</td>
+              <td class="btn">
+                <button ng-click="edit(Approve)">
+                  <i class="icon--edit bx bxs-edit">Xem</i>
+                </button>
+              </td>
+            </tr>
+          </div>
         </tbody>
       </table>
     </div>
