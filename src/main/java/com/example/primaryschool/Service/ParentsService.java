@@ -15,8 +15,6 @@ public interface ParentsService {
 
     Optional<Parents> findByName(String TenPH);
 
-    Optional<Parents> findByPhone(String Sdt);
-
     Object save(Parents newParents);
 
     boolean existsById(String maMon);

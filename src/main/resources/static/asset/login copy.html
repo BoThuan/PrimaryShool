@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular-cookies.min.js"></script>
+  </head>
+  <body ng-controller="MyController">
+    {{cookiesUserName}} loves {{cookietechnology}}.
+  </body>
+  <script>
+    var myApp = angular.module("myApp", ["ngCookies"]);
+    myApp.controller("MyController", [
+      "$scope",
+      "$cookies",
+      "$cookieStore",
+      "$window",
+      function ($scope, $cookies, $cookieStore, $window) {
+        $cookies.userName = "Max Joe";
+        $scope.cookiesUserName = $cookies.userName;
+        $cookieStore.put("technology", "Web");
+        $scope.cookietechnology = $cookieStore.get("technology");
+      },
+    ]);
+  </script>
+</html>

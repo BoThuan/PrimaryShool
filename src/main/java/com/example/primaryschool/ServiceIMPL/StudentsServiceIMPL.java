@@ -31,6 +31,11 @@ public class StudentsServiceIMPL implements StudentsService {
     }
 
     @Override
+    public Optional<Students> findBySDT(String SDT) {
+        return RepoStudents.findBySDT(SDT);
+    }
+
+    @Override
     public Optional<Students> findByMale(Boolean GioiTinh) {
         return RepoStudents.findByMale(GioiTinh);
     }

@@ -26,6 +26,7 @@ public class Students implements Serializable {
     private String DiaChi;
     private String GhiChu;
     private String Hinh;
+    private String SDTPhuHuynh;
 
     @ManyToOne @JoinColumn(name = "MaPH") Parents parents;
 

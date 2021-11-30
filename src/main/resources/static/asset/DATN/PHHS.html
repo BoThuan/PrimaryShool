@@ -4,94 +4,83 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hiệu phó</title>
+        <title>Phụ huynh / học sinh</title>
 
-        <!-- ----------------Css------------------- -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- ----------------Css------------------- -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
-        <!-- ------------------icon------------------- -->
-        <link
-            href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
-            rel="stylesheet"
-        />
+    <!-- ------------------icon------------------- -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-        <!-- ------------------ angular ------------------- -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    </head>
-    <body ng-app="myApp">
-        <div class="container-full">
-            <!-- --------------- header ------------------ -->
+    <!-- ------------------ angular ------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  </head>
+  <body ng-app="myApp" ng-controller="try-Ctrl">
+    <div class="container-full">
+      <!-- --------------- header ------------------ -->
 
-            <div class="header">
-                <div class="header__name--role">
-                    <h2>Phụ huynh / học sinh</h2>
-                </div>
-                <div class="header__profile">
-                    <div class="profile--avata"></div>
-                    <div class="profile--name">
-                        <h2>aaaaaaaaaa cccccccccccc hhhhhhhhh</h2>
-                    </div>
-                </div>
-            </div>
-
-            <!-- --------------- nav ------------------ -->
-            <div class="nav">
-                <div class="nav__logo">
-                    <img
-                        src="./assets/images/logo.jpg"
-                        alt=""
-                        class="logo__img"
-                    />
-                </div>
-                <!-- TODO: when u click title menu show the view of title and highlight it-->
-                <div class="nav__navbar">
-                    <ul>
-                        <li>
-                            <a href="#!/thongtin">
-                                Thông tin
-                                <i class="bx bx-filter-alt"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!/diem">
-                                Điểm
-                                <i class="bx bx-check-square"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!/pheduyet">
-                                Phản hồi
-                                <i class="bx bx-blanket"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                Thời khóa biểu
-                                <i class="bx bx-calendar"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">
-                                Đăng xuất
-                                <i class="bx bx-log-out"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- --------------- main ------------------ -->
-            <div class="main">
-                <div class="main__container"></div>
-                <!-- <p><a href="#/!">Main</a></p> -->
-                <div ng-view></div>
-            </div>
-            <!-- --------------- footer ------------------ -->
-            <!-- <div class="footer">footer</div> -->
+      <div class="header">
+        <div class="header__name--role">
+          <h2>Phụ huynh / học sinh</h2>
         </div>
+        <div class="header__profile">
+          <div class="profile--avata">
+            <!-- <img ng-src="./assets/images/Images/{{students.data.hinh}}""
+            alt="{{students.data.hinh}}"/> -->
+          </div>
+          <div class="profile--name">
+            <h2>{{students.data.tenHS}}</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- --------------- nav ------------------ -->
+      <div class="nav">
+        <div class="nav__logo">
+          <img src="./assets/images/logo.jpg" alt="" class="logo__img" />
+        </div>
+        <!-- TODO: when u click title menu show the view of title and highlight it-->
+        <div class="nav__navbar">
+          <ul>
+            <li>
+              <a href="#!/thongtin">
+                Thông tin
+                <i class="bx bx-filter-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#!/diem">
+                Điểm
+                <i class="bx bx-check-square"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#!/pheduyet">
+                Phản hồi
+                <i class="bx bx-blanket"></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Thời khóa biểu
+                <i class="bx bx-calendar"></i>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="" ng-click="logout()">
+                Đăng xuất
+                <i class="bx bx-log-out"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
         <script src="./assets/js/roles/app.js"></script>
         <script src="./assets/js/roles/PHHS.js"></script>

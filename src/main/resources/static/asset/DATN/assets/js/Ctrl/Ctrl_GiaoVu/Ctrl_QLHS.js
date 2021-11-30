@@ -1,10 +1,11 @@
 var API_Students = "http://localhost:8081/api/vi/Students";
-var API_Parents   = "http://localhost:8081/api/vi/Parents";
+var API_Parents = "http://localhost:8081/api/vi/Parents";
 
 app.controller("Student-ctrl", function ($scope, $http) {
     $scope.date = new Date();
     $scope.students = [];
     $scope.parents = [];
+    $scope.ma = '';
 
     $scope.form = {};
     $scope.countStudent = '';
@@ -90,6 +91,7 @@ app.controller("Student-ctrl", function ($scope, $http) {
         $scope.form = {};
     };
 
+
     $scope.findID = function (student) {
         console.log(`${student.maHS}`);
         $http
@@ -106,18 +108,35 @@ app.controller("Student-ctrl", function ($scope, $http) {
                 console.log(err);
             });
     };
-    
-    $scope.import = function(files){
+
+    $scope.hienthi = function (student) {
+        $scope.form = angular.copy(student);
+        var mahocsinh = student.maHS;
+        console.log(mahocsinh)
+        var trangthai = document.getElementById("content").style.display
+        if (trangthai == 'none'&& mahocsinh != $scope.ma | mahocsinh == $scope.ma ) {
+            document.getElementById("content").style.display = 'block';
+            console.log("đổi trạng thái")
+            $scope.ma = mahocsinh;
+        }
+        else if (trangthai == 'block' && mahocsinh != $scope.ma) {
+            $scope.ma = mahocsinh;
+            console.log("oke chạy được")
+        }
+        else { document.getElementById("content").style.display = 'none'; }
+    };
+
+    $scope.import = function (files) {
         var reader = new FileReader();
         reader.onloadend = async () => {
             //=> reader.result
             var workbook = new ExcelJS.Workbook();
             await workbook.xlsx.load(reader.result);
             const worksheet = workbook.getWorksheet('Sheet1');
-            worksheet.eachRow((row,index) =>{
-                if(index>1){
+            worksheet.eachRow((row, index) => {
+                if (index > 1) {
                     let student = {
-                        maHS : row.getCell(1).value,
+                        maHS: row.getCell(1).value,
                         tenHS: row.getCell(2).value,
                         ngaySinh: +row.getCell(3).value,
                         gioiTinh: true && row.getCell(4).value,
@@ -125,13 +144,13 @@ app.controller("Student-ctrl", function ($scope, $http) {
                         ghiChu: row.getCell(6).value,
                         Hinh: row.getCell(7).value,
                     }
-                    var url = API_Students+'/insert';
-                    $http.post(url,student).then(resp =>{
-                        console.log("Success",resp.data);
+                    var url = API_Students + '/insert';
+                    $http.post(url, student).then(resp => {
+                        console.log("Success", resp.data);
                         alert("Thêm Thành Công");
                         $scope.loading();
-                    }).catch(error =>{
-                        console.log("Error",error);
+                    }).catch(error => {
+                        console.log("Error", error);
                         alert(error);
                     })
                 }
