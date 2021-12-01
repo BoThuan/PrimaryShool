@@ -13,6 +13,42 @@
                 </label>
             </div>
         </div>
+        <!-- ----=================== form =====================---- -->
+        <div class="form__edit" id="content" style="border: solid 1px; padding: 20px; background: #ddd; display: none">
+            <div class="input">
+                <label for="eidt--mahs">
+                    Tên Phụ Huynh
+                    <input class="w20" type="text" id="eidt--mahs" placeholder="Mã học sinh" 
+                    ng-model="form.parents.tenPH"/>
+                </label>
+            </div>
+
+            <div class="input">
+                <label for="edit--tenhs">
+                    Số Điện Thoại Liên Hệ
+                    <input class="w12" type="text" id="edit--tenhs" placeholder="Tên học sinh" 
+                    ng-model="form.parents.sdt"/>
+                </label>
+            </div>
+
+            <div class="input">
+                <label for="edit--ngaysinhhs">
+                    Mối Quan Hệ với Học Sinh
+                    <input class="w12" type="text" id="edit--ngaysinhhs" placeholder="Ngày sinh" 
+                    ng-model="form.parents.quanHe"/>
+                </label>
+            </div>
+
+            <div class="input  w34p diachihs">
+                <label for="edit--diachihs">
+                    Địa chỉ:
+                    <input class="w80p" type="text" id="edit--diachihs" placeholder="Địa chỉ" 
+                    ng-model="form.diaChi"/>
+                </label>
+            </div>
+        </div>
+        <!-- ----=================== form =====================---- -->
+
 
         <!-- ----============ Table ===========---- -->
         <div class="">

@@ -21,7 +21,5 @@ app.config(function ($routeProvider) {
         .when("/GVien_phanhoi", {
             templateUrl: "./assets/views/GiaoVien/GVien_phanhoi.html",
         })
-        .when("/PH", {
-            templateUrl: "./PHHS.html",
-        });
+        ;
 });
