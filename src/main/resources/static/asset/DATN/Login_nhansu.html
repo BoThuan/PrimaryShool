@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đăng nhập | Phụ Huynh / Học Sinh</title>
+    <title>Đăng nhập | Giáo vụ / Giáo Viên</title>
 
     <!-- import js -->
     <script
@@ -14,10 +14,10 @@
     ></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="./assets/views/Login/login_phuhuynh.js"></script>
-    
+    <!-- <script src="./assets/views/Login/login.js"></script> -->
+
     <!-- import css -->
-    <link rel="stylesheet" href="./assets/views/Login/login.css" />
+    <link rel="stylesheet" href="./assets/views/Login/login2.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -35,19 +35,19 @@
         </div>
 
         <div class="rgstr-btn splits">
-          <h3>Chào mừng</h3>
-          <p>Đây là website xem điểm của trường</p>
-          <button>Trang chủ</button>
+            <h3>Chào mừng</h3>
+            <p>Đây là website quản lý của trường</p>
+            <button>Trang chủ</button>
         </div>
         <div class="wrapper">
           <form id="login" tabindex="500">
             <h3>Login</h3>
             <div class="mail">
-              <input type="text" name="" ng-model="sdtphuHuynh" />
+              <input type="text" name="" ng-model="sdtGiaovien"/>
               <label>Phone</label>
             </div>
             <div class="passwd">
-              <input type="password" name="" ng-model="mkphuHuynh" />
+              <input type="password" name="" ng-model="mkGiaovien"/>
               <label>Password</label>
             </div>
             <div class="mail">
@@ -80,4 +80,52 @@
       }
     </style>
   </body>
+  <script>
+    var app = angular.module("app", []);
+    app.controller("app-Ctrl", function ($scope, $http) {
+      $scope.radom = Math.floor(100000 + Math.random() * 900000);
+      $scope.giaovien = [];
+      $scope.cookie = [];
+
+      $scope.loading = function () {
+        $http
+          .get("http://localhost:8081/api/vi/Teachers/getAllTeachers")
+          .then(function (resp) {
+            $scope.giaovien = resp.data;
+          });
+      };
+
+      $scope.loading();
+
+      $scope.login = function () {
+        var sdtGiaovien = $scope.sdtGiaovien;
+        var sdt = $scope.mkGiaovien;
+        var OPT = $scope.OTP;
+
+        $scope.loading();
+
+        $scope.giaovien.forEach(function (giaovien) {
+          if (
+            sdtGiaovien == giaovien.sdt &&
+            sdt == giaovien.sdt && OPT == $scope.radom
+          ) {
+            localStorage.setItem('sdtGiaovien', sdtGiaovien);
+            localStorage.getItem('sdtGiaovien');
+            document.cookie = `sdtGiaovien=${sdtGiaovien}`
+            document.cookie = `TenGiaovien=${giaovien.tenGV}`
+            window.location = "./GiaoVien.html";
+            console.log('ok');
+          } else {
+            msg = "Sai Số điện thoại hoặc mật khẩu";
+            console.log(msg);
+          }
+        });
+        // for (var a of $scope.giaovien) {
+        //   if(magv == a.sdt && sdt == $scope.radom) {
+        //     alert("ok")
+        //   }
+        // }
+      };
+    });
+  </script>
 </html>
