@@ -1,49 +1,3 @@
-//--------------------------- form edit ------------------------------------------
-.form__edit {
-    display: flex;
-    padding: 1rem 1rem;
-    margin: 1rem 0;
-    flex-wrap: wrap;
-    background-color: rgba(250, 250, 250, 0.897);
-    @include radius-layout();
-    @include shadow();
-    label{
-        font-size: $medium-font-size;
-        margin-right: 2rem;
-    }
-    .input, .select{
-        label{
-            font-weight: $bold-font-weight;
-        }
-    }
-    .gioitinh, .diachi, .input--ghichuhs, .diachihs, .dienthoaigv, .dienthoains{
-        margin-top: 1.2rem;
-    }
-    .diachi, .diachihs{
-        width: 80rem;
-        input{
-            width: 81%;
-        }
-    }
-}
-
-.form__edit--btnGroup {
-    display: flex;
-    margin-top: 1.2rem;
-    .btn{
-        margin-right: 2rem;
-        button{
-            background-color: #fff;
-            height: 3rem;
-        }
-    }
-}
-
-.icon--edit{
-    font-size: $large-font-size;
-}
-
-// ---============================ phê duyệt ===========================----
 .container__pheduyet{
     width: 100%;
     height: 90vh;
@@ -83,4 +37,62 @@
     max-height: 25vh;
     @include radius-layout();
     @include shadow();
+}
+.form__edit{
+    .edit--profile{
+        .cv-note{
+            display: flex;
+            // justify-content: space-between;
+            input{
+                width: 70%;
+            }
+            .note-chucvu{
+                margin-right: 2rem;
+            }
+        }
+        
+    }
+}
+
+.qly-lop{
+    margin: 1.2rem 0;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 14rem 1fr 1fr 1fr;
+    grid-template-rows: 4rem 4rem;
+    grid-gap: 1.2rem;
+    grid-template-areas: 
+    'key name khoi year gvien gvu'
+    'btn btn btn btng btng btng';
+    font-size: $medium-font-size;
+    .key-class{
+        grid-area: key;
+    }
+    .name-class{
+        grid-area: name;
+    }
+    .khoi{
+        grid-area: khoi;
+    }
+    .year-class{
+        grid-area: year;
+    }
+    .gvien-class{
+        grid-area: gvien;
+        input{
+            width: 60%;
+        }
+    }
+    .gvu-class{
+        grid-area: gvu;
+        input{
+            width: 60%;
+        }
+    }
+    .btng{
+        grid-area: btng;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
 }

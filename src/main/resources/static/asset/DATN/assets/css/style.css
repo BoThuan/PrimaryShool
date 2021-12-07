@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ */
 /* v1.0 | 20080212 */
 html, body, div, span, applet, object, iframe,
@@ -128,6 +129,93 @@ html {
   width: 80%;
 }
 
+.form__edit {
+  background-color: rgba(250, 250, 250, 0.897);
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+}
+.form__edit .edit--profile {
+  margin: 1.2rem 0;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 20rem 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 4rem 4rem 4rem;
+  grid-gap: 1.2rem;
+  grid-template-areas: "img key name name birthday gender" "img phone email email address address " "img note note btn btn btn";
+  font-size: 16px;
+}
+.form__edit .edit--profile .key {
+  grid-area: key;
+}
+.form__edit .edit--profile .key input {
+  width: 54%;
+}
+.form__edit .edit--profile .name {
+  grid-area: name;
+}
+.form__edit .edit--profile .name input {
+  width: 76%;
+}
+.form__edit .edit--profile .birthday {
+  grid-area: birthday;
+}
+.form__edit .edit--profile .birthday input {
+  width: 60%;
+}
+.form__edit .edit--profile .gender {
+  grid-area: gender;
+}
+.form__edit .edit--profile .phone {
+  grid-area: phone;
+}
+.form__edit .edit--profile .phone input {
+  width: 60%;
+}
+.form__edit .edit--profile .email, .form__edit .edit--profile .phuhuynh {
+  grid-area: email;
+}
+.form__edit .edit--profile .email input, .form__edit .edit--profile .phuhuynh input {
+  width: 87%;
+}
+.form__edit .edit--profile .email select, .form__edit .edit--profile .phuhuynh select {
+  width: 78%;
+}
+.form__edit .edit--profile .address {
+  grid-area: address;
+}
+.form__edit .edit--profile .address input {
+  width: 85%;
+}
+.form__edit .edit--profile .note, .form__edit .edit--profile .cv-note {
+  grid-area: note;
+}
+.form__edit .edit--profile .note input, .form__edit .edit--profile .cv-note input {
+  width: 80%;
+}
+.form__edit .edit--profile .image-profile {
+  grid-area: img;
+}
+.form__edit .edit--profile .image-profile img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1.2rem 1.2rem 1.2rem 1.2rem;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+}
+.form__edit .edit--profile .form__edit--btnGroup {
+  grid-area: btn;
+}
+.form__edit .form__edit--btnGroup {
+  display: flex;
+}
+.form__edit .form__edit--btnGroup .btn {
+  margin-right: 2rem;
+}
+.form__edit .form__edit--btnGroup .btn button {
+  background-color: #fff;
+  height: 3rem;
+}
+
 .btn--search {
   width: 40rem;
   position: relative;
@@ -256,6 +344,35 @@ html {
   color: #fff;
   background-color: red;
   cursor: pointer;
+}
+
+.upload-image input::before {
+  content: "Chọn file";
+  line-height: 3rem;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  font-size: 16px;
+  text-align: center;
+  position: absolute;
+}
+.upload-image input {
+  height: 3rem;
+  width: 12rem;
+  position: relative;
+  border: none;
+  border-radius: 12px 12px 12px 12px;
+  transition: all 0.2s linear;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+.upload-image input:focus {
+  border: 1px solid #8c4af2;
+}
+.upload-image input:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0.5rem rgba(137, 120, 161, 0.692);
 }
 
 .input label:hover {
@@ -573,48 +690,6 @@ table tbody tr:nth-of-type(2n) {
   color: red;
 }
 
-.form__edit {
-  display: flex;
-  padding: 1rem 1rem;
-  margin: 1rem 0;
-  flex-wrap: wrap;
-  background-color: rgba(250, 250, 250, 0.897);
-  border-radius: 12px 12px 12px 12px;
-  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
-}
-.form__edit label {
-  font-size: 16px;
-  margin-right: 2rem;
-}
-.form__edit .input label, .form__edit .select label {
-  font-weight: 500;
-}
-.form__edit .gioitinh, .form__edit .diachi, .form__edit .input--ghichuhs, .form__edit .diachihs, .form__edit .dienthoaigv, .form__edit .dienthoains {
-  margin-top: 1.2rem;
-}
-.form__edit .diachi, .form__edit .diachihs {
-  width: 80rem;
-}
-.form__edit .diachi input, .form__edit .diachihs input {
-  width: 81%;
-}
-
-.form__edit--btnGroup {
-  display: flex;
-  margin-top: 1.2rem;
-}
-.form__edit--btnGroup .btn {
-  margin-right: 2rem;
-}
-.form__edit--btnGroup .btn button {
-  background-color: #fff;
-  height: 3rem;
-}
-
-.icon--edit {
-  font-size: 24px;
-}
-
 .container__pheduyet {
   width: 100%;
   height: 90vh;
@@ -652,6 +727,57 @@ table tbody tr:nth-of-type(2n) {
   max-height: 25vh;
   border-radius: 12px 12px 12px 12px;
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.form__edit .edit--profile .cv-note {
+  display: flex;
+}
+.form__edit .edit--profile .cv-note input {
+  width: 70%;
+}
+.form__edit .edit--profile .cv-note .note-chucvu {
+  margin-right: 2rem;
+}
+
+.qly-lop {
+  margin: 1.2rem 0;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 14rem 1fr 1fr 1fr;
+  grid-template-rows: 4rem 4rem;
+  grid-gap: 1.2rem;
+  grid-template-areas: "key name khoi year gvien gvu" "btn btn btn btng btng btng";
+  font-size: 16px;
+}
+.qly-lop .key-class {
+  grid-area: key;
+}
+.qly-lop .name-class {
+  grid-area: name;
+}
+.qly-lop .khoi {
+  grid-area: khoi;
+}
+.qly-lop .year-class {
+  grid-area: year;
+}
+.qly-lop .gvien-class {
+  grid-area: gvien;
+}
+.qly-lop .gvien-class input {
+  width: 60%;
+}
+.qly-lop .gvu-class {
+  grid-area: gvu;
+}
+.qly-lop .gvu-class input {
+  width: 60%;
+}
+.qly-lop .btng {
+  grid-area: btng;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
 }
 
 .container--phhs {
