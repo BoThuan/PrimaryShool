@@ -1,0 +1,53 @@
+.container-news {
+    max-height: 85vh;
+    overflow: auto;
+    
+    .news {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 16rem 16rem;
+        grid-gap: 2rem;
+        grid-template-rows: auto;
+        grid-template-areas: "text text text date button";
+        
+        font-size: $medium-font-size;
+        
+        background-color: #fff;
+        padding: 1rem;
+        margin-bottom: 1.2rem;
+        border: 1px solid #ccc;
+
+        @include radius-layout();
+        @include shadow();
+
+        transition: all .2s linear;
+
+        .news__text {
+            grid-area: text;
+            max-height: 4.6rem;
+            width: 100%; // chiều rộng bằng khối bao nó
+            white-space: pre-wrap;
+            overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+            text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+            -webkit-line-clamp: 3; // số dòng muốn hiển thị
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+        }
+        .news__date {
+            grid-area: date;
+            line-height: 4.6rem;
+
+            font-weight: $extra-bold-font-weight;
+            text-align: center;
+        }
+        .news__button {
+            grid-area: button;
+            text-align: center;
+        }
+
+        &:hover{
+            cursor: pointer;
+            border: 1px solid $text-color;
+            transform: translateY(-5px);
+        }
+    }
+}

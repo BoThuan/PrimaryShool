@@ -512,6 +512,52 @@ table tbody tr:nth-of-type(2n) {
   border: none;
 }
 
+.container-news {
+  max-height: 85vh;
+  overflow: auto;
+}
+.container-news .news {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 16rem 16rem;
+  grid-gap: 2rem;
+  grid-template-rows: auto;
+  grid-template-areas: "text text text date button";
+  font-size: 16px;
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s linear;
+}
+.container-news .news .news__text {
+  grid-area: text;
+  max-height: 4.6rem;
+  width: 100%;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+.container-news .news .news__date {
+  grid-area: date;
+  line-height: 4.6rem;
+  font-weight: 600;
+  text-align: center;
+}
+.container-news .news .news__button {
+  grid-area: button;
+  text-align: center;
+}
+.container-news .news:hover {
+  cursor: pointer;
+  border: 1px solid #9B9AD9;
+  transform: translateY(-5px);
+}
+
 .header {
   width: calc(100% - 2rem);
   height: 100%;
@@ -611,83 +657,55 @@ table tbody tr:nth-of-type(2n) {
   width: calc(100% - 2rem);
 }
 
-.GiaoVien__HS .table__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.GiaoVien__HS .table__header .table--diem {
-  background-color: red;
-}
-.GiaoVien__HS .table__header--caption {
-  line-height: 3rem;
-}
-.GiaoVien__HS .table__header--caption h3 {
-  font-size: 24px;
-  color: #9B9AD9;
-}
-.GiaoVien__HS .table__header--btn {
-  width: 60%;
-  display: grid;
-  grid-template-columns: 1fr 20% 20% 20%;
-  grid-template-rows: 3rem;
-  grid-gap: 1rem;
-  text-align: center;
-  cursor: pointer;
-}
-.GiaoVien__HS .checkbox__diemDanh {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-}
-.GiaoVien__HS .edit__hs {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 2rem 0;
-}
-.GiaoVien__HS .edit__hs--tenhs {
-  width: 29%;
-}
-.GiaoVien__HS .edit__hs--tenhs input {
-  width: 73%;
-}
-.GiaoVien__HS .edit__hs--info {
-  width: 100%;
-  display: flex;
-  gap: 2rem;
-}
-.GiaoVien__HS .edit__hs--info .input label {
-  font-size: 16px;
-}
-.GiaoVien__HS .edit__hs--diem {
-  display: flex;
-  margin: 2rem 0;
-}
-.GiaoVien__HS .edit__hs--diem .input label {
-  font-size: 16px;
-}
-.GiaoVien__HS .edit__hs--diem .input:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-.GiaoVien__HS .edit__hs--diem .input + .input {
-  padding-left: 3rem;
-}
-
-.diemky2, .diemtb {
-  margin-top: 1.2rem;
-}
-
-.diemtb {
+.tbcn {
   display: flex;
   line-height: 3.6rem;
   margin-right: 6rem;
 }
-.diemtb h3 {
+.tbcn h3 {
   font-size: 24px;
   color: red;
+  margin-left: 1.6rem;
+}
+
+.edit--profile--diem {
+  margin: 1.2rem 0;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 22rem 1fr 1fr 1fr;
+  grid-template-rows: 4rem 4rem;
+  grid-gap: 1.2rem;
+  grid-template-areas: "key name btng btng " "diemkt diemky1 diemky2 tbcn";
+  font-size: 16px;
+}
+.edit--profile--diem .key__gvien--diem {
+  grid-area: key;
+}
+.edit--profile--diem .key__gvien--diem input {
+  width: 50%;
+}
+.edit--profile--diem .name-gvien--diem {
+  grid-area: name;
+}
+.edit--profile--diem .diemkt {
+  grid-area: diemkt;
+}
+.edit--profile--diem .diemky-1 {
+  grid-area: diemky1;
+}
+.edit--profile--diem .diemky-2 {
+  grid-area: diemky2;
+}
+.edit--profile--diem .diemky-1, .edit--profile--diem .diemky-2 {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+.edit--profile--diem .tbcn {
+  grid-area: tbcn;
+}
+.edit--profile--diem .btng {
+  grid-area: btng;
 }
 
 .container__pheduyet {
