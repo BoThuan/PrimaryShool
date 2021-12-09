@@ -35,27 +35,28 @@
         </div>
 
         <div class="rgstr-btn splits">
-            <h3>Chào mừng</h3>
-            <p>Đây là website quản lý của trường</p>
-            <button>Trang chủ</button>
+          <h3>Chào mừng</h3>
+          <p>Đây là website quản lý của trường</p>
+          <button>Trang chủ</button>
         </div>
         <div class="wrapper">
           <form id="login" tabindex="500">
             <h3>Login</h3>
             <div class="mail">
-              <input type="text" name="" ng-model="sdtGiaovien"/>
+              <input type="text" name="" ng-model="sdtgiaovu" />
               <label>Phone</label>
             </div>
             <div class="passwd">
-              <input type="password" name="" ng-model="mkGiaovien"/>
+              <input type="password" name="" ng-model="mkgiaovu" />
               <label>Password</label>
             </div>
             <div class="mail">
-                <input type="text" name="" ng-model="OTP"/>
-                <label style="font-size: 14px;">OTP: {{radom}}</label>
-              </div>
+              <input type="text" name="" ng-model="OTP" />
+              <label style="font-size: 14px">OTP: {{radom}}</label>
+            </div>
             <div class="submit">
-              <button class="dark" ng-click="login()">Login</button>
+              <button class="dark" ng-click="GiaoVu()">Giáo Vụ</button>
+              <button class="dark" ng-click="giaovu()">Giáo Viên</button>
             </div>
           </form>
         </div>
@@ -84,47 +85,64 @@
     var app = angular.module("app", []);
     app.controller("app-Ctrl", function ($scope, $http) {
       $scope.radom = Math.floor(100000 + Math.random() * 900000);
-      $scope.giaovien = [];
-      $scope.cookie = [];
+      $scope.giaovu = [];
+      $scope.datasdt = "";
 
-      $scope.loading = function () {
+      $scope.GiaoVu = function () {
+        //lấy dữ liệu
+        var sdtgiaovu = $scope.sdtgiaovu;
+        var sdt = $scope.mkgiaovu;
+        var OPT = $scope.OTP;
+
+        //gọi dự liệu từ database
         $http
-          .get("http://localhost:8081/api/vi/Teachers/getAllTeachers")
+          .get(`http://localhost:8081/api/vi/Ministry/SDT/${sdtgiaovu}`)
           .then(function (resp) {
-            $scope.giaovien = resp.data;
+            $scope.giaovu = resp.data;
+            console.log(resp.status);
+            console.log($scope.giaovu.status);
+
+            $scope.datasdt = $scope.giaovu.data.sdt;
+            if (resp.status == 200) {
+              if (
+                sdtgiaovu == $scope.datasdt &&
+                sdt == $scope.datasdt &&
+                OPT == $scope.radom
+              ) {
+                $scope.deleteAllCookies();
+                //http://localhost:8081/api/vi/Ministry/SDT/0329000687
+                $scope.setCookie("maGiaoVu", $scope.giaovu.data.maGiaoVu, 1);
+                $scope.setCookie("TenGiaoVu", $scope.giaovu.data.tenGiaoVu, 1);
+                $scope.setCookie("emailGiaoVu", $scope.giaovu.data.email, 1);
+                $scope.setCookie("sdtGiaoVu", $scope.giaovu.data.sdt, 1);
+
+                //window.location = "./GiaoVu.html";
+                console.log("ok");
+              } else {
+                console.log("Wrong");
+                $scope.deleteAllCookies();
+              }
+            } else {
+              console.log("Không thể lấy dữ liệu");
+            }
           });
       };
 
-      $scope.loading();
+      $scope.setCookie = function (cname, cvalue, exdays = 999) {
+        var d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      };
+      $scope.deleteAllCookies = function () {
+        var cookies = document.cookie.split(";");
 
-      $scope.login = function () {
-        var sdtGiaovien = $scope.sdtGiaovien;
-        var sdt = $scope.mkGiaovien;
-        var OPT = $scope.OTP;
-
-        $scope.loading();
-
-        $scope.giaovien.forEach(function (giaovien) {
-          if (
-            sdtGiaovien == giaovien.sdt &&
-            sdt == giaovien.sdt && OPT == $scope.radom
-          ) {
-            localStorage.setItem('sdtGiaovien', sdtGiaovien);
-            localStorage.getItem('sdtGiaovien');
-            document.cookie = `sdtGiaovien=${sdtGiaovien}`
-            document.cookie = `TenGiaovien=${giaovien.tenGV}`
-            window.location = "./GiaoVien.html";
-            console.log('ok');
-          } else {
-            msg = "Sai Số điện thoại hoặc mật khẩu";
-            console.log(msg);
-          }
-        });
-        // for (var a of $scope.giaovien) {
-        //   if(magv == a.sdt && sdt == $scope.radom) {
-        //     alert("ok")
-        //   }
-        // }
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i];
+          var eqPos = cookie.indexOf("=");
+          var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
       };
     });
   </script>
