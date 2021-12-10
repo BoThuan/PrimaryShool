@@ -1,0 +1,290 @@
+.container__home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f6f3;
+    .home__header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .header--top {
+            font-size: $small-font-size;
+            padding: 5px;
+            background-color: #ccc;
+            a {
+                text-decoration: none;
+                margin-right: 2rem;
+                color: #fff;
+                transition: all 0.2 linear;
+                &:hover {
+                    color: #8c4af2;
+                }
+            }
+        }
+
+        .header--nav {
+            max-height: 8rem;
+            background-image: linear-gradient(to right, #b28ee6, #7883f5);
+            margin: 0.6rem 0;
+            nav {
+                .container-fluid {
+                    img {
+                        object-fit: cover;
+                        max-height: 6rem;
+                        @include radius-layout();
+                    }
+                }
+                font-size: $large-font-size;
+                font-weight: $bold-font-weight;
+                ul {
+                    li {
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+                form {
+                    button {
+                        border: 1px solid #fff;
+                        color: #fff;
+                        @include radius-layout();
+                        transition: all 0.2 linear;
+                        font-size: $medium-font-size;
+                        &:hover {
+                            background-color: #fff;
+                            color: #8c4af2;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header--image {
+            img {
+                max-height: 70vh;
+            }
+        }
+    }
+    .home__body {
+        width: 70%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "dtao dtao dtao dtao"
+            "dtao dtao dtao dtao"
+            "loiich loiich loiich banner"
+            "loiich loiich loiich banner"
+            "tlieu tlieu tlieu banner"
+            "tlieu tlieu tlieu banner"
+            "tlieu tlieu tlieu banner"
+            "dchi dchi dchi dchi"
+            "dchi dchi dchi dchi";
+        .banner {
+            grid-area: banner;
+            margin: 1rem 0;
+            padding: 0 0 0 1.6rem;
+            @include radius-layout();
+            img{
+                object-fit: cover;
+                width: 100%;
+                @include radius-layout();
+                @include shadow();
+            }
+        }
+        .info__daotao {
+            margin: 1rem 0;
+            padding: 1.2rem;
+            background-color: #fff;
+
+            grid-area: dtao;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-gap: 1.6rem;
+            grid-template-areas:
+                "text text text lop1"
+                "lop2 lop3 lop4 lop5";
+
+            @include shadow();
+            @include radius-layout();
+            &--text {
+                grid-area: text;
+                h2 {
+                    text-transform: uppercase;
+                    font-size: $extra-large-font-size;
+                    font-weight: $extra-bold-font-weight;
+                    color: $title-color;
+                    padding: 5px 0rem;
+                }
+                p {
+                    font-size: $large-font-size;
+                    overflow: hidden;
+                }
+            }
+            &--lop1 {
+                grid-area: lop1;
+            }
+            &--lop2 {
+                grid-area: lop2;
+            }
+            &--lop3 {
+                grid-area: lop3;
+            }
+            &--lop4 {
+                grid-area: lop4;
+            }
+            &--lop5 {
+                grid-area: lop5;
+            }
+
+            .info__daotao--1,
+            .info__daotao--2,
+            .info__daotao--3,
+            .info__daotao--4,
+            .info__daotao--5 {
+                position: relative;
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    z-index: 0;
+                }
+                span {
+                    position: absolute;
+                    z-index: 1;
+                    left: 50%;
+                    bottom: 10%;
+                    color: #fff;
+                    font-size: $large-font-size;
+                    font-weight: $bold-font-weight;
+                    transform: translate(-50%, -10%);
+                }
+            }
+        }
+        .info__loiich {
+            grid-area: loiich;
+            background-color: #fff;
+            @include radius-layout();
+            @include shadow();
+            margin: 1rem 0;
+            &--title {
+                h2 {
+                    text-transform: uppercase;
+                    font-size: $extra-large-font-size;
+                    font-weight: $extra-bold-font-weight;
+                    color: #8c4af2;
+                    background-color: #ccc;
+                    border-radius: 1.2rem 1.2rem 0 0;
+                    padding: 2px 2rem;
+                }
+            }
+            .info__loiich--image {
+                margin: 1.2rem 0;
+                width: 100%;
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    padding: 0 2rem;
+                }
+            }
+            p {
+                font-size: $large-font-size;
+                padding: 0 2rem;
+            }
+            strong{
+                font-size: $large-font-size;
+                color:rgb(255, 136, 0);
+                padding: 0 2rem;
+            }
+        }
+        .info__tailieu {
+            grid-area: tlieu;
+            margin: 1rem 0;
+            background-color: #fff;
+            @include radius-layout();
+            @include shadow();
+            &--title {
+                h2 {
+                    text-transform: uppercase;
+                    font-size: $extra-large-font-size;
+                    font-weight: $extra-bold-font-weight;
+                    color: #8c4af2;
+                    background-color: #ccc;
+                    border-radius: 1.2rem 1.2rem 0 0;
+                    padding: 2px 2rem;
+                }
+            }
+            &--list {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 5%;
+                .list--1, .list--2, .list--3, .list--4, .list--5, .list--6{
+                    width: 45%;
+                    max-height: 45rem;
+                    margin: 2rem;
+                    position: relative;
+                    @include radius-layout();
+                    @include shadow();
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        transition: all .2s linear;
+                        @include radius-layout();
+                        &:hover{
+                            opacity: 0.6;
+                        }
+                    }
+                    span{
+                        position: absolute;
+                        z-index: 1;
+                        left: 50%;
+                        bottom: 10%;
+                        color: #fff;
+                        font-size: $extra-large-font-size;
+                        font-weight: $bold-font-weight;
+                        transform: translate(-50%, -10%);
+                    }
+                }
+            }
+        }
+        .info__diachi {
+            grid-area: dchi;
+            margin: 1rem 0;
+            background-color: #fff;
+            @include radius-layout();
+            @include shadow();
+            &--title {
+                h2 {
+                    text-transform: uppercase;
+                    font-size: $extra-large-font-size;
+                    font-weight: $extra-bold-font-weight;
+                    color: #8c4af2;
+                    background-color: #ccc;
+                    border-radius: 1.2rem 1.2rem 0 0;
+                    padding: 2px 2rem;
+                }
+            }
+            .info__diachi--content {
+                img{
+                    padding: 2rem;
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .home__footer {
+        height: 60rem;
+        width: 100%;
+        background-color: #000;
+    }
+}
