@@ -69,7 +69,7 @@
         <!-- TODO:dành cho 'THUẬN': chỉnh sửa hiển thị khi không có dữ liệu trong bảng thì hiển thị 1 dòng trống -->
         <tbody>
             <div>
-                <tr  ng-repeat="Approve in Approves | filter: { pheDuyet: 'false'}"">
+                <tr  ng-repeat="Approve in Approves | filter: { pheDuyet: 'false'}">
                     {{Approve.maPD}}
                     <td>{{Approve.nguoiGui}}</td>
                     <td>{{Approve.thoiGian|date:'dd/MM/yyyy'}}</td>

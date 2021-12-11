@@ -4,6 +4,14 @@ var API_Approve = "http://localhost:8081/api/vi/Approve";
 //http://localhost:8081/api/vi/Students/SDTphuhuynh/0321654987
 
 var app = angular.module("myApp", ["ngRoute"]);
+
+app.run(function ($http, $rootScope, $timeout) {
+    $rootScope.TenHocSinh = getCookie("Tenhocsinh");
+    $rootScope.sdtPhuhuynh = getCookie("sdtphuhuynh");
+    if ($rootScope.TenHocSinh == "") {
+      window.location = "./Login_phuhuynh.html";
+    }
+  });
 app.config(function ($routeProvider) {
     $routeProvider
         // giao vien
@@ -84,3 +92,14 @@ app.controller("try-Ctrl", function ($scope, $http) {
     // khu vục chạy hàm
     setInterval($scope.autoloading(), 300);
 });
+
+
+const getCookie = (cookie_name) => {
+    // Construct a RegExp object as to include the variable name
+    const re = new RegExp(`(?<=${cookie_name}=)[^;]*`);
+    try {
+      return document.cookie.match(re)[0]; // Will raise TypeError if cookie is not found
+    } catch {
+      return "No Data";
+    }
+  };

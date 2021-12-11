@@ -14,6 +14,7 @@ app.config(function ($routeProvider) {
     // giao vien
     .when("/", {
       templateUrl: "./assets/views/GiaoVien/Thongbao.html",
+      controller: "Approve-ctrl",
     })
     .when("/HS", {
       templateUrl: "./assets/views/GiaoVien/hocsinh.html",
