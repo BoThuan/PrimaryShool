@@ -1,4 +1,4 @@
-<div ng-controller="Student-ctrl">
+<div>
     <div class="hieuPho--QLGV">
         <div class="table__header">
             <!-- title -->
@@ -86,7 +86,7 @@
                                 ng-repeat="parent in parents"
                                 ng-value="parent.maPH"
                             >
-                                {{parent.tenPH}}-{{parent.sdt}}
+                                {{parent.tenPH}}-{{parent.maPH}}
                             </option>
                         </select>
                     </label>
@@ -195,7 +195,7 @@
                             <td>{{student.diaChi}}</td>
                             <td>{{student.ghiChu}}</td>
                             <td>
-                                {{student.parents.tenPH}}-{{student.parents.sdt}}
+                                {{student.parents.tenPH}}-{{student.sdtphuHuynh}}
                             </td>
                             <td class="btn">
                                 <button ng-click="edit(student)">

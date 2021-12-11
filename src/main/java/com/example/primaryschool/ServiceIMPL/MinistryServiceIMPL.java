@@ -26,6 +26,11 @@ public class MinistryServiceIMPL implements MinistryService {
     }
 
     @Override
+    public Optional<Ministry> findBySDT(String SDT) {
+        return RepoMinistry.findBySDT(SDT);
+    }
+
+    @Override
     public Object save(Ministry newMinistry) {
         return RepoMinistry.save(newMinistry);
     }
