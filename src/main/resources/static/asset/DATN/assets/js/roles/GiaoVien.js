@@ -4,7 +4,10 @@ app.run(function ($http, $rootScope, $timeout) {
   $rootScope.TenGiaoVien = getCookie("TenGiaoVien");
   $rootScope.emailGiaoVien = getCookie("emailGiaoVien");
   $rootScope.sdtGiaoVien = getCookie("sdtGiaoVien");
-  if ($rootScope.maGiaoVien == "") {
+  
+  var cookies = document.cookie.split(";");
+  console.log(cookies)
+  if ($rootScope.maGiaoVien == "" || cookies.length < 2) {
     window.location = "./login_nhansu.html";
   }
 });

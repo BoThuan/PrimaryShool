@@ -4,7 +4,9 @@ app.run(function ($http, $rootScope, $timeout) {
   $rootScope.TenGiaoVu = getCookie("TenGiaoVu");
   $rootScope.emailGiaoVu = getCookie("emailGiaoVu");
   $rootScope.sdtGiaoVu = getCookie("sdtGiaoVu");
-  if($rootScope.maGiaoVu == ''){
+
+  var cookies = document.cookie.split(";");
+  if ($rootScope.maGiaoVu == "" || cookies.length < 2) {
     window.location = "./login_nhansu.html";
   }
 });
@@ -53,19 +55,19 @@ const getCookie = (cookie_name) => {
 
 function logout() {
   window.localStorage.clear();
-  setCookie('maGiaoVu','')
-  setCookie('TenGiaoVu','')
-  setCookie('emailGiaoVu','')
-  setCookie('sdtGiaoVu','')
+  setCookie("maGiaoVu", "");
+  setCookie("TenGiaoVu", "");
+  setCookie("emailGiaoVu", "");
+  setCookie("sdtGiaoVu", "");
   window.location = "./login_nhansu.html";
 }
 
-function setCookie(name,value,days) {
+function setCookie(name, value, days) {
   var expires = "";
   if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + (days*24*60*60*1000));
-      expires = "; expires=" + date.toUTCString();
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
   }
-  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }

@@ -77,10 +77,22 @@
                     <a class="nav-link" aria-current="page" href="#">Liên hệ</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./login_nhansu.html">Nhân Viên</a>
+                    <a
+                      class="nav-link"
+                      aria-current="page"
+                      href="./login_nhansu.html"
+                      onclick="nhansu()"
+                      >Nhân Viên</a
+                    >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./login_phuhuynh.html">Phụ Huynh</a>
+                    <a
+                      class="nav-link"
+                      aria-current="page"
+                      href="./login_phuhuynh.html"
+                      onclick="phuhuynh()"
+                      >Phụ Huynh</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -325,5 +337,33 @@
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      function nhansu() {
+        setCookie("maGiaoVien", "");
+        setCookie("TenGiaoVien", "");
+        setCookie("emailGiaoVien", "");
+        setCookie("sdtGiaoVien", "");
+        setCookie("maGiaoVu", "");
+        setCookie("TenGiaoVu", "");
+        setCookie("emailGiaoVu", "");
+        setCookie("sdtGiaoVu", "");
+      }
+      function phuhuynh() {
+        setCookie("sdtphuhuynh", "");
+        setCookie("Tenhocsinh", "");
+      }
+
+      function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+      
+    </script>
   </body>
 </html>
