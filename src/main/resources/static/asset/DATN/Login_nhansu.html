@@ -26,7 +26,7 @@
     />
   </head>
 
-  <body ng-app="app" ng-controller="app-Ctrl">
+  <body ng-app="app" ng-controller="app-Ctrl" style="font-family: 'IBM Plex Mono', monospace;">
     <div class="body">
       <div class="veen">
         <div class="login-btn splits">
@@ -37,26 +37,26 @@
         <div class="rgstr-btn splits">
           <h3>Chào mừng</h3>
           <p>Đây là website quản lý của trường</p>
-          <button>Trang chủ</button>
+          <button><a href="./Home.html" style="color:white; text-decoration: none">Trang chủ</a></button>
         </div>
         <div class="wrapper">
           <form id="login" tabindex="500">
             <h3>Login</h3>
             <div class="mail">
-              <input type="text" name="" ng-model="sdtgiaovu" />
+              <input type="text" name="" ng-model="sdt" />
               <label>Phone</label>
             </div>
             <div class="passwd">
-              <input type="password" name="" ng-model="mkgiaovu" />
+              <input type="password" name="" ng-model="mk" />
               <label>Password</label>
             </div>
             <div class="mail">
               <input type="text" name="" ng-model="OTP" />
-              <label style="font-size: 14px">OTP: {{radom}}</label>
+              <label style="font-size: 14px">CAPTCHA: {{radom}}</label>
             </div>
             <div class="submit">
               <button class="dark" ng-click="GiaoVu()">Giáo Vụ</button>
-              <button class="dark" ng-click="giaovu()">Giáo Viên</button>
+              <button class="dark" ng-click="Giaovien()">Giáo Viên</button>
             </div>
           </form>
         </div>
@@ -90,8 +90,8 @@
 
       $scope.GiaoVu = function () {
         //lấy dữ liệu
-        var sdtgiaovu = $scope.sdtgiaovu;
-        var sdt = $scope.mkgiaovu;
+        var sdtgiaovu = $scope.sdt;
+        var sdt = $scope.mk;
         var OPT = $scope.OTP;
 
         //gọi dự liệu từ database
@@ -116,7 +116,48 @@
                 $scope.setCookie("emailGiaoVu", $scope.giaovu.data.email, 1);
                 $scope.setCookie("sdtGiaoVu", $scope.giaovu.data.sdt, 1);
 
-                //window.location = "./GiaoVu.html";
+                window.location = "./GiaoVu.html";
+                console.log("ok");
+              } else {
+                console.log("Wrong");
+                $scope.deleteAllCookies();
+              }
+            } else {
+              console.log("Không thể lấy dữ liệu");
+            }
+          });
+      };
+
+
+      $scope.Giaovien = function () {
+        //lấy dữ liệu
+        var sdtgiaovien = $scope.sdt;
+        var sdt = $scope.mk;
+        var OPT = $scope.OTP;
+
+        //gọi dự liệu từ database
+        $http
+          .get(`http://localhost:8081/api/vi/Teachers/SDT/${sdtgiaovien}`)
+          .then(function (resp) {
+            $scope.giaovien = resp.data;
+            console.log(resp.status);
+            console.log($scope.giaovien.status);
+
+            $scope.datasdt = $scope.giaovien.data.sdt;
+            if (resp.status == 200) {
+              if (
+                sdtgiaovien == $scope.datasdt &&
+                sdt == $scope.datasdt &&
+                OPT == $scope.radom
+              ) {
+                $scope.deleteAllCookies();
+                //http://localhost:8081/api/vi/Ministry/SDT/0329000687
+                $scope.setCookie("maGiaoVien", $scope.giaovien.data.maGV, 1);
+                $scope.setCookie("TenGiaoVien", $scope.giaovien.data.tenGV, 1);
+                $scope.setCookie("emailGiaoVien", $scope.giaovien.data.email, 1);
+                $scope.setCookie("sdtGiaoVien", $scope.giaovien.data.sdt, 1);
+
+                window.location = "./GiaoVien.html";
                 console.log("ok");
               } else {
                 console.log("Wrong");
@@ -134,6 +175,7 @@
         var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
       };
+
       $scope.deleteAllCookies = function () {
         var cookies = document.cookie.split(";");
 

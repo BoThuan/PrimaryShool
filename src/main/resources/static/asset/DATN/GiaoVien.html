@@ -20,7 +20,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js"></script>
     </head>
-    <body ng-app="myApp">
+    <body ng-app="myApp" style="font-family: 'IBM Plex Mono', monospace;">
         <div class="container-full">
             <!-- --------------- header ------------------ -->
 
@@ -31,7 +31,7 @@
                 <div class="header__profile">
                     <div class="profile--avata"></div>
                     <div class="profile--name">
-                        <h2>aaaaaaaaaa cccccccccccc hhhhhhhhh</h2>
+                        <h2>{{TenGiaoVien}}</h2>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                     </ul>
                     <ul>
                         <li>
-                            <a href="./login_nhansu.html">
+                            <a href="" onclick="logout()">
                                 Đăng xuất
                                 <i class="bx bx-log-out"></i>
                             </a>

@@ -1,304 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
-        <!-- ----===============================  css  ===============================---- -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
-        <!-- ----===============================  icon  ===============================---- -->
-        <link
-            href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
-            rel="stylesheet"
-        />
-        <!-- ----===============================  bootstrap  ===============================---- -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-            crossorigin="anonymous"
-        />
-    </head>
-    <body>
-        <div class="container__home">
-            <!-- header -->
-            <div class="home__header">
-                <div class="header--top">
-                    <a href="" class="top--mail">leloischool@edu.com.vn</a>
-                    <a href="" class="top--phone">0123456789</a>
-                </div>
-
-                <div class="header--nav">
-                    <!-- bootstrap -->
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <div class="container-fluid">
-                            <img
-                                class="nav--logo"
-                                src="assets/images/logo.jpg"
-                                alt=""
-                            />
-                            <button
-                                class="navbar-toggler"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#navbarScroll"
-                                aria-controls="navbarScroll"
-                                aria-expanded="false"
-                                aria-label="Toggle navigation"
-                            >
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div
-                                class="collapse navbar-collapse"
-                                id="navbarScroll"
-                            >
-                                <ul
-                                    class="
-                                        navbar-nav
-                                        me-auto
-                                        my-2 my-lg-0
-                                        navbar-nav-scroll
-                                    "
-                                >
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link active"
-                                            aria-current="page"
-                                            href="#"
-                                            >Home</a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            aria-current="page"
-                                            href="#"
-                                            >Hỏi đáp</a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            aria-current="page"
-                                            href="#"
-                                            >Giới thiệu</a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            aria-current="page"
-                                            href="#"
-                                            >Thông tin</a
-                                        >
-                                    </li>
-                                </ul>
-                                <form class="d-flex">
-                                    <button class="btn" type="submit">
-                                        Đăng nhập
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-
-                <!-- bootstrap  -->
-                <div class="header--image">
-                    <div
-                        id="carouselExampleInterval"
-                        class="carousel slide"
-                        data-bs-ride="carousel"
-                    >
-                        <div class="carousel-inner">
-                            <div
-                                class="carousel-item active"
-                                data-bs-interval="10000"
-                            >
-                                <img
-                                    src="https://images.unsplash.com/photo-1495727034151-8fdc73e332a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1165&q=80"
-                                    class="d-block w-100"
-                                    alt="..."
-                                />
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img
-                                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                    class="d-block w-100"
-                                    alt="..."
-                                />
-                            </div>
-                            <div class="carousel-item">
-                                <img
-                                    src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
-                                    class="d-block w-100"
-                                    alt="..."
-                                />
-                            </div>
-                        </div>
-                        <button
-                            class="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#carouselExampleInterval"
-                            data-bs-slide="prev"
-                        >
-                            <span
-                                class="carousel-control-prev-icon"
-                                aria-hidden="true"
-                            ></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button
-                            class="carousel-control-next"
-                            type="button"
-                            data-bs-target="#carouselExampleInterval"
-                            data-bs-slide="next"
-                        >
-                            <span
-                                class="carousel-control-next-icon"
-                                aria-hidden="true"
-                            ></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- contain -->
-            <div class="home__body">
-                <div class="banner">
-                    <img src="https://images.unsplash.com/photo-1424115087662-5845efc6b366?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80" alt="">
-                </div>
-                <div class="info__daotao">
-                    <div class="info__daotao--text">
-                        <h2>chuyên đào tạo</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Nulla totam facere temporibus quasi neque
-                            error quaerat fugit modi beatae magni possimus ea,
-                            fuga nam? Quasi dicta placeat non autem deleniti.
-                        </p>
-                    </div>
-                    <div class="info__daotao--1">
-                        <img
-                            src="https://images.unsplash.com/photo-1633113090286-3318ea2d24ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            alt=""
-                        />
-                    <span>Lớp 1</span>
-                </div>
-                    <div class="info__daotao--2">
-                        <img
-                            src="https://images.unsplash.com/photo-1633113090286-3318ea2d24ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            alt=""
-                        />
-                        <span>Lớp 2</span>
-                    </div>
-                    <div class="info__daotao--3">
-                        <img
-                            src="https://images.unsplash.com/photo-1633113090286-3318ea2d24ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            alt=""
-                        />
-                        <span>Lớp 3</span>
-                    </div>
-                    <div class="info__daotao--4">
-                        <img
-                            src="https://images.unsplash.com/photo-1633113090286-3318ea2d24ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            alt=""
-                        />
-                        <span>Lớp 4</span>
-                    </div>
-                    <div class="info__daotao--5">
-                        <img
-                            src="https://images.unsplash.com/photo-1633113090286-3318ea2d24ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            alt=""
-                        />
-                        <span>Lớp 5</span>
-                    </div>
-                </div>
-                <div class="info__loiich">
-                    <div class="info__loiich--title">
-                        <h2>Lợi ích khi học ở đây</h2>
-                    </div>
-                    <div class="info__loiich--text1">
-                        <strong>- Giáo viên:</strong>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias dolores nulla tenetur? Dolorem consequuntur minus explicabo facilis, quae, libero quod rerum laborum fugit eveniet odio officiis sunt, est ratione enim.</p>
-                    </div>
-                    <div class="info__loiich--image">
-                        <img src="https://images.unsplash.com/photo-1633113088983-12fb3b2fe0ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                    </div>
-                    <div class="info__loiich--text2">
-                        <strong>- Môi trường:</strong>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem tempora facilis vitae minima aut voluptas similique debitis aperiam inventore sunt, amet optio sed explicabo tempore vero corporis totam modi magnam.</p>
-                    </div>
-
-                </div>
-                <div class="info__tailieu">
-                    <div class="info__tailieu--title">
-                        <h2>Tài liệu tham khảo</h2>
-                    </div>
-                    <div class="info__tailieu--list">
-                        <div class="list--1">
-                            <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                            <span>Lớp 1</span>
-                        </div>
-                        <div class="list--2">
-                            <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                            <span>Lớp 2</span>
-                        </div>
-                        <div class="list--3">
-                            <a href="">
-                                <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                                <span>Lớp 3</span>
-                            </a>
-                        </div>
-                        <div class="list--4">
-                            <a href="">
-                                <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                                <span>Lớp 4</span>
-                            </a>
-                        </div>
-                        <div class="list--5">
-                            <a href="">
-                                <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                                <span>Lớp 5</span>
-                            </a>
-                        </div>
-                        <div class="list--6">
-                            <a href="">
-                                <img src="https://images.unsplash.com/photo-1558021211-6d1403321394?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=726&q=80" alt="">
-                                <span>Tài liệu khác</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="info__diachi">
-                    <div class="info__diachi--title">
-                        <h2>Địa chỉ tìm kiếm</h2>
-                    </div>
-                    <div class="info__diachi--content">
-                        <img src="./assets/images/Screenshot 2021-12-11 010727.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <!-- footer -->
-            <div class="home__footer">9</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- ----===============================  css  ===============================---- -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- ----===============================  icon  ===============================---- -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- ----===============================  bootstrap  ===============================---- -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="font-family: 'IBM Plex Mono', monospace;">
+    <div class="container__home">
+      <!-- header -->
+      <div class="home__header">
+        <div class="header--top">
+          <a href="" class="top--mail" style="color: black"
+            >leloischool@edu.com.vn</a
+          >
+          <a href="" class="top--phone" style="color: black">0123456789</a>
         </div>
 
-        <!-- ----===============================  bootstrap 5  ===============================---- -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+        <div class="header--nav">
+          <!-- bootstrap -->
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+              <a href="./Home.html"
+                ><img class="nav--logo" src="assets/images/logo.jpg" alt=""
+              /></a>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="./Home.html"
+                      >Trang chủ</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Hỏi đáp</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"
+                      >Giới thiệu</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"
+                      >Hình ảnh</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Liên hệ</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <button class="btn" type="submit">
+                    <a
+                      href="./login_nhansu.html"
+                      style="color: white; text-decoration: none"
+                      onMouseOver="this.style.color='#0F0'"
+                      onMouseOut="this.style.color='#00F'"
+                      >Nhân Viên</a
+                    >
+                  </button>
+                  <button class="btn" type="submit">
+                    <a
+                      href="./login_phuhuynh.html"
+                      style="color: white; text-decoration: none"
+                      onMouseOver="this.style.color='#0F0'"
+                      onMouseOut="this.style.color='#00F'"
+                      >Phụ Huynh</a
+                    >
+                  </button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <!-- bootstrap  -->
+        <div class="header--image">
+          <div
+            id="carouselExampleInterval"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img
+                  src="./assets/images/main_images/hinh1.jpeg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img
+                  src="./assets/images/main_images/hinh2.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/images/main_images/hinh3.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- contain -->
+      <div class="home__body">
+        <div class="banner">
+          <img
+            src="https://images.unsplash.com/photo-1424115087662-5845efc6b366?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+            alt=""
+          />
+        </div>
+        <div class="info__daotao">
+          <div class="info__daotao--text">
+            <h2>Giới thiệu về trường</h2>
+            <p style="font-size: 19px;">
+                Trường Tiểu học Lê lợi được thành lập theo Quyết định số 1268/
+              QĐUB của Uỷ ban nhân dân huyện Từ Liêm ký ngày 21 tháng 7 năm
+              2005, là trường tiểu học chất lượng cao, tăng cường giảng dạy
+              ngoại ngữ. Trường Tiểu học Lê lợi là trường được công nhận Trường
+              chuẩn Quốc gia mức độ II của thành phố Hồ Chí Minh. Đang tiến tới
+              đạt trường chuẩn mức độ III trong năm học 2014 - 2015.
+            </p>
+          </div>
+          <div class="info__daotao--1">
+            <img src="./assets/images/main_images/1.jpg" alt="" />
+            <span>Lớp 1</span>
+          </div>
+          <div class="info__daotao--2">
+            <img src="./assets/images/main_images/2.jpg" alt="" />
+            <span>Lớp 2</span>
+          </div>
+          <div class="info__daotao--3">
+            <img src="./assets/images/main_images/3.jpg" alt="" />
+            <span>Lớp 3</span>
+          </div>
+          <div class="info__daotao--4">
+            <img src="./assets/images/main_images/4.jpg" alt="" />
+            <span>Lớp 4</span>
+          </div>
+          <div class="info__daotao--5">
+            <img src="./assets/images/main_images/5.jpg" alt="" />
+            <span>Lớp 5</span>
+          </div>
+        </div>
+        <div class="info__loiich">
+          <div class="info__loiich--title">
+            <h2>Lợi ích khi học ở đây</h2>
+          </div>
+          <div class="info__loiich--text1">
+            <strong>✍️Giáo viên</strong>
+            <p style="font-size: 19px;">
+              - Đối với thầy cô giáo Ngoài việc tự học, tự bồi dưỡng và quán
+              triệt các văn bản Luật theo quy định, đội ngũ GV còn được tiếp tục
+              tập huấn các Phương pháp dạy học tích cực như: Phương pháp dạy học
+              Mĩ thuật theo phương pháp Đan Mạch, sinh hoạt chuyên môn theo
+              hướng nghiên cứu bài học, đồng thời tập huấn một số nội dung mới
+              như: nâng cao năng lực đánh giá HS theo Thông tư của BGD&ĐT quy
+              định về đánh giá học sinh tiểu học, phương pháp dạy học tích cực,
+              chương trình CNGD lớp 1, mô hình dạy học 2 buổi/ngày,... Tăng
+              cường dự giờ, thăm lớp rút kinh nghiệm, tổ chức thao giảng rút
+              kinh nghiệm, đề xuất biện pháp nâng cao chất lượng dạy và học.
+            </p>
+          </div>
+          <div class="info__loiich--image">
+            <img src="./assets/images/main_images/giaovien.jpg" alt="" />
+          </div>
+          <div class="info__loiich--text2">
+            <strong>✍️Môi trường</strong>
+            <p style="font-size: 19px;">
+              - Toàn trường hiện có 27 phòng học, được trang bị 100 % bảng chống
+              lóa. Bàn ghế học sinh 350 bộ 2 chỗ ngồi đúng quy cách , bàn ghế
+              giáo viên có 27 bộ. Phòng làm việc có phòng làm việc của BGH, thư
+              viện, phòng văn thư.
+              <br />
+              - Trường có giếng đào đảm bảo nguồn nước sạch phục vụ cho sinh
+              hoạt của giáo viên và học sinh.
+              <br />
+              - Trong những năm qua, nhà trường luôn quan tâm tu sửa cơ sở vật
+              chất, xây dựng cảnh quan, tạo môi trường sư phạm Xanh – Sạch –
+              Đẹp.Toàn trường hiện có 27 phòng học, được trang bị 100 % bảng
+              chống lóa. Bàn ghế học sinh 350 bộ 2 chỗ ngồi đúng quy cách , bàn
+              ghế giáo viên có 27 bộ. Phòng làm việc có phòng làm việc của BGH,
+              thư viện, phòng văn thư.
+              <br />
+              - Trường có giếng đào đảm bảo nguồn nước sạch phục vụ cho sinh
+              hoạt của giáo viên và học sinh.
+              <br />
+              - Trong những năm qua, nhà trường luôn quan tâm tu sửa cơ sở vật
+              chất, xây dựng cảnh quan, tạo môi trường sư phạm Xanh – Sạch –
+              Đẹp.
+            </p>
+          </div>
+          <div class="info__loiich--text2">
+            <strong>✍️Lợi ích khác</strong>
+            <p style="font-size: 19px;">
+              - HS được khen thưởng trong từng năm học đều đạt chỉ tiêu của
+              trường đạt chuẩn quốc gia. Công nhận hoàn thành chương trình lớp
+              học đạt từ 98% trở lên; (đạt tiêu chí của trường chuẩn Quốc gia).
+              <br />
+              - Học sinh lớp 5 Hoàn thành chương trình Tiểu học hằng năm đạt
+              100%. TNTH đúng độ tuổi (11 tuổi) đạt từ 95% trở lên. Hiệu quả đào
+              tạo sau 5 năm đạt từ 96% trở lên.
+            </p>
+          </div>
+        </div>
+        <div class="info__tailieu">
+          <div class="info__tailieu--title">
+            <h2 style>Tài liệu tham khảo</h2>
+          </div>
+          <div class="info__tailieu--list">
+            <div class="list--1">
+              <img src="./assets/images/main_images/sach1.jpg" alt="" />
+              <span>Lớp 1</span>
+            </div>
+            <div class="list--2">
+              <img src="./assets/images/main_images/sach2.jpg" alt="" />
+              <span>Lớp 2</span>
+            </div>
+            <div class="list--3">
+              <a href="">
+                <img src="./assets/images/main_images/sach3.jpg" alt="" />
+                <span>Lớp 3</span>
+              </a>
+            </div>
+            <div class="list--4">
+              <a href="">
+                <img src="./assets/images/main_images/sach4.jpg" alt="" />
+                <span>Lớp 4</span>
+              </a>
+            </div>
+            <div class="list--5">
+              <a href="">
+                <img src="./assets/images/main_images/sach5.jpg" alt="" />
+                <span>Lớp 5</span>
+              </a>
+            </div>
+            <div class="list--6">
+              <a href="">
+                <img
+                  src="https://images.unsplash.com/photo-1558021211-6d1403321394?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=726&q=80"
+                  alt=""
+                />
+                <span>Tài liệu khác</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="info__diachi">
+          <div class="info__diachi--title">
+            <h2>Địa chỉ tìm kiếm</h2>
+          </div>
+          <div class="info__diachi--content">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501725.3382563337!2d106.41504056958252!3d10.755341071692252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2zSOG7kyBDaMOtIE1pbmgsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1639191580462!5m2!1svi!2s"
+              width="1110"
+              height="450"
+              style="border: 0"
+              allowfullscreen="true"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <!-- footer -->
+      <div class="home__footer">9</div>
+    </div>
+
+    <!-- ----===============================  bootstrap 5  ===============================---- -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

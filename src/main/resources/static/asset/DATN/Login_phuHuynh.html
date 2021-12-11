@@ -26,7 +26,7 @@
     />
   </head>
 
-  <body ng-app="app" ng-controller="app-Ctrl">
+  <body ng-app="app" ng-controller="app-Ctrl" style="font-family: 'IBM Plex Mono', monospace;">
     <div class="body">
       <div class="veen">
         <div class="login-btn splits">
@@ -37,7 +37,7 @@
         <div class="rgstr-btn splits">
           <h3>Chào mừng</h3>
           <p>Đây là website xem điểm của trường</p>
-          <button>Trang chủ</button>
+          <button><a href="./Home.html" style="color:white;text-decoration: none;">Trang chủ</a></button>
         </div>
         <div class="wrapper">
           <form id="login" tabindex="500">
@@ -52,7 +52,7 @@
             </div>
             <div class="mail">
                 <input type="text" name="" ng-model="OTP"/>
-                <label style="font-size: 14px;">OTP: {{radom}}</label>
+                <label style="font-size: 14px;">CAPTCHA: {{radom}}</label>
               </div>
             <div class="submit">
               <button class="dark" ng-click="login()">Login</button>
