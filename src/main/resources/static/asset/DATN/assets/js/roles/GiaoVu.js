@@ -4,6 +4,9 @@ app.run(function ($http, $rootScope, $timeout) {
   $rootScope.TenGiaoVu = getCookie("TenGiaoVu");
   $rootScope.emailGiaoVu = getCookie("emailGiaoVu");
   $rootScope.sdtGiaoVu = getCookie("sdtGiaoVu");
+  if($rootScope.maGiaoVu == ''){
+    window.location = "./login_nhansu.html";
+  }
 });
 
 app.config(function ($routeProvider) {
@@ -11,6 +14,7 @@ app.config(function ($routeProvider) {
     // giao vu
     .when("/", {
       templateUrl: "./assets/views/GiaoVu/thongke.html",
+      controller: "thongke-ctrl",
     })
     .when("/QLGV", {
       templateUrl: "./assets/views/GiaoVu/QLGV.html",
@@ -49,17 +53,19 @@ const getCookie = (cookie_name) => {
 
 function logout() {
   window.localStorage.clear();
-  deleteAllCookies();
+  setCookie('maGiaoVu','')
+  setCookie('TenGiaoVu','')
+  setCookie('emailGiaoVu','')
+  setCookie('sdtGiaoVu','')
   window.location = "./login_nhansu.html";
 }
 
-function deleteAllCookies() {
-    var cookies = document.cookie.split(";");
-
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
+function setCookie(name,value,days) {
+  var expires = "";
+  if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }

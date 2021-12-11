@@ -8,7 +8,7 @@
             <!-- search -->
             <div class="table__header--search btn--search input">
                 <label for="table__header--search">
-                    <input type="text" id="table__header--search" placeholder="Tìm kiếm" />
+                    <input type="text" id="table__header--search" placeholder="Tìm kiếm" ng-model="seachText"/>
                     <button><i class="bx bx-search-alt"></i></button>
                 </label>
             </div>
@@ -18,7 +18,7 @@
             <div class="input">
                 <label for="eidt--mahs">
                     Tên Phụ Huynh
-                    <input class="w20" type="text" id="eidt--mahs" placeholder="Mã học sinh" 
+                    <input class="w20" type="text" id="eidt--mahs" placeholder="" 
                     ng-model="form.parents.tenPH"/>
                 </label>
             </div>
@@ -26,15 +26,15 @@
             <div class="input">
                 <label for="edit--tenhs">
                     Số Điện Thoại Liên Hệ
-                    <input class="w12" type="text" id="edit--tenhs" placeholder="Tên học sinh" 
-                    ng-model="form.parents.sdt"/>
+                    <input class="w12" type="text" id="edit--tenhs" placeholder="" 
+                    ng-model="form.sdtphuHuynh"/>
                 </label>
             </div>
 
             <div class="input">
                 <label for="edit--ngaysinhhs">
                     Mối Quan Hệ với Học Sinh
-                    <input class="w12" type="text" id="edit--ngaysinhhs" placeholder="Ngày sinh" 
+                    <input class="w12" type="text" id="edit--ngaysinhhs" placeholder="" 
                     ng-model="form.parents.quanHe"/>
                 </label>
             </div>
@@ -42,7 +42,7 @@
             <div class="input  w34p diachihs">
                 <label for="edit--diachihs">
                     Địa chỉ:
-                    <input class="w80p" type="text" id="edit--diachihs" placeholder="Địa chỉ" 
+                    <input class="w80p" type="text" id="edit--diachihs" placeholder="" 
                     ng-model="form.diaChi"/>
                 </label>
             </div>
@@ -67,12 +67,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="student in students">
+                        <tr ng-repeat="student in students | orderBy:['maHS'] | filter:seachText">
                             <td id="mahs">{{student.maHS}}</td>
                             <td>{{student.tenHS}}</td>
                             <td class="img__table">
-                                <img src="https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80"
-                                    alt="">
+                                <img
+                                ng-src="./assets/images/Images/{{student.hinh}}""
+                                alt="{{student.hinh}}"/>
                             </td>
                             <td>{{student.ngaySinh|date:'dd/MM/yyyy'}}</td>
                             <td>{{student.gioiTinh?'Nam':'Nữ'}}</td>

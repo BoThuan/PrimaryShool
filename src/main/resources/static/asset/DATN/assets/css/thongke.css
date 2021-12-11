@@ -1,0 +1,68 @@
+.thong_ke{
+    width: 100%;
+    height: 850px;
+    background-color: black;
+}
+
+.thongke_tieude{
+    width: 100%;
+    height: 50px;
+    background-color: aqua;
+}
+.thongke_tren{
+    width: 100%;
+    height: 200px;
+    background-color: aqua;
+}
+
+.thongke_tren .thongke_soluong1{
+    width: 19.9%;
+    height: 200px;
+    background-color: antiquewhite;
+    float: left;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+}
+.thongke_tren .thongke_soluong1_{
+    margin: 40px;
+    padding: auto;
+    width: 60%;
+    height: 100px;
+    background-color: rgb(61, 42, 16);
+    float: left;
+}
+
+
+
+.thongke_tren .thongke_soluong2{
+    width: 19.9%;
+    height: 200px;
+    background-color: rgb(129, 72, 72);
+    float: left;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+}
+.thongke_tren .thongke_soluong3{
+    width: 19.9%;
+    height: 200px;
+    background-color: blue;
+    float: left;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+}
+.thongke_tren .thongke_soluong4{
+    width: 19.9%;
+    height: 200px;
+    background-color: blueviolet;
+    float: left;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+}
+.thongke_tren .thongke_soluong5{
+    width: 19.9%;
+    height: 200px;
+    background-color: rgb(134, 116, 92);
+    float: left;
+    margin-right: 0.5px;
+    margin-left: 0.5px;
+}
