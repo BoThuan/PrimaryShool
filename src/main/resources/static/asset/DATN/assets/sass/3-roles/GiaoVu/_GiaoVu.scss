@@ -44,7 +44,7 @@
             display: flex;
             // justify-content: space-between;
             input{
-                width: 70%;
+                width: 65%;
             }
             .note-chucvu{
                 margin-right: 2rem;
@@ -58,7 +58,7 @@
     margin: 1.2rem 0;
     padding: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 14rem 1fr 1fr 1fr;
+    grid-template-columns: 20rem 1fr 16rem 20rem 1fr 1fr;
     grid-template-rows: 4rem 4rem;
     grid-gap: 1.2rem;
     grid-template-areas: 
@@ -67,6 +67,9 @@
     font-size: $medium-font-size;
     .key-class{
         grid-area: key;
+        input{
+            width: 60%;
+        }
     }
     .name-class{
         grid-area: name;
@@ -76,6 +79,9 @@
     }
     .year-class{
         grid-area: year;
+        input{
+            width: 40%;
+        }
     }
     .gvien-class{
         grid-area: gvien;
@@ -95,4 +101,6 @@
         justify-content: flex-end;
         padding-right: 2rem;
     }
+
+
 }

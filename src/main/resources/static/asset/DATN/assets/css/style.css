@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ */
 /* v1.0 | 20080212 */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -59,7 +60,7 @@ table {
 
 html {
   font-size: 62.5%;
-  font-family: "Montserrat", sans-serif;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .container-full {
@@ -138,7 +139,7 @@ html {
   margin: 1.2rem 0;
   padding: 5px;
   display: grid;
-  grid-template-columns: 20rem 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 20rem 1fr 25rem 20rem 0.8fr 0.8fr;
   grid-template-rows: 4rem 4rem 4rem;
   grid-gap: 1.2rem;
   grid-template-areas: "img key name name birthday gender" "img phone email email address address " "img note note btn btn btn";
@@ -154,7 +155,7 @@ html {
   grid-area: name;
 }
 .form__edit .edit--profile .name input {
-  width: 76%;
+  width: 70%;
 }
 .form__edit .edit--profile .birthday {
   grid-area: birthday;
@@ -171,25 +172,33 @@ html {
 .form__edit .edit--profile .phone input {
   width: 60%;
 }
-.form__edit .edit--profile .email, .form__edit .edit--profile .phuhuynh {
+.form__edit .edit--profile .email,
+.form__edit .edit--profile .phuhuynh {
   grid-area: email;
 }
-.form__edit .edit--profile .email input, .form__edit .edit--profile .phuhuynh input {
-  width: 87%;
+.form__edit .edit--profile .email input,
+.form__edit .edit--profile .phuhuynh input {
+  width: 80%;
 }
-.form__edit .edit--profile .email select, .form__edit .edit--profile .phuhuynh select {
+.form__edit .edit--profile .email select,
+.form__edit .edit--profile .phuhuynh select {
   width: 78%;
+}
+.form__edit .edit--profile .phuhuynh select {
+  width: 70%;
 }
 .form__edit .edit--profile .address {
   grid-area: address;
 }
 .form__edit .edit--profile .address input {
-  width: 85%;
+  width: 80%;
 }
-.form__edit .edit--profile .note, .form__edit .edit--profile .cv-note {
+.form__edit .edit--profile .note,
+.form__edit .edit--profile .cv-note {
   grid-area: note;
 }
-.form__edit .edit--profile .note input, .form__edit .edit--profile .cv-note input {
+.form__edit .edit--profile .note input,
+.form__edit .edit--profile .cv-note input {
   width: 80%;
 }
 .form__edit .edit--profile .image-profile {
@@ -582,10 +591,15 @@ table tbody tr:nth-of-type(2n) {
   flex-direction: row;
 }
 .header__profile .profile--avata {
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
-  background-color: red;
+}
+.header__profile .profile--avata img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
 }
 .header__profile .profile--name {
   font-size: 16px;
@@ -663,6 +677,20 @@ table tbody tr:nth-of-type(2n) {
   flex-direction: column;
   align-items: center;
   background-color: #f1f6f3;
+  font-family: "IBM Plex Sans", sans-serif;
+  word-spacing: 3px;
+}
+.container__home .info__title h2 {
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #45B4F5;
+  border-radius: 1.2rem 1.2rem 0 0;
+  padding: 2px 2rem;
+}
+.container__home .text--content {
+  font-size: 16px;
 }
 .container__home .home__header {
   width: 100%;
@@ -670,49 +698,55 @@ table tbody tr:nth-of-type(2n) {
   flex-direction: column;
 }
 .container__home .home__header .header--top {
-  font-size: 12.8px;
+  font-size: 16px;
   padding: 5px;
   background-color: #ccc;
 }
 .container__home .home__header .header--top a {
   text-decoration: none;
+  padding: 2px 0 2px 4rem;
   margin-right: 2rem;
-  color: #fff;
+  color: #000;
   transition: all 0.2 linear;
+  position: relative;
 }
 .container__home .home__header .header--top a:hover {
-  color: #8c4af2;
+  color: #4160E8;
+  font-weight: 600;
+}
+.container__home .home__header .header--top a .top--icon {
+  color: red;
+  font-size: 24px;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  transform: translateY(-5%);
 }
 .container__home .home__header .header--nav {
-  max-height: 8rem;
-  background-image: linear-gradient(to right, #b28ee6, #7883f5);
+  background: #45B4F5;
   margin: 0.6rem 0;
 }
 .container__home .home__header .header--nav nav {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .container__home .home__header .header--nav nav .container-fluid img {
   object-fit: cover;
-  max-height: 6rem;
+  max-height: 9rem;
+  width: 14rem;
   border-radius: 12px 12px 12px 12px;
+}
+.container__home .home__header .header--nav nav ul li {
+  margin-right: 5rem;
 }
 .container__home .home__header .header--nav nav ul li a {
   color: #fff;
 }
-.container__home .home__header .header--nav nav form button {
-  border: 1px solid #fff;
-  color: #fff;
-  border-radius: 12px 12px 12px 12px;
-  transition: all 0.2 linear;
-  font-size: 16px;
-}
-.container__home .home__header .header--nav nav form button:hover {
-  background-color: #fff;
-  color: #8c4af2;
-}
 .container__home .home__header .header--image img {
-  max-height: 70vh;
+  max-height: 80vh;
+  max-width: 85vw;
+  margin: 0 auto;
+  border-radius: 12px 12px 12px 12px;
 }
 .container__home .home__body {
   width: 70%;
@@ -734,10 +768,10 @@ table tbody tr:nth-of-type(2n) {
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
 }
 .container__home .home__body .info__daotao {
+  grid-area: dtao;
   margin: 1rem 0;
   padding: 1.2rem;
   background-color: #fff;
-  grid-area: dtao;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -750,11 +784,8 @@ table tbody tr:nth-of-type(2n) {
   grid-area: text;
 }
 .container__home .home__body .info__daotao--text h2 {
-  text-transform: uppercase;
-  font-size: 32px;
-  font-weight: 600;
-  color: #484860;
-  padding: 5px 0rem;
+  background-color: transparent;
+  color: #45B4F5;
 }
 .container__home .home__body .info__daotao--text p {
   font-size: 24px;
@@ -789,6 +820,7 @@ table tbody tr:nth-of-type(2n) {
 .container__home .home__body .info__daotao .info__daotao--5 img {
   object-fit: cover;
   width: 100%;
+  max-height: 22rem;
   z-index: 0;
 }
 .container__home .home__body .info__daotao .info__daotao--1 span,
@@ -824,10 +856,11 @@ table tbody tr:nth-of-type(2n) {
 .container__home .home__body .info__loiich .info__loiich--image {
   margin: 1.2rem 0;
   width: 100%;
+  display: grid;
+  justify-content: center;
 }
 .container__home .home__body .info__loiich .info__loiich--image img {
-  object-fit: cover;
-  width: 100%;
+  object-fit: top;
   padding: 0 2rem;
 }
 .container__home .home__body .info__loiich p {
@@ -846,15 +879,6 @@ table tbody tr:nth-of-type(2n) {
   border-radius: 12px 12px 12px 12px;
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
 }
-.container__home .home__body .info__tailieu--title h2 {
-  text-transform: uppercase;
-  font-size: 32px;
-  font-weight: 600;
-  color: #8c4af2;
-  background-color: #ccc;
-  border-radius: 1.2rem 1.2rem 0 0;
-  padding: 2px 2rem;
-}
 .container__home .home__body .info__tailieu--list {
   width: 100%;
   display: flex;
@@ -862,28 +886,52 @@ table tbody tr:nth-of-type(2n) {
   justify-content: center;
   padding: 0 5%;
 }
-.container__home .home__body .info__tailieu--list .list--1, .container__home .home__body .info__tailieu--list .list--2, .container__home .home__body .info__tailieu--list .list--3, .container__home .home__body .info__tailieu--list .list--4, .container__home .home__body .info__tailieu--list .list--5, .container__home .home__body .info__tailieu--list .list--6 {
+.container__home .home__body .info__tailieu--list .list--1,
+.container__home .home__body .info__tailieu--list .list--2,
+.container__home .home__body .info__tailieu--list .list--3,
+.container__home .home__body .info__tailieu--list .list--4,
+.container__home .home__body .info__tailieu--list .list--5,
+.container__home .home__body .info__tailieu--list .list--6 {
   width: 45%;
-  max-height: 45rem;
   margin: 2rem;
   position: relative;
   border-radius: 12px 12px 12px 12px;
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
 }
-.container__home .home__body .info__tailieu--list .list--1:hover, .container__home .home__body .info__tailieu--list .list--2:hover, .container__home .home__body .info__tailieu--list .list--3:hover, .container__home .home__body .info__tailieu--list .list--4:hover, .container__home .home__body .info__tailieu--list .list--5:hover, .container__home .home__body .info__tailieu--list .list--6:hover {
+.container__home .home__body .info__tailieu--list .list--1:hover,
+.container__home .home__body .info__tailieu--list .list--2:hover,
+.container__home .home__body .info__tailieu--list .list--3:hover,
+.container__home .home__body .info__tailieu--list .list--4:hover,
+.container__home .home__body .info__tailieu--list .list--5:hover,
+.container__home .home__body .info__tailieu--list .list--6:hover {
   cursor: pointer;
 }
-.container__home .home__body .info__tailieu--list .list--1 img, .container__home .home__body .info__tailieu--list .list--2 img, .container__home .home__body .info__tailieu--list .list--3 img, .container__home .home__body .info__tailieu--list .list--4 img, .container__home .home__body .info__tailieu--list .list--5 img, .container__home .home__body .info__tailieu--list .list--6 img {
-  height: 100%;
+.container__home .home__body .info__tailieu--list .list--1 img,
+.container__home .home__body .info__tailieu--list .list--2 img,
+.container__home .home__body .info__tailieu--list .list--3 img,
+.container__home .home__body .info__tailieu--list .list--4 img,
+.container__home .home__body .info__tailieu--list .list--5 img,
+.container__home .home__body .info__tailieu--list .list--6 img {
+  max-height: 35rem;
   width: 100%;
   object-fit: cover;
   transition: all 0.2s linear;
   border-radius: 12px 12px 12px 12px;
 }
-.container__home .home__body .info__tailieu--list .list--1 img:hover, .container__home .home__body .info__tailieu--list .list--2 img:hover, .container__home .home__body .info__tailieu--list .list--3 img:hover, .container__home .home__body .info__tailieu--list .list--4 img:hover, .container__home .home__body .info__tailieu--list .list--5 img:hover, .container__home .home__body .info__tailieu--list .list--6 img:hover {
+.container__home .home__body .info__tailieu--list .list--1 img:hover,
+.container__home .home__body .info__tailieu--list .list--2 img:hover,
+.container__home .home__body .info__tailieu--list .list--3 img:hover,
+.container__home .home__body .info__tailieu--list .list--4 img:hover,
+.container__home .home__body .info__tailieu--list .list--5 img:hover,
+.container__home .home__body .info__tailieu--list .list--6 img:hover {
   opacity: 0.6;
 }
-.container__home .home__body .info__tailieu--list .list--1 span, .container__home .home__body .info__tailieu--list .list--2 span, .container__home .home__body .info__tailieu--list .list--3 span, .container__home .home__body .info__tailieu--list .list--4 span, .container__home .home__body .info__tailieu--list .list--5 span, .container__home .home__body .info__tailieu--list .list--6 span {
+.container__home .home__body .info__tailieu--list .list--1 span,
+.container__home .home__body .info__tailieu--list .list--2 span,
+.container__home .home__body .info__tailieu--list .list--3 span,
+.container__home .home__body .info__tailieu--list .list--4 span,
+.container__home .home__body .info__tailieu--list .list--5 span,
+.container__home .home__body .info__tailieu--list .list--6 span {
   position: absolute;
   z-index: 1;
   left: 50%;
@@ -900,25 +948,59 @@ table tbody tr:nth-of-type(2n) {
   border-radius: 12px 12px 12px 12px;
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
 }
-.container__home .home__body .info__diachi--title h2 {
-  text-transform: uppercase;
-  font-size: 32px;
-  font-weight: 600;
-  color: #8c4af2;
-  background-color: #ccc;
-  border-radius: 1.2rem 1.2rem 0 0;
-  padding: 2px 2rem;
-}
-.container__home .home__body .info__diachi .info__diachi--content img {
-  padding: 2rem;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
 .container__home .home__footer {
-  height: 60rem;
+  height: 40rem;
   width: 100%;
-  background-color: #000;
+  background-color: #ccc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container__home .home__footer--img img {
+  object-fit: cover;
+  max-width: 50%;
+}
+.container__home .home__footer--img h2 {
+  margin-top: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+}
+.container__home .home__footer--address, .container__home .home__footer--contact {
+  max-width: 70rem;
+}
+.container__home .home__footer--address h2, .container__home .home__footer--contact h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+}
+.container__home .home__footer--address p, .container__home .home__footer--contact p {
+  font-size: 16px;
+}
+.container__home .home__footer--contact {
+  display: flex;
+  flex-direction: column;
+}
+.container__home .home__footer--contact a {
+  font-size: 16px;
+  text-decoration: none;
+  padding: 2px 0 2px 4rem;
+  margin-right: 2rem;
+  color: #000;
+  transition: all 0.2 linear;
+  position: relative;
+}
+.container__home .home__footer--contact a:hover {
+  color: #4160E8;
+  font-weight: 600;
+}
+.container__home .home__footer--contact a .top--icon {
+  color: red;
+  font-size: 24px;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  transform: translateY(-5%);
 }
 
 .tbcn {
@@ -936,7 +1018,7 @@ table tbody tr:nth-of-type(2n) {
   margin: 1.2rem 0;
   padding: 5px;
   display: grid;
-  grid-template-columns: 22rem 1fr 1fr 1fr;
+  grid-template-columns: 25rem 1fr 1fr 26rem;
   grid-template-rows: 4rem 4rem;
   grid-gap: 1.2rem;
   grid-template-areas: "key name btng btng " "diemkt diemky1 diemky2 tbcn";
@@ -1015,7 +1097,7 @@ table tbody tr:nth-of-type(2n) {
   display: flex;
 }
 .form__edit .edit--profile .cv-note input {
-  width: 70%;
+  width: 65%;
 }
 .form__edit .edit--profile .cv-note .note-chucvu {
   margin-right: 2rem;
@@ -1025,7 +1107,7 @@ table tbody tr:nth-of-type(2n) {
   margin: 1.2rem 0;
   padding: 5px;
   display: grid;
-  grid-template-columns: 1fr 1fr 14rem 1fr 1fr 1fr;
+  grid-template-columns: 20rem 1fr 16rem 20rem 1fr 1fr;
   grid-template-rows: 4rem 4rem;
   grid-gap: 1.2rem;
   grid-template-areas: "key name khoi year gvien gvu" "btn btn btn btng btng btng";
@@ -1033,6 +1115,9 @@ table tbody tr:nth-of-type(2n) {
 }
 .qly-lop .key-class {
   grid-area: key;
+}
+.qly-lop .key-class input {
+  width: 60%;
 }
 .qly-lop .name-class {
   grid-area: name;
@@ -1042,6 +1127,9 @@ table tbody tr:nth-of-type(2n) {
 }
 .qly-lop .year-class {
   grid-area: year;
+}
+.qly-lop .year-class input {
+  width: 40%;
 }
 .qly-lop .gvien-class {
   grid-area: gvien;

@@ -4,57 +4,79 @@
     flex-direction: column;
     align-items: center;
     background-color: #f1f6f3;
+    font-family: 'IBM Plex Sans', sans-serif;
+    word-spacing: 3px;
+
+    .info__title {
+        h2 {
+            text-transform: uppercase;
+            font-size: $extra-large-font-size;
+            font-weight: $extra-bold-font-weight;
+            color: #fff;
+            background-color: #45B4F5;
+            border-radius: 1.2rem 1.2rem 0 0;
+            padding: 2px 2rem;
+        }
+    }
+    
+    .text--content {
+        font-size: $medium-font-size;
+    }
+
     .home__header {
         width: 100%;
         display: flex;
         flex-direction: column;
 
         .header--top {
-            font-size: $small-font-size;
+            font-size: $medium-font-size;
             padding: 5px;
             background-color: #ccc;
             a {
                 text-decoration: none;
+                padding: 2px 0 2px 4rem;
                 margin-right: 2rem;
-                color: #fff;
+                color: #000;
+
                 transition: all 0.2 linear;
+                position: relative;
+
                 &:hover {
-                    color: #8c4af2;
+                    color: #4160E8;
+                    font-weight: $extra-bold-font-weight;
+                }
+                .top--icon {
+                    color: red;
+                    font-size: $large-font-size;
+
+                    position: absolute;
+                    top: 5%;
+                    left: 0;
+                    transform: translateY(-5%);
                 }
             }
         }
 
         .header--nav {
-            max-height: 8rem;
-            background-image: linear-gradient(to right, #b28ee6, #7883f5);
+            // max-height: 8rem;
+            background: #45B4F5;
             margin: 0.6rem 0;
             nav {
                 .container-fluid {
                     img {
                         object-fit: cover;
-                        max-height: 6rem;
+                        max-height: 9rem;
+                        width:14rem;
                         @include radius-layout();
                     }
                 }
                 font-size: $large-font-size;
-                font-weight: $bold-font-weight;
+                font-weight: $extra-bold-font-weight;
                 ul {
                     li {
+                        margin-right: 5rem;
                         a {
                             color: #fff;
-                        }
-                    }
-                }
-                form {
-                    button {
-                        border: 1px solid #fff;
-                        color: #fff;
-                        @include radius-layout();
-                        transition: all 0.2 linear;
-                        font-size: $medium-font-size;
-                        &:hover {
-                            background-color: #fff;
-                            color: #8c4af2;
                         }
                     }
                 }
@@ -63,7 +85,10 @@
 
         .header--image {
             img {
-                max-height: 70vh;
+                max-height: 80vh;
+                max-width: 85vw;
+                margin: 0 auto;
+                @include radius-layout();
             }
         }
     }
@@ -87,7 +112,7 @@
             margin: 1rem 0;
             padding: 0 0 0 1.6rem;
             @include radius-layout();
-            img{
+            img {
                 object-fit: cover;
                 width: 100%;
                 @include radius-layout();
@@ -95,11 +120,12 @@
             }
         }
         .info__daotao {
+            grid-area: dtao;
+            
             margin: 1rem 0;
             padding: 1.2rem;
             background-color: #fff;
-
-            grid-area: dtao;
+            
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-template-rows: auto;
@@ -111,14 +137,11 @@
             @include shadow();
             @include radius-layout();
             &--text {
-                grid-area: text;
-                h2 {
-                    text-transform: uppercase;
-                    font-size: $extra-large-font-size;
-                    font-weight: $extra-bold-font-weight;
-                    color: $title-color;
-                    padding: 5px 0rem;
+                h2{
+                    background-color: transparent;
+                    color: #45B4F5;
                 }
+                grid-area: text;
                 p {
                     font-size: $large-font-size;
                     overflow: hidden;
@@ -149,6 +172,7 @@
                 img {
                     object-fit: cover;
                     width: 100%;
+                    max-height: 22rem;
                     z-index: 0;
                 }
                 span {
@@ -183,9 +207,10 @@
             .info__loiich--image {
                 margin: 1.2rem 0;
                 width: 100%;
+                display: grid;
+                justify-content: center;
                 img {
-                    object-fit: cover;
-                    width: 100%;
+                    object-fit: top;
                     padding: 0 2rem;
                 }
             }
@@ -193,9 +218,9 @@
                 font-size: $large-font-size;
                 padding: 0 2rem;
             }
-            strong{
+            strong {
                 font-size: $large-font-size;
-                color:rgb(255, 136, 0);
+                color: rgb(255, 136, 0);
                 padding: 0 2rem;
             }
         }
@@ -205,44 +230,37 @@
             background-color: #fff;
             @include radius-layout();
             @include shadow();
-            &--title {
-                h2 {
-                    text-transform: uppercase;
-                    font-size: $extra-large-font-size;
-                    font-weight: $extra-bold-font-weight;
-                    color: #8c4af2;
-                    background-color: #ccc;
-                    border-radius: 1.2rem 1.2rem 0 0;
-                    padding: 2px 2rem;
-                }
-            }
             &--list {
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 padding: 0 5%;
-                .list--1, .list--2, .list--3, .list--4, .list--5, .list--6{
+                .list--1,
+                .list--2,
+                .list--3,
+                .list--4,
+                .list--5,
+                .list--6 {
                     width: 45%;
-                    max-height: 45rem;
                     margin: 2rem;
                     position: relative;
                     @include radius-layout();
                     @include shadow();
-                    &:hover{
+                    &:hover {
                         cursor: pointer;
                     }
-                    img{
-                        height: 100%;
+                    img {
+                        max-height: 35rem;
                         width: 100%;
                         object-fit: cover;
-                        transition: all .2s linear;
+                        transition: all 0.2s linear;
                         @include radius-layout();
-                        &:hover{
+                        &:hover {
                             opacity: 0.6;
                         }
                     }
-                    span{
+                    span {
                         position: absolute;
                         z-index: 1;
                         left: 50%;
@@ -261,30 +279,71 @@
             background-color: #fff;
             @include radius-layout();
             @include shadow();
-            &--title {
-                h2 {
-                    text-transform: uppercase;
-                    font-size: $extra-large-font-size;
-                    font-weight: $extra-bold-font-weight;
-                    color: #8c4af2;
-                    background-color: #ccc;
-                    border-radius: 1.2rem 1.2rem 0 0;
-                    padding: 2px 2rem;
-                }
+        }
+    }
+    .home__footer {
+        height: 40rem;
+        width: 100%;
+        background-color: #ccc;
+        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        &--img{
+            // text-align: center;
+            img{
+                object-fit: cover;
+                max-width: 50%;
             }
-            .info__diachi--content {
-                img{
-                    padding: 2rem;
-                    object-fit: cover;
-                    width: 100%;
-                    height: 100%;
+            h2{
+                margin-top: 1.6rem;
+                text-transform: uppercase;
+                font-weight: $extra-bold-font-weight;
+                font-size: $large-font-size;
+            }
+        }
+        
+        &--address, &--contact{
+            max-width: 70rem;
+            h2 {
+                text-transform: uppercase;
+                font-weight: $extra-bold-font-weight;
+                font-size: $large-font-size;
+            }
+            p{
+                font-size: $medium-font-size;
+            }
+        }
+        &--contact{
+            display: flex;
+            flex-direction: column;
+            a{
+                font-size: $medium-font-size;
+                text-decoration: none;
+                padding: 2px 0 2px 4rem;
+                margin-right: 2rem;
+                color: #000;
+
+                transition: all 0.2 linear;
+                position: relative;
+
+                &:hover {
+                    color: #4160E8;
+                    font-weight: $extra-bold-font-weight;
+                }
+                .top--icon {
+                    color: red;
+                    font-size: $large-font-size;
+
+                    position: absolute;
+                    top: 5%;
+                    left: 0;
+                    transform: translateY(-5%);
                 }
             }
         }
     }
-    .home__footer {
-        height: 60rem;
-        width: 100%;
-        background-color: #000;
-    }
+
+
 }
