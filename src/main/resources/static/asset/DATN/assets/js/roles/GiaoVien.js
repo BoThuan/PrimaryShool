@@ -7,9 +7,9 @@ app.run(function ($http, $rootScope, $timeout) {
   
   var cookies = document.cookie.split(";");
   console.log(cookies)
-  if ($rootScope.maGiaoVien == "" || cookies.length < 2) {
-    window.location = "./login_nhansu.html";
-  }
+  // if ($rootScope.maGiaoVien == "" || cookies.length < 2) {
+  //   window.location = "./login_nhansu.html";
+  // }
 });
 
 app.config(function ($routeProvider) {

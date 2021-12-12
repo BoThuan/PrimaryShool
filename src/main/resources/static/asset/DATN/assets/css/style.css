@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ */
 /* v1.0 | 20080212 */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -59,7 +60,7 @@ table {
 
 html {
   font-size: 62.5%;
-  font-family: "Montserrat", sans-serif;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .container-full {
@@ -138,7 +139,7 @@ html {
   margin: 1.2rem 0;
   padding: 5px;
   display: grid;
-  grid-template-columns: 20rem 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 20rem 1fr 25rem 20rem 0.8fr 0.8fr;
   grid-template-rows: 4rem 4rem 4rem;
   grid-gap: 1.2rem;
   grid-template-areas: "img key name name birthday gender" "img phone email email address address " "img note note btn btn btn";
@@ -154,7 +155,7 @@ html {
   grid-area: name;
 }
 .form__edit .edit--profile .name input {
-  width: 76%;
+  width: 70%;
 }
 .form__edit .edit--profile .birthday {
   grid-area: birthday;
@@ -171,25 +172,33 @@ html {
 .form__edit .edit--profile .phone input {
   width: 60%;
 }
-.form__edit .edit--profile .email, .form__edit .edit--profile .phuhuynh {
+.form__edit .edit--profile .email,
+.form__edit .edit--profile .phuhuynh {
   grid-area: email;
 }
-.form__edit .edit--profile .email input, .form__edit .edit--profile .phuhuynh input {
-  width: 87%;
+.form__edit .edit--profile .email input,
+.form__edit .edit--profile .phuhuynh input {
+  width: 80%;
 }
-.form__edit .edit--profile .email select, .form__edit .edit--profile .phuhuynh select {
+.form__edit .edit--profile .email select,
+.form__edit .edit--profile .phuhuynh select {
   width: 78%;
+}
+.form__edit .edit--profile .phuhuynh select {
+  width: 70%;
 }
 .form__edit .edit--profile .address {
   grid-area: address;
 }
 .form__edit .edit--profile .address input {
-  width: 85%;
+  width: 80%;
 }
-.form__edit .edit--profile .note, .form__edit .edit--profile .cv-note {
+.form__edit .edit--profile .note,
+.form__edit .edit--profile .cv-note {
   grid-area: note;
 }
-.form__edit .edit--profile .note input, .form__edit .edit--profile .cv-note input {
+.form__edit .edit--profile .note input,
+.form__edit .edit--profile .cv-note input {
   width: 80%;
 }
 .form__edit .edit--profile .image-profile {
@@ -582,10 +591,15 @@ table tbody tr:nth-of-type(2n) {
   flex-direction: row;
 }
 .header__profile .profile--avata {
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
-  background-color: red;
+}
+.header__profile .profile--avata img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
 }
 .header__profile .profile--name {
   font-size: 16px;
@@ -1004,7 +1018,7 @@ table tbody tr:nth-of-type(2n) {
   margin: 1.2rem 0;
   padding: 5px;
   display: grid;
-  grid-template-columns: 22rem 1fr 1fr 1fr;
+  grid-template-columns: 25rem 1fr 1fr 26rem;
   grid-template-rows: 4rem 4rem;
   grid-gap: 1.2rem;
   grid-template-areas: "key name btng btng " "diemkt diemky1 diemky2 tbcn";
@@ -1083,7 +1097,7 @@ table tbody tr:nth-of-type(2n) {
   display: flex;
 }
 .form__edit .edit--profile .cv-note input {
-  width: 70%;
+  width: 65%;
 }
 .form__edit .edit--profile .cv-note .note-chucvu {
   margin-right: 2rem;
@@ -1093,7 +1107,7 @@ table tbody tr:nth-of-type(2n) {
   margin: 1.2rem 0;
   padding: 5px;
   display: grid;
-  grid-template-columns: 1fr 1fr 14rem 1fr 1fr 1fr;
+  grid-template-columns: 20rem 1fr 16rem 20rem 1fr 1fr;
   grid-template-rows: 4rem 4rem;
   grid-gap: 1.2rem;
   grid-template-areas: "key name khoi year gvien gvu" "btn btn btn btng btng btng";
@@ -1101,6 +1115,9 @@ table tbody tr:nth-of-type(2n) {
 }
 .qly-lop .key-class {
   grid-area: key;
+}
+.qly-lop .key-class input {
+  width: 60%;
 }
 .qly-lop .name-class {
   grid-area: name;
@@ -1110,6 +1127,9 @@ table tbody tr:nth-of-type(2n) {
 }
 .qly-lop .year-class {
   grid-area: year;
+}
+.qly-lop .year-class input {
+  width: 40%;
 }
 .qly-lop .gvien-class {
   grid-area: gvien;
