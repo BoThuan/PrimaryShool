@@ -53,7 +53,8 @@ table {
     }
 }
 .sticky {
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     max-height: 65vh;
     @include radius-layout();
     @include shadow();
