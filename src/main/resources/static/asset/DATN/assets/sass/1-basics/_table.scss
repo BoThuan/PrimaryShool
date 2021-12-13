@@ -26,7 +26,7 @@ table {
             background: $text-color;
             color: $title-color;
             font-size: $medium-font-size;
-            font-weight: $bold-font-weight;
+            font-weight: $extra-bold-font-weight;
             z-index: 100;
             th:first-of-type {
                 @include radius-layout(12px, 0, 0, 0);

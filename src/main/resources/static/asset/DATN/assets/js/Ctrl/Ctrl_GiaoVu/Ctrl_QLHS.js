@@ -91,7 +91,6 @@ app.controller("Student-ctrl", function ($scope, $http) {
         $scope.form = {};
     };
 
-
     $scope.findID = function (student) {
         console.log(`${student.maHS}`);
         $http
