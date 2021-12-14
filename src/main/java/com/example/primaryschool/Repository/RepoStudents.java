@@ -19,4 +19,18 @@ public interface RepoStudents extends JpaRepository<Students, String> {
 
     @Query("SELECT s From Students s where s.SDTPhuHuynh like ?1" )
     Optional<Students> findBySDT(String sdt);
+
+//    @Query("Select count(sd) from Students sd inner join Subclass sl on sd.MaHS = sl.classroom where sl.classroom.Khoi like ?1" )
+//    Integer countStudentkhoi(String khoi);
+
+//    @Query("Select count(sd) from Students sd \n" +
+//            "inner join Subclass sl on sd.MaHS=sl.classroom \n" +
+//            "inner join Classroom cr on sl.classroom = cr.MaLop \n" +
+//            "where cr.Khoi like ?1" )
+//    Integer countStudentkhoi(String khoi);
+
+    @Query("Select count(sl) from Subclass sl\n" +
+            "inner join Classroom cr on sl.classroom = cr.MaLop\n" +
+            "where cr.Khoi like ?1" )
+    Integer countStudentkhoi(String khoi);
 }

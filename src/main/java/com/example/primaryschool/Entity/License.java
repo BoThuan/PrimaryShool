@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 @SuppressWarnings("serial")
 @Data
@@ -17,6 +17,7 @@ import java.util.Date;
 @Table(name = "tblLicense")
 public class License implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String MaGP;
     private Date Ngay;
     private Date BatDau;

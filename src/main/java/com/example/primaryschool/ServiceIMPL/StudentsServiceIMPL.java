@@ -46,6 +46,12 @@ public class StudentsServiceIMPL implements StudentsService {
     }
 
     @Override
+    public Integer countStudentkhoi(String khoi) {
+        return RepoStudents.countStudentkhoi(khoi);
+    }
+    
+
+    @Override
     public Object save(Students newStudents) {
         return RepoStudents.save(newStudents);
     }

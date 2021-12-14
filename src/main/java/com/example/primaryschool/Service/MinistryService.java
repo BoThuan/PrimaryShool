@@ -20,5 +20,5 @@ public interface MinistryService {
 
     void deleteById(String MaGiaoVu);
 
-    List<Ministry> MaxMaMinistry();
+    Optional<Ministry> MaxMaMinistry();
 }

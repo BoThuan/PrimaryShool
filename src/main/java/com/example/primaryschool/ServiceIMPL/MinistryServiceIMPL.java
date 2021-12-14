@@ -46,7 +46,7 @@ public class MinistryServiceIMPL implements MinistryService {
     }
 
     @Override
-    public List<Ministry> MaxMaMinistry() {
+    public Optional<Ministry> MaxMaMinistry() {
         return RepoMinistry.maxMaMinistry();
     }
 }

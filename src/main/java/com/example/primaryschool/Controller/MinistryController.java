@@ -31,7 +31,7 @@ public class MinistryController {
     // get all Ministry
     @GetMapping("/MaxMaGV")
     // this request is: http://localhost:8081/api/vi/Ministry/MaxMaGV
-    List<Ministry> getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
+    Optional<Ministry> getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
 
     // get Ministry by MaGiaoVu
     @GetMapping("/magiaovu/{MaGiaoVu}")
