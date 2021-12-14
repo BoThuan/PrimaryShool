@@ -26,6 +26,11 @@ public class MinistryServiceIMPL implements MinistryService {
     }
 
     @Override
+    public Optional<Ministry> hieutruong(String hieutruong) {
+        return RepoMinistry.hieutruong(hieutruong);
+    }
+
+    @Override
     public Optional<Ministry> findBySDT(String SDT) {
         return RepoMinistry.findBySDT(SDT);
     }

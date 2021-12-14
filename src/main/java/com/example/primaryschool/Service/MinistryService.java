@@ -12,6 +12,8 @@ public interface MinistryService {
 
     Optional<Ministry> findById(String MaGiaoVu);
 
+    Optional<Ministry> hieutruong(String hieutruong);
+
     Optional<Ministry> findBySDT(String SDT);
 
     Object save(Ministry newMinistry);
