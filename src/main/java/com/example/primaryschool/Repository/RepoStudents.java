@@ -29,7 +29,7 @@ public interface RepoStudents extends JpaRepository<Students, String> {
 //            "where cr.Khoi like ?1" )
 //    Integer countStudentkhoi(String khoi);
 
-    @Query("Select count(sl) from Subclass sl\n" +
+    @Query("Select count(sl.Students) from Subclass sl\n" +
             "inner join Classroom cr on sl.classroom = cr.MaLop\n" +
             "where cr.Khoi like ?1" )
     Integer countStudentkhoi(String khoi);
