@@ -459,7 +459,7 @@ table thead tr {
   background: #9B9AD9;
   color: #484860;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   z-index: 100;
 }
 table thead tr th:first-of-type {
@@ -483,7 +483,8 @@ table tbody tr:nth-of-type(2n) {
 }
 
 .sticky {
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   max-height: 65vh;
   border-radius: 12px 12px 12px 12px;
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
@@ -1148,6 +1149,27 @@ table tbody tr:nth-of-type(2n) {
   display: flex;
   justify-content: flex-end;
   padding-right: 2rem;
+}
+
+.thongke__header--btn {
+  display: flex;
+  justify-content: space-between;
+}
+.thongke__result {
+  background-color: #fff;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 12px 12px;
+  padding: 5px 2rem;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.thongke__result--loaihs h2, .thongke__result--loaihs p {
+  margin: 1.2rem 0;
+}
+.thongke__result--loaihs:last-of-type p {
+  color: red;
 }
 
 .container--phhs {

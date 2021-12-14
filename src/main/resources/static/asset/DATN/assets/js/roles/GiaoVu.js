@@ -38,8 +38,8 @@ app.config(function ($routeProvider) {
       templateUrl: "./assets/views/GiaoVu/pheduyet.html",
       controller: "Approve-ctrl",
     })
-    .when("/baoCao", {
-      templateUrl: "./assets/views/GiaoVu/baoCao.html",
+    .when("/Thongbao", {
+      templateUrl: "./assets/views/GiaoVu/Thongbao.html",
     });
 });
 
