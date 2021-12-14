@@ -1043,7 +1043,8 @@ table tbody tr:nth-of-type(2n) {
 .edit--profile--diem .diemky-2 {
   grid-area: diemky2;
 }
-.edit--profile--diem .diemky-1, .edit--profile--diem .diemky-2 {
+.edit--profile--diem .diemky-1,
+.edit--profile--diem .diemky-2 {
   display: flex;
   justify-content: space-between;
   padding-right: 2rem;
@@ -1053,6 +1054,50 @@ table tbody tr:nth-of-type(2n) {
 }
 .edit--profile--diem .btng {
   grid-area: btng;
+}
+
+.phanhoi__hocsinh--header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.phanhoi__hocsinh--header .btn-send button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 20px;
+  padding: 12px 20px;
+  background-color: #8261ee;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.25px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.phanhoi__hocsinh--header .btn-send button:hover {
+  background-color: #ff589e;
+}
+
+.phanhoi__hocsinh {
+  display: flex;
+}
+.phanhoi__hocsinh--left {
+  width: 40rem;
+}
+.phanhoi__hocsinh--left label {
+  font-size: 16px;
+}
+.phanhoi__hocsinh--left .input {
+  margin-bottom: 1.2rem;
+}
+.phanhoi__hocsinh--left .input input {
+  width: 60%;
+}
+.phanhoi__hocsinh--right .phanhoi__content textarea {
+  width: 100%;
 }
 
 .container__pheduyet {
@@ -1176,6 +1221,10 @@ table tbody tr:nth-of-type(2n) {
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  background-color: #fff;
+  box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 12px 12px;
+  padding-bottom: 5rem;
 }
 .container--phhs .about--title {
   font-size: 16px;
