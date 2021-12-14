@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ĐĂNG NHẬP | Giáo Vụ / Giáo viên</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="app-Ctrl">
+    <div>
+      <label for="">SDT</label>
+      <input
+        type="text"
+        ng-model="sdtGiaovien"
+        id="sdtGiaovien"
+        placeholder=""
+      />
+      <label for="">Mật khẩu</label>
+      <input
+        type="text"
+        ng-model="mkGiaovien"
+        placeholder="mật khẩu mặc định là số điện thoại"
+      />
+      <button ng-click="login()">Login</button>
+    </div>
+
+    <table>
+      <tr>
+        <!-- <th>Mã GV</th> -->
+        <th>sdt</th>
+      </tr>
+      <tr data-ng-repeat="a in giaovien">
+        <td>{{a.sdt}}</td>
+        <!-- <td>{{a.tenHS}}</td>
+        <td>{{a.maHS}}</td> -->
+      </tr>
+    </table>
+
+    <script>
+      var app = angular.module("app", []);
+      app.controller("app-Ctrl", function ($scope, $http) {
+        $scope.radom = Math.floor(100000 + Math.random() * 900000);
+        $scope.giaovien = [];
+        $scope.cookie = [];
+
+        $scope.loading = function () {
+          $http
+            .get("http://localhost:8081/api/vi/Teachers/getAllTeachers")
+            .then(function (resp) {
+              $scope.giaovien = resp.data;
+            });
+        };
+
+        $scope.loading();
+
+        $scope.login = function () {
+          var sdtGiaovien = $scope.sdtGiaovien;
+          var sdt = $scope.mkGiaovien;
+          $scope.loading();
+
+          $scope.giaovien.forEach(function (giaovien) {
+            if (
+              sdtGiaovien == giaovien.sdt &&
+              sdt == giaovien.sdt
+            ) {
+              localStorage.setItem('sdtGiaovien', sdtGiaovien);
+              localStorage.getItem('sdtGiaovien');
+              document.cookie = `sdtGiaovien=${sdtGiaovien}`
+              window.location = "./GiaoVien.html";
+              console.log('ok');
+            } else {
+              msg = "Sai Số điện thoại hoặc mật khẩu";
+              console.log(msg);
+            }
+          });
+          // for (var a of $scope.giaovien) {
+          //   if(magv == a.sdt && sdt == $scope.radom) {
+          //     alert("ok")
+          //   }
+          // }
+        };
+      });
+    </script>
+  </body>
+</html>

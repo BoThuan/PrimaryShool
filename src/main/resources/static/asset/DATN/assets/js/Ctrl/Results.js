@@ -35,9 +35,9 @@ app.controller("results-ctrl", function ($scope, $http) {
   $scope.update = function () {
     var result = angular.copy($scope.form);
     $http
-      .put(`${api}/${result.maPH}`, result)
+      .put(`${api}/${result.maKQ}`, result)
       .then((resp) => {
-        var index = $scope.results.findIndex((p) => p.maPH == result.maPH);
+        var index = $scope.results.findIndex((p) => p.maKQ == result.maKQ);
         $scope.results[index] = result;
         $scope.loading();
         $scope.reset();
@@ -52,9 +52,9 @@ app.controller("results-ctrl", function ($scope, $http) {
   // Xóa
   $scope.delete = function (result) {
     $http
-      .delete(`${api}/${result.maPH}`)
+      .delete(`${api}/${result.maKQ}`)
       .then((resp) => {
-        var index = $scope.results.findIndex((p) => p.maPH == result.maPH);
+        var index = $scope.results.findIndex((p) => p.maKQ == result.maKQ);
         $scope.results.splice(index, 1);
         $scope.reset();
         alert("Xóa thành công");
@@ -70,11 +70,11 @@ app.controller("results-ctrl", function ($scope, $http) {
   };
 
   $scope.findID = function (result) {
-    console.log(`${result.maPH}`);
+    console.log(`${result.maKQ}`);
     $http
-      .get(`${api}/mahs=${result.maPH}`)
+      .get(`${api}/mahs=${result.maKQ}`)
       .then((resp) => {
-        var index = $scope.results.findIndex((p) => p.maPH == result.maPH);
+        var index = $scope.results.findIndex((p) => p.maKQ == result.maKQ);
         $scope.results[index] = result;
         $scope.results = resp.data;
       })

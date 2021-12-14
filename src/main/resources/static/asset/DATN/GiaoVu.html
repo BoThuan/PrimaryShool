@@ -4,10 +4,11 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hiệu phó</title>
+        <title>Giáo vụ</title>
 
         <!-- ----------------Css------------------- -->
         <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/thongke.css" />
 
         <!-- ------------------icon------------------- -->
         <link
@@ -20,18 +21,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js"></script>
     </head>
-    <body ng-app="myApp">
+    <body ng-app="myApp" style="font-family: 'IBM Plex Mono', monospace">
         <div class="container-full">
             <!-- --------------- header ------------------ -->
 
             <div class="header">
                 <div class="header__name--role">
-                    <h2>Hiệu phó</h2>
+                    <h2>Giáo vụ</h2>
                 </div>
                 <div class="header__profile">
-                    <div class="profile--avata"></div>
+                    <div class="profile--avata">
+                        <img src="./assets/images/Images/1.png" alt="" />
+                    </div>
                     <div class="profile--name">
-                        <h2>hihi</h2>
+                        <h2>{{TenGiaoVu}}</h2>
                     </div>
                 </div>
             </div>
@@ -49,15 +52,15 @@
                 <div class="nav__navbar">
                     <ul>
                         <li>
-                            <a href="">
-                                Thống kê
-                                <i class="bx bx-filter-alt"></i>
+                            <a href="#!/Thongbao">
+                                Thông báo
+                                <i class="bx bx-check-square"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="">
-                                Báo cáo
-                                <i class="bx bx-check-square"></i>
+                            <a href="#!/">
+                                Thống kê
+                                <i class="bx bx-filter-alt"></i>
                             </a>
                         </li>
                         <li>
@@ -99,7 +102,7 @@
                     </ul>
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="" onclick="logout()">
                                 Đăng xuất
                                 <i class="bx bx-log-out"></i>
                             </a>
@@ -124,5 +127,6 @@
         <script src="./assets/js/Ctrl/Ctrl_GiaoVu/Ctrl_QLNS.js"></script>
         <script src="./assets/js/Ctrl/Ctrl_GiaoVu/Ctrl_QLHS.js"></script>
         <script src="./assets/js/Ctrl/Ctrl_GiaoVu/Ctrl_QLLOP.js"></script>
+        <script src="./assets/js/Ctrl/Ctrl_GiaoVu/Ctrl_Thongke.js"></script>
     </body>
 </html>

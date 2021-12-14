@@ -20,18 +20,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js"></script>
     </head>
-    <body ng-app="myApp" ng-controller="student-ctrl">
+    <body ng-app="myApp" >
         <div class="container-full">
             <!-- --------------- header ------------------ -->
 
             <div class="header">
                 <div class="header__name--role">
-                    <h2>Hiệu phó</h2>
+                    <h2>Giáo Viên</h2>
                 </div>
                 <div class="header__profile">
-                    <div class="profile--avata"></div>
+                    <div class="profile--avata">
+                        <img src="./assets/images/Images/1.png" alt="">
+                    </div>
                     <div class="profile--name">
-                        <h2>aaaaaaaaaa cccccccccccc hhhhhhhhh</h2>
+                        <h2>{{TenGiaoVien}}</h2>
                     </div>
                 </div>
             </div>
@@ -49,7 +51,7 @@
                 <div class="nav__navbar">
                     <ul>
                         <li>
-                            <a href="#!thongbao">
+                            <a href="#!/">
                                 Thông báo
                                 <i class="bx bx-bell"></i>
                             </a>
@@ -73,7 +75,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#!/GVien_phanhoi">
+                            <a href="#!/pheduyet">
                                 Phản hồi
                                 <i class="bx bx-message-square-detail"></i>
                             </a>
@@ -93,7 +95,7 @@
                     </ul>
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="" onclick="logout()">
                                 Đăng xuất
                                 <i class="bx bx-log-out"></i>
                             </a>
@@ -105,15 +107,15 @@
             <!-- --------------- main ------------------ -->
             <div class="main">
                 <div class="main__container"></div>
-                <!-- <p><a href="#/!">Main</a></p> -->
                 <div ng-view></div>
             </div>
-            <!-- --------------- footer ------------------ -->
-            <!-- <div class="footer">footer</div> -->
         </div>
 
         <script src="./assets/js/roles/GiaoVien.js"></script>
         <script src="./assets/js/Ctrl/HocSinh.js"></script>
+        <script src="./assets/js/Ctrl/Ctrl_GiaoVu/Ctrl_GVDiem.js"></script>
+        <script src="./assets/js/Ctrl/Ctrl_GiaoVu/Ctrl_QLHS.js"></script>
+        <script src="./assets/js/Ctrl/Ctrl_GiaoVu/Ctrl_pheDuyet.js"></script>
         <!-- <script src="./assets/js/Ctrl/studentCtrl.js"></script> -->
     </body>
 </html>

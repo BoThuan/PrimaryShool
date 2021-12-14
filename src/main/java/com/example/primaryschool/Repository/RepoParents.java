@@ -10,6 +10,4 @@ public interface RepoParents extends JpaRepository<Parents, String> {
     @Query("select p from Parents p where p.TenPH like ?1")
     Optional<Parents> findByName(String tenPH);
 
-    @Query("select p from Parents p where p.Sdt like ?1")
-    Optional<Parents> findByPhone(String Sdt);
 }

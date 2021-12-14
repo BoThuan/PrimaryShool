@@ -49,20 +49,6 @@ public class ParentsController {
                 );
     }
 
-    // get Parents by MaPH
-    @GetMapping("/sdt={Sdt}")
-    // this request is: http://localhost:8081/api/vi/Parents/sdt={MaPH}
-    ResponseEntity<ResponseObject> findByPhone(@PathVariable String Sdt){
-        Optional<Parents> foundProduct = parentsService.findByPhone(Sdt);
-        return foundProduct.isPresent() ?
-                ResponseEntity.status(HttpStatus.OK).body(
-                        new ResponseObject("999", "Query Product successfully", foundProduct)
-                ) :
-                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                        new ResponseObject("000", "Cannot find product with id = " + Sdt, "")
-                );
-    }
-
     // Insert new Parents with POST method
     @PostMapping("/insert")
     // this request is: http://localhost:8081/api/vi/Parents/insert
@@ -79,7 +65,6 @@ public class ParentsController {
         Parents UpdateParent = (Parents) parentsService.findById(MaPH)
                 .map(parent -> {
                     parent.setTenPH(newParent.getTenPH());
-                    parent.setSdt(newParent.getSdt());
                     parent.setQuanHe(newParent.getQuanHe());
                     parent.setGhiChu(newParent.getGhiChu());
                     return parentsService.save(parent);

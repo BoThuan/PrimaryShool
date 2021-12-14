@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ĐĂNG NHẬP | Phụ Huynh/Học sinh</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="app-Ctrl">
+    <div>
+      <label for="">SDT</label>
+      <input
+        type="text"
+        ng-model="sdtphuHuynh"
+        id="sdtphuHuynh"
+        placeholder=""
+      />
+      <label for="">Mật khẩu</label>
+      <input
+        type="text"
+        ng-model="mkphuHuynh"
+        placeholder="mật khẩu mặc định là số điện thoại"
+      />
+      <button ng-click="login()">Login</button>
+    </div>
+
+    <table>
+      <tr>
+        <th>Mã GV</th>
+        <th>sdt</th>
+      </tr>
+      <tr data-ng-repeat="a in hocsinh">
+        <td>{{a.sdtphuHuynh}}</td>
+        <td>{{a.tenHS}}</td>
+        <td>{{a.maHS}}</td>
+      </tr>
+    </table>
+
+    <script>
+      var app = angular.module("app", []);
+      app.controller("app-Ctrl", function ($scope, $http) {
+        $scope.radom = Math.floor(100000 + Math.random() * 900000);
+        $scope.hocsinh = [];
+        $scope.cookie = [];
+
+        $scope.loading = function () {
+          $http
+            .get("http://localhost:8081/api/vi/Students/getAllStudents")
+            .then(function (resp) {
+              $scope.hocsinh = resp.data;
+            });
+        };
+
+        $scope.loading();
+
+        $scope.login = function () {
+          var sdtphuHuynh = $scope.sdtphuHuynh;
+          var sdt = $scope.mkphuHuynh;
+          $scope.loading();
+
+          $scope.hocsinh.forEach(function (hocsinh) {
+            if (
+              sdtphuHuynh == hocsinh.sdtphuHuynh &&
+              sdt == hocsinh.sdtphuHuynh
+            ) {
+              localStorage.setItem('sdtphuhuynh', sdtphuHuynh);
+              localStorage.getItem('sdtphuhuynh');
+              document.cookie = `sdtphuhuynh=${sdtphuHuynh}`
+              window.location = "./PHHS.html";
+              console.log('ok');
+            } else {
+              msg = "Sai Số điện thoại hoặc mật khẩu";
+              console.log(msg);
+            }
+          });
+          // for (var a of $scope.hocsinh) {
+          //   if(magv == a.sdt && sdt == $scope.radom) {
+          //     alert("ok")
+          //   }
+          // }
+        };
+      });
+    </script>
+  </body>
+</html>

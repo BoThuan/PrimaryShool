@@ -61,6 +61,7 @@ public class ClassroomController {
                     classroom.setTeachers(newClassroom.getTeachers());
                     classroom.setTenLop(newClassroom.getTenLop());
                     classroom.setYear(newClassroom.getYear());
+                    classroom.setMinistry(newClassroom.getMinistry());
                     return classroomService.save(classroom);
                 }).orElseGet(() -> {
                     newClassroom.setMaLop(MaLop);

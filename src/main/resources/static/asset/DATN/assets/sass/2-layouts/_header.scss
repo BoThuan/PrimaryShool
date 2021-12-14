@@ -16,10 +16,15 @@
     padding-right: 2rem;
     @include flex(space-around, center, row);
     .profile--avata {
-      width: 4rem;
-      height: 4rem;
+      width: 5rem;
+      height: 5rem;
       @include radius-cicle(50%);
-      background-color: red;
+      img{
+        object-fit: cover;
+        width: 100%;
+        @include radius-cicle(50%);
+        @include shadow();
+      }
     }
     .profile--name {
       font-size: $medium-font-size;

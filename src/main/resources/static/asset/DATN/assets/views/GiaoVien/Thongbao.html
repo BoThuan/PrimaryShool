@@ -1,1 +1,13 @@
-<h1 class="red">Thông bao aaaaaa</h1>
+<div class="container-news">
+  <div ng-repeat="Approve in Approves">
+    <div class="news">
+      <div class="news__text">{{Approve.noiDung}}</div>
+      <div class="news__date">{{Approve.thoiGian|date:'dd/MM/yyyy'}}</div>
+      <div class="news__button btn">
+        <button>
+          <a href="#!/pheduyet"> xem </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

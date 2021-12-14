@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("serial")
@@ -22,7 +21,7 @@ public class Classroom implements Serializable {
     private String MaLop;
     private String Khoi;
     private String TenLop;
-    private String   Year;
+    private String Year;
 
     @ManyToOne @JoinColumn(name = "MaGiaoVu")
     Ministry ministry;
