@@ -21,6 +21,8 @@ public interface StudentsService {
 
     Integer countStudent();
 
+    Integer countStudentkhoi(String khoi);
+
     Object save(Students newStudents);
 
     boolean existsById(String MaHS);

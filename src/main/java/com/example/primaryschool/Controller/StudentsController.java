@@ -90,6 +90,13 @@ public class StudentsController {
         return studentsService.countStudent();
     }
 
+    // get all Students
+    @GetMapping("/countStudentkhoi/{khoi}")
+    // this request is: http://localhost:8081/api/vi/Students/countStudentkhoi/{khoi}
+    Integer countStudentkhoi(@PathVariable String khoi){
+        return studentsService.countStudentkhoi(khoi);
+    }
+
 
     // Insert new Students
     @PostMapping("/insert")

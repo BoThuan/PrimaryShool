@@ -12,6 +12,8 @@ public interface MinistryService {
 
     Optional<Ministry> findById(String MaGiaoVu);
 
+    Optional<Ministry> hieutruong(String hieutruong);
+
     Optional<Ministry> findBySDT(String SDT);
 
     Object save(Ministry newMinistry);
@@ -20,5 +22,5 @@ public interface MinistryService {
 
     void deleteById(String MaGiaoVu);
 
-    List<Ministry> MaxMaMinistry();
+    Optional<Ministry> MaxMaMinistry();
 }

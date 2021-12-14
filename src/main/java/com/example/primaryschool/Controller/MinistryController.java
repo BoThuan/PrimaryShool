@@ -31,7 +31,7 @@ public class MinistryController {
     // get all Ministry
     @GetMapping("/MaxMaGV")
     // this request is: http://localhost:8081/api/vi/Ministry/MaxMaGV
-    List<Ministry> getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
+    Optional<Ministry> getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
 
     // get Ministry by MaGiaoVu
     @GetMapping("/magiaovu/{MaGiaoVu}")
@@ -44,6 +44,20 @@ public class MinistryController {
                 ) :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                         new ResponseObject("000", "Cannot find product with id = " + MaGiaoVu, "")
+                );
+    }
+
+    // get Ministry by chuc vu
+    @GetMapping("/Chucvu/{Chucvu}")
+    // this request is: http://localhost:8081/api/vi/Ministry/Chucvu/{Chucvu}
+    ResponseEntity<ResponseObject> hieutruong(@PathVariable String Chucvu) {
+        Optional<Ministry> foundProduct = ministryService.hieutruong(Chucvu);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with id = " + Chucvu, "")
                 );
     }
 
