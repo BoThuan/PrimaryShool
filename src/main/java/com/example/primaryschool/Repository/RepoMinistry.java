@@ -14,4 +14,10 @@ public interface RepoMinistry extends JpaRepository<Ministry, String> {
 
     @Query("SELECT m From Ministry m where m.SDT like ?1")
     Optional<Ministry> findBySDT(String SDT);
+
+//    @Query("select m from Ministry m where m.ChucVu like '%' ?1 '%'")
+//    Optional<Ministry> hieutruong(String hieutruong);
+
+    @Query("select m from Ministry m where m.ChucVu like %?1%")
+    Optional<Ministry> hieutruong(String hieutruong);
 }

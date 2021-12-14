@@ -47,6 +47,20 @@ public class MinistryController {
                 );
     }
 
+    // get Ministry by chuc vu
+    @GetMapping("/Chucvu/{Chucvu}")
+    // this request is: http://localhost:8081/api/vi/Ministry/Chucvu/{Chucvu}
+    ResponseEntity<ResponseObject> hieutruong(@PathVariable String Chucvu) {
+        Optional<Ministry> foundProduct = ministryService.hieutruong(Chucvu);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with id = " + Chucvu, "")
+                );
+    }
+
     @GetMapping("/SDT/{SDT}")
         // this request is: http://localhost:8081/api/vi/Ministry/SDT/{SDT}
     ResponseEntity<ResponseObject> findBySDT(@PathVariable String SDT) {
