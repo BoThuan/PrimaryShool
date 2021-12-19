@@ -1139,6 +1139,9 @@ table tbody tr:nth-of-type(2n) {
   box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.1);
 }
 
+.form__edit .edit--profile {
+  padding-bottom: 2rem;
+}
 .form__edit .edit--profile .cv-note {
   display: flex;
 }
@@ -1210,7 +1213,8 @@ table tbody tr:nth-of-type(2n) {
   justify-content: space-between;
   font-size: 16px;
 }
-.thongke__result--loaihs h2, .thongke__result--loaihs p {
+.thongke__result--loaihs h2,
+.thongke__result--loaihs p {
   margin: 1.2rem 0;
 }
 .thongke__result--loaihs:last-of-type p {
