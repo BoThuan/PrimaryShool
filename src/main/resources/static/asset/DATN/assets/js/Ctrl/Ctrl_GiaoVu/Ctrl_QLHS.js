@@ -51,7 +51,7 @@ app.controller("Student-ctrl", function ($scope, $http) {
     $scope.update = function () {
         var student = angular.copy($scope.form);
         $http
-            .put(`${API_Students}/${student.maHS}`, student)
+            .put(`${API_Students}/update/${student.maHS}`, student)
             .then((resp) => {
                 var index = $scope.students.findIndex(
                     (p) => p.maHS == student.maHS
@@ -67,11 +67,11 @@ app.controller("Student-ctrl", function ($scope, $http) {
                 console.log("Error", error);
             });
     };
-
+    updateupdateupdateupdateupdate
     // Xóa
     $scope.delete = function (student) {
         $http
-            .delete(`${API_Students}/${student.maHS}`)
+            .delete(`${API_Students}/delete/${student.maHS}`)
             .then((resp) => {
                 var index = $scope.students.findIndex(
                     (p) => p.maHS == student.maHS

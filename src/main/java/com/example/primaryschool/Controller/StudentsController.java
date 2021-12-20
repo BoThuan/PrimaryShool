@@ -108,7 +108,7 @@ public class StudentsController {
     }
 
     // update, upsert = update if found, otherwise insert
-    @PutMapping("/{MaHS}")
+    @PutMapping("/update/{MaHS}")
     // this request is: http://localhost:8081/api/vi/Students/{MaHS}
     ResponseEntity<ResponseObject> UpdateStudents(@RequestBody Students newStudents, @PathVariable String MaHS){
         Students UpdateStudents = (Students) studentsService.findById(MaHS)
@@ -132,7 +132,7 @@ public class StudentsController {
     }
 
     // delete
-    @DeleteMapping("{MaHS}")
+    @DeleteMapping("/delete/{MaHS}")
         // this request is: http://localhost:8081/api/vi/Students/{MaHS}
     ResponseEntity<ResponseObject> DeleteStudents(@PathVariable String MaHS) {
         boolean exists = studentsService.existsById(MaHS);
