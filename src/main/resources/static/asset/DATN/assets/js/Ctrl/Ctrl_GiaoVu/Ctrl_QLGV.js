@@ -3,12 +3,31 @@ var API_Teachers = "http://localhost:8081/api/vi/Teachers";
 app.controller('Teacher-Ctrl', function ($scope, $http) {
     $scope.teachers = [];
     $scope.form = {};
+    $scope.MaxMaGV = "";
 
     $scope.loading = function () {
         $http.get(`${API_Teachers}/getAllTeachers`).then((resp) => {
             $scope.teachers = resp.data;
         });
+        $http.get(`${API_Teachers}/MaxMaGV`).then((resp) => {
+            $scope.MaxMaGV = resp.data.maGV;
+            $scope.SuLyMa($scope.MaxMaGV);
+          });
     };
+
+    $scope.SuLyMa = function (MaxMaGV) {
+        MaxMaGV = parseInt(MaxMaGV.replace("GV", ""));
+        MaxMaGV = MaxMaGV + 1;
+        MaxMaGVlength = MaxMaGV.toString().length;
+        if (MaxMaGVlength < 2) {
+          $scope.MaxMaGV = `GV000${MaxMaGV}`;
+          coGVole.log($scope.MaxMaGV);
+        } else if ((MaxMaGVlength == 2)) {
+          $scope.MaxMaGV = `GV00${MaxMaGV}`;
+        } else if (MaxMaGVlength > 2) {
+          $scope.MaxMaGV = `GV0${MaxMaGV}`;
+        }
+      };
 
     $scope.loading();
 
@@ -19,7 +38,8 @@ app.controller('Teacher-Ctrl', function ($scope, $http) {
 
     // Xoa trang
     $scope.reset = function () {
-        $scope.form = {};
+        $scope.loading();
+        $scope.form = {maGV: $scope.MaxMaGV, gioiTinh: true};
     };
 
     // Tạo
@@ -35,7 +55,7 @@ app.controller('Teacher-Ctrl', function ($scope, $http) {
             })
             .catch((error) => {
                 alert("Lỗi");
-                console.log("Error", error);
+                coGVole.log("Error", error);
             });
     };
 
@@ -53,7 +73,7 @@ app.controller('Teacher-Ctrl', function ($scope, $http) {
             })
             .catch((error) => {
                 alert("Lỗi xóat");
-                console.log("Error", error);
+                coGVole.log("Error", error);
             });
     };
 
@@ -73,7 +93,7 @@ app.controller('Teacher-Ctrl', function ($scope, $http) {
             })
             .catch((error) => {
                 alert("Lỗi");
-                console.log("Error", error);
+                coGVole.log("Error", error);
             });
     };
 
@@ -99,10 +119,10 @@ app.controller('Teacher-Ctrl', function ($scope, $http) {
                     }
                     var url = API_Teachers+'/insert';
                     $http.post(url,student).then(resp =>{
-                        console.log("Success",resp.data);
+                        coGVole.log("Success",resp.data);
                         $scope.loading();
                     }).catch(error =>{
-                        console.log("Error",error);
+                        coGVole.log("Error",error);
                         alert(error);
                     })
                 }

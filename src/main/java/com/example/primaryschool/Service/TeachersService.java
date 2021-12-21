@@ -1,5 +1,6 @@
 package com.example.primaryschool.Service;
 
+import com.example.primaryschool.Entity.Ministry;
 import com.example.primaryschool.Entity.Teachers;
 import org.springframework.stereotype.Service;
 
@@ -26,4 +27,6 @@ public interface TeachersService {
     boolean existsById(String MaGV);
 
     void deleteById(String MaGV);
+
+    Optional<Teachers> MaxMaTeachers();
 }
