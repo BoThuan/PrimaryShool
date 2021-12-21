@@ -25,7 +25,11 @@ app.config(function ($routeProvider) {
         })
         .when("/pheduyet", {
             templateUrl: "./assets/views/phuhuynh/guiphanhoi.html",
-        });
+        })
+        .when("/thoikhoabieu", {
+            templateUrl: "./assets/views/phuhuynh/thoikhoabieu.html",
+        })
+        ;
 });
 
 app.controller("try-Ctrl", function ($scope, $http) {

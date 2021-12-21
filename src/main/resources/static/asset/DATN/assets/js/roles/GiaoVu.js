@@ -40,6 +40,9 @@ app.config(function ($routeProvider) {
     })
     .when("/Thongbao", {
       templateUrl: "./assets/views/GiaoVu/Thongbao.html",
+    })
+    .when("/thoikhoabieu", {
+      templateUrl: "./assets/views/GiaoVu/thoikhoabieu.html",
     });
 });
 
