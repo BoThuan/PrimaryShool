@@ -1464,4 +1464,16 @@ table tbody tr:nth-of-type(2n) {
   font-weight: 500;
 }
 
+.tkb {
+  width: 100%;
+}
+.tkb .table__header--title {
+  margin-bottom: 2rem;
+}
+.tkb img {
+  height: 83vh;
+  width: 157rem;
+  border-radius: 3rem;
+}
+
 /*# sourceMappingURL=style.css.map */
