@@ -1,5 +1,6 @@
 package com.example.primaryschool.Service;
 
+import com.example.primaryschool.Entity.Assignment;
 import com.example.primaryschool.Entity.Results;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +19,6 @@ public interface ResultsService {
     boolean existsById(String MaKQ);
 
     void deleteById(String MaKQ);
+
+    List<Results> findBystudent(String mahs);
 }

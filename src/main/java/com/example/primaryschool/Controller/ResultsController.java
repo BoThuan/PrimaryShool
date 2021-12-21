@@ -1,6 +1,5 @@
 package com.example.primaryschool.Controller;
 
-import com.example.primaryschool.Entity.Ministry;
 import com.example.primaryschool.Entity.Results;
 import com.example.primaryschool.Entity.ResponseObject;
 import com.example.primaryschool.Service.ResultsService;
@@ -27,6 +26,14 @@ public class ResultsController {
     List<Results> getallResults(){
         return resultsService.getAllResults();
     }
+
+
+    // get Assignment by MaPC
+    @GetMapping("/mahs/{mahs}")
+    // this request is: http://localhost:8081/api/vi/Results/mahs/{mahs}
+    List<Results> findBystudent(@PathVariable String mahs) {
+        return resultsService.findBystudent(mahs);}
+
 
     // get Results by MaKQ
     @GetMapping("/makq={MaKQ}")

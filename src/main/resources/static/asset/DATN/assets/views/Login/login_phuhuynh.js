@@ -38,20 +38,17 @@ app.controller("app-Ctrl", function ($scope, $http) {
       $scope.radom = Math.floor(100000 + Math.random() * 900000);
     }
 
-    if ($scope.null == false) {
-    } else {
+    if ($scope.null == false) {} else {
       //gọi dự liệu từ database
       $http
         .get(`http://localhost:8081/api/vi/Students/SDTphuhuynh/${sdtphuHuynh}`)
         .then(function (resp) {
           $scope.phuhuynh = resp.data;
-          console.log($scope.phuhuynh.data.sdtphuHuynh);
-          console.log($scope.phuhuynh.status);
 
           
           if (resp.status == 200) {
-            if ($scope.giaovu.status == 404) {
-              $scope.error = `Tài Khoản ${sdtgiaovu} không tồn tại`;
+            if ($scope.phuhuynh.status == 404) {
+              $scope.error = `Tài Khoản ${sdtphuHuynh} không tồn tại`;
               $scope.sdt_giaovu = "Vui Lòng nhập lại Số điện thoại";
               $scope.matkhau = "Vui Lòng nhập lại mật khẩu (Số điện thoại)";
               $scope.captcha = "Vui Lòng nhập lại CAPTCHA";

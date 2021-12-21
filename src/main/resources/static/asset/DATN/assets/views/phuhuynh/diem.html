@@ -1,19 +1,19 @@
 <div class="info--diem">
     <div class="name info-text">
         <span>Tên học sinh: </span>
-        <h3>Nguyễn Thị Diểm My</h3>
+        <h3>{{info_students.students.tenHS}}</h3>
     </div>
     <div class="class info-text">
         <span>Lớp: </span>
-        <h3>1A1</h3>
+        <h3>{{info_students.assignment.classroom.tenLop}}</h3>
     </div>
     <div class="year info-text">
         <span>Năm học</span>
-        <h3>2021</h3>
+        <h3>{{info_students.assignment.classroom.year | date:'yyyy/MM/dd'}}</h3>
     </div>
     <div class="mark info-text">
         <span>Điểm cả năm:</span>
-        <h3>8</h3>
+        <h3>{{DiemTBHS}}</h3>
     </div>
     <div class="btn dowloadHS">
         <button class="w8"><i class='bx bxs-download'></i></button>
@@ -37,18 +37,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Toán</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
+                <tr data-ng-repeat="result in results | filter:seachText">
+                    <td>{{result.assignment.subjects.tenMon}}</td>
+                    <td>{{result.diemKT}}</td>
+                    <td>{{result.diemGiuak1}}</td>
+                    <td>{{result.diemCuoik1}}</td>
+                    <td>{{result.diemGiuak2}}</td>
+                    <td>{{result.diemCuoik2}}</td>
+                    <td>{{(result.diemKT + ((result.diemGiuak1+result.diemCuoik1)/2) + ((result.diemGiuak2+result.diemCuoik2)/2))/3}}</td>
+                    <td>{{result.assignment.teachers.tenGV}}</td>
+                    <td>{{result.assignment.teachers.sdt}}</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>Tiếng Việt</td>
                     <td>7</td>
                     <td>8</td>
@@ -58,128 +58,7 @@
                     <td>9</td>
                     <td>Nguyễn Thị Diểm My My My My</td>
                     <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Ngoại ngữ</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Đạo đức</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Tự nhiên và Xã hội</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Lịch sử và Địa lý</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Đạo đức</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Khoa học</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Công nghệ</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Tin học</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Giáo dục thể chất</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Âm nhạc</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
-                <tr>
-                    <td>Mỹ thuật</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>Nguyễn Thị Diểm My My My My</td>
-                    <td>0123456789990</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>

@@ -47,7 +47,7 @@
       <h2>Phản hồi</h2>
   </div>
   <div class="btn-send">
-    <button>Gửi</button>
+    <button ng-click="guiphanhoi()">Gửi</button>
   </div>
 
 </div>
@@ -61,21 +61,44 @@
                 type="text"
                 id="nguoigui"
                 placeholder="Tên người gửi"
+                ng-model="form.tennguoigui"
             />
         </label>
     </div>
-    <div class="">
-      <div class="select">
-          <label for="select-filter">
-              Lý do:
-              <select>
-                  <option>Bệnh</option>
-                  <option>Dịch</option>
-                  <option>Khác</option>
-              </select>
-          </label>
-      </div>
-  </div>
+      <div class="input">
+        <label for="nguoigui">
+            Bắt đầu : 
+            <input
+                type="text"
+                id="nguoigui"
+                placeholder="YYYY-MM-DD"
+                ng-model="form.ngaybatdau"
+            />
+        </label>
+    </div>
+      <div class="input">
+        <label for="nguoigui">
+            Kết thúc : 
+            <input
+                type="text"
+                id="nguoigui"
+                placeholder="YYYY-MM-DD"
+                ng-model="form.ngayketthuc"
+            />
+        </label>
+    </div>
+      <div class="input">
+        <label for="nguoigui">
+            Ngày gửi : 
+            <input
+                type="text"
+                id="nguoigui"
+                placeholder="Ngày gửi"
+                ng-model="form.ngaygui"
+            />
+        </label>
+    </div>
+    
     </div>
     <div class="phanhoi__hocsinh--right">
       <div class="phanhoi__content">

@@ -28,8 +28,8 @@ public class StudentsController {
     }
 
     // get Students by MaHS
-    @GetMapping("/mahs={MaHS}")
-    // this request is: http://localhost:8081/api/vi/Students/mahs={MaHS}
+    @GetMapping("/mahs/{MaHS}")
+    // this request is: http://localhost:8081/api/vi/Students/mahs/{MaHS}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaHS) {
         Optional<Students> foundProduct = studentsService.findById(MaHS);
         return foundProduct.isPresent() ?
@@ -63,8 +63,8 @@ public class StudentsController {
                 ResponseEntity.status(HttpStatus.OK).body(
                         new ResponseObject("999", "Query Product successfully", foundProduct)
                 ) :
-                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                        new ResponseObject("000", "Cannot find product with SDT = " + SDT, "")
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("404", "Cannot find product with SDT = " + SDT, foundProduct)
                 );
     }
 

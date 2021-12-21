@@ -39,4 +39,9 @@ public class ResultsServiceIMPL implements ResultsService {
     public void deleteById(String MaKQ) {
         RepoResults.deleteById(MaKQ);
     }
+
+    @Override
+    public List<Results> findBystudent(String mahs) {
+        return RepoResults.findBystudent(mahs);
+    }
 }
