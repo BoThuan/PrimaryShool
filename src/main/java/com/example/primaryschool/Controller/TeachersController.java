@@ -27,6 +27,11 @@ public class TeachersController {
         return teachersService.getAllTeachers();
     }
 
+    // get all Ministry
+    @GetMapping("/MaxMaGV")
+    // this request is: http://localhost:8081/api/vi/Teachers/MaxMaGV
+    Optional<Teachers> getMaxMaGV(){ return teachersService.MaxMaTeachers(); }
+
     // get Teachers by MaGV
     @GetMapping("/ID/{MaGV}")
     // this request is: http://localhost:8081/api/vi/Teachers/ID/{MaGV}
@@ -62,8 +67,8 @@ public class TeachersController {
                 ResponseEntity.status(HttpStatus.OK).body(
                         new ResponseObject("999", "Query Product successfully", foundProduct)
                 ) :
-                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                        new ResponseObject("000", "Cannot find product with SDT = " + SDT, "")
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("404", "Cannot find product with SDT = " + SDT, foundProduct)
                 );
     }
 

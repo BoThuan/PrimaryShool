@@ -60,4 +60,9 @@ public class TeachersServiceIMPL implements TeachersService {
     public void deleteById(String MaGV) {
         RepoTeachers.deleteById(MaGV);
     }
+
+    @Override
+    public Optional<Teachers> MaxMaTeachers() {
+        return RepoTeachers.MaxMaTeachers();
+    }
 }

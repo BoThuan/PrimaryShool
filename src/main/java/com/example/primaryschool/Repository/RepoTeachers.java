@@ -19,4 +19,7 @@ public interface RepoTeachers extends JpaRepository<Teachers, String> {
 
     @Query("SELECT count(t) From Teachers t  ")
     Integer countTeachers();
+
+    @Query("SELECT t FROM Teachers t WHERE t.MaGV = (SELECT MAX(t.MaGV) FROM Teachers t)")
+    Optional<Teachers> MaxMaTeachers();
 }

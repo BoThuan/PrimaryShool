@@ -46,6 +46,11 @@
               >Trang chủ</a
             >
           </button>
+          <button>
+            <a href="./login_phuhuynh.html" style="color: white; text-decoration: none"
+              >Phụ Huynh</a
+            >
+          </button>
         </div>
         <div class="wrapper">
           <form id="login" tabindex="500">
@@ -76,7 +81,9 @@
                 ng-model="OTP"
                 placeholder="{{captcha}}"
               />
-              <label style="font-size: 14.5px; color:rgb(196, 156, 27)">CAPTCHA: {{radom}}</label>
+              <label style="font-size: 14.5px; color: rgb(196, 156, 27)"
+                >CAPTCHA: {{radom}}</label
+              >
             </div>
             <div class="submit">
               <button class="dark" ng-click="GiaoVu()">Giáo Vụ</button>
@@ -137,10 +144,10 @@
         if (sdtgiaovu == null) {
           $scope.sdt_giaovu = `Số điện thoại trống`;
           $scope.null = false;
-        }else if(vnf_regex.test(sdtgiaovu) == false){
-            $scope.OTP = "";
-            $scope.sdt = `Số điện thoại của bạn không đúng định dạng!`;
-            $scope.null = false;
+        } else if (vnf_regex.test(sdtgiaovu) == false) {
+          $scope.OTP = "";
+          $scope.sdt_giaovu = `Số điện thoại của bạn không đúng định dạng!`;
+          $scope.null = false;
         }
         if (sdt == null) {
           $scope.matkhau = `Mật khẩu trống`;
@@ -220,47 +227,101 @@
       };
 
       $scope.Giaovien = function () {
+        $scope.null = true;
         //lấy dữ liệu
         var sdtgiaovien = $scope.sdt;
         var sdt = $scope.mk;
         var OPT = $scope.OTP;
 
-        //gọi dự liệu từ database
-        $http
-          .get(`http://localhost:8081/api/vi/Teachers/SDT/${sdtgiaovien}`)
-          .then(function (resp) {
-            $scope.giaovien = resp.data;
-            console.log(resp.status);
-            console.log($scope.giaovien.status);
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
 
-            $scope.datasdt = $scope.giaovien.data.sdt;
-            if (resp.status == 200) {
-              if (
-                sdtgiaovien == $scope.datasdt &&
-                sdt == $scope.datasdt &&
-                OPT == $scope.radom
-              ) {
-                $scope.deleteAllCookies();
-                //http://localhost:8081/api/vi/Ministry/SDT/0329000687
-                $scope.setCookie("maGiaoVien", $scope.giaovien.data.maGV, 1);
-                $scope.setCookie("TenGiaoVien", $scope.giaovien.data.tenGV, 1);
-                $scope.setCookie(
-                  "emailGiaoVien",
-                  $scope.giaovien.data.email,
-                  1
-                );
-                $scope.setCookie("sdtGiaoVien", $scope.giaovien.data.sdt, 1);
+        if (sdtgiaovien == null) {
+          $scope.sdt_giaovu = `Số điện thoại trống`;
+          $scope.null = false;
+        } else if (vnf_regex.test(sdtgiaovien) == false) {
+          $scope.OTP = "";
+          $scope.sdt_giaovu = `Số điện thoại của bạn không đúng định dạng!`;
+          $scope.null = false;
+        }
+        if (sdt == null) {
+          $scope.matkhau = `Mật khẩu trống`;
+          $scope.null = false;
+        }
+        if (OPT == null) {
+          $scope.captcha = `CAPTCHA trống`;
+          $scope.null = false;
+        } else if (OPT != $scope.radom) {
+          $scope.captcha = `CAPTCHA không khớp`;
+          $scope.null = false;
+          $scope.OTP = "";
+          $scope.radom = Math.floor(100000 + Math.random() * 900000);
+        }
 
-                window.location = "./GiaoVien.html";
-                console.log("ok");
+        if ($scope.null == false) {
+        } else {
+          //gọi dự liệu từ database
+          $http
+            .get(`http://localhost:8081/api/vi/Teachers/SDT/${sdtgiaovien}`)
+            .then(function (resp) {
+              $scope.giaovien = resp.data;
+              console.log(resp.status);
+              console.log($scope.giaovien.status);
+
+              
+              if (resp.status == 200) {
+                if ($scope.giaovu.status == 404) {
+                  $scope.error = `Tài Khoản ${sdtgiaovu} không tồn tại`;
+                  $scope.sdt_giaovu = "Vui Lòng nhập lại Số điện thoại";
+                  $scope.matkhau = "Vui Lòng nhập lại mật khẩu (Số điện thoại)";
+                  $scope.captcha = "Vui Lòng nhập lại CAPTCHA";
+                  sdtgiaovu = "";
+                  sdt = "";
+                  OTP = "";
+                  $scope.sdt = "";
+                  $scope.mk = "";
+                  $scope.OTP = "";
+                } else {
+                    $scope.datasdt = $scope.giaovien.data.sdt;
+                  if (
+                    sdtgiaovien == $scope.datasdt &&
+                    sdt == $scope.datasdt &&
+                    OPT == $scope.radom
+                  ) {
+                    $scope.deleteAllCookies();
+                    //http://localhost:8081/api/vi/Ministry/SDT/0329000687
+                    $scope.setCookie(
+                      "maGiaoVien",
+                      $scope.giaovien.data.maGV,
+                      1
+                    );
+                    $scope.setCookie(
+                      "TenGiaoVien",
+                      $scope.giaovien.data.tenGV,
+                      1
+                    );
+                    $scope.setCookie(
+                      "emailGiaoVien",
+                      $scope.giaovien.data.email,
+                      1
+                    );
+                    $scope.setCookie(
+                      "sdtGiaoVien",
+                      $scope.giaovien.data.sdt,
+                      1
+                    );
+
+                    window.location = "./GiaoVien.html";
+                    console.log("ok");
+                  } else {
+                    console.log("Wrong");
+                    $scope.deleteAllCookies();
+                  }
+                }
               } else {
-                console.log("Wrong");
-                $scope.deleteAllCookies();
+                console.log("Không thể lấy dữ liệu");
               }
-            } else {
-              console.log("Không thể lấy dữ liệu");
-            }
-          });
+            });
+        }
       };
 
       $scope.setCookie = function (cname, cvalue, exdays = 999) {

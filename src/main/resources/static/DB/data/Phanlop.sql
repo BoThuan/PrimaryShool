@@ -1,0 +1,22 @@
+PL0001,8,Tốt,Giỏi,3B
+PL0002,7,Tốt,Khá,2B
+PL0003,9,,Tốt,Giỏi,2B
+PL0004,5,Tốt,Trung Bình,5A
+PL0005,2,Tốt,Yếu,4B
+PL0006,7,Tốt,Giỏi,5A
+PL0007,8,Tốt,Giỏi,3A
+PL0008,5,Khá,Khá,1A
+PL0009,9,Tốt,Giỏi,1B
+PL0010,6,Tốt,Khá,1A
+PL0011,9,Tốt,Giỏi,1B
+PL0012,10,Tốt,Giỏi,2A
+PL0013,8,Khá,Khá,2B
+PL0014,8,Tốt,Giỏi,5B
+PL0015,3,Tốt,Yếu,3B
+PL0016,7,Tốt,Giỏi,5A
+PL0017,8,Tốt,Giỏi,5B
+PL0018,10,Tốt,Giỏi,4A
+PL0019,9,Tốt,Giỏi,4B
+PL0020,6,Khá,Trung Bình,3A
+PL0021,8,Tốt,Khá,4B
+PL0022,9,Tốt,Giỏi,3B

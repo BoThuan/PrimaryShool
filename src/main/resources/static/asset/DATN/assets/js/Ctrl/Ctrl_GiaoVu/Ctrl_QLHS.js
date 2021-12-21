@@ -67,7 +67,7 @@ app.controller("Student-ctrl", function ($scope, $http) {
                 console.log("Error", error);
             });
     };
-    updateupdateupdateupdateupdate
+
     // Xóa
     $scope.delete = function (student) {
         $http
@@ -142,11 +142,11 @@ app.controller("Student-ctrl", function ($scope, $http) {
                         diaChi: row.getCell(5).value,
                         ghiChu: row.getCell(6).value,
                         Hinh: row.getCell(7).value,
+                        sdtphuHuynh: row.getCell(8).value,
                     }
                     var url = API_Students + '/insert';
                     $http.post(url, student).then(resp => {
                         console.log("Success", resp.data);
-                        alert("Thêm Thành Công");
                         $scope.loading();
                     }).catch(error => {
                         console.log("Error", error);
