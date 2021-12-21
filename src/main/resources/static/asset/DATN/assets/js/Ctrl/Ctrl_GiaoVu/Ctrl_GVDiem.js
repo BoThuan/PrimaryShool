@@ -36,6 +36,7 @@ app.controller("Results-ctrl", function ($scope, $http) {
     // Cập nhập
     $scope.update = function () {
         var Results = angular.copy($scope.form);
+        if (Object.keys(Results).length != 0) {
         $http
             .put(`${API_Results}/${Results.maKQ}`, Results)
             .then((resp) => {
@@ -50,7 +51,7 @@ app.controller("Results-ctrl", function ($scope, $http) {
             .catch((error) => {
                 alert("Lỗi");
                 console.log("Error", error);
-            });
+            });}
     };
 
     // Xóa

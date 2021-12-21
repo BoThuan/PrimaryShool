@@ -7,15 +7,15 @@ var API_License = 'http://localhost:8081/api/vi/License';
 
 var app = angular.module("myApp", ["ngRoute"]);
 
-// app.run(function ($http, $rootScope, $timeout) {
-//   $rootScope.TenHocSinh = getCookie("Tenhocsinh");
-//   $rootScope.sdtPhuhuynh = getCookie("sdtphuhuynh");
+app.run(function ($http, $rootScope, $timeout) {
+  $rootScope.TenHocSinh = getCookie("Tenhocsinh");
+  $rootScope.sdtPhuhuynh = getCookie("sdtphuhuynh");
 
-//   var cookies = document.cookie.split(";");
-//   if ($rootScope.TenHocSinh == "" || cookies.length < 2) {
-//     window.location = "./Login_phuhuynh.html";
-//   }
-// });
+  var cookies = document.cookie.split(";");
+  if ($rootScope.TenHocSinh == "" || cookies.length < 2) {
+    window.location = "./Login_phuhuynh.html";
+  }
+});
 app.config(function ($routeProvider) {
   $routeProvider
     // giao vien
@@ -54,8 +54,8 @@ app.controller("try-Ctrl", function ($scope, $http) {
   var mahs = "";
   $scope.form = {};
   $scope.sdt = cookies.sdtphuhuynh;
-  //$scope.mahs = cookies.mahs;
-  //console.log($scope.mahs);
+  $scope.mahs = cookies.mahs;
+  console.log($scope.mahs);
 
   $scope.loading = function () {
     // lấy sdt phụ huynh từ cookie
@@ -65,8 +65,8 @@ app.controller("try-Ctrl", function ($scope, $http) {
       mahs = $scope.students.data.maHS;
       $scope.tenPH = $scope.students.data.parents.tenPH
       $scope.maPH = $scope.students.data.parents.maPH
-      console.log($scope.students.data.parents.maPH);
-      $scope.form = {tennguoigui: $scope.maPH ,ngaygui: date, duyet: false};
+      console.log($scope.students.data.tenHS);
+      $scope.form = {nguoiGui: $scope.tenPH ,thoiGian: date, pheDuyet: false, noiDung : `Phụ huynh em ${$scope.students.data.tenHS} gửi giấy phép xin nghỉ với lý do ... từ ngày ... đến ngày  ...`};
     });
   };
 
@@ -96,7 +96,7 @@ app.controller("try-Ctrl", function ($scope, $http) {
           
         });
     } else {
-      // window.location = "./Login_phuhuynh.html";
+      window.location = "./Login_phuhuynh.html";
     }
     
     
@@ -114,11 +114,11 @@ app.controller("try-Ctrl", function ($scope, $http) {
     console.log(License);
     if (Object.keys(License).length != 0) {
       $http
-        .post(`${API_License}/1`, License)
+        .post(`${API_Approve}/insert`, License)
         .then((resp) => {
           $scope.License.push(resp.data);
           $scope.loading();
-          $scope.form = {tennguoigui: time ,};
+          $scope.form = {};
           alert("Gửi thành công");
         })
         .catch((error) => {

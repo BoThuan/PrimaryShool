@@ -52,6 +52,7 @@ app.controller("app-Ctrl", function ($scope, $http) {
               $scope.sdt_giaovu = "Vui Lòng nhập lại Số điện thoại";
               $scope.matkhau = "Vui Lòng nhập lại mật khẩu (Số điện thoại)";
               $scope.captcha = "Vui Lòng nhập lại CAPTCHA";
+              $scope.radom = Math.floor(100000 + Math.random() * 900000);
               sdtgiaovu = "";
               sdt = "";
               OTP = "";

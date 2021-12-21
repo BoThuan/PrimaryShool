@@ -6,9 +6,9 @@ app.run(function ($http, $rootScope, $timeout) {
   $rootScope.sdtGiaoVu = getCookie("sdtGiaoVu");
 
   var cookies = document.cookie.split(";");
-  // if ($rootScope.maGiaoVu == "" || cookies.length < 2) {
-  //   window.location = "./login_nhansu.html";
-  // }
+  if ($rootScope.maGiaoVu == "" || cookies.length < 2) {
+    window.location = "./login_nhansu.html";
+  }
 });
 
 app.config(function ($routeProvider) {

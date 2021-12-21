@@ -17,6 +17,7 @@ app.controller("results-ctrl", function ($scope, $http) {
   // Tạo
   $scope.create = function () {
     var result = angular.copy($scope.form);
+    
     $http
       .post(`${api}/insert`, result)
       .then((resp) => {
