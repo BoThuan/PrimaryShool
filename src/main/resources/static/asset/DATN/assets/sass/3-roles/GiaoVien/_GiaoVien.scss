@@ -1,89 +1,105 @@
-.GiaoVien__HS {
-    .table__header {
-        // Định dạng cho các nút phía trên table
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-        .table--diem {
-            background-color: red;
-        }
-        &--caption {
-            line-height: 3rem;
-            h3 {
-                font-size: $large-font-size;
-                color: $text-color;
-            }
-        }
-        &--btn {
-            width: 60%;
-            display: grid;
-            grid-template-columns: 1fr 20% 20% 20%;
-            grid-template-rows: 3rem;
-            grid-gap: 1rem;
-            text-align: center;
-            cursor: pointer;
-        }
-    }
-
-    // button checkbon trong table
-    .checkbox__diemDanh {
-        display: flex;
-        justify-content: flex-start;
-        gap: 2rem;
-    }
-
-    // chinh sua diem hoc sinh
-    .edit__hs {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        margin: 2rem 0;
-        &--tenhs {
-            width: 29%;
-            input {
-                width: 73%;
-            }
-        }
-        &--info {
-            width: 100%;
-            display: flex;
-            gap: 2rem;
-            .input {
-                label {
-                    font-size: $medium-font-size;
-                }
-            }
-        }
-        &--diem {
-            display: flex;
-            margin: 2rem 0;
-            .input {
-                label {
-                    font-size: $medium-font-size;
-                }
-                &:hover {
-                    cursor: pointer;
-                    opacity: 0.8;
-                }
-            }
-            .input + .input {
-                padding-left: 3rem;
-            }
-        }
-    }
-}
-
-.diemky2, .diemtb{
-    margin-top: 1.2rem;
-}
-.diemtb{
+.tbcn {
     display: flex;
     line-height: 3.6rem;
     margin-right: 6rem;
-    h3{
+    h3 {
         font-size: $large-font-size;
         color: red;
+        margin-left: 1.6rem;
     }
 }
 
+.edit--profile--diem {
+    margin: 1.2rem 0;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 25rem 1fr 1fr 26rem;
+    grid-template-rows: 4rem 4rem;
+    grid-gap: 1.2rem;
+    grid-template-areas:
+        "key name btng btng "
+        "diemkt diemky1 diemky2 tbcn";
+    font-size: $medium-font-size;
+    .key__gvien--diem {
+        grid-area: key;
+        input {
+            width: 50%;
+        }
+    }
+    .name-gvien--diem {
+        grid-area: name;
+    }
+    .diemkt {
+        grid-area: diemkt;
+    }
+    .diemky-1 {
+        grid-area: diemky1;
+    }
+    .diemky-2 {
+        grid-area: diemky2;
+    }
+    .diemky-1,
+    .diemky-2 {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 2rem;
+    }
+    .tbcn {
+        grid-area: tbcn;
+    }
+    .btng {
+        grid-area: btng;
+        // display: flex;
+        // justify-content: flex-end;
+        // padding-right: 2rem;
+    }
+}
+
+.phanhoi__hocsinh--header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    .btn-send {
+        button {
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            border-radius: 20px;
+            padding: 12px 20px;
+            background-color: #8261ee;
+            text-transform: uppercase;
+            color: #fff;
+            letter-spacing: 0.25px;
+            -webkit-transition: all 0.3s ease 0s;
+            -moz-transition: all 0.3s ease 0s;
+            -o-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+            &:hover {
+                background-color: #ff589e;
+            }
+        }
+    }
+}
+.phanhoi__hocsinh {
+    display: flex;
+    &--left {
+        width: 40rem;
+        label {
+            font-size: $medium-font-size;
+        }
+        .input {
+            margin-bottom: 1.2rem;
+            input {
+                width: 60%;
+            }
+        }
+    }
+    &--right {
+        .phanhoi__content {
+            textarea {
+                width: 100%;
+            }
+        }
+    }
+}

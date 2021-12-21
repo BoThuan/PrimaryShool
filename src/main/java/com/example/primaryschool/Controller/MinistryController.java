@@ -2,6 +2,7 @@ package com.example.primaryschool.Controller;
 
 import com.example.primaryschool.Entity.Ministry;
 import com.example.primaryschool.Entity.ResponseObject;
+import com.example.primaryschool.Entity.Teachers;
 import com.example.primaryschool.Service.MinistryService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,10 @@ public class MinistryController {
     // get all Ministry
     @GetMapping("/MaxMaGV")
     // this request is: http://localhost:8081/api/vi/Ministry/MaxMaGV
-    List<Ministry> getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
+    Optional<Ministry> getMaxMaGV(){ return ministryService.MaxMaMinistry(); }
 
     // get Ministry by MaGiaoVu
-    @GetMapping("/magiaovu={MaGiaoVu}")
+    @GetMapping("/magiaovu/{MaGiaoVu}")
     // this request is: http://localhost:8081/api/vi/Ministry/magiaovu={MaGiaoVu}
     ResponseEntity<ResponseObject> findById(@PathVariable String MaGiaoVu) {
         Optional<Ministry> foundProduct = ministryService.findById(MaGiaoVu);
@@ -43,6 +44,33 @@ public class MinistryController {
                 ) :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                         new ResponseObject("000", "Cannot find product with id = " + MaGiaoVu, "")
+                );
+    }
+
+    // get Ministry by chuc vu
+    @GetMapping("/Chucvu/{Chucvu}")
+    // this request is: http://localhost:8081/api/vi/Ministry/Chucvu/{Chucvu}
+    ResponseEntity<ResponseObject> hieutruong(@PathVariable String Chucvu) {
+        Optional<Ministry> foundProduct = ministryService.hieutruong(Chucvu);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with id = " + Chucvu, "")
+                );
+    }
+
+    @GetMapping("/SDT/{SDT}")
+        // this request is: http://localhost:8081/api/vi/Ministry/SDT/{SDT}
+    ResponseEntity<ResponseObject> findBySDT(@PathVariable String SDT) {
+        Optional<Ministry> foundProduct = ministryService.findBySDT(SDT);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("404", "Cannot find product with SDT = " + SDT, foundProduct)
                 );
     }
 
@@ -82,7 +110,7 @@ public class MinistryController {
     }
 
     // delete
-    @DeleteMapping("{MaGiaoVu}")
+    @DeleteMapping("/{MaGiaoVu}")
     // this request is: http://localhost:8081/api/vi/Ministry/{MaGiaoVu}
     ResponseEntity<ResponseObject> DeleteMinistry(@PathVariable String MaGiaoVu) {
         boolean exists = ministryService.existsById(MaGiaoVu);

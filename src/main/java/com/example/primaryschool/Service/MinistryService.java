@@ -12,11 +12,15 @@ public interface MinistryService {
 
     Optional<Ministry> findById(String MaGiaoVu);
 
+    Optional<Ministry> hieutruong(String hieutruong);
+
+    Optional<Ministry> findBySDT(String SDT);
+
     Object save(Ministry newMinistry);
 
     boolean existsById(String MaGiaoVu);
 
     void deleteById(String MaGiaoVu);
 
-    List<Ministry> MaxMaMinistry();
+    Optional<Ministry> MaxMaMinistry();
 }

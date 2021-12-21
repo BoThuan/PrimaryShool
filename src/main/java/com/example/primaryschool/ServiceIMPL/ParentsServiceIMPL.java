@@ -31,11 +31,6 @@ public class ParentsServiceIMPL implements ParentsService {
     }
 
     @Override
-    public Optional<Parents> findByPhone(String Sdt) {
-        return RepoParents.findByPhone(Sdt);
-    }
-
-    @Override
     public Object save(Parents newParents) {
         return RepoParents.save(newParents);
     }

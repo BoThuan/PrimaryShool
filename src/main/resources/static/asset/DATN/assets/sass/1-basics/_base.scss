@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 html {
     font-size: 62.5%;
-    font-family: "Montserrat", sans-serif;
+    font-family: "IBM Plex Mono", monospace;
 }
 .container-full {
     display: grid;
@@ -32,7 +33,7 @@ html {
 
 // img table
 .img__table {
-	padding: 1.2rem 0 0 0;
+    padding: 1.2rem 0 0 0;
     img {
         object-fit: cover;
         height: 5rem;
@@ -54,7 +55,7 @@ html {
 .w12 {
     width: 12rem;
 }
-.w14{
+.w14 {
     width: 14rem;
 }
 .w8 {
@@ -65,4 +66,104 @@ html {
 }
 .w80p {
     width: 80%;
+}
+
+// form edit-------------------------------
+.form__edit {
+    background-color: rgba(250, 250, 250, 0.897);
+    @include radius-layout();
+    @include shadow();
+
+    // news-----------------------------------------------------
+    .edit--profile {
+        margin: 1.2rem 0;
+        padding: 5px;
+        display: grid;
+        grid-template-columns: 20rem 1fr 25rem 20rem 0.8fr 0.8fr;
+        grid-template-rows: 4rem 4rem 4rem;
+        grid-gap: 1.2rem;
+        grid-template-areas:
+            "img key name name birthday gender"
+            "img phone email email address address "
+            "img note note btn btn btn";
+        font-size: $medium-font-size;
+        .key {
+            grid-area: key;
+            input {
+                width: 54%;
+            }
+        }
+        .name {
+            grid-area: name;
+            input {
+                width: 70%;
+            }
+        }
+        .birthday {
+            grid-area: birthday;
+            input {
+                width: 60%;
+            }
+        }
+        .gender {
+            grid-area: gender;
+        }
+        .phone {
+            grid-area: phone;
+            input {
+                width: 60%;
+            }
+        }
+        .email,
+        .phuhuynh {
+            grid-area: email;
+            input {
+                width: 80%;
+            }
+            select {
+                width: 78%;
+            }
+        }
+        .phuhuynh {
+            select {
+                width: 70%;
+            }
+        }
+        .address {
+            grid-area: address;
+            input {
+                width: 80%;
+            }
+        }
+        .note,
+        .cv-note {
+            grid-area: note;
+            input {
+                width: 80%;
+            }
+        }
+        .image-profile {
+            grid-area: img;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                @include radius-layout(1.2rem, 1.2rem, 1.2rem, 1.2rem);
+                @include shadow();
+            }
+        }
+        .form__edit--btnGroup {
+            grid-area: btn;
+        }
+    }
+    .form__edit--btnGroup {
+        display: flex;
+        .btn {
+            margin-right: 2rem;
+            button {
+                background-color: #fff;
+                height: 3rem;
+            }
+        }
+    }
 }

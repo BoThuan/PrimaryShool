@@ -31,6 +31,11 @@ public class StudentsServiceIMPL implements StudentsService {
     }
 
     @Override
+    public Optional<Students> findBySDT(String SDT) {
+        return RepoStudents.findBySDT(SDT);
+    }
+
+    @Override
     public Optional<Students> findByMale(Boolean GioiTinh) {
         return RepoStudents.findByMale(GioiTinh);
     }
@@ -39,6 +44,12 @@ public class StudentsServiceIMPL implements StudentsService {
     public Integer countStudent() {
         return RepoStudents.countStudent();
     }
+
+    @Override
+    public Integer countStudentkhoi(String khoi) {
+        return RepoStudents.countStudentkhoi(khoi);
+    }
+    
 
     @Override
     public Object save(Students newStudents) {

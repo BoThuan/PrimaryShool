@@ -55,6 +55,19 @@ public class StudentsController {
                 );
     }
 
+    @GetMapping("/SDTphuhuynh/{SDT}")
+        // this request is: http://localhost:8081/api/vi/Students/SDTphuhuynh={SDT}
+    ResponseEntity<ResponseObject> findBySDT(@PathVariable String SDT) {
+        Optional<Students> foundProduct = studentsService.findBySDT(SDT);
+        return foundProduct.isPresent() ?
+                ResponseEntity.status(HttpStatus.OK).body(
+                        new ResponseObject("999", "Query Product successfully", foundProduct)
+                ) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                        new ResponseObject("000", "Cannot find product with SDT = " + SDT, "")
+                );
+    }
+
     //TODO Write find student by Male
     @GetMapping("/gioitinh={GioiTinh}")
         // this request is: http://localhost:8081/api/vi/Students/gioitinh={GioiTinh}
@@ -77,6 +90,13 @@ public class StudentsController {
         return studentsService.countStudent();
     }
 
+    // get all Students
+    @GetMapping("/countStudentkhoi/{khoi}")
+    // this request is: http://localhost:8081/api/vi/Students/countStudentkhoi/{khoi}
+    Integer countStudentkhoi(@PathVariable String khoi){
+        return studentsService.countStudentkhoi(khoi);
+    }
+
 
     // Insert new Students
     @PostMapping("/insert")
@@ -88,7 +108,7 @@ public class StudentsController {
     }
 
     // update, upsert = update if found, otherwise insert
-    @PutMapping("/{MaHS}")
+    @PutMapping("/update/{MaHS}")
     // this request is: http://localhost:8081/api/vi/Students/{MaHS}
     ResponseEntity<ResponseObject> UpdateStudents(@RequestBody Students newStudents, @PathVariable String MaHS){
         Students UpdateStudents = (Students) studentsService.findById(MaHS)
@@ -99,9 +119,8 @@ public class StudentsController {
                     Students.setDiaChi(newStudents.getDiaChi());
                     Students.setGhiChu(newStudents.getGhiChu());
                     Students.setHinh(newStudents.getHinh());
-                    //Students.setResults(newStudents.getResults());
+                    Students.setSDTPhuHuynh(newStudents.getSDTPhuHuynh());
                     Students.setParents(newStudents.getParents());
-                    Students.setSubclass(newStudents.getSubclass());
                     return studentsService.save(Students);
                 }).orElseGet(() -> {
                     newStudents.setMaHS(MaHS);
@@ -113,7 +132,7 @@ public class StudentsController {
     }
 
     // delete
-    @DeleteMapping("{MaHS}")
+    @DeleteMapping("/delete/{MaHS}")
         // this request is: http://localhost:8081/api/vi/Students/{MaHS}
     ResponseEntity<ResponseObject> DeleteStudents(@PathVariable String MaHS) {
         boolean exists = studentsService.existsById(MaHS);

@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hiệu phó</title>
+        <title>Phụ huynh / Học sinh</title>
 
         <!-- ----------------Css------------------- -->
         <link rel="stylesheet" href="./assets/css/style.css" />
@@ -19,7 +19,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     </head>
-    <body ng-app="myApp">
+    <body
+        ng-app="myApp"
+        ng-controller="try-Ctrl"
+        style="font-family: 'IBM Plex Mono', monospace"
+    >
         <div class="container-full">
             <!-- --------------- header ------------------ -->
 
@@ -28,9 +32,13 @@
                     <h2>Phụ huynh / học sinh</h2>
                 </div>
                 <div class="header__profile">
-                    <div class="profile--avata"></div>
+                    <div class="profile--avata">
+                        <!-- <img ng-src="./assets/images/Images/{{students.data.hinh}}""
+            alt="{{students.data.hinh}}"/> -->
+                        <img src="./assets/images/Images/1.png" alt="" />
+                    </div>
                     <div class="profile--name">
-                        <h2>aaaaaaaaaa cccccccccccc hhhhhhhhh</h2>
+                        <h2>{{students.data.tenHS}}</h2>
                     </div>
                 </div>
             </div>
@@ -48,7 +56,7 @@
                 <div class="nav__navbar">
                     <ul>
                         <li>
-                            <a href="#!/thongtin">
+                            <a href="#!/">
                                 Thông tin
                                 <i class="bx bx-filter-alt"></i>
                             </a>
@@ -74,7 +82,7 @@
                     </ul>
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="" ng-click="logout()">
                                 Đăng xuất
                                 <i class="bx bx-log-out"></i>
                             </a>
@@ -93,7 +101,6 @@
             <!-- <div class="footer">footer</div> -->
         </div>
 
-        <script src="./assets/js/roles/app.js"></script>
         <script src="./assets/js/roles/PHHS.js"></script>
     </body>
 </html>

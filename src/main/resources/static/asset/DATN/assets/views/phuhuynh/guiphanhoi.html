@@ -1,53 +1,92 @@
-<div class="columns is-vcentered">
-    <div class="column is-8">
-        <div class="field">
-            <label class="label">Tên Phụ Huynh</label>
-            <div class="control">
-                <!-- TODO: When successfully logged in, there will be parents' names -->
-              <input class="input" type="text" placeholder="Text input">
-            </div>
-          </div>
-          
-          <div class="field" >
-            <label class="label">Lý do</label>
-            <div class="control">
-              <div class="select" >
-                <select id="select_Ly_Do">
-                  <option>Xin Nghỉ ốm</option>
-                  <option>Xin cho con đi Chơi</option>
-                  <option>Xin nghỉ nhà có tang</option>
-                  <option>......</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          
-          <div class="field">
-            <div class="control">
-              <label class="checkbox">
-                <input type="checkbox" id="checklydo" onclick="check();">
-                lý do khác
-              </label>
-            </div>
-          </div>
+<!-- <div class="columns is-vcentered">
+  <div class="container__pheduyet">
+    <div class="pheduyet__header">
+      <div class="pheduyet__header--nguoigui">
+        
+        <label for="">Người gửi: </label>
+        <input
+          class="w28"
+          type="text"
+          id="edit--tengv"
+          placeholder="Tên người gửi"
+          ng-model="form.nguoiGui"
+        />
+      </div>
 
-          <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Textarea" id="write_Ly_Do" disabled></textarea>
-            </div>
-          </div>
-          
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link">Submit</button>
-            </div>
-            <div class="control">
-              <button class="button is-link is-light">Cancel</button>
-            </div>
-          </div>
+      <div class="pheduyet__header--thoigian">
+        <label for="">Thời gian: </label>
+        <input
+          class="w28"
+          type="text"
+          id="edit--tengv"
+          placeholder="Thời Gian"
+          ng-model="form.thoiGian"
+        />
+      </div>
     </div>
-    <div class="column">
-      
+    <div class="pheduyet__content">
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        ng-model="form.noiDung"
+        placeholder="Nội dung Xin Phép"
+      ></textarea>
+    </div>
+    <br />
+    <input type="text" ng-model="form.pheDuyet" value="false" />
+    <br /><br />
+    <div class="pheduyet__footer">
+      <div class="btn"><button ng-click="guiphanhoi()">Gửi GVCN</button></div>
     </div>
   </div>
+</div> -->
+<div class="phanhoi__hocsinh--header">
+  <div class="table__header--title">
+      <h2>Phản hồi</h2>
+  </div>
+  <div class="btn-send">
+    <button>Gửi</button>
+  </div>
+
+</div>
+
+<div class="phanhoi__hocsinh">
+    <div class="phanhoi__hocsinh--left">
+      <div class="input">
+        <label for="nguoigui">
+            Người gửi: 
+            <input
+                type="text"
+                id="nguoigui"
+                placeholder="Tên người gửi"
+            />
+        </label>
+    </div>
+    <div class="">
+      <div class="select">
+          <label for="select-filter">
+              Lý do:
+              <select>
+                  <option>Bệnh</option>
+                  <option>Dịch</option>
+                  <option>Khác</option>
+              </select>
+          </label>
+      </div>
+  </div>
+    </div>
+    <div class="phanhoi__hocsinh--right">
+      <div class="phanhoi__content">
+        <textarea
+          name=""
+          id=""
+          cols="128"
+          rows="10"
+          ng-model="form.noiDung"
+          placeholder="Nội dung Xin Phép"
+        ></textarea>
+      </div>
+    </div>
+</div>

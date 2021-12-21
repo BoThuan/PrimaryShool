@@ -3,6 +3,10 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    background-color: #fff;
+    @include shadow();
+    @include radius-layout();
+    padding-bottom: 5rem;
     .about--title {
         font-size: $medium-font-size;
         text-align: center;

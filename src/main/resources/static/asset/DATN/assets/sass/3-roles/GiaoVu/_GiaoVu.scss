@@ -1,79 +1,138 @@
-//--------------------------- form edit ------------------------------------------
-.form__edit {
-    display: flex;
-    padding: 1rem 1rem;
-    margin: 1rem 0;
-    flex-wrap: wrap;
-    background-color: rgba(250, 250, 250, 0.897);
-    @include radius-layout();
-    @include shadow();
-    label{
-        font-size: $medium-font-size;
-        margin-right: 2rem;
-    }
-    .input, .select{
-        label{
-            font-weight: $bold-font-weight;
-        }
-    }
-    .gioitinh, .diachi, .input--ghichuhs, .diachihs, .dienthoaigv, .dienthoains{
-        margin-top: 1.2rem;
-    }
-    .diachi{
-        width: 50rem;
-        input{
-            width: 81%;
-        }
-    }
-}
-
-.form__edit--btnGroup {
-    display: flex;
-    margin-top: 1.2rem;
-    .btn{
-        margin-right: 2rem;
-        button{
-            background-color: #fff;
-            height: 3rem;
-        }
-    }
-}
-
-.icon--edit{
-    font-size: $large-font-size;
-}
-
-// ---============================ phê duyệt ===========================----
-.container__pheduyet{
+.container__pheduyet {
     width: 100%;
     height: 90vh;
-    .pheduyet__header{
+    .pheduyet__header {
         display: flex;
         align-items: center;
-        &--nguoigui, &--thoigian {
+        &--nguoigui,
+        &--thoigian {
             display: flex;
             font-size: $medium-font-size;
             margin: 0 2rem 2rem 0;
-            h3{
+            h3 {
                 color: red;
             }
         }
     }
-    .pheduyet__content{
-        textarea{
+    .pheduyet__content {
+        textarea {
             width: 99%;
         }
     }
-    .pheduyet__footer{
+    .pheduyet__footer {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         margin: 2rem 1rem 2rem 0;
-        button{
+        button {
             background-color: #fff;
             margin-left: 2rem;
             font-size: $medium-font-size;
-            padding: .8rem;
+            padding: 0.8rem;
+        }
+    }
+}
+
+.sticky__gvu--pheduyet {
+    overflow: auto;
+    max-height: 25vh;
+    @include radius-layout();
+    @include shadow();
+}
+.form__edit {
+    .edit--profile {
+        padding-bottom: 2rem;
+        .cv-note {
+            display: flex;
+            // justify-content: space-between;
+            input {
+                width: 65%;
+            }
+            .note-chucvu {
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+
+.qly-lop {
+    margin: 1.2rem 0;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 20rem 1fr 16rem 20rem 1fr 1fr;
+    grid-template-rows: 4rem 4rem;
+    grid-gap: 1.2rem;
+    grid-template-areas:
+        "key name khoi year gvien gvu"
+        "btn btn btn btng btng btng";
+    font-size: $medium-font-size;
+    .key-class {
+        grid-area: key;
+        input {
+            width: 60%;
+        }
+    }
+    .name-class {
+        grid-area: name;
+    }
+    .khoi {
+        grid-area: khoi;
+    }
+    .year-class {
+        grid-area: year;
+        input {
+            width: 40%;
+        }
+    }
+    .gvien-class {
+        grid-area: gvien;
+        input {
+            width: 60%;
+        }
+    }
+    .gvu-class {
+        grid-area: gvu;
+        input {
+            width: 60%;
+        }
+    }
+    .btng {
+        grid-area: btng;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 2rem;
+    }
+}
+
+.thongke {
+    &__header {
+        &--btn {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__result {
+        background-color: #fff;
+        @include shadow();
+        @include radius-layout();
+        padding: 5px 2rem;
+        margin: 1rem 0;
+
+        display: flex;
+        justify-content: space-between;
+        font-size: $medium-font-size;
+
+        &--loaihs {
+            h2,
+            p {
+                margin: 1.2rem 0;
+            }
+        }
+
+        &--loaihs:last-of-type {
+            p {
+                color: red;
+            }
         }
     }
 }

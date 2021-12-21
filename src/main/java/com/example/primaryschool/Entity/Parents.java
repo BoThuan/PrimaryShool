@@ -20,7 +20,6 @@ public class Parents implements Serializable {
     @Id
     private String MaPH;
     private String TenPH;
-    private String Sdt;
     private String QuanHe;
     private String GhiChu;
     private String Hinh;
