@@ -56,8 +56,7 @@
                             <input type="text" datetime="yyyy-MM-dd HH:mm:ss" id="edit--ngaysinhgv"
                                 placeholder="YYYY-MM-DD" ng-model="form.ngaySinh" ng-required=true />
                             <span class="error" ng-show="userForm.age.$error.required">required</span>
-                            <span class="error" ng-show="!userForm.age.$error.required && userForm.age.$invalid">age
-                                must be numeric </span>
+                            <span class="error" ng-show="!userForm.age.$error.required && userForm.age.$invalid">Ngày sinh phải là số </span>
                             <span class="valid" ng-show="userForm.age.$valid">OK</span>
                         </label>
                     </div>

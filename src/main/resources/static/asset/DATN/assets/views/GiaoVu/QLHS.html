@@ -20,147 +20,188 @@
         </div>
 
         <!-- ----=================== form =====================---- -->
-        <div class="form__edit">
-            <div class="edit--profile">
-                <div class="input key">
-                    <label for="eidt--mahs">
-                        Mã học sinh:
-                        <input
-                            type="text"
-                            id="eidt--mahs"
-                            placeholder="Mã học sinh"
-                            ng-model="form.maHS"
-                        />
-                    </label>
-                </div>
-                <div class="input name">
-                    <label for="edit--tenhs">
-                        Tên học sinh:
-                        <input
-                            type="text"
-                            id="edit--tenhs"
-                            placeholder="Tên học sinh"
-                            ng-model="form.tenHS"
-                        />
-                    </label>
-                </div>
-                <div class="input birthday">
-                    <label for="edit--ngaysinhhs">
-                        Ngày sinh:
-                        <input
-                            type="text"
-                            id="edit--ngaysinhhs"
-                            placeholder="Ngày sinh"
-                            ng-model="form.ngaySinh"
-                        />
-                    </label>
-                </div>
-                <div class="select gender">
-                    <label for="eidt--gioitinh">
-                        Giới tính:
-                        <select ng-model="form.gioiTinh">
-                            <option ng-value="true">Nam</option>
-                            <option ng-value="false">Nữ</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="input phone">
-                    <label for="edit--ngaysinhgv">
-                        Điện thoại:
-                        <input
-                            ng-model="form.sdt"
-                            class=""
-                            type="text"
-                            id="edit--ngaysinhgv"
-                            placeholder="Điện thoại"
-                        />
-                    </label>
-                </div>
-                <!-- TODO: TÂM : chỉnh lại nút này giúp nha -->
-                <div class="select phuhuynh">
-                    <label for="eidt--PhuHuynh">
-                        Phụ Huynh:
-                        <select ng-model="form.parents.maPH">
-                            <option value="">Chọn Phụ Huynh</option>
-                            <option
-                                ng-repeat="parent in parents"
-                                ng-value="parent.maPH"
-                            >
-                                {{parent.tenPH}}-{{parent.maPH}}
-                            </option>
-                        </select>
-                    </label>
-                </div>
-                <div class="input address">
-                    <label for="edit--diachihs">
-                        Địa chỉ:
-                        <input
-                            type="text"
-                            id="edit--diachihs"
-                            placeholder="Địa chỉ"
-                            ng-model="form.diaChi"
-                        />
-                    </label>
-                </div>
-                <div class="input note">
-                    <label for="edit--ghichuhs">
-                        Ghi chú:
-                        <input
-                            type="text"
-                            id="edit--ghichuhs"
-                            placeholder="Ghi chú"
-                            ng-model="form.ghiChu"
-                        />
-                    </label>
-                </div>
-                <div class="image-profile">
-                    <img
-                    ng-model="hide-image"
-                    ng-src="./assets/images/Images/{{form.hinh}}"
-                    alt="Hình"
-                    />
-                </div>
-                <div class="form__edit--btnGroup">
-                    <div class="btn">
-                        <button class="w12">Cập nhật</button>
+        <form name="userForm" ng-submit="submitForm()" novalidate>
+            <div class="form__edit">
+                <div class="edit--profile">
+                    <div class="input key">
+                        <label for="eidt--mahs">
+                            Mã học sinh:
+                            <input
+                                type="text"
+                                id="eidt--mahs"
+                                placeholder="Mã học sinh"
+                                ng-model="form.maHS"
+                                ng-minlength="6" ng-maxlength="6" ng-required=true
+                                name="maHS"
+                            />
+                            <br>
+                            <span class="error" ng-show="userForm.maHS.$error.required" style="color:red">Mã học sinh
+                                trống</span>
+                            <span class="error" ng-show="userForm.maHS.$error.minlength" style="color:red">Phải đủ 6 ký
+                                tự (VD:NS0000)</span>
+                            <span class="error" ng-show="userForm.maHS.$error.maxlength" style="color:red">Phải đủ 6 ký
+                                tự (VD:NS0000)</span>
+                        </label>
                     </div>
-                    <div class="btn">
-                        <button ng-click="create()" class="w12">
-                            Tạo mới
-                        </button>
+                    <div class="input name">
+                        <label for="edit--tenhs">
+                            Tên học sinh:
+                            <input
+                                type="text"
+                                id="edit--tenhs"
+                                placeholder="Tên học sinh"
+                                ng-model="form.tenHS"
+                                ng-minlength="2" ng-maxlength="50" ng-required=true
+                                name="Name"
+                            />
+                            <br>
+                            <span class="error" ng-show="userForm.Name.$error.required" style="color:red">Tên học sinh
+                                trống</span>
+                            <span class="error" ng-show="userForm.Name.$error.minlength" style="color:red">Phải trên 2
+                                ký tự</span>
+                            <span class="error" ng-show="userForm.Name.$error.maxlength" style="color:red">Phải dưới 50
+                                ký tự</span>
+                        </label>
                     </div>
-                    <!-- <div class="btn">
-                  <button ng-click="update()" class="w8">
-                      <i class="bx bx-upvote"></i>
-                  </button>
-              </div> -->
-                    <div class="btn">
-                        <button ng-click="delete(form)" class="w8">
-                            Xóa
-                        </button>
+                    <div class="input birthday">
+                        <label for="edit--ngaysinhhs">
+                            Ngày sinh:
+                            <input
+                                type="text"
+                                id="edit--ngaysinhhs"
+                                placeholder="Ngày sinh"
+                                ng-model="form.ngaySinh"
+                                datetime="yyyy-MM-dd HH:mm:ss"\
+                                ng-required=true
+                            />
+                            <span class="error" ng-show="userForm.age.$error.required">required</span>
+                            <span class="error" ng-show="!userForm.age.$error.required && userForm.age.$invalid">Ngày sinh phải là số </span>
+                            <span class="valid" ng-show="userForm.age.$valid">OK</span>
+                        </label>
                     </div>
-                    <div class="btn">
-                        <button ng-click="reset()" class="w12">
-                            Làm mới
-                        </button>
+                    <div class="select gender">
+                        <label for="eidt--gioitinh">
+                            Giới tính:
+                            <select ng-model="form.gioiTinh">
+                                <option ng-value="true">Nam</option>
+                                <option ng-value="false">Nữ</option>
+                            </select>
+                        </label>
                     </div>
-                    <!-- <div class="btn">
+                    <div class="input phone">
+                        <label for="edit--ngaysinhgv">
+                            Điện thoại:
+                            <input
+                                ng-model="form.sdt"
+                                class=""
+                                type="text"
+                                id="edit--ngaysinhgv"
+                                placeholder="Điện thoại"
+                                ng-required=true name="sdt"
+                                ng-pattern="/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/"
+                            />
+                            <br>
+                            <span class="error" ng-show="userForm.sdt.$error.required" style="color:red">SDT
+                                Trống</span>
+                            <span class="error" ng-show="!userForm.sdt.$error.required&&userForm.sdt.$error.pattern"
+                                style="color:red">Không đúng định dạng SDT</span>
+                            <span class="valid" ng-show="userInfo.sdt.$valid">OK</span>
+                        </label>
+                    </div>
+                    <!-- TODO: TÂM : chỉnh lại nút này giúp nha -->
+                    <div class="select phuhuynh">
+                        <label for="eidt--PhuHuynh">
+                            Phụ Huynh:
+                            <select ng-model="form.parents.maPH">
+                                <option value="">Chọn Phụ Huynh</option>
+                                <option
+                                    ng-repeat="parent in parents"
+                                    ng-value="parent.maPH"
+                                >
+                                    {{parent.tenPH}}-{{parent.maPH}}
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="input address">
+                        <label for="edit--diachihs">
+                            Địa chỉ:
+                            <input
+                                type="text"
+                                id="edit--diachihs"
+                                placeholder="Địa chỉ"
+                                ng-model="form.diaChi"
+                                ng-minlength="5" ng-maxlength="50" ng-required=true name="diachi" />
+                                <span class="error" ng-show="userForm.diachi.$error.required" style="color:red">Địa chỉ
+                                    trống</span>
+                                <span class="error" ng-show="userForm.diachi.$error.minlength" style="color:red">Địa chỉ
+                                    Phải trên 5
+                                    ký tự</span>
+                                <span class="error" ng-show="userForm.diachi.$error.maxlength" style="color:red">Địa chỉ
+                                    Phải dưới 50
+                                    ký tự</span>
+                        </label>
+                    </div>
+                    <div class="input note">
+                        <label for="edit--ghichuhs">
+                            Ghi chú:
+                            <input
+                                type="text"
+                                id="edit--ghichuhs"
+                                placeholder="Ghi chú"
+                                ng-model="form.ghiChu"
+                            />
+                        </label>
+                    </div>
+                    <div class="image-profile">
+                        <img
+                        ng-model="hide-image"
+                        ng-src="./assets/images/Images/{{form.hinh}}"
+                        alt="Hình"
+                        />
+                    </div>
+                    <div class="form__edit--btnGroup">
                         <div class="btn">
-                            <button class="w12">
-                                Thêm file
+                            <button class="w12">Cập nhật</button>
+                        </div>
+                        <div class="btn">
+                            <button ng-click="create()" class="w12">
+                                Tạo mới
                             </button>
                         </div>
-                    </div> -->
-                    <!-- *input upload* -->
-                    <div class="upload-image">
-                        <input
-                            type="file"
-                            onchange="angular.element(this).scope().import(this.files)"
-                        />
+                        <!-- <div class="btn">
+                      <button ng-click="update()" class="w8">
+                          <i class="bx bx-upvote"></i>
+                      </button>
+                  </div> -->
+                        <div class="btn">
+                            <button ng-click="delete(form)" class="w8">
+                                Xóa
+                            </button>
+                        </div>
+                        <div class="btn">
+                            <button ng-click="reset()" class="w12">
+                                Làm mới
+                            </button>
+                        </div>
+                        <!-- <div class="btn">
+                            <div class="btn">
+                                <button class="w12">
+                                    Thêm file
+                                </button>
+                            </div>
+                        </div> -->
+                        <!-- *input upload* -->
+                        <div class="upload-image">
+                            <input
+                                type="file"
+                                onchange="angular.element(this).scope().import(this.files)"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
         <!-- ----=================== form =====================---- -->
 
         <!-- ----============ Table ===========---- -->
