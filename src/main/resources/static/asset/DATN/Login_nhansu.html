@@ -1,185 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng nhập | Giáo vụ / Giáo Viên</title>
 
     <!-- import js -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <!-- <script src="./assets/views/Login/login.js"></script> -->
 
     <!-- import css -->
     <link rel="stylesheet" href="./assets/views/Login/login2.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body ng-app="app" ng-controller="app-Ctrl" style="font-family: 'IBM Plex Mono', monospace;">
+  <body
+    ng-app="app"
+    ng-controller="app-Ctrl"
+    style="font-family: 'IBM Plex Mono', monospace"
+  >
     <div class="body">
-        <div class="veen">
-            <div class="login-btn splits">
-                <p>Already an user?</p>
-                <button class="active">Login</button>
-            </div>
-
-            <div class="rgstr-btn splits">
-                <h3>Chào mừng</h3>
-                <p>Đây là website quản lý của trường</p>
-                <button><a href="./index.html" style="color:white; text-decoration: none">Trang chủ</a></button>
-            </div>
-            <div class="wrapper">
-                <form id="login" tabindex="500">
-                    <h3>Login</h3>
-                    <div class="mail">
-                        <input type="text" name="" ng-model="sdt" />
-                        <label>Phone</label>
-                    </div>
-                    <div class="passwd">
-                        <input type="password" name="" ng-model="mk" />
-                        <label>Password</label>
-                    </div>
-                    <div class="mail">
-                        <input type="text" name="" ng-model="OTP" />
-                        <label style="font-size: 14px">CAPTCHA: {{radom}}</label>
-                    </div>
-                    <div class="submit">
-                        <button class="dark" ng-click="GiaoVu()">Giáo Vụ</button>
-                        <button class="dark" ng-click="Giaovien()">Giáo Viên</button>
-                    </div>
-                </form>
-            </div>
+      <div class="veen">
+        <div class="login-btn splits">
+          <p>Already an user?</p>
+          <button class="active">Login</button>
         </div>
+
+        <div class="rgstr-btn splits">
+          <h3>Chào mừng</h3>
+          <p>Đây là website quản lý của trường</p>
+          <button>
+            <a href="./index.html" style="color: white; text-decoration: none"
+              >Trang chủ</a
+            >
+          </button>
+        </div>
+        <div class="wrapper">
+          <form id="login" tabindex="500">
+            <h3>Login</h3>
+            <h5 style="color: red">{{error}}</h5>
+            <div class="mail">
+              <input
+                type="text"
+                name=""
+                ng-model="sdt"
+                placeholder="{{sdt_giaovu}}"
+              />
+              <label>Phone</label>
+            </div>
+            <div class="passwd">
+              <input
+                type="password"
+                name=""
+                ng-model="mk"
+                placeholder="{{matkhau}}"
+              />
+              <label>Password</label>
+            </div>
+            <div class="mail">
+              <input
+                type="text"
+                name=""
+                ng-model="OTP"
+                placeholder="{{captcha}}"
+              />
+              <label style="font-size: 14.5px; color:rgb(196, 156, 27)">CAPTCHA: {{radom}}</label>
+            </div>
+            <div class="submit">
+              <button class="dark" ng-click="GiaoVu()">Giáo Vụ</button>
+              <button class="dark" ng-click="Giaovien()">Giáo Viên</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <style type="text/css">
-        .site-link {
-            padding: 5px 15px;
-            position: fixed;
-            z-index: 99999;
-            background: #fff;
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
-            right: 30px;
-            bottom: 30px;
-            border-radius: 10px;
-        }
-        
-        .site-link img {
-            width: 30px;
-            height: 30px;
-        }
+      .site-link {
+        padding: 5px 15px;
+        position: fixed;
+        z-index: 99999;
+        background: #fff;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+        right: 30px;
+        bottom: 30px;
+        border-radius: 10px;
+      }
+
+      .site-link img {
+        width: 30px;
+        height: 30px;
+      }
     </style>
-</body>
-<script>
+  </body>
+  <script>
     var app = angular.module("app", []);
-    app.controller("app-Ctrl", function($scope, $http) {
-        $scope.radom = Math.floor(100000 + Math.random() * 900000);
-        $scope.giaovu = [];
-        $scope.datasdt = "";
+    app.controller("app-Ctrl", function ($scope, $http) {
+      $scope.radom = Math.floor(100000 + Math.random() * 900000);
+      $scope.giaovu = [];
+      $scope.datasdt = "";
+      $scope.error = "";
+      $scope.sdt_giaovu = "Vui Lòng nhập số điện thoại";
+      $scope.matkhau = "Vui Lòng nhập mật khẩu (Số điện thoại)";
+      $scope.captcha = "Vui Lòng nhập CAPTCHA";
 
-        $scope.GiaoVu = function() {
-            //lấy dữ liệu
-            var sdtgiaovu = $scope.sdt;
-            var sdt = $scope.mk;
-            var OPT = $scope.OTP;
+      $scope.loading = function () {
+        var sdtgiaovu = $scope.sdt;
+        var sdt = $scope.mk;
+        var OPT = $scope.OTP;
 
-            //gọi dự liệu từ database
-            $http
-                .get(`http://localhost:8081/api/vi/Ministry/SDT/${sdtgiaovu}`)
-                .then(function(resp) {
-                    $scope.giaovu = resp.data;
-                    console.log(resp.status);
-                    console.log($scope.giaovu.status);
+        console.log($scope.null);
+      };
+      $scope.loading();
 
-                    $scope.datasdt = $scope.giaovu.data.sdt;
-                    if (resp.status == 200) {
-                        if (
-                            sdtgiaovu == $scope.datasdt &&
-                            sdt == $scope.datasdt &&
-                            OPT == $scope.radom
-                        ) {
-                            $scope.deleteAllCookies();
-                            //http://localhost:8081/api/vi/Ministry/SDT/0329000687
-                            $scope.setCookie("maGiaoVu", $scope.giaovu.data.maGiaoVu, 1);
-                            $scope.setCookie("TenGiaoVu", $scope.giaovu.data.tenGiaoVu, 1);
-                            $scope.setCookie("emailGiaoVu", $scope.giaovu.data.email, 1);
-                            $scope.setCookie("sdtGiaoVu", $scope.giaovu.data.sdt, 1);
-                            $scope.setCookie("sdtGiaoVu", $scope.giaovu.data.hinh, 1);
+      $scope.GiaoVu = function () {
+        $scope.null = true;
 
-                            window.location = "./GiaoVu.html";
-                            console.log("ok");
-                        } else {
-                            console.log("Wrong");
-                            $scope.deleteAllCookies();
-                        }
-                    } else {
-                        console.log("Không thể lấy dữ liệu");
-                    }
-                });
-        };
+        //lấy dữ liệu
+        var sdtgiaovu = $scope.sdt;
+        var sdt = $scope.mk;
+        var OPT = $scope.OTP;
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
 
+        if (sdtgiaovu == null) {
+          $scope.sdt_giaovu = `Số điện thoại trống`;
+          $scope.null = false;
+        }else if(vnf_regex.test(sdtgiaovu) == false){
+            $scope.OTP = "";
+            $scope.sdt = `Số điện thoại của bạn không đúng định dạng!`;
+            $scope.null = false;
+        }
+        if (sdt == null) {
+          $scope.matkhau = `Mật khẩu trống`;
+          $scope.null = false;
+        }
+        if (OPT == null) {
+          $scope.captcha = `CAPTCHA trống`;
+          $scope.null = false;
+        } else if (OPT != $scope.radom) {
+          $scope.captcha = `CAPTCHA không khớp`;
+          $scope.null = false;
+          $scope.OTP = "";
+          $scope.radom = Math.floor(100000 + Math.random() * 900000);
+        }
 
-        $scope.Giaovien = function() {
-            //lấy dữ liệu
-            var sdtgiaovien = $scope.sdt;
-            var sdt = $scope.mk;
-            var OPT = $scope.OTP;
+        if ($scope.null == false) {
+        } else {
+          //gọi dự liệu từ database
+          $http
+            .get(`http://localhost:8081/api/vi/Ministry/SDT/${sdtgiaovu}`)
+            .then(function (resp) {
+              $scope.giaovu = resp.data;
+              console.log(resp.status);
+              console.log($scope.giaovu.status);
 
-            //gọi dự liệu từ database
-            $http
-                .get(`http://localhost:8081/api/vi/Teachers/SDT/${sdtgiaovien}`)
-                .then(function(resp) {
-                    $scope.giaovien = resp.data;
-                    console.log(resp.status);
-                    console.log($scope.giaovien.status);
+              if (resp.status == 200) {
+                if ($scope.giaovu.status == 404) {
+                  $scope.error = `Tài Khoản ${sdtgiaovu} không tồn tại`;
+                  $scope.sdt_giaovu = "Vui Lòng nhập lại Số điện thoại";
+                  $scope.matkhau = "Vui Lòng nhập lại mật khẩu (Số điện thoại)";
+                  $scope.captcha = "Vui Lòng nhập lại CAPTCHA";
+                  sdtgiaovu = "";
+                  sdt = "";
+                  OTP = "";
+                  $scope.sdt = "";
+                  $scope.mk = "";
+                  $scope.OTP = "";
+                } else {
+                  $scope.datasdt = $scope.giaovu.data.sdt;
+                  if (
+                    sdtgiaovu == $scope.datasdt &&
+                    sdt == $scope.datasdt &&
+                    OPT == $scope.radom
+                  ) {
+                    $scope.deleteAllCookies();
+                    //http://localhost:8081/api/vi/Ministry/SDT/0329000687
+                    $scope.setCookie(
+                      "maGiaoVu",
+                      $scope.giaovu.data.maGiaoVu,
+                      1
+                    );
+                    $scope.setCookie(
+                      "TenGiaoVu",
+                      $scope.giaovu.data.tenGiaoVu,
+                      1
+                    );
+                    $scope.setCookie(
+                      "emailGiaoVu",
+                      $scope.giaovu.data.email,
+                      1
+                    );
+                    $scope.setCookie("sdtGiaoVu", $scope.giaovu.data.sdt, 1);
+                    $scope.setCookie("sdtGiaoVu", $scope.giaovu.data.hinh, 1);
 
-                    $scope.datasdt = $scope.giaovien.data.sdt;
-                    if (resp.status == 200) {
-                        if (
-                            sdtgiaovien == $scope.datasdt &&
-                            sdt == $scope.datasdt &&
-                            OPT == $scope.radom
-                        ) {
-                            $scope.deleteAllCookies();
-                            //http://localhost:8081/api/vi/Ministry/SDT/0329000687
-                            $scope.setCookie("maGiaoVien", $scope.giaovien.data.maGV, 1);
-                            $scope.setCookie("TenGiaoVien", $scope.giaovien.data.tenGV, 1);
-                            $scope.setCookie("emailGiaoVien", $scope.giaovien.data.email, 1);
-                            $scope.setCookie("sdtGiaoVien", $scope.giaovien.data.sdt, 1);
+                    window.location = "./GiaoVu.html";
+                    console.log("ok");
+                  } else {
+                    console.log("Wrong");
+                    $scope.deleteAllCookies();
+                  }
+                }
+              } else {
+                console.log("Không thể lấy dữ liệu");
+              }
+            });
+        }
+      };
 
-                            window.location = "./GiaoVien.html";
-                            console.log("ok");
-                        } else {
-                            console.log("Wrong");
-                            $scope.deleteAllCookies();
-                        }
-                    } else {
-                        console.log("Không thể lấy dữ liệu");
-                    }
-                });
-        };
+      $scope.Giaovien = function () {
+        //lấy dữ liệu
+        var sdtgiaovien = $scope.sdt;
+        var sdt = $scope.mk;
+        var OPT = $scope.OTP;
 
-        $scope.setCookie = function(cname, cvalue, exdays = 999) {
-            var d = new Date();
-            d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        };
+        //gọi dự liệu từ database
+        $http
+          .get(`http://localhost:8081/api/vi/Teachers/SDT/${sdtgiaovien}`)
+          .then(function (resp) {
+            $scope.giaovien = resp.data;
+            console.log(resp.status);
+            console.log($scope.giaovien.status);
 
-        $scope.deleteAllCookies = function() {
-            var cookies = document.cookie.split(";");
+            $scope.datasdt = $scope.giaovien.data.sdt;
+            if (resp.status == 200) {
+              if (
+                sdtgiaovien == $scope.datasdt &&
+                sdt == $scope.datasdt &&
+                OPT == $scope.radom
+              ) {
+                $scope.deleteAllCookies();
+                //http://localhost:8081/api/vi/Ministry/SDT/0329000687
+                $scope.setCookie("maGiaoVien", $scope.giaovien.data.maGV, 1);
+                $scope.setCookie("TenGiaoVien", $scope.giaovien.data.tenGV, 1);
+                $scope.setCookie(
+                  "emailGiaoVien",
+                  $scope.giaovien.data.email,
+                  1
+                );
+                $scope.setCookie("sdtGiaoVien", $scope.giaovien.data.sdt, 1);
 
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i];
-                var eqPos = cookie.indexOf("=");
-                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                window.location = "./GiaoVien.html";
+                console.log("ok");
+              } else {
+                console.log("Wrong");
+                $scope.deleteAllCookies();
+              }
+            } else {
+              console.log("Không thể lấy dữ liệu");
             }
-        };
-    });
-</script>
+          });
+      };
 
+      $scope.setCookie = function (cname, cvalue, exdays = 999) {
+        var d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      };
+
+      $scope.deleteAllCookies = function () {
+        var cookies = document.cookie.split(";");
+
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i];
+          var eqPos = cookie.indexOf("=");
+          var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+      };
+    });
+  </script>
 </html>
